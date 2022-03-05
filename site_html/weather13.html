@@ -95,14 +95,33 @@ setTimeout(function(){
 <div class='promo one'>
 <div class=content>
 <p><a href=https://w1.weather.gov/xml/current_obs/KSGF.xml>Weather Data</a> </p>
+
+<p><a href=http://www.moonmodule.com/cs/dm/vn.gif>moonphase graphic</a> update every hour at ~00:17:00. </p> 
+<p><a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg>7 day graphic</a> at ~8:47am and ~11:47pm</p>
+
+
 <?php 
 
 /* BEGIN this is http://www.642weather.com/weather/scripts/sunrise-sunset.zip Sunrise - Sunset PHP Script by Mike Challis 
     FIND LAT/LONG geodata (gps coordinates) WITH https://www.suncalc.org/#/37.6018,-93.4155,18/2018.06.04/09:43/1/0
    */
+<script>   SunCalc.getTimes(/*Date*/ date, /*Number*/ latitude, /*Number*/ longitude, /*Number (default=0)*/ height)
+// get today's sunlight times for London
+var times = SunCalc.getTimes(new Date(), 37.606697, -93.416709, -0.1);
 
-$latitude=37.606697; // NORTH
-$longitude=-93.416709; // WEST
+// format sunrise time from the Date object
+var sunriseStr = times.sunrise.getHours() + ':' + times.sunrise.getMinutes();
+
+// get position of the sun (azimuth and altitude) at today's sunrise
+var sunrisePos = SunCalc.getPosition(times.sunrise, 51.5, -0.1);
+
+// get sunrise azimuth in degrees
+var sunriseAzimuth = sunrisePos.azimuth * 180 / Math.PI;
+document.write("<br/>Today's date is "+date1);
+document.write("<br/>Sunrise is "+sunriseStr);
+
+</script>
+
 
 // localhost php upgraded to 8.1.2 on 030222. See notes.php
 // dfellows.gd.rf is using php 7
@@ -275,4 +294,5 @@ php Create arrays of timestamps.
 </div> this is <div class="maps" closing div
 -->
 <script src="weather13.js"></script>
+<script src="SunCalc.js"></script>
 </body></html>
