@@ -94,6 +94,7 @@ setTimeout(function(){
 <div class=promo_container>
 <div class='promo one'>
 <div class=content>
+<p><a href=https://w1.weather.gov/xml/current_obs/KSGF.xml>Weather Data</a> </p>
 <?php 
 
 /* BEGIN this is http://www.642weather.com/weather/scripts/sunrise-sunset.zip Sunrise - Sunset PHP Script by Mike Challis 
@@ -138,7 +139,7 @@ $sunset_time=date('h:i a T', $sunset);
 	echo date('l, F jS, Y').'<br>';
 	echo date('h:i:s A').'<br>';
 	echo 'Conditions: '.$weather->weather.'<br>';
-	echo '<a href=https://w1.weather.gov/xml/current_obs/KSGF.xml>TEMP:</a> '.(float)$weather->temp_f. '&deg;F<br>';
+	echo ''.(float)$weather->temp_f. '&deg;F<br>';
 	echo 'Sunrise: '.$sunrise_time.'<br>';
 	echo 'Sunset: &nbsp;'.$sunset_time.'<br>';
 	// include 'sunrise-sunset.php'; // www.642weather.com/weather/scripts/sunrise-sunset.zip IF PHP SUNRISE / SUNSET_TIME STOPS WORKING
