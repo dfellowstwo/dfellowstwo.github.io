@@ -62,7 +62,8 @@ setTimeout(function(){
    window.location.reload(1);
 }, 3600000);
 </script>
-
+<script src="weather13.js"></script>
+<script src="SunCalc.js"></script>
 </head>
 <style>body{text-transform: none;}</style>
 <body>
@@ -102,51 +103,6 @@ document.write("<br/>Sunrise is "+sunriseStr);
 
 </script>
 
-
-// localhost php upgraded to 8.1.2 on 030222. See notes.php
-// dfellows.gd.rf is using php 7
-// php 8.1.2 deprecates date_sunrise and date_sunset
-// $time_format = 'h:i A T'; // 08:53 PM PDT
-// $zenith = 90+(50/60); // True sunrise/sunset
-// $tzoffset = date('Z') / 60 / 60; // find time offset in hours
-// $sunrise = date_sunrise(time(), SUNFUNCS_RET_STRING, $latitude, $longitude, $zenith, $tzoffset);
-// $sunrise_time = date($time_format, strtotime(date('Y-m-d') . ' '. $sunrise));
-// $sunset = date_sunset(time(), SUNFUNCS_RET_STRING, $latitude, $longitude, $zenith, $tzoffset);
-// $sunset_time = date($time_format, strtotime(date('Y-m-d') . ' '. $sunset));
-//   END this is http://www.642weather.com/weather/scripts/sunrise-sunset.zip Sunrise - Sunset PHP Script by Mike Challis 
-
-// localhost php upgraded from 5.4.27 to 8.1.2 on 030222 
-// dfellows.gd.rf is using php 7
-// Sunrise and sunset with date_sun_info (PHP 5 > 5.4.27, PHP 7, PHP 8)
-// See https://www.php.net/manual/en/function.date-sun-info.php
-$sun_info = date_sun_info(strtotime(date('h:i:sa')), $latitude, $longitude);
-// foreach ($sun_info as $key => $val) {
-// echo "$key: " . date('h:i a T', $val) . '<br />';}; // Display all info produced
-
-ob_start();// Begin supress output of extract 
-extract($sun_info);
-ob_end_clean();// Throw out output of extract 
-$sunrise_time=date('h:i a T', $sunrise); // See Display all info produced
-$sunset_time=date('h:i a T', $sunset);	
-
-
-// BEGIN DISPLAY WEATHER DATA. Data updated by 21.php
-	$weather = simplexml_load_file('KSGF.xml');
-	{list($a,$b,$c)=explode(',',$weather->location);
-	echo $b.'<br>';
-	echo $a, $c.'<br>';}
-	echo date('l, F jS, Y').'<br>';
-	echo date('h:i:s A').'<br>';
-	echo 'Conditions: '.$weather->weather.'<br>';
-	echo ''.(float)$weather->temp_f. '&deg;F<br>';
-	echo 'Sunrise: '.$sunrise_time.'<br>';
-	echo 'Sunset: &nbsp;'.$sunset_time.'<br>';
-	// include 'sunrise-sunset.php'; // www.642weather.com/weather/scripts/sunrise-sunset.zip IF PHP SUNRISE / SUNSET_TIME STOPS WORKING
-	echo 'WIND from the';
-	// ": Calm" or " Southwest at 15.0 MPH" or "from the Southwest at 15.0 gusting to 21.9 MPH (13 gusting to 19 KT)" to ":<br>Southwest at 15.0 gusting to 21.9 MPH"
-	if(strlen($weather->wind_string)<=5){echo ': '.$weather->wind_string.'<br />'; goto end;}
-      if(!preg_match('/^[f]/i',$weather->wind_string)){list($a,$b)=explode('(',$weather->wind_string);echo ' '.$a.'<br />';goto end;} else {list($a,$b)=explode('(',$weather->wind_string);echo substr($a,8,44).'<br />';goto end;}
-	end:
 
 </div>
 </div>
@@ -271,6 +227,5 @@ php Create arrays of timestamps.
 <div class="mimgs hide" data-imginfo ........</div>    Replace timestamps w/ variables.
 </div> this is <div class="maps" closing div
 -->
-<script src="weather13.js"></script>
-<script src="SunCalc.js"></script>
+
 </body></html>
