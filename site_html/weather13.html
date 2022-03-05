@@ -22,23 +22,6 @@
 <meta name="msapplication-config" content="../images/weather-favicons/browserconfig.xml?v=PYAgJn4vA0">
 <meta name="theme-color" content="#ffffff">
 
-
-
-<?php 
-
-// 21.php If past the quarter hour {Update weather data once an hour, moonphase graphic once a day.}
-// SERVICED BY: 34 (Manual update KY3 graphic), 21 (bust cache, create, update), 30 (CronJob or manual update ozarksfirst)
-
-<!-- $GlobalexecutionStartTime = microtime(true); //measure performance  -->
-<!-- date_default_timezone_set('America/Chicago'); -->
-<!-- $zweek = date('W'); -->
-<!-- $ztimestamp1 = date('h:i:sA mdy');// 12hr hhmmssAM/PM hhmmss AM/PM hhmmss AM PM hhmmssAMPM mmddyy -->
-// $ztoday1 = date('mdy');
-// $zday1=date("d"); // 30, ....
-// $zday2=date("l"); // Saturday, ...
-// $zmonth=date("F"); // January, ...
-
-?>
 <meta name="description" content="CURRENT ATMOSPHERIC CONDITIONS. LOCAL/REGIONAL RADAR. TEMPERATURE. SUNRISE/SUNSET. WIND SPEED/DIRECTION.  PHASE OF THE MOON. 7 DAY FORECAST GRAPHIC.">
 <meta name="keywords" content="CLIMATE WEATHER DATA GUI/XML CHANCE OF RAIN SKY AND TELESCOPE SUN POSITION CALCULATOR  WEATHER.GOV SPRINGFIELD REGIONAL AIRPORT">
 <link rel=stylesheet type=text/css href=screen_styles.css />
@@ -101,11 +84,6 @@ setTimeout(function(){
 
 <p><img src="http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg?v=030522</p>
 
-<?php 
-
-/* BEGIN this is http://www.642weather.com/weather/scripts/sunrise-sunset.zip Sunrise - Sunset PHP Script by Mike Challis 
-    FIND LAT/LONG geodata (gps coordinates) WITH https://www.suncalc.org/#/37.6018,-93.4155,18/2018.06.04/09:43/1/0
-   */
 <script>   SunCalc.getTimes(/*Date*/ date, /*Number*/ latitude, /*Number*/ longitude, /*Number (default=0)*/ height)
 // get today's sunlight times for London
 var times = SunCalc.getTimes(new Date(), 37.606697, -93.416709, -0.1);
@@ -169,8 +147,6 @@ $sunset_time=date('h:i a T', $sunset);
       if(!preg_match('/^[f]/i',$weather->wind_string)){list($a,$b)=explode('(',$weather->wind_string);echo ' '.$a.'<br />';goto end;} else {list($a,$b)=explode('(',$weather->wind_string);echo substr($a,8,44).'<br />';goto end;}
 	end:
 
-
-?>
 </div>
 </div>
 <div class='promo two'>
