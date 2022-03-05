@@ -29,10 +29,10 @@
 // 21.php If past the quarter hour {Update weather data once an hour, moonphase graphic once a day.}
 // SERVICED BY: 34 (Manual update KY3 graphic), 21 (bust cache, create, update), 30 (CronJob or manual update ozarksfirst)
 
-$GlobalexecutionStartTime = microtime(true); //measure performance 
-date_default_timezone_set('America/Chicago');
-$zweek = date('W');
-$ztimestamp1 = date('h:i:sA mdy');// 12hr hhmmssAM/PM hhmmss AM/PM hhmmss AM PM hhmmssAMPM mmddyy
+<!-- $GlobalexecutionStartTime = microtime(true); //measure performance  -->
+<!-- date_default_timezone_set('America/Chicago'); -->
+<!-- $zweek = date('W'); -->
+<!-- $ztimestamp1 = date('h:i:sA mdy');// 12hr hhmmssAM/PM hhmmss AM/PM hhmmss AM PM hhmmssAMPM mmddyy -->
 // $ztoday1 = date('mdy');
 // $zday1=date("d"); // 30, ....
 // $zday2=date("l"); // Saturday, ...
@@ -156,7 +156,9 @@ $sunset_time=date('h:i a T', $sunset);
 <a href=http://www.moonmodule.com/cs/dm/vn.gif>
 <div class=content> 
 
-<img src='vn.gif' width=128 height=196 title='Current Moon phase graphic at moonconnection.com' alt='CLICK TO GO TO http://www.moonmodule.com/cs/dm/vn.gif.<?php  echo ' Timestamp: '.$ztimestamp1;?>'>
+<img src="vn.gif?v="+var1 width=128 height=196 title='Current Moon phase graphic at moonconnection.com' alt='CLICK TO GO
+  src: "https://s3.amazonaws.com/scifri-episodes/scifri" + date3 + "-episode.mp3",
+ TO http://www.moonmodule.com/cs/dm/vn.gif'>
 </div></a>
 </div>
 <div class='promo three'>
@@ -271,10 +273,5 @@ php Create arrays of timestamps.
 <div class="mimgs hide" data-imginfo ........</div>    Replace timestamps w/ variables.
 </div> this is <div class="maps" closing div
 -->
+<script src="weather13.js"></script>
 </body></html>
-<?php 
-$executionEndTime = microtime(true); //measure performance 
-$zseconds = $executionEndTime - $GlobalexecutionStartTime; //measure performance 
-// file_put_contents('weather-seven-day-forecast-graphicLOG.html','TimeStamp: '.date('H:i:s mdy ').basename(__FILE__). ' took '.$zseconds.' seconds.<br />', FILE_APPEND);
-unset($ztimestamp1);
-?>
