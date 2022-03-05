@@ -86,18 +86,16 @@ setTimeout(function(){
 
 <p><img src="http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg?v=030522"></p>
 
-<script>   //SunCalc.getTimes(/*Date*/ date, /*Number*/ latitude, /*Number*/ longitude, /*Number (default=0)*/ height)
+<script>
+//SunCalc.getTimes(/*Date*/ date, /*Number*/ latitude, /*Number*/ longitude, /*Number (default=0)*/ height)
 
 var times = SunCalc.getTimes(new Date(), 37.606697, -93.416709, -0.1);
-
-// format sunrise time from the Date object
 var sunriseStr = times.sunrise.getHours() + ':' + times.sunrise.getMinutes();
-
 // get position of the sun (azimuth and altitude) at today's sunrise
 var sunrisePos = SunCalc.getPosition(times.sunrise, 51.5, -0.1);
-
 // get sunrise azimuth in degrees
 var sunriseAzimuth = sunrisePos.azimuth * 180 / Math.PI;
+
 document.write("<br/>Today's date is "+date1);
 document.write("<br/>Sunrise is "+sunriseStr);
 
@@ -109,10 +107,7 @@ document.write("<br/>Sunrise is "+sunriseStr);
 <div class='promo two'>
 <a href=http://www.moonmodule.com/cs/dm/vn.gif>
 <div class=content> 
-
-<img src="http://www.moonmodule.com/cs/dm/vn.gif?v="+var1 width=128 height=196 title='Current Moon phase graphic at moonconnection.com' alt='CLICK TO GO
-  src: "https://s3.amazonaws.com/scifri-episodes/scifri" + date3 + "-episode.mp3",
- TO http://www.moonmodule.com/cs/dm/vn.gif'>
+<img src="http://www.moonmodule.com/cs/dm/vn.gif?v="+date1 width=128 height=196 title='Current Moon phase graphic at moonconnection.com' alt='CLICK TO GO TO http://www.moonmodule.com/cs/dm/vn.gif'>
 </div></a>
 </div>
 <div class='promo three'>
@@ -127,7 +122,7 @@ document.write("<br/>Sunrise is "+sunriseStr);
 <a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg>
 <!-- <a href=https://www.weatherforyou.com/reports/index.php?config=warningsbox&forecast=zandh&pands=&zipcode=65613&place=bolivar&state=mo&country=us&icao=> -->
 <div class=content>
-<img src=weather-seven-day-forecast-graphic.jpg?v=<?php echo date('mdy');?> width=480 height=196 title='THANKS TO OZARKSFIRST.COM FOR THIS WEATHER SEVEN DAY FORECAST GRAPHIC. CLICK TO GO TO http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg' alt='CLICK TO GO TO http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg. This is weather-seven-day-forecast-graphic.jpg.'>
+<img src=http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg?v=+date1 width=480 height=196 title='THANKS TO OZARKSFIRST.COM FOR THIS WEATHER SEVEN DAY FORECAST GRAPHIC. CLICK TO GO TO http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg' alt='CLICK TO GO TO http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg. This is weather-seven-day-forecast-graphic.jpg.'>
 </div>
 </a>
 </div>
