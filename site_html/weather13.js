@@ -105,3 +105,15 @@ for (i = 0; i < run_on.length; i++){
 // END https://stackoverflow.com/a/44118057/8826818 
 
 // END SCIENCE FRIDAY.
+
+//SunCalc.getTimes(/*Date*/ date, /*Number*/ latitude, /*Number*/ longitude, /*Number (default=0)*/ height)
+
+var times = SunCalc.getTimes(new Date(), 37.606697, -93.416709, -0.1);
+var sunriseStr = times.sunrise.getHours() + ':' + times.sunrise.getMinutes();
+// get position of the sun (azimuth and altitude) at today's sunrise
+var sunrisePos = SunCalc.getPosition(times.sunrise, 51.5, -0.1);
+// get sunrise azimuth in degrees
+var sunriseAzimuth = sunrisePos.azimuth * 180 / Math.PI;
+
+document.write("<br/>Today's date is "+date1);
+document.write("<br/>Sunrise is "+sunriseStr);
