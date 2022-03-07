@@ -118,7 +118,7 @@ setTimeout(function(){
 
 <div class="content">
 
-<img src="https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg?v="+date1 width=480 height=196 title='THANKS TO OZARKSFIRST.COM FOR THIS WEATHER SEVEN DAY FORECAST GRAPHIC. CLICK TO GO TO http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg' alt='CLICK TO GO TO http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg. This is weather-seven-day-forecast-graphic.jpg.'></div>
+<img src="https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg" width=480 height=196 title='THANKS TO OZARKSFIRST.COM FOR THIS WEATHER SEVEN DAY FORECAST GRAPHIC. CLICK TO GO TO http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg' alt='CLICK TO GO TO http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg. This is weather-seven-day-forecast-graphic.jpg.'></div>
 
 <img src="https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg" width=480 height=196 title='THANKS TO OZARKSFIRST.COM FOR THIS WEATHER SEVEN DAY FORECAST GRAPHIC. CLICK TO GO TO http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg' alt='CLICK TO GO TO http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg. This is weather-seven-day-forecast-graphic.jpg.'></div>
 
@@ -129,7 +129,7 @@ setTimeout(function(){
 <a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg>
 <!-- <a href=https://www.weatherforyou.com/reports/index.php?config=warningsbox&forecast=zandh&pands=&zipcode=65613&place=bolivar&state=mo&country=us&icao=> -->
 <div class="content">
-<img src=https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg width=480 height=196 title='THANKS TO OZARKSFIRST.COM FOR THIS WEATHER SEVEN DAY FORECAST GRAPHIC. CLICK TO GO TO http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg' alt='CLICK TO GO TO http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg. This is weather-seven-day-forecast-graphic.jpg.'>
+<img src="https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg" width=480 height=196 title='THANKS TO OZARKSFIRST.COM FOR THIS WEATHER SEVEN DAY FORECAST GRAPHIC. CLICK TO GO TO http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg' alt='CLICK TO GO TO http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg. This is weather-seven-day-forecast-graphic.jpg.'>
 </div>
 </a>
 </div>
@@ -236,20 +236,20 @@ document.getElementById("mySunrise").innerHTML = zsunrise2;
 document.getElementById("mySunset").innerHTML = zsunset2;
 document.getElementById("myTime").innerHTML = ztime2;
 //https://stackoverflow.com/a/57366763/8826818
-let compassSector = ["N", "NE", "E", "SE", "S", "SW", "W", "NW", "N"];
-weather.windDirection = compassSector[(zdegree / 22.5).toFixed(0)];
-document.getElementById("myText3").innerHTML = weather.windDirection;
+//let compassSector = ["N", "NE", "E", "SE", "S", "SW", "W", "NW", "N"];
+//weather.windDirection = compassSector[(zdegree / 22.5).toFixed(0)];
+//document.getElementById("myText3").innerHTML = weather.windDirection;
 			 //var zsunrise = zsunrise.toString("hh:mm tt");
 			 //document.write(zdegree);
 //degrees = zdegree;
-directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
+//directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
 // Split into the 8 directions
-zdegrees = zdegrees * 8 / 360;
+//zdegrees = zdegrees * 8 / 360;
 // round to nearest integer.
-zdegrees = Math.round(zdegrees, 0);
+//zdegrees = Math.round(zdegrees, 0);
 // Ensure it's within 0-7
-zdegrees = (zdegrees + 8) % 8
-document.getElementById("myText4").innerHTML = (directions[zdegrees]);	
+//zdegrees = (zdegrees + 8) % 8
+//document.getElementById("myText4").innerHTML = (directions[zdegrees]);	
 
     });
 
