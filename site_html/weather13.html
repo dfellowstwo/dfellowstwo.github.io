@@ -81,8 +81,6 @@ setTimeout(function(){
 
 
 
-<div id="openweathermap-widget-11"></div>
-<script src='//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script><script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 11,cityid: '4377835',appid: '81fd6bf03bee58a02d735b12c7959cf1',units: 'imperial',containerid: 'openweathermap-widget-11',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script>
 
 
 <div class="promo_container">
@@ -90,9 +88,11 @@ setTimeout(function(){
 <div class="content">
 
 <br />
-<p>SUNRISE: <span id="myText"></span>
-<br />SUNSET: &nbsp;<span id="myText2"></span>
-<br />Wind from the: &nbsp;<span id="myText3"></span></p>
+<p><span id="myTime"></span></p>
+<p>SUNRISE: <span id="mySunrise"></span></p>
+<p>SUNSET: &nbsp;<span id="mySunset"></span></p>
+<p>Wind from the: &nbsp;<span id="myText3"></span></p>
+<p>Wind from the: &nbsp;<span id="myText4"></span></p>
 
 <p><a href=https://w1.weather.gov/xml/current_obs/KSGF.xml>Weather Data</a> </p>
 <p>&nbsp;</p>
@@ -104,7 +104,7 @@ setTimeout(function(){
 
 <p>&nbsp;</p>
 <p><a href=https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=hourly,daily,minutely&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial>Weather Data: RAW</a></p>
-
+<p>&nbsp;</p>
 </div>
 </div>
 <div class="promo two">
@@ -142,23 +142,7 @@ setTimeout(function(){
 </a>
 </div>
 
-<div class="promo four">
-<iframe width='100%' height='640px' src='https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOiJuYXRpb25hbCIsImNlbnRlciI6Wy05My4wODQsMzcuNzk3XSwiem9vbSI6NS43NjY3MTUwNzc1MjY4NTcsImxheWVyIjoiYnJlZl9xY2QiLCJ0cmFuc3BhcmVudCI6dHJ1ZSwiYWxlcnRzT3ZlcmxheSI6dHJ1ZX0sImFuaW1hdGluZyI6dHJ1ZSwiYmFzZSI6InN0YW5kYXJkIiwiY291bnR5IjpmYWxzZSwiY3dhIjpmYWxzZSwic3RhdGUiOmZhbHNlLCJtZW51IjpmYWxzZSwic2hvcnRGdXNlZE9ubHkiOnRydWUsIm9wYWNpdHkiOnsiYWxlcnRzIjowLCJsb2NhbCI6MC42LCJsb2NhbFN0YXRpb25zIjowLjgsIm5hdGlvbmFsIjowLjZ9fQ%3D%3D' frameborder='0' scrolling='no'></iframe>
 
-
-<!-- https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOiJuYXRpb25hbCIsImNlbnRlciI6Wy05My4wODQsMzcuNzk3XSwiem9vbSI6NS43NjY3MTUwNzc1MjY4NTcsImxheWVyIjoiYnJlZl9xY2QiLCJ0cmFuc3BhcmVudCI6dHJ1ZSwiYWxlcnRzT3ZlcmxheSI6dHJ1ZX0sImFuaW1hdGluZyI6dHJ1ZSwiYmFzZSI6InN0YW5kYXJkIiwiY291bnR5IjpmYWxzZSwiY3dhIjpmYWxzZSwic3RhdGUiOmZhbHNlLCJtZW51IjpmYWxzZSwic2hvcnRGdXNlZE9ubHkiOnRydWUsIm9wYWNpdHkiOnsiYWxlcnRzIjowLCJsb2NhbCI6MC42LCJsb2NhbFN0YXRpb25zIjowLjgsIm5hdGlvbmFsIjowLjZ9fQ%3D%3D#/ -->
-
-<!-- https://noaa.maps.arcgis.com/apps/TimeAware/index.html?appid=3eb23d7688154631858c128c6ae83be2 -->
-
-																																																																																																																																																																																																				    
-	
-</div>
-<div id=radar2 class="promo five">
-<a href='https://www.wunderground.com/radar/us/mo/springfield/sgf'>
-
-<img src='https://radblast.wunderground.com/cgi-bin/radar/WUNIDS_map?num=10&type=N1R&mapx=400&mapy=240&brand=wui&delay=15&frame=0&scale=0.125&centerx=423.704347826087&centery=583.2&transx=23.704347826086973&transy=343.20000000000004&severe=0&smooth=1&station=SGF&rainsnow=0&lightning=0&noclutter=1&showlabels=1&showstorms=0&rand=27178699' width=940 height=705 alt='LOCAL WEATHER RADAR FROM WEATHER UNDERGROUND' title='LOCAL WEATHER RADAR FROM WEATHER UNDERGROUND'>
-</a>
-</div>
 
 <div class="clear-fix"></div>
 
@@ -215,6 +199,7 @@ var zdegree;
 var date = new Date();
 var date9 = date.toLocaleDateString('en-GB').split('/').reverse().join(''); // '20220204'
 var directions;
+var ztime;
 //var arr;
 
 // javascript datetime format
@@ -238,20 +223,33 @@ var directions;
 //document.write(z.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }));
         // $(".mypanel").html(text);
 			  // https://dd.engineering/blog/a-guide-to-handling-date-and-time-for-full-stack-javascript-developers#unix-timestamp
-			  //https://stackoverflow.com/questions/17003202			  
+			  //https://stackoverflow.com/questions/17003202	
+			  
+			 var ztime = data.current.dt;
 			 var zdegree = data.current.wind_deg;
 			 var zsunrise = new Date(data.current.sunrise*1000);
 			 var zsunrise2 = zsunrise.toLocaleString([], { hour: '2-digit', minute: '2-digit' });
 			 var zsunset = new Date(data.current.sunset*1000);
-                  var zsunset2 = zsunset.toLocaleString([], { hour: '2-digit', minute: '2-digit' });
-document.getElementById("myText").innerHTML = zsunrise2;
-document.getElementById("myText2").innerHTML = zsunset2;
+             var zsunset2 = zsunset.toLocaleString([], { hour: '2-digit', minute: '2-digit' });
+             var ztime2 = data.current.dt.toLocaleString([], { hour: '2-digit', minute: '2-digit' });
+document.getElementById("mySunrise").innerHTML = zsunrise2;
+document.getElementById("mySunset").innerHTML = zsunset2;
+document.getElementById("myTime").innerHTML = ztime2;
 //https://stackoverflow.com/a/57366763/8826818
 let compassSector = ["N", "NE", "E", "SE", "S", "SW", "W", "NW", "N"];
 weather.windDirection = compassSector[(zdegree / 22.5).toFixed(0)];
 document.getElementById("myText3").innerHTML = weather.windDirection;
 			 //var zsunrise = zsunrise.toString("hh:mm tt");
 			 //document.write(zdegree);
+//degrees = zdegree;
+directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
+// Split into the 8 directions
+zdegrees = zdegrees * 8 / 360;
+// round to nearest integer.
+zdegrees = Math.round(zdegrees, 0);
+// Ensure it's within 0-7
+zdegrees = (zdegrees + 8) % 8
+document.getElementById("myText4").innerHTML = (directions[zdegrees]);	
 
     });
 
@@ -286,6 +284,9 @@ function getDirection(angle) {
     return directions[index];
 }
 getDirection('313');
+
+
+
 
 </script>
 </body></html>
