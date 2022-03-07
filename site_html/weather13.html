@@ -102,7 +102,7 @@ https://howtocreateapps.com/fetch-and-display-json-html-javascript/
 <p>SUNRISE: <span id="mySunrise"></span></p>
 <p>SUNSET: &nbsp;<span id="mySunset"></span></p>
 <!-- <p>Wind from the: &nbsp;<span id="myText3"></span></p> -->
-<p>WIND FROM THE: &nbsp;<span id="myText4"></span></p>
+<p>WIND FROM THE <span id="myText4"></span></p>
 <!-- <p>Wind from the: &nbsp;<span id="myText5"></span></p> -->
 
 <p><a href=https://w1.weather.gov/xml/current_obs/KSGF.xml>Weather Data</a> </p>
@@ -292,7 +292,7 @@ zdegrees = Math.round(zdegrees, 0);
 // Ensure it's within 0-7
 zdegrees = (zdegrees + 8) % 8
 //document.getElementById("myText4").innerHTML = (directions[zdegrees]);	
-document.getElementById("myText4").innerHTML= (directions[zdegrees]) + ' at ' + zwindspeed + 'mph gusting to ' + zwindgust;
+document.getElementById("myText4").innerHTML= (directions[zdegrees]) + ' at ' + zwindspeed + 'mph gusting to ' + zwindgust + ' mph';
 
 //if(!(zwindgust=calm)){
 //document.getElementById("myText4").innerHTML= (directions[zdegrees]) + ' at ' + zwindspeed + 'mph gusting to ' + zwindgust;
