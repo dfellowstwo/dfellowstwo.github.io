@@ -79,7 +79,14 @@ setTimeout(function(){
 <h2>WEATHER SPRINGFIELD / BOLIVAR, MISSOURI 65613</h2>
 </article>
 
+<!-- https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=hourly,daily,minutely&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial 
 
+http://api.openweathermap.org/data/2.5/forecast?id=4377835&exclude=hourly,daily,minutely&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial 
+
+Google search: data.current.wind_deg json javascript html openweathermap
+https://howtocreateapps.com/fetch-and-display-json-html-javascript/
+
+-->
 
 
 
@@ -88,20 +95,20 @@ setTimeout(function(){
 <div class="content">
 
 <br />
-<p><span id="myTime"></span></p>
+<p><span id="myDate"></span></p>
+<p><span id="result"></span></p>
+<p>TIME: <span id="myTime"></span></p>
 <p>SUNRISE: <span id="mySunrise"></span></p>
 <p>SUNSET: &nbsp;<span id="mySunset"></span></p>
-<p>Wind from the: &nbsp;<span id="myText3"></span></p>
-<p>Wind from the: &nbsp;<span id="myText4"></span></p>
+<!-- <p>Wind from the: &nbsp;<span id="myText3"></span></p> -->
+<p>WIND FROM THE: &nbsp;<span id="myText4"></span></p>
+<!-- <p>Wind from the: &nbsp;<span id="myText5"></span></p> -->
 
 <p><a href=https://w1.weather.gov/xml/current_obs/KSGF.xml>Weather Data</a> </p>
 <p>&nbsp;</p>
 <p><a href=http://www.moonmodule.com/cs/dm/vn.gif>Moonphase graphic.</a> Update every hour at ~00:17:00. </p> 
 <p>&nbsp;</p>
 <p><a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg>7 day graphic.</a> Update at ~8:47am and ~11:47pm</p>
-
-<br />
-
 <p>&nbsp;</p>
 <p><a href=https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=hourly,daily,minutely&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial>Weather Data: RAW</a></p>
 <p>&nbsp;</p>
@@ -200,7 +207,12 @@ var date = new Date();
 var date9 = date.toLocaleDateString('en-GB').split('/').reverse().join(''); // '20220204'
 var directions;
 var ztime;
-//var arr;
+var myDate;
+var myDate2;
+var arr;
+var r;
+var zwindspeed;
+var zwindgust;
 
 // javascript datetime format
 // Monday, March 7th, 2022
@@ -226,30 +238,48 @@ var ztime;
 			  //https://stackoverflow.com/questions/17003202	
 			  
 			 var ztime = data.current.dt;
+			 var ztime2 = new Date(data.current.dt*1000);
+             var ztime3 = ztime2.toLocaleString([], { hour: '2-digit', minute: '2-digit' });	
+			 document.getElementById("myTime").innerHTML = ztime3;			 
 			 var zdegree = data.current.wind_deg;
+			 var zwindspeed = data.current.wind_speed;
+			 var zwindgust = data.current.wind_gust;
+             //document.getElementById("myText5").innerHTML = (zwindgust);
+
+             //myText5.innerHTML= 'Windspeed: ' + zwindspeed + 'mpg gusting to ' + zwindgust;
 			 var zsunrise = new Date(data.current.sunrise*1000);
 			 var zsunrise2 = zsunrise.toLocaleString([], { hour: '2-digit', minute: '2-digit' });
 			 var zsunset = new Date(data.current.sunset*1000);
              var zsunset2 = zsunset.toLocaleString([], { hour: '2-digit', minute: '2-digit' });
-             var ztime2 = data.current.dt.toLocaleString([], { hour: '2-digit', minute: '2-digit' });
+
 document.getElementById("mySunrise").innerHTML = zsunrise2;
 document.getElementById("mySunset").innerHTML = zsunset2;
-document.getElementById("myTime").innerHTML = ztime2;
+
 //https://stackoverflow.com/a/57366763/8826818
 //let compassSector = ["N", "NE", "E", "SE", "S", "SW", "W", "NW", "N"];
 //weather.windDirection = compassSector[(zdegree / 22.5).toFixed(0)];
 //document.getElementById("myText3").innerHTML = weather.windDirection;
 			 //var zsunrise = zsunrise.toString("hh:mm tt");
 			 //document.write(zdegree);
-//degrees = zdegree;
-//directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
+
+zdegrees = 328;
+directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
 // Split into the 8 directions
-//zdegrees = zdegrees * 8 / 360;
+zdegrees = zdegrees * 8 / 360;
 // round to nearest integer.
-//zdegrees = Math.round(zdegrees, 0);
+zdegrees = Math.round(zdegrees, 0);
 // Ensure it's within 0-7
-//zdegrees = (zdegrees + 8) % 8
+zdegrees = (zdegrees + 8) % 8
 //document.getElementById("myText4").innerHTML = (directions[zdegrees]);	
+document.getElementById("myText4").innerHTML= (directions[zdegrees]) + ' at ' + zwindspeed + 'mph gusting to ' + zwindgust;
+
+//if(!(zwindgust=calm)){
+//document.getElementById("myText4").innerHTML= (directions[zdegrees]) + ' at ' + zwindspeed + 'mph gusting to ' + zwindgust;
+//}else{
+//document.getElementById("myText4").innerHTML= (directions[zdegrees]) + ' at ' + zwindspeed + 'mph';
+//}
+
+	
 
     });
 
@@ -285,8 +315,9 @@ function getDirection(angle) {
 }
 getDirection('313');
 
+var myDate = new Date().toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"long", day:"numeric"}) ;
 
-
+document.getElementById("myDate").innerHTML = myDate;
 
 </script>
 </body></html>
