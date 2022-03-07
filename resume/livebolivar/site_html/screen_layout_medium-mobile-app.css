@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+/* Layout Medium Screens */
+#radar2 { padding: 0; margin: 0 0 -1.1em 0;}
+
+/*DOUG*/ /*CORRECT VERTICAL SPACING BETWEEN EVER CHANGING NAV HEIGHT AND ARTICLE*/
+
+
+article { padding: 2em 0 0 1em; }
+
+
+header {
+	height: 200px;
+	background: url(../../images/banner_medium.jpg) no-repeat 90% 0px;
+	background-size: 800px 200px;
+}
+/* header a.logo { width: 128px; height: 196px; top: 4px; right: 2px; background-image: url(http://www.moonmodule.com/cs/dm/vn.gif); background-size: 128px 196px; } */
+header a.logo { width: 60px; height: 60px; top: 6px; right: 6px; background-image: url(../../images/icon-phone.png); background-size: 60px 60px; }
+
+
+nav {
+	display: block;
+	position: static;
+	padding: 0;
+	/*padding: 10px 0px 10px 10px;*/
+	background-color: #515673;
+}
+
+nav a {
+	color: #a6abc5;
+	display: block;
+	margin: 15px;
+	/*padding: 9px;
+	border: 1px solid #a6abc5;
+	background: url(../../images/mobile_link_arrow.png) no-repeat right center;*/
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+}
+
+.promo_container { padding: 0px 20px 15px 20px; }
+.promo_container .promo { background-position: 0px 0px; }
+.promo_container .promo.one { width:73%;}
+.promo_container .promo.two { width: 27%; float: right;}
+.promo_container .promo.three { width: 78%; }
+
+
+body { background-image: none; }
+
+
+@media
+	only screen and (-webkit-min-device-pixel-ratio: 2),
+	only screen and (   min--moz-device-pixel-ratio: 2),
+	only screen and (     -o-min-device-pixel-ratio: 2/1),
+	only screen and (        min-device-pixel-ratio: 2),
+	only screen and (                min-resolution: 192dpi),
+	only screen and (                min-resolution: 2dppx)
+{
+
+	header a.logo { background-image: url(../../images/logo_medium_2x.png); }
+	header { background-image: url(../../images/banner_medium_2x.jpg); }
+
+}

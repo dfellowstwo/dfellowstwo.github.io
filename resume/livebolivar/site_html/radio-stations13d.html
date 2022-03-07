@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+	<!-- https://goldfirestudios.com/blog/104/howler.js-Modern-Web-Audio-Javascript-Library -->
+	<html lang="en" >
+		<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0">
+		<title>RADIO STATIONS</title>
+		<link rel="stylesheet" type="text/css" href="screen_styles.css">
+		<link rel="stylesheet" type="text/css" href="screen_layout_large.css">
+		<link rel="stylesheet" type="text/css" media="only screen and (min-width:50px) and (max-width:600px)" href="screen_layout_small.css">
+		<link rel="stylesheet" type="text/css" media="only screen and (min-width:601px) and (max-width:800px)" href="screen_layout_medium.css">
+		<link rel="stylesheet" type="text/css" media="print"  href="print.css" />
+		<link rel="apple-touch-icon" sizes="180x180" href="../images/_icon_radio_apple-touch-icon.png?v=almEKrgqpX">
+		<link rel="icon" type="image/png" sizes="32x32" href="../images/r-favicon-32x32.png?v=almEKrgqpX">
+		<link rel="icon" type="image/png" sizes="16x16" href="../images/r-favicon-16x16.png?v=almEKrgqpX">
+		<link rel="manifest" href="site.radio.webmanifest?v=WlmEKrgqpX">
+		<link rel="mask-icon" href="../images/r-safari-pinned-tab.svg?v=almEKrgqpX" color="#5bbad5">
+		<link rel="shortcut icon" href="../images/r-favicon.ico?v=almEKrgqpX">
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="msapplication-config" content="r-browserconfig.xml?v=almEKrgqpX">
+		<meta name="theme-color" content="#ffffff">
+
+
+		<!--[if lt IE 9]>
+		<script src="../scripts/html5shiv.js">
+		</script>
+		<![endif]-->
+
+		<style>
+		html {
+  width: 100%;
+  height: 100%;  
+  overflow: auto;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+}
+.hidelg 
+body {
+}
+.page {
+background-color: #575c7a;
+}
+
+		h1, p {color:#fff; margin: 12px 0px 0px 12px;}
+		/* Stations */
+		.padding {
+		width: 100%;
+		height: 6%;
+		}
+		.station {
+		position: relative;
+		width: 100%;
+		height: 15%;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-flex-direction: column;
+		-webkit-box-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		-webkit-justify-content: center;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+		padding-left: 5%;
+		cursor: pointer;
+		box-sizing: border-box;
+		}
+		.title {
+
+
+		color: #fff;
+
+
+		}
+		
+
+
+@media only screen and (min-width:321px){
+		.station {
+		position: relative;
+		width: 100%;
+		height: 15%;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-flex-direction: column;
+		-webkit-box-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		-webkit-justify-content: center;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+		padding-left: 5%;
+		cursor: pointer;
+		box-sizing: border-box;
+		
+		}
+		.title {
+		font-size: 4vw;
+		line-height: 2vw;
+		font-weight: 300;
+		color: #fff;
+		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.33);
+		}
+		}
+		.station:hover {
+		background-color: rgba(255, 255, 255, 0.1);
+		}
+
+		@media only screen and (min-width:533px){
+		.title {
+		font-size: 18px;
+
+		font-weight: 300;
+		color: #fff;
+		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.33);
+		}
+		h1, p {color:#fff; float:right; margin: 12px 12px 0px 0px;}
+
+		.station {
+
+		height: 15%;
+
+		}
+
+		}
+		.subtitle{
+		display: inline-block;
+		vertical-align: middle;
+		
+		}
+
+@media only screen and (min-width:600px){
+		.title {
+		font-size: 2.5vw;
+		line-height: 1vw;
+		font-weight: 300;
+		color: #fff;
+		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.33);
+		}
+		.station {height: 15%;}
+}		
+		
+@media only screen and (min-width:801px){
+	p {margin: 3em 12px 0px 0px;}
+	.hidelg {display:none;}
+}
+
+		.subtitle {
+		display: inline-block;
+		vertical-align: middle;
+		margin: 2em 0 0 0;
+		}
+		.live {
+		width: 8vw;
+		height: 3vw;
+		background-color: #cc1919;
+		border-radius: 3px;
+		font-weight: bold;
+		color: #fff;
+		font-size: 2.25vw;
+		line-height: 3vw;
+		display: inline-block;
+		text-align: center;
+		opacity: 0;
+		text-shadow: none;
+		}
+
+		/* Playing Animation */
+		.playing {
+		position: absolute;
+		display: none;
+		}
+		.playing > div {
+		background-color: #fff;
+		height: 100%;
+		width: 6px;
+		display: inline-block;
+		-webkit-transition: all 0.2s ease;
+		transition: all 0.2s ease;
+		-webkit-animation: wavy 1s ease infinite forwards;
+		animation: wavy 1s ease infinite forwards;
+		-webkit-transform-origin: 50% 50%;
+		transform-origin: 50% 50%;
+		box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.33);
+		}
+		.playing .rect2 {
+		-webkit-animation-delay: 0.25s;
+		animation-delay: 0.25s;
+		}
+		.playing .rect3 {
+		-webkit-animation-delay: 0.5s;
+		animation-delay: 0.5s;
+		}
+		.playing .rect4 {
+		-webkit-animation-delay: 0.75s;
+		animation-delay: 0.75s;
+		}
+		.playing .rect5 {
+		-webkit-animation-delay: 1.0s;
+		animation-delay: 1.0s;
+		}
+		.playing .rect6 {
+		-webkit-animation-delay: 1.0s;
+		animation-delay: 1.0s;
+		}
+		.playing .rect7 {
+		-webkit-animation-delay: 1.0s;
+		animation-delay: 1.0s;
+		}
+		.playing .rect8 {
+		-webkit-animation-delay: 1.0s;
+		animation-delay: 1.0s;
+		}
+		@-webkit-keyframes wavy {
+		0% {
+		-webkit-transform: scaleY(1);
+		transform: scaleY(1);
+		}
+		50% {
+		-webkit-transform: scaleY(0.6);
+		transform: scaleY(0.6);
+		}
+		100% {
+		-webkit-transform: scaleY(1);
+		transform: scaleY(1);
+		}
+		}
+		@keyframes wavy {
+		0% {
+		-webkit-transform: scaleY(1);
+		transform: scaleY(1);
+		}
+		50% {
+		-webkit-transform: scaleY(0.6);
+		transform: scaleY(0.6);
+		}
+		100% {
+		-webkit-transform: scaleY(1);
+		transform: scaleY(1);
+		}
+		}
+
+.subtitle{
+		display: inline-block;
+		vertical-align: middle;
+		margin: 1.5em 0;
+		}
+@media only screen and (min-width:50px) and (max-width:532px){
+	.title {font-size: 14px;}
+	nav {padding: 11px 0px 0px 0px;}
+	
+}
+.clear-fix { clear: both; line-height: 1px; }
+
+
+
+
+
+
+
+
+
+
+
+
+/*----- BEGIN	https://inspirationalpixels.com/creating-a-dropdown-menu-with-html-css/ 
+				http://demos.inspirationalpixels.com/dropdown-with-html-css-demo/#
+-----*/
+.clearfix:after {
+	display:block;
+	clear:both;
+}
+
+/*----- Menu Outline -----*/
+.menu-wrap {
+	width:100%;
+	box-shadow:0px 1px 3px rgba(0,0,0,0.2);
+	background:#3e3436;
+}
+
+.menu {
+	
+	margin:0px auto;
+	
+}
+
+.menu li {
+	margin:0px;
+	list-style:none;
+	
+}
+
+.menu li:hover > a, .menu .current-item > a {
+	text-decoration:none;
+}
+
+.menu .arrow {
+	font-size:11px;
+	line-height:0%;
+}
+
+/*----- Top Level -----*/
+.menu > ul + li {
+	
+	display:inline;
+	position:relative;
+	width: 17%;
+}
+
+
+
+
+/*----- Bottom Level -----*/
+.menu li:hover .sub-menu {
+	z-index:1;
+	opacity:1;
+}
+
+
+
+.sub-menu li {
+	display:block;
+	font-size:14px;
+	
+}
+
+.sub-menu {
+	
+	padding:5px 0px;
+	position:absolute;
+	top:100%;
+	left:74%;
+	z-index:-1;
+	opacity:0;
+	transition:opacity linear 0.15s;
+	box-shadow:0px 2px 3px rgba(0,0,0,0.2);
+	background-color: #515673;
+}
+
+/*-----    END https://inspirationalpixels.com/creating-a-dropdown-menu-with-html-css/ -----*/
+/*-----    BEGIN DOUG https://inspirationalpixels.com/creating-a-dropdown-menu-with-html-css/ -----*/
+
+
+ul, menu, dir{
+
+	list-style-type: none;
+     display: inline;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+}
+
+
+@media only screen and (min-width:50px) and (max-width:800px){
+.sub-menu {
+	
+position:inherit;
+	left:0%;
+
+}
+ul, menu, dir{
+
+
+     display: inline;
+	width:100%
+}
+
+ul, menu {width: 100%;}
+.menu {font-size:125%;}
+.menu > ul > li {width: 100%;}
+
+
+span.arrow {display:none;}
+.sub-menu li {
+        margin: 0 0 2em 2em}    
+
+nav ul .sub-menu a {
+    font-size: 100%;
+}
+
+	  
+}
+@media only screen and (min-width:801px) and (max-width:968px){
+p {
+    margin: 6em 12px 0px 0px;
+}}
+
+@media screen and (max-width:340px){
+header {
+    height: 75px;
+    background: url(../images/banner_small2.jpg);
+    background-size: 500px 85px;
+    background-repeat: no-repeat;
+    background-position: center top;
+}}
+/*-----       END DOUG https://inspirationalpixels.com/creating-a-dropdown-menu-with-html-css/ -----*/
+		</style>   
+
+		</head>
+	<body>
+	<div class="page">
+      <header class="noPrint"><a class="logo" href="tel:+14173273911"></a></header>
+      <h1 class="noPrint noScreen">PROPERTY FOR RENT IN AND AROUND BOLIVAR, POLK
+        COUNTY, SOUTHWEST MISSOURI 65613. CALL AJ ELLIS 1-417-327-3911 M-F 9-5 </h1>
+
+		<p>BUFFERING 12 SECONDS. &nbsp;   > CHROME 40.</p>
+
+
+
+		<style></style>
+		<!-- Stations -->
+
+		<div class="station" id="station0">
+		<div class="title">
+			<div class="subtitle" id="title0"></div>
+			<div class="live" id="live0">LIVE</div>
+			<div class="playing" id="playing0">
+				<div class="rect1"></div>
+				<div class="rect2"></div>
+				<div class="rect3"></div>
+				<div class="rect4"></div>
+				<div class="rect5"></div>
+				<div class="rect6"></div>
+				<div class="rect7"></div>
+				<div class="rect8"></div>
+				<div class="rect9"></div>
+				<div class="rect10"></div>
+				<div class="rect11"></div>				<div class="rect12"></div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="station" id="station1">
+		<div class="title">
+			<div class="subtitle" id="title1"></div>
+			<div class="live" id="live1">LIVE</div>
+			<div class="playing" id="playing1">
+				<div class="rect1"></div>
+				<div class="rect2"></div>
+				<div class="rect3"></div>
+				<div class="rect4"></div>
+				<div class="rect5"></div>
+				<div class="rect6"></div>
+				<div class="rect7"></div>
+				<div class="rect8"></div>
+				<div class="rect9"></div>
+				<div class="rect10"></div>
+				<div class="rect11"></div>				<div class="rect12"></div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="station" id="station2">
+		<div class="title">
+			<div class="subtitle" id="title2"></div>
+			<div class="live" id="live2">LIVE</div>
+			<div class="playing" id="playing2">
+				<div class="rect1"></div>
+				<div class="rect2"></div>
+				<div class="rect3"></div>
+				<div class="rect4"></div>
+				<div class="rect5"></div>
+				<div class="rect6"></div>
+				<div class="rect7"></div>
+				<div class="rect8"></div>
+				<div class="rect9"></div>
+				<div class="rect10"></div>
+				<div class="rect11"></div>				<div class="rect12"></div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="station" id="station3">
+		<div class="title">
+			<div class="subtitle" id="title3"></div>
+			<div class="live" id="live3">LIVE</div>
+			<div class="playing" id="playing3">
+				<div class="rect1"></div>
+				<div class="rect2"></div>
+				<div class="rect3"></div>
+				<div class="rect4"></div>
+				<div class="rect5"></div>
+				<div class="rect6"></div>
+				<div class="rect7"></div>
+				<div class="rect8"></div>
+				<div class="rect9"></div>
+				<div class="rect10"></div>
+				<div class="rect11"></div>				<div class="rect12"></div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="station" id="station4">
+		<div class="title">
+			<div class="subtitle" id="title4"></div>
+			<div class="live" id="live4">LIVE</div>
+			<div class="playing" id="playing4">
+				<div class="rect1"></div>
+				<div class="rect2"></div>
+				<div class="rect3"></div>
+				<div class="rect4"></div>
+				<div class="rect5"></div>
+				<div class="rect6"></div>
+				<div class="rect7"></div>
+				<div class="rect8"></div>
+				<div class="rect9"></div>
+				<div class="rect10"></div>
+				<div class="rect11"></div>				<div class="rect12"></div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="station" id="station5">
+		<div class="title">
+			<div class="subtitle" id="title5"></div>
+			<div class="live" id="live5">LIVE</div>
+			<div class="playing" id="playing5">
+				<div class="rect1"></div>
+				<div class="rect2"></div>
+				<div class="rect3"></div>
+				<div class="rect4"></div>
+				<div class="rect5"></div>
+				<div class="rect6"></div>
+				<div class="rect7"></div>
+				<div class="rect8"></div>
+				<div class="rect9"></div>
+				<div class="rect10"></div>
+				<div class="rect11"></div>				<div class="rect12"></div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="station" id="station6">
+		<div class="title">
+			<div class="subtitle" id="title6"></div>
+			<div class="live" id="live6">LIVE</div>
+			<div class="playing" id="playing6">
+				<div class="rect1"></div>
+				<div class="rect2"></div>
+				<div class="rect3"></div>
+				<div class="rect4"></div>
+				<div class="rect5"></div>
+				<div class="rect6"></div>
+				<div class="rect7"></div>
+				<div class="rect8"></div>
+				<div class="rect9"></div>
+				<div class="rect10"></div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="station" id="station7">
+		<div class="title">
+			<div class="subtitle" id="title7"></div>
+			<div class="live" id="live7">LIVE</div>
+			<div class="playing" id="playing7">
+				<div class="rect1"></div>
+				<div class="rect2"></div>
+				<div class="rect3"></div>
+				<div class="rect4"></div>
+				<div class="rect5"></div>
+				<div class="rect6"></div>
+				<div class="rect7"></div>
+				<div class="rect8"></div>
+				<div class="rect9"></div>
+				<div class="rect10"></div>
+				<div class="rect11"></div>				<div class="rect12"></div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="station" id="station8">
+		<div class="title">
+			<div class="subtitle" id="title8"></div>
+			<div class="live" id="live8">LIVE</div>
+			<div class="playing" id="playing8">
+				<div class="rect1"></div>
+				<div class="rect2"></div>
+				<div class="rect3"></div>
+				<div class="rect4"></div>
+				<div class="rect5"></div>
+				<div class="rect6"></div>
+				<div class="rect7"></div>
+				<div class="rect8"></div>
+				<div class="rect9"></div>
+				<div class="rect10"></div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="station" id="station9">
+		<div class="title">
+			<div class="subtitle" id="title9"></div>
+			<div class="live" id="live9">LIVE</div>
+			<div class="playing" id="playing9">
+				<div class="rect1"></div>
+				<div class="rect2"></div>
+				<div class="rect3"></div>
+				<div class="rect4"></div>
+				<div class="rect5"></div>
+				<div class="rect6"></div>
+				<div class="rect7"></div>
+				<div class="rect8"></div>
+				<div class="rect9"></div>
+				<div class="rect10"></div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="station" id="station10">
+		<div class="title">
+			<div class="subtitle" id="title10"></div>
+			<div class="live" id="live10">LIVE</div>
+			<div class="playing" id="playing10">
+				<div class="rect1"></div>
+				<div class="rect2"></div>
+				<div class="rect3"></div>
+				<div class="rect4"></div>
+				<div class="rect5"></div>
+				<div class="rect6"></div>
+				<div class="rect7"></div>
+				<div class="rect8"></div>
+				<div class="rect9"></div>
+				<div class="rect10"></div>
+				<div class="rect11"></div>				<div class="rect12"></div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="station" id="station11">
+		<div class="title">
+			<div class="subtitle" id="title11"></div>
+			<div class="live" id="live11">LIVE</div>
+			<div class="playing" id="playing11">
+				<div class="rect1"></div>
+				<div class="rect2"></div>
+				<div class="rect3"></div>
+				<div class="rect4"></div>
+				<div class="rect5"></div>
+				<div class="rect6"></div>
+				<div class="rect7"></div>
+				<div class="rect8"></div>
+				<div class="rect9"></div>
+				<div class="rect10"></div>
+				<div class="rect11"></div>				<div class="rect12"></div>
+			</div>
+		</div>
+	</div>
+		<nav class=menu>
+			<a href="../index.html">HOME</a> 
+			<a href="tel:+14173273911">CALL</a>
+			<a href="app_exported/app.php">APPLICATION</a>
+			<a href="weather13.php">WEATHER</a>
+			<a href="info13.html">INFO</a> 
+			<a href="maps13.html">MAPS</a> 
+			<a href="problems-viewing-pages13.html">PROBLEMS VIEWING PAGES</a>			
+			<ul>
+			<li><a id=sub-menutop href=#sub-menutop>Links <span class="arrow">&#9660;</span></a>
+
+				<ul class=sub-menu>
+					<li><a href="https://wtop.com">WTOP WASHINGTON, DC</a></li>
+					<li><a href="https://wamu.org">WAMU WASHINGTON, DC</a></li>
+					<li><a href="https://ksmu.org">KSMU SPRINGFIELD, MO</a></li>
+					<li><a href="https://ktoo.org">KTOO JUNEAU, ALASKA</a></li>
+					<li><a href="https://hawaiipublicradio.org/">HAWAII PUBLIC RADIO</a></li>
+					<li><a href="https://xray.fm">KXRY PORTLAND, OREGON</a></li>
+					<li><a href="http://pigpenradio.org/">PIGPENRADIO Bristol, ENGLAND</a></li>
+					<li><a href="http://espn.com/">ESPN RADIO</a></li>
+					<li><a href="https://whcr.org/whcrstream-m3u//">WHCR THE VOICE OF HARLEM 90.3FM</a></li>
+					
+				</ul>
+			</li>
+
+		</ul>
+		
+		
+		
+		
+		
+		
+
+		</nav>
+
+		
+		
+		<script src="radio-stations13d-howler.core.js"></script>
+		<script src="radio-stations13d-radio.js"></script>
+
+
+
+
+
+
+		<script>
+
+		</script>
+</div>
+
+	</body>
+</html>

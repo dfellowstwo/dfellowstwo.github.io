@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+/* Layout (global rules for all sizes) */
+#radar2 { padding: 0; margin: 0 0 -1.1em 0;}
+a { text-decoration:none; }
+body { margin: 0px; padding: 0px; text-decoration:none; }
+header a.logo { display: block; position: absolute; background-position: 0px 0px; background-repeat: no-repeat; }
+nav {
+	width: 99.3%;
+	display: block;
+	position: absolute;
+	background-color: #a6430a;
+}
+article { padding: 14em 0 0 1em; }
+
+@media only screen and (min-width:976px){
+article { padding: 12em 0 0 0; }
+}
+@media only screen and (min-width:936px)  and (max-width:975px){
+article { padding: 14em 0 0 0; }
+}
+/* Layout Large Screens (default for older browsers) */
+
+header { height: 275px; background: url(../images/banner_large.jpg)} /* jjj */
+header a.logo { width: 80px; height: 80px; top: 6px; right: 6px; background-image: url(../images/icon-phone.png); background-size: 80px 80px; }
+
+.promo_container { padding: 0px 0px 15px 20px; }
+.promo_container .promo.one { width: 36%; float: left; }
+.promo_container .promo.two { width: 14%; float: left; }
+.promo_container .promo.three { width: 50%; float: left;  }
+.promo_container .promo.three img { width: 100%;  }
+.promo_container .promo.seven { width: 50%; float: right;  }
+.promo_container .promo.four { width: 100%; float: left; }
+.promo_container .promo.five { width: 100%; float: left; }
+/* .promo_container .promo .content { padding: 0px 30px 0px 70px; } */
+.promo_container .promo.one .content { padding: 0; }
+
+
+nav { top: 275px; }
+nav a { margin: 10px 0px 10px 5px; }
+
+
+@media screen and (max-width: 990px) {
+	footer { padding-left: 20px; }
+}
+
+
+@media
+	only screen and (-webkit-min-device-pixel-ratio: 2),
+	only screen and (   min--moz-device-pixel-ratio: 2),
+	only screen and (     -o-min-device-pixel-ratio: 2/1),
+	only screen and (        min-device-pixel-ratio: 2),
+	only screen and (                min-resolution: 192dpi),
+	only screen and (                min-resolution: 2dppx)
+{
+
+	header a.logo { background-image: url(logo_large_2x.png); }
+	header { background-image: url(banner_large_2x.jpg); }
+
+}
+

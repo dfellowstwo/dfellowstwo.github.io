@@ -1,0 +1,13 @@
+This folder contains scripts that are shared with Shopping Cart + new files that constitute
+a more generalized api.
+
+All files in the php... folders are the ones used by SCC. 
+
+The folder that roots this folder must be part of the include path. Files can best be
+included like this:
+	cartapp/phphosted/file_name.ext
+	cartapp/api/...
+
+FormBuilder has added a version number to the cartapp folder name, thus use:
+	cartapp.1/phphosted/file_name.ext
+	cartapp.1/api/...

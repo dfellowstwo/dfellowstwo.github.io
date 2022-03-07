@@ -1,0 +1,285 @@
+<?php
+/**
+* CoffeeCup Software's Shopping Cart Creator.
+*
+*
+*
+* @author Cees de Gruijter
+* @category SCC Hosted
+* @copyright Copyright (c) 2009 CoffeeCup Software, Inc. (https://www.coffeecup.com/)
+*/
+
+// careful not to overwrite what earlier includes defined
+if( empty( $myPageClassName  ) ) $myPageClassName  = 'DownloadPage';
+
+require 'phphosted/page.cls.php';
+
+class DownloadPage extends HostedPage {
+
+	var $transcode = false;
+
+	function __construct ( )  {
+		parent::__construct();
+	}
+
+
+	// return a true/false value and no error reporting, useful while building html,
+	function HasDownloads ( $transcode = false ) {
+
+		if( ! $transcode ) $transcode = $this->transcode;
+
+		// no transcode - no downloads
+		if( $transcode === false ) return false;
+
+		// check if the transaction has valid downloads available
+		$sql = 'SELECT count(*) ' .
+			   ' FROM ' . TDOWNL .
+			   ' WHERE route = :route' .
+			   ' AND dlcount < dlmax' .
+			   ' AND expire > NOW()';
+
+		$sth = $this->db->prepare( $sql, array( PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY ) );
+		$sth->bindParam(':route', strtolower( $transcode ), PDO::PARAM_STR);
+		$sth->execute();
+
+		return $sth->fetchColumn() != 0 ;
+	}
+
+
+	// this method has error reporting for interactive use
+	function SetTranscode ( $code ) {
+
+		$code = strtolower( trim( $code ) );
+		$this->transcode = false;
+
+		if( empty( $code ) ) {
+			$this->setCartMessage( _T('You must enter a valid code to see your downloads.') );
+			return;
+		}
+
+		// see if this code exists
+		$sql = 'SELECT count(*) ' .
+			   ' FROM ' . TDOWNL .
+			   ' WHERE route = :route';
+
+		$sth = $this->db->prepare( $sql, array( PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY ) );
+		$sth->bindParam(':route', $code, PDO::PARAM_STR);
+		$sth->execute();
+
+		if(  $sth->fetchColumn() == 0 ) {
+			$this->setCartMessage( _T('There is no record of a transaction with code: ') . strtoupper( $code ) );
+			return;
+		}
+
+		// double check if the transaction hasn't expired
+		if( ! $this->HasDownloads( $code ) ) {
+			$this->setCartMessage( _T('There is record of this transaction, the number of available downloads has been exceeded or the transaction has expired.') );
+			return;
+		}
+
+		// still some downloads left
+		$this->transcode = $code;
+	}
+
+
+	// return formatted transaction code or false if it doesn't exist OR has no downloads associated
+	function GetTransCode ( &$code ) {
+
+		$code = false;
+
+		if( $this->transcode ) {
+
+			$code = $this->transcode;
+
+		} else if( isset( $_SESSION[ ORDERREFKEY ] ) && $_SESSION[ ORDERREFKEY ] != '' ) {
+
+			$code = strtoupper( $_SESSION[ ORDERREFKEY ] );
+			$this->transcode = strtolower( $code );
+
+		}
+		return $code;
+	}
+
+
+	// return formatted transaction code and false if it doesn't exist OR has no downloads associated
+	function GetDownloadCode ( &$code ) {
+
+		if( $this->GetTransCode( $code ) &&
+			$this->HasDownloads() )
+		{
+			return true;
+
+		} else  {
+
+			$code = false;
+		}
+
+		return $code;
+	}
+
+
+	function GetDownloadItems ( ) {
+
+		// validation should have been done by DownloadPage::SetTranscode()
+		if( ! $this->transcode ) return array();
+
+		$sql = 'SELECT ' . TDOWNL. '.*, '
+			 . 		'IF( expire < NOW() OR dlcount > dlmax, 0, 1 ) AS available, '
+			 . 		'testmode '
+			 . ' FROM ' . TDOWNL
+			 . ' JOIN ' . TTRANS . ' USING( route )'
+			 . ' WHERE route = :route';
+
+		$sth = $this->db->prepare( $sql, array( PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY ) );
+		$sth->bindParam(':route', $this->transcode, PDO::PARAM_STR);
+		$sth->execute();
+
+		return $sth->fetchAll( PDO::FETCH_ASSOC );
+	}
+
+
+	function DoDownload( $id )
+	{
+		$sql = 'SELECT source' .
+			   ' FROM ' . TDOWNL .
+			   ' JOIN ' . TTRANS . ' USING( route )' .
+			   ' WHERE id = :id' .
+			   ' AND dlcount < dlmax' .
+			   ' AND testmode = 0';
+
+		$sth = $this->db->prepare( $sql, array( PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY ) );
+		$sth->bindParam(':id', $id, PDO::PARAM_INT);
+		$sth->execute();
+
+		$name = $sth->fetchColumn( 0 );
+
+		if( empty( $name ) ) {
+			$this->setCartMessage( _T("Download limit for this transaction exceeded.  Please contact the us if you think this is an error.") );
+			return false;
+		}
+
+		$path = $this->getConfigS( 'digital_downloads','path' ) . $name;
+
+		if( file_exists( $path ) ) {
+
+			$sql = 'UPDATE ' . TDOWNL .
+				   ' SET dlcount = dlcount + 1' .
+				   ' WHERE id = :id';
+
+			$sth = $this->db->prepare( $sql );
+			$sth->bindParam(':id', $id, PDO::PARAM_INT);
+			$sth->execute();
+
+			header("Content-type: application/force-download");
+			header('Content-Disposition: inline; filename="' . $path . '"');
+			header("Content-Transfer-Encoding: Binary");
+			header("Content-length: ".filesize( $path ));
+			header('Content-Type: application/octet-stream');
+			header('Content-Disposition: attachment; filename="' . $name . '"');
+			readfile( $path );
+
+		} else {
+			$this->setCartMessage( _T('The file you want to download is not available. Please contact the us.') );
+			return false;
+		}
+
+	}
+
+
+	// $data is expected to be generated by ShoppingCart::exportCart()
+	function AddDownload ( $transcode, $data ) {
+
+		$expire = $this->getConfigS( 'digital_downloads', 'expire' );
+		$max = $this->getConfigS( 'digital_downloads', 'maxdownloads' );
+		$transcode = strtolower( $transcode );
+
+		$sql = 'SELECT count(*) FROM ' . TDOWNL
+			 . ' WHERE route = :route'
+			 . ' AND prodid = :prodid;';
+		$sth1 = $this->db->prepare( $sql,array( PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY ) );
+
+		$sql = 'INSERT ' . TDOWNL
+			 . ' SET route=:route, prodid=:prodid, name=:name, source=:source, dlcount=0, dlmax=:max, expire=NOW() + INTERVAL :expire DAY;';
+
+		$sth2 = $this->db->prepare( $sql );
+
+		foreach( $data['lines'] as $row ) {
+
+			$prod = $this->getProduct( $row['productid'] );
+
+			if( isset( $prod['delivery'] ) && $prod['delivery'] == 'download') {
+
+				// remember the route, so downloads also work without $_SESSION data in relay situations
+				if( ! $this->HasDownloads ) {
+					$this->transcode = strtolower( $transcode );
+					$this->HasDownloads = true;
+				}
+
+				$sth1->bindParam( ':route', $transcode, PDO::PARAM_STR );
+				$sth1->bindParam( ':prodid', $prod['productid'], PDO::PARAM_INT );
+				$sth1->execute();
+
+				if( $sth1->fetchColumn() != 0) continue;		// already inserted
+
+				$sth2->bindParam( ':route', $transcode, PDO::PARAM_STR );
+				$sth2->bindParam( ':prodid', $prod['productid'], PDO::PARAM_INT );
+				$sth2->bindParam( ':name', $prod['name'], PDO::PARAM_STR );
+				$sth2->bindParam( ':source', $prod['downloadfile'], PDO::PARAM_STR );
+				$sth2->bindParam( ':max', $max, PDO::PARAM_INT );
+				$sth2->bindParam( ':expire', $expire, PDO::PARAM_INT );
+				$sth2->execute();
+			}
+		}
+
+	}
+
+
+	// check if the payment status allows downloads already
+	function AllowDownload ( $gateway, $status ) {
+
+		$gatewayconfig = false;
+
+		// translate gateway into something we can trace back in config
+		// these names are defined in controller.php / PayPal WPS()
+		switch( $gateway ) {
+
+		case 'cc_paypalcheckout':					// occurs in Express Chechou IPN
+		case 'PayPal Express':
+			$gatewayconfig = 'PayPal';
+			break;
+
+		case 'Google Checkout':
+			$gatewayconfig = 'Google';
+			break;
+
+		case 'Auth.Net':
+			$gatewayconfig = 'AuthorizeNetSIM';
+			break;
+
+		case 'PayPal WPS':
+			$gatewayconfig = 'PayPalWPS';
+			break;
+
+		case '2CO':
+			$gatewayconfig = '2CO';
+			break;
+
+		case 'WorldPay':
+			$gatewayconfig = 'WorldPay';
+			break;
+
+		default:
+			// this should never happen
+			writeErrorLog( 'AllowDownload() called with unknown gateway identifier:', $gateway );
+		}
+
+		if( $gatewayconfig ) {
+			$states = $this->getConfigS( $gatewayconfig, 'ALLOW_DOWNLOAD_STATES' );
+			return $states !== false && in_array( $status, $states );
+		}
+
+		return false;
+	}
+}
+
+?>

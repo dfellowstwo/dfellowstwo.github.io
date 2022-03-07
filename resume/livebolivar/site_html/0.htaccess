@@ -1,0 +1,10 @@
+# STRONG HTACCESS PROTECTION
+# https://perishablepress.com/improve-site-security-by-protecting-htaccess-files/
+<Files ~ "^.*\.([Hh][Tt][Aa])">
+order allow,deny
+deny from all
+satisfy all
+</Files>
+
+# SUPPRESS PHP ERROR DISPLAY
+php_flag display_errors off

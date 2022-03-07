@@ -1,0 +1,19 @@
+{
+    "name": "WEATHER RADAR SPRINGFIELD, MISSOURI loading ...",
+    "short_name": "WEATHER RADAR SPRINGFIELD, MISSOURI loading ...",
+    "icons": [
+        {
+            "src": "_icon_android-chrome-192x192.png?v=almEKrgqpX",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "_icon_android-chrome-256x256.png?v=almEKrgqpX",
+            "sizes": "256x256",
+            "type": "image/png"
+        }
+    ],
+	"theme_color": "#2196f3",
+	"background_color": "#2196f3",
+    "display": "standalone"
+}

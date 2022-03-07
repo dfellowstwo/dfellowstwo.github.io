@@ -1,0 +1,239 @@
+@charset "UTF-8";
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+
+@media screen {
+.print{display:none;}
+
+}
+html {
+	line-height: 1em;
+}
+.hide{display:none;}
+a {text-decoration:none;}
+ol, ul {
+	list-style: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+	vertical-align: middle;
+}
+q, blockquote {
+	quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+	content: "";
+	content: none;
+}
+a img {
+	border: 0;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+	display: block;
+}
+*, *:before, *:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.red-text {
+	color: #FF0000;
+}
+.green-text {
+	color: #008000;
+}
+.noScreen {
+	display: none;
+}
+.noScreen2 {
+	display: none;
+}
+body {
+	color: #000;
+	font-family: Arial;
+	font-size: 16px;
+	background: #515673 url(../images/background_gradient.jpg) repeat-x 0 0;
+}
+
+.page {
+	max-width: 1360px;
+	margin: 0 auto;
+	position: relative;
+	background-color: #fff;
+	padding: .5em;
+}
+h1 {
+	font-size: 2em;
+	margin: 0 0 .5em 0;
+	font-weight: normal;
+	color: #a6430a;
+	line-height: 1em;
+}
+h2 {
+	font-size: 1.7em;
+	margin: 0 0 1em 0;
+}
+h3 {
+	font-size: 1.5em;
+	margin: 0 0 1em 0;
+}
+a {
+	color: #de9000;
+	text-decoration: none;
+	line-height: 1em;
+}
+a:hover {
+	color: #009eff;
+}
+a.cta:hover {
+	background-position: right -44px;
+}
+footer {
+	font-size: .85em;
+	color: #000;
+	background-color: #fff;
+	padding: 10px 10px 10px 0;
+}
+.promo h3 {
+	font-size: 1.1em;
+	margin: 0;
+}
+.promo {
+	background-repeat: no-repeat;
+	background-size: 60px 60px;
+	margin-bottom: 2em;
+}
+.promo.one {
+	background-image: url(../images/promo_1.jpg);
+}
+.promo.two {
+	background-image: url(../images/promo_2.jpg);
+}
+.promo.three {
+	background-image: url(../images/promo_3.jpg);
+}
+.promo.four {
+	background-image: url(../prop_html/116_w_maupin_st_a_b60X60.jpg);
+}
+.promo.five {
+	background-image: url(../prop_html/709-w-fairplay-st60x60.jpg);
+}
+.promo.six {
+	background-image: url(../prop_html/211_w_division_st60x60.jpg);
+}
+.promo.seven {
+	background-image: url(../prop_html/835_e_buffalo_st60x60.jpg);
+}
+.promo.eight {
+	background-image: url(../prop_html/1870-1890_pike_ave60x60.jpg);
+}
+.promo.nine {
+	background-image: url(../prop_html/1870-1890_pike_ave60x60.jpg);
+}
+.promo.ten {
+	background-image: url(../prop_html/760_762_morgan_st60x60.jpg);
+}
+.promo.eleven {
+	background-image: url(../prop_html/909-n-albany-ave60X60.jpg);
+}
+.promo.twelve {
+	background-image: url(../prop_html/427_bradford_st60x60.jpg);
+}
+.promo.eleven {
+	background-image: url(../prop_html/511_n_benton_ave60x60.jpg);
+}
+.promo.fourteen {
+	background-image: url(../prop_html/422_bradford_st60x60.jpg);
+}
+.promo.fifteen {
+	background-image: url(../prop_html/422_bradford_st60x60.jpg);
+}
+.promo.sixteen {
+	background-image: url(../prop_html/740_742_morgan_st60x60.jpg);
+}
+.promo.seventeen {
+	background-image: url(../prop_html/839_841_morgan_st60x60.jpg);
+}
+.promo.eighteen {
+	background-image: url(../prop_html/317_n_pike_ave60X60.jpg);
+}
+.promo.nineteen {
+	background-image: url(../prop_html/210_s_dunnegan_ave60X60.jpg);
+}
+.promo.twenty {
+	background-image: url(../prop_html/611_w_locust_st60X60.jpg);
+}
+.promo.twenty-one {
+	background-image: url(../prop_html/920-w-morgan-st13-60X60.jpg);
+}
+.promo.twenty-two {
+	background-image: url(../prop_html/413_n_park_ave60X60.jpg);
+}
+.promo.twenty-three {
+	background-image: url(../prop_html/515_e_summit_st60x60.jpg);
+}
+.promo.twenty-four {
+	background-image: url(../prop_html/2877_s_orchard_ave60x60.jpg);
+}
+.promo.twenty-five {
+	background-image: url(../prop_html/222_n_albany_ave60x60.jpg);
+}
+.promo.twenty-six {
+	background-image: url(../prop_html/824_s_lillian_ave60x60.jpg);
+}
+.promo.twenty-seven {
+	background-image: url(../prop_html/206_w_walnut_st60X60.jpg);
+}
+.promo.twenty-eight {
+	background-image: url(../prop_html/314_n_gary_ave60x60.jpg);
+}
+.promo.twenty-nine {
+	background-image: url(../prop_html/811_w_locust_st60x60.jpg);
+}
+.promo.thirty {
+	background-image: url(../prop_html/216_s_dunnegan_ave60x60.jpg);
+}
+.promo.thirty-one {
+	background-image: url(../prop_html/639_morgan_st60x60.jpg);
+}
+.promo.thirty-two {
+	background-image: url(../prop_html/760_762_morgan_st60x60.jpg);
+}
+.promo.thirty-three {
+	background-image: url(../prop_html/637-n-main-ave60x60.jpg);
+}
+.promo.thirty-four {
+	background-image: url(../prop_html/513_s_missouri_ave60x60.jpg);
+}
+nav a {
+	color: #f5a06e;
+	text-transform: uppercase;
+	text-decoration: none;
+	display: inline-block;
+	font-weight: bold;
+	font-size: .9em;
+}
+nav a:hover {
+	color: #fff;
+}
+.clear-fix {
+	clear: both;
+	line-height: 1px;
+}
+.print {
+	display: none;
+}
+#springhill {
+	margin: 0 0 .5em 0;
+}

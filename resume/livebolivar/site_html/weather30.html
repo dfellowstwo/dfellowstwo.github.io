@@ -1,0 +1,39 @@
+<?php
+
+?>
+<!DOCTYPE HTML>
+<!-- https://api.weatherunlocked.com/api/forecast/37.614479,-93.410469?app_id=8a1d2a35&app_key=5a361b954970e0cf3cc7b9f1a8a5e7b3 -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>WEATHER30.HTML</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<style>
+
+</style>
+</head>
+
+<body>
+
+
+<script>
+
+
+
+const APP_ID = '8a1d2a35';
+const API_KEY = '5a361b954970e0cf3cc7b9f1a8a5e7b3';
+
+
+
+export const getCurrentWeather => {
+    return axios.get(`http://api.weatherunlocked.com/api/forecast/id=4377835?app_id=${APP_ID}&app_key=${API_KEY}`
+    , {
+      headers: {
+          'Content-Type': 'application/json'
+      }}).then((response) => response.data);
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<weatherdata>
+<location>
+<name>Bolivar</name>
+<type/>
+<country>US</country>
+<timezone/>
+<location geobaseid="4377835" geobase="geonames" longitude="-93.4105" latitude="37.6145" altitude="0"/>
+</location>
+<credit/>
+<meta>
+<lastupdate/>
+<calctime>0.1079</calctime>
+<nextupdate/>
+</meta>
+<sun set="2018-10-02T23:54:08" rise="2018-10-02T12:10:42"/>
+<forecast>
+<time day="2018-10-02">
+<symbol name="scattered clouds" var="03d" number="802"/>
+<precipitation/>
+<windDirection name="Southwest" code="SW" deg="222"/>
+<windSpeed name="Fresh Breeze" mps="10.25"/>
+<temperature day="83.89" morn="78.98" eve="80.19" night="74.52" max="84.2" min="74.52"/>
+<pressure value="999.18" unit="hPa"/>
+<humidity value="78" unit="%"/>
+<clouds value="scattered clouds" unit="%" all="32"/>
+</time>
+<time day="2018-10-03">
+<symbol name="light rain" var="10d" number="500"/>
+<precipitation type="rain" value="0.26"/>
+<windDirection name="South-southwest" code="SSW" deg="212"/>
+<windSpeed name="Gale" mps="19.48"/>
+<temperature day="83.55" morn="72.39" eve="81.95" night="78.89" max="85.17" min="72.39"/>
+<pressure value="992.55" unit="hPa"/>
+<humidity value="70" unit="%"/>
+<clouds value="few clouds" unit="%" all="12"/>
+</time>
+<time day="2018-10-04">
+<symbol name="moderate rain" var="10d" number="501"/>
+<precipitation type="rain" value="11.4"/>
+<windDirection name="NorthEast" code="NE" deg="48"/>
+<windSpeed name="Gentle Breeze" mps="4.97"/>
+<temperature day="73.78" morn="71.56" eve="73.33" night="72.03" max="75.04" min="71.42"/>
+<pressure value="996.46" unit="hPa"/>
+<humidity value="100" unit="%"/>
+<clouds value="overcast clouds" unit="%" all="92"/>
+</time>
+<time day="2018-10-05">
+<symbol name="light rain" var="10d" number="500"/>
+<precipitation type="rain" value="2.39"/>
+<windDirection name="South-southwest" code="SSW" deg="195"/>
+<windSpeed name="Strong breeze" mps="11.07"/>
+<temperature day="78.57" morn="66.67" eve="77.79" night="74.05" max="78.57" min="66.67"/>
+<pressure value="991.87" unit="hPa"/>
+<humidity value="0" unit="%"/>
+<clouds value="scattered clouds" unit="%" all="31"/>
+</time>
+<time day="2018-10-06">
+<symbol name="heavy intensity rain" var="10d" number="502"/>
+<precipitation type="rain" value="27.46"/>
+<windDirection name="North-northeast" code="NNW" deg="345"/>
+<windSpeed name="Fresh Breeze" mps="8.21"/>
+<temperature day="53.15" morn="55.04" eve="53.96" night="47.86" max="55.04" min="47.86"/>
+<pressure value="996.49" unit="hPa"/>
+<humidity value="0" unit="%"/>
+<clouds value="overcast clouds" unit="%" all="96"/>
+</time>
+<time day="2018-10-07">
+<symbol name="heavy intensity rain" var="10d" number="502"/>
+<precipitation type="rain" value="34.8"/>
+<windDirection name="East-northeast" code="ENE" deg="71"/>
+<windSpeed name="" mps="7.99"/>
+<temperature day="56.79" morn="44.83" eve="53.49" night="55.44" max="56.79" min="44.83"/>
+<pressure value="992.41" unit="hPa"/>
+<humidity value="0" unit="%"/>
+<clouds value="overcast clouds" unit="%" all="90"/>
+</time>
+<time day="2018-10-08">
+<symbol name="very heavy rain" var="10d" number="503"/>
+<precipitation type="rain" value="48.06"/>
+<windDirection name="North-northeast" code="NNW" deg="336"/>
+<windSpeed name="High wind, near gale" mps="14.76"/>
+<temperature day="58.96" morn="60.28" eve="54.25" night="50.09" max="60.28" min="50.09"/>
+<pressure value="968.96" unit="hPa"/>
+<humidity value="0" unit="%"/>
+<clouds value="overcast clouds" unit="%" all="100"/>
+</time>
+</forecast>
+</weatherdata>

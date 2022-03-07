@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang=en>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+<meta name=viewport content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0">
+<title>LOCATION3.HTML</title>
+<link rel="stylesheet" type="text/css" href="screen_styles.css" />
+<link rel="stylesheet" type="text/css" href="screen_layout_large.css" />
+<link rel="stylesheet" type="text/css" media="only screen and (min-width:50px) and (max-width:600px)" href="screen_layout_small.css" />
+<link rel="stylesheet" type="text/css" media="only screen and (min-width:601px) and (max-width:800px)" href="screen_layout_medium.css" />
+<link rel="stylesheet" type="text/css" media="print" href="print.css" />
+<link rel="icon" href="../favicon.ico?v=1.1" />
+<link href="../images/apple-touch-icon.png" rel="apple-touch-icon" />
+<link href="../images/apple-touch-icon-76x76.png" rel="apple-touch-icon" sizes="76x76" />
+<link href="../images/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120" />
+<link href="../images/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
+<link href="../images/apple-touch-icon-180x180.png" rel="apple-touch-icon" sizes="180x180" />
+<link href="../images/icon-hires.png" rel="icon" sizes="192x192" />
+<link href="../images/icon-normal.png" rel="icon" sizes="128x128" />
+<!--[if lt IE 9]>
+<script src="html5shiv.js"></script>		<![endif]-->
+		
+		
+		<style type="text/css">
+
+		</style>
+		<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script> -->
+		<!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUZCL6Msvi1MSDXkXy-MJ1GjZmCHDzOzA&callback=initMap" type="text/javascript"></script> -->
+		<script type="text/javascript">
+
+		</script>
+	</head>
+	<body onLoad="getLocationConstant()">
+
+<a href="https://www.google.com/maps/dir/?api=1&destination=37.6019214,-93.4168756&travelmode=driving&zoom=13">link12</a><br>
+https://stackoverflow.com/questions/7764244/correct-address-format-to-get-the-most-accurate-results-from-google-geocoding-ap
+
+		<!-- BEGIN https://css-tricks.com/snippets/html/get-directions-form-google-maps/ -->
+		<form action="https://maps.google.com/maps" method="get" target="_blank">
+		<input type="hidden" name="saddr" id="saddr" value="" />
+		<input type="hidden" name="daddr" value="37.6017128,-93.4155273" />
+		<input type="submit" value="Driving directions at Google Maps" />
+		</form>
+		<!-- END https://css-tricks.com/snippets/html/get-directions-form-google-maps/ -->
+
+		<!-- BEGIN https://jsfiddle.net/Mikki10/gs5ed5sc/1/ -->
+		<script type="text/javascript">
+		    function getLocationConstant() {
+			  if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError);
+			  } else {
+				alert("Your browser or device doesn't support Geolocation");
+			  }
+		    }
+
+		    // If we have a successful location update
+		    function onGeoSuccess(event) {
+
+			  document.getElementById("saddr").value = event.coords.latitude + ", " + event.coords.longitude;
+
+		    }
+
+		    // If something has gone wrong with the geolocation request
+		    function onGeoError(event) {
+			  alert("Error code " + event.code + ". " + event.message);
+		    }
+		</script>
+		<!-- END https://jsfiddle.net/Mikki10/gs5ed5sc/1/ -->
+	</body>
+</html>

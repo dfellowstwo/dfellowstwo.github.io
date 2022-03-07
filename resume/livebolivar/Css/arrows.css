@@ -1,0 +1,41 @@
+.ItemStyle {
+	font-family: "Arial";
+	font-size: 14px;
+	vertical-align: middle;
+	background-repeat: no-repeat;
+	list-style-type: none;
+	list-style-image: url(usm.gif);
+	color: #000000;
+}
+
+.PopItemStyle {
+	font-size: 14px;
+	vertical-align: middle;
+	background-repeat: no-repeat;
+	list-style-type: none;
+	list-style-image: url(dsmh.gif);
+	color: #000000;
+	font-family: "Arial";
+
+}
+
+body {
+	background-image:url(images/background770.jpg);background-repeat:repeat;
+
+
+
+
+}
+A:link {
+	color: #003399;
+	text-decoration: underline;
+}
+A:visited {
+	color: #002B84;
+	text-decoration: underline;
+}
+A:hover {
+	font-style: italic;
+	color: #CC0000;
+	text-decoration: underline;
+}

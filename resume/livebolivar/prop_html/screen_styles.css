@@ -1,0 +1,312 @@
+@charset "UTF-8";
+
+noScreen, noPrint { display:none;}
+
+/* Global Styles */
+
+
+
+article { margin: 0px 20px 10px 20px; }
+
+
+
+/* CENTER A IMAGE.  SEE ALL_UTILITY_INFO13.HTML
+
+http://jsfiddle.net/jgoemat/LWrSD/ */
+
+div.horizontal {
+
+    display: flex;
+
+    justify-content: center;
+
+}
+
+div.vertical {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+}
+
+div.div2 {
+
+    width: 100%;
+
+    height: 100%;
+
+}
+
+.vertical img { 
+
+	width: 100%; height: 100%; 
+
+}
+
+
+
+/* END CENTER A IMAGE.  
+
+SEE ALL_UTILITY_INFO13.HTML
+
+http://jsfiddle.net/jgoemat/LWrSD/ */
+
+
+
+/* all_utility_info13.html */
+
+.hide{ display:inline;
+
+}
+
+
+
+/* hide "to livebolivar.com" when not printing */
+
+/* hide jpgs when not printing */
+
+@media not print{
+
+	article h1 span { display:none !important; } 
+
+	.hidejpg img  { display:none !important; } 
+
+}
+
+/* hide header when printing */   
+
+@media print{
+
+	.noPrint  { display:none !important; }
+
+	nav { display:none !important; }
+
+	img { margin: 10px 0 0 0; position: absolute; }
+
+	.dougprint { margin:10px 0 15px 0; }
+
+}
+
+
+
+body {
+
+	color: #575c7a;
+
+	line-height: 1.5em;
+
+	font-family: Arial;
+
+	font-size: 16px;
+
+	background: #515673 url(../images/background_gradient.jpg) repeat-x 0px 0px;
+
+}
+
+/* doug. day time iframe */
+
+iframe { border: 0;}
+
+
+
+.dougspace { padding:20px 0 0 0;}
+
+.dougspace2 { margin:-30px 0 15px 0;}
+
+.page { 
+
+	max-width: 980px;
+
+	position: relative; 
+
+	background-color: #fff;
+
+}
+
+a.doug { text-decoration: none;}
+
+h3.doug { display:none;}
+
+ul{ list-style-type: none;}
+
+
+
+h1 { 
+
+	color: #a6430a; 
+
+	font-size: 2em; font-weight: normal; 
+
+}
+
+
+
+h2 { 
+
+	color: #a6430a; 
+
+	font-size: 1.8em; 
+
+	margin: 0em 0em .5em 0em; 
+
+	font-weight: normal; 
+
+}
+
+h3 { font-size: 1.5em; margin: 0em 0em 1em 0em; }
+
+
+
+p { margin: 0px 0px .75em 0px; }
+
+a { color: #de9000; text-decoration: none;}
+
+a:hover { color: #009eff; }
+
+a.cta {
+
+	text-transform: uppercase;
+
+	font-size: 1.5em;
+
+	font-weight: bold;
+
+	text-decoration: none;
+
+	margin: .5em 0 0 0;
+
+	padding: 0px 12px 0px 0px;
+
+	background: url(../images/cta_arrow.png) no-repeat right 0px top 8px;
+
+/* make a div a link. http://jsfiddle.net/mrivasa/TK69d/ */
+
+	position: relative;
+
+	z-index: 100;
+
+/* END make a div a link. http://jsfiddle.net/mrivasa/TK69d/ */
+
+
+
+}
+
+a.cta:hover { 
+
+	background-position: right -2px top 8px; 
+
+}
+
+
+
+/* make a div a link. 
+
+http://jsfiddle.net/mrivasa/TK69d/ */
+
+.div-link{
+
+/* all rules required to make 
+
+the whole div clickable */ 
+
+position:absolute; 
+
+width:100%;
+
+height:100%;
+
+top:0;
+
+left: 0;
+
+z-index: 1;}
+
+/* END make a div a link. 
+
+http://jsfiddle.net/mrivasa/TK69d/ */
+
+
+
+footer { 
+
+	font-size: .85em; color: #9ba0bd; 
+
+	background-color: #515673; 
+
+	padding: 10px 10px 10px 0px; 
+
+}
+
+
+
+.promo h3 { font-size: 1.1em; margin: 0; }
+
+.promo p { 
+
+	line-height: 1.2em; font-size: .9em; 
+
+	margin-bottom: .5em; }
+
+.promo { background-repeat: no-repeat; }
+
+.promo.one { background-image: url(../images/promo_1.jpg); }
+
+.promo.two { background-image: url(../images/promo_2.jpg); }
+
+.promo.three { background-image: url(../images/promo_3.jpg); }
+
+.promo.four { background-image: url(../prop_html/116_w_maupin_st_a_b60X60.jpg); }
+
+.promo.five { background-image: url(../prop_html/709-w-fairplay-st60x60.jpg); }
+
+.promo.six { background-image: url(../prop_html/211_w_division_st60x60.jpg); }
+
+.promo.seven { background-image: url(../prop_html/835_e_buffalo_st60x60.jpg); }
+
+.promo.eight { background-image: url(../prop_html/1870-1890_pike_ave60x60.jpg); }
+
+.promo.nine { background-image: url(../prop_html/1870-1890_pike_ave60x60.jpg); }
+
+.promo.ten { background-image:url(../prop_html/760_762_morgan_st60x60.jpg);  clear: left;}
+
+.promo.eleven { background-image:url(../prop_html/909-n-albany-ave60X60.jpg); }
+
+.promo.twelve { background-image:url(../prop_html/422_bradford_st60x60.jpg); }
+
+
+
+nav a {
+
+	color: #f5a06e;
+
+	text-transform: uppercase;
+
+	text-decoration: none;
+
+	display: inline-block;
+
+	font-weight: bold;
+
+	font-size: .9em;
+
+	
+
+}
+
+nav a:hover { color: #fff; }
+
+
+
+
+
+.clear-fix { clear: both; line-height: 1px; }
+
+
+
+
+
+
+

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<!-- saved from url=(0014)about:internet -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<title>CONTACT US</title>
+<meta name=description content="PROPERTY FOR RENT IN AND AROUND BOLIVAR, POLK COUNTY, SOUTHWEST MISSOURI 65613. CALL AJ ELLIS AT 1-417-327-3911 MONDAY THROUGH FRIDAY 10AM TO 5PM.  WELCOME TO BOLIVAR.">
+<meta name=keywords content="housing for rent apartments for rent bolivar mo apartments in bolivar mo bolivar apartments apartment bolivar mo bolivar mo rentals apartments bolivar mo bolivar homes for rent ellis rentals bolivar mo house for rent bolivar mo houses for rent bolivar mo rental properties houses for rent homes for rent apartments for rent rental homes houses for rent near me homes for rent near me property for rent rental property rentals duplex for rent triplex for rent property to let">
+<meta content="NOINDEX, FOLLOW" name="robots">
+<meta name="author" content="DOUG FELLOWS">
+
+<!--[if lt IE 9]>
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<style>
+#z042718 a{line-height:2em}
+p{padding:0 1em 0 1em}
+html{line-height:1em}.hide{display:none}a{text-decoration:none}.red-text{color:#f00}.green-text{color:#008000}body{color:#404040;font-family:Arial;font-size:18px;font-weight:bold;background:#515673 url(../images/background_gradient.jpg) repeat-x 0 0}.page{max-width:1360px;margin:0 auto;position:relative;background-color:#fff;padding:.5em}h1{font-size:2em;margin:0 0 .5em 0;font-weight:normal;color:#a6430a;line-height:1em}h2{font-size:1.7em;margin:0 0 1em 0}h3{font-size:1.5em;margin:0 0 1em 0}a{color:#de9000;text-decoration:none;line-height:1em}a:hover{color:#009eff}a.cta:hover{background-position:right -44px}footer{font-size:.85em;color:#000;background-color:#fff;padding:10px 10px 10px 0}.promo h3{font-size:1.1em;margin:0}nav a{color:#f5a06e;text-transform:uppercase;text-decoration:none;display:inline-block;font-weight:bold;font-size:.9em}nav a:hover{color:#fff}.clear-fix{clear:both;line-height:1px}.print{display:none}#springhill{margin:0 0 .5em 0}cssgif{max-width:88px;float:right;margin:0 0 .25em 0}.spacelink{padding-left:1em}.videolinks{padding-left:1em}.vspace{margin-bottom:1em}.vspace2{margin-bottom:.25em}.springhill{padding-left:.25em}body{margin:0;padding:0}header a.logo{display:block;position:absolute;background-position:0 0;background-repeat:no-repeat}header a.logo{width:80px;height:80px;top:9px;right:9px;background-image:url(../images/icon-phone.png);background-size:80px 80px}header{height:382px;background:url(../images/banner_large1360.jpg) no-repeat right 0;background-size:1360px 382px}nav{top:390px;width:100%;display:block;position:absolute;background-color:#a6430a}nav a{color:#f5a06e;text-transform:uppercase;display:inline-block;font-weight:bold;font-size:.9em;padding:1em}nav a:hover{color:#fff}article{padding:70px 20px 10px 0}.promo_container{padding:0 0 15px 20px}.promo_container .promo{width:33%;float:left;background-position:0 0}.promo_container .promo .content{padding:0 30px 0 70px}.promo_container2{margin:2em 0 0 0;padding:0 0 15px 20px}.promo_container2 .promo{width:33%;float:left;background-position:0 0}.promo_container2 .promo .content{padding:0 30px 0 70px}.promo_container3{margin:2em 0 0 0;padding:0 0 15px 20px}.promo_container3 .promo{width:33%;float:left;background-position:0 0}.promo_container3 .promo .content{padding:0 30px 0 70px}p{margin:1em 2em .75em 0}.promo h1{margin:0}.promo a.cta{font-size:1.25em;line-height:1em;font-weight:bold;margin:0;padding:0 1em 0 0;background:url(../images/cta_arrow.png) no-repeat right 0 top 6px}.hidelg{display:none}footer{padding-left:20px}@media screen and (min-width:50px) and (max-width:320px){header{height:75px;background:url(../images/banner_small.jpg);background-size:500px 85px;background-repeat:no-repeat;background-position:center top}header a.logo{width:40px;height:40px;top:6px;right:5px;background-image:url(../images/icon-phone.png);background-size:40px 40px}html{line-height:1.5em}#noRent{display:none}.spacelink{padding-left:2em}.videolinks{padding-left:2em}.vspace{margin-bottom:2em}.vspace2{margin-bottom:.25em}p+p{margin-top:2em}@media only screen and (min-width:50px) and (max-width:320px){a.cta span{display:none}}article{padding:20px 20px 10px 0}li{text-align:left;padding:1em 0}nav{display:block;position:static;padding:10px 0 10px 0;background-color:#515673}nav a{color:#fff;display:block;margin:15px 15px 30px 15px;padding:9px;border:1px solid #a6abc5;background:url(../images/mobile_link_arrow.png) no-repeat right center;-webkit-border-radius:12px;-moz-border-radius:12px;border-radius:12px;font-size:1.25em}nav a:hover{color:#fff;background-color:rgba(255,255,255,.15)}.promo_container{padding:0}.promo_container .promo{width:auto;float:none;padding:10px 0 0 0;background-position:20px 13px;border-top:1px solid #ccc}.promo_container .promo.one{width:auto;background-position:20px 13px}.promo_container .promo.two{width:auto;background-position:20px 13px}.promo_container .promo.three{width:auto;background-position:20px 13px}.promo_container .promo .content{padding:0 20px 5px 90px}.promo_container p{font-size:1.5em;margin:0 2em .75em 0}.promo_container2{margin:0;padding:0}.promo_container2 .promo{width:auto;float:none;padding:10px 0 0 0;background-position:20px 13px;border-top:1px solid #ccc}.promo_container2 .promo.twenty-seven{width:auto;background-position:20px 13px}.promo_container2 .promo.twenty-eight{width:auto;background-position:20px 13px}.promo_container2 .promo.thirty-three{width:auto;background-position:20px 13px}.promo_container2 .promo .content{padding:0 20px 5px 90px}.promo_container2 p{font-size:1.5em;margin:.5em 2em .75em 0}.promo_container3{margin:0;padding:0}.promo_container3 .promo{width:auto;float:none;padding:10px 0 0 0;background-position:20px 13px;border-top:1px solid #ccc}.promo_container3 .promo.thirty-four{width:auto;background-position:20px 13px}.promo_container3 .promo .content{padding:0 20px 5px 90px}.promo_container3 p{font-size:1.5em;margin:.5em 2em .75em 0}.promo a.cta{font-size:1.25em;line-height:1em;font-weight:bold;margin:0;padding:0 1em 0 0;background:url(../images/cta_arrow.png) no-repeat right 0 top 12px}a{color:#00f;text-decoration:none;line-height:1em}article p{font-size:1.25em;font-weight:bold;margin:0 0 1.25em 0;padding:0;background:0}article p a.cta{line-height:3em}.hidelg{display:inline-block}footer{border-top:1px solid #a6abc5;padding-left:0}footer a{padding:0 1em 0 0}body{background-image:none}}@media screen and (min-width:321px) and (max-width:600px){#noRent{width:45%}header{height:75px;background:url(../images/banner_small.jpg);background-size:500px 85px;background-repeat:no-repeat;background-position:center top}header a.logo{width:40px;height:40px;top:6px;right:5px;background-image:url(../images/icon-phone.png);background-size:40px 40px}html{line-height:1.5em}.spacelink{padding-left:2em}.videolinks{padding-left:2em}.vspace{margin-bottom:2em}.vspace2{margin-bottom:.25em}p+p{margin-top:2em}@media only screen and (min-width:50px) and (max-width:320px){a.cta span{display:none}}article{padding:20px 20px 10px 0}li{text-align:left;padding:1em 0}nav{display:block;position:static;padding:10px 0 10px 0;background-color:#515673}nav a{color:#fff;display:block;margin:15px 15px 45px 15px;padding:9px;border:1px solid #a6abc5;background:url(../images/mobile_link_arrow.png) no-repeat right center;-webkit-border-radius:12px;-moz-border-radius:12px;border-radius:12px;font-size:1.25em}nav a:hover{color:#fff;background-color:rgba(255,255,255,.15)}.promo_container{padding:0}.promo_container .promo{width:auto;float:none;padding:10px 0 0 0;background-position:20px 13px;border-top:1px solid #ccc}.promo_container .promo.one{width:auto;background-position:20px 13px}.promo_container .promo.two{width:auto;background-position:20px 13px}.promo_container .promo.three{width:auto;background-position:20px 13px}.promo_container .promo .content{padding:0 20px 5px 90px}.promo_container p{font-size:1.5em;margin:1em 2em .75em 0}.promo_container2{margin:0;padding:0}.promo_container2 .promo{width:auto;float:none;padding:10px 0 0 0;background-position:20px 13px;border-top:1px solid #ccc}.promo_container2 .promo.twenty-seven{width:auto;background-position:20px 13px}.promo_container2 .promo.twenty-eight{width:auto;background-position:20px 13px}.promo_container2 .promo.thirty-three{width:auto;background-position:20px 13px}.promo_container2 .promo .content{padding:0 20px 5px 90px}.promo_container2 p{font-size:1.5em;margin:.5em 2em .75em 0}.promo_container3{margin:0;padding:0}.promo_container3 .promo{width:auto;float:none;padding:10px 0 0 0;background-position:20px 13px;border-top:1px solid #ccc}.promo_container3 .promo.thirty-four{width:auto;background-position:20px 13px}.promo_container3 .promo .content{padding:0 20px 5px 90px}.promo_container3 p{font-size:1.5em;margin:.5em 2em .75em 0}.promo a.cta{font-size:1.25em;line-height:1em;font-weight:bold;margin:0;padding:0 1em 0 0;background:url(../images/cta_arrow.png) no-repeat right 0 top 12px}a{color:#00f;text-decoration:none;line-height:1em}article p{font-size:1.25em;font-weight:bold;margin:0 0 1.25em 0;padding:0;background:0}article p a.cta{line-height:3em}.hidelg{display:inline-block}footer{border-top:1px solid #a6abc5;padding-left:0}footer a{padding:0 6em 0 0}body{background-image:none}}@media screen and (min-width:601px) and (max-width:800px){.promo_container .promo{width:50%}.clear-fix2{clear:both;line-height:1px}.spacelink{padding-left:1.5em}.videolinks{padding-left:1.5em}.vspace{margin-bottom:1.5em}p.vspace2{margin-bottom:.25em}p+p{margin-top:2em}header{height:200px;background:url(../images/banner_medium.jpg) no-repeat 90% 0;background-size:800px 200px}header a.logo{width:60px;height:60px;top:9px;right:9px;background-image:url(../images/icon-phone.png);background-size:60px 60px}nav{top:208px}nav a{margin-right:20px}.promo_container{padding:0 20px 15px 20px}.promo_container .promo{background-position:0 0}.promo_container .promo .content{padding:70px 30px 0 0}.promo_container .promo.one{background-position:0 0}.promo_container .promo.two{background-position:0 0}.promo_container .promo.three{background-position:0 0}body{background-image:none}a.cta span{display:none}}@media print{.promo img{display:none}.print{display:inherit}.noPrint{display:none}.spacelink{display:none}.vspace{display:none}.vspace2{display:none}.springhill{padding-left:0}.noScreen{display:inline}body{font:12pt Georgia,"Times New Roman",Times,serif;line-height:1.3;background:#fff;color:#000}.promo h1,.promo h2,.promo h3,p,li{color:inherit;font-size:.75em}h1{margin:0;color:inherit;font-size:.75em}a,a:visited{color:inherit;text-decoration:none}.page{width:100%;margin:0;padding:0}nav{display:none}article{padding:0}a.cta:after{content:"Learn more online at: " attr(href);display:none;font-style:italic;font-weight:normal;margin-top:15px}.promo_container{padding:0;font-size:11pt;margin-top:1em;margin-bottom:0}.promo_container .promo{width:100%;margin-top:.5em;margin-bottom:.25em}.promo_container .promo .content{padding:0 30px 0 0}a.cta{text-transform:none;background:0;color:inherit;display:none}footer{color:#000;background:0;padding:0;font-size:.7em}footer .qr{border-top:1px solid #ddd;margin-top:20px;padding-top:20px}footer .qr img{float:left;margin-right:20px}header a.logo{top:15px;background:0}header{display:none}}@media screen and (min-width:601px) and (max-width:890px){article{padding:165px 20px 0px 0}}@media screen and (min-width:1359px){nav{width:98.80%}}@media screen and (min-width:1342px) and (max-width:1358px){nav{width:98.80%}}@media screen and (min-width:1325px) and (max-width:1341px){nav{width:98.80%}}@media screen and (min-width:1270px) and (max-width:1324px){nav{width:98.75%}}@media screen and (min-width:1198px) and (max-width:1269px){nav{width:98.70%}}@media screen and (min-width:1104px) and (max-width:1197px){nav{width:98.60%}}@media screen and (min-width:0945px) and (max-width:1103px){nav{width:98.50%}}@media screen and (min-width:0851px) and (max-width:0944px){nav{width:98.10%}}@media screen and (min-width:0718px) and (max-width:0850px){nav{width:97.90%}}@media screen and (min-width:0642px) and (max-width:0717px){nav{width:97.70%}}@media screen and (min-width:0601px) and (max-width:0652px){nav{width:97.40%}}.myform{max-width:460px;width:90%;padding:14px;margin-top:1.5em}#basic{border:solid 2px #dedede}#basic h1{font-size:14px;font-weight:bold;margin-bottom:8px}#basic p{font-size:11px;color:#666;margin-bottom:20px;border-bottom:solid 1px #dedede;padding-bottom:10px}#basic label{display:block;font-weight:bold;text-align:right;width:140px;float:left}#basic .small{color:#666;display:block;font-size:11px;font-weight:normal;text-align:right;width:140px}#basic input{float:left;width:200px;margin:2px 0 30px 10px}#basic button{clear:both;margin-left:150px;background:#888;color:#fff;border:solid 1px #666;font-size:11px;font-weight:bold;padding:4px 6px}#stylized{border:solid 2px #b7ddf2;background:#de9000}#stylized h1{font-size:14px;font-weight:bold;margin-bottom:8px}#stylized p{font-size:11px;color:#666;margin-bottom:20px;border-bottom:solid 1px #b7ddf2;padding-bottom:10px}#stylized label{display:block;font-weight:bold}#stylized .small{color:#666;display:block;font-size:11px;font-weight:normal;text-align:right;width:140px}#stylized input{font-size:12px;padding:4px 2px;border:solid 1px #aacfe4;width:400px;margin:2px 0 20px 10px}#stylized button{clear:both;margin-left:160px;width:125px;height:31px;background:#444;text-align:center;line-height:31px;color:#fff;font-size:11px;font-weight:bold}textarea{width:410px;height:200px;overflow: auto;}@media screen and (max-width:470px){#stylized input{width:350px}textarea{width:360px;height:200px}}@media screen and (max-width:460px){#stylized input { width: 350px;}textarea{width:360px;height:200px}}@media screen and (max-width:450px){#stylized input{width:325px}textarea{width:335px;height:200px}}@media screen and (max-width:400px){#stylized input { width: 300px;}textarea{width:310px;height:200px}}@media screen and (max-width:375px){#stylized input{width:275px}textarea{width:285px;height:200px;}}@media screen and (max-width:350px){#stylized input{width:250px}textarea{width:260px;height:200px;}}@media screen and (max-width:320px){#stylized input{width:250px}textarea{width:250px;height:200px;margin:0 0 0 .75em}}
+
+a {line-height:2em}
+@media screen and ( min-width:1000px ) { article { padding:70px 20px 0px 0 } }
+@media screen and ( min-width:650px ) and ( max-width:999px ) {article { padding:120px 0 0 0 } }
+@media screen and ( min-width:601px ) and ( max-width:649px ) {article { padding:170px 0 0 0 } }
+@media screen and ( min-width:321px ) and ( max-width:600px ) { 
+}
+@media screen and ( min-width:50px ) and ( max-width:320px ) { 
+}
+@media screen and ( min-width:50px ) and ( max-width:600px ) { article {padding:20px 20px 0 0} 
+#z042718 a{line-height:3em}
+a#z011619{line-height:1em}
+body{font-size:24px}
+span.hidesm{display:none}
+}
+</style>
+
+ </head>
+<body>
+
+<div class="page">
+
+
+<header>
+<a class="logo" href="tel:+14173273911" title="CALL AJ ELLIS AT 1-417-2=327-3911 M-F 10-5"></a>
+</header>
+
+
+<article>
+ <h1><a href=#bottom style=color:#a6430a>CONTACT</a> US</h1>
+
+</article>
+
+<p id=z042718>
+<a href="tel:1-417-327-3911" title="tel:1-417-327-3911">Call AJ M-F 10-5pm<span class=hidesm> at 1-417-327-3911</span></a><br>
+<a href="mailto:AJELLIS@LIVEBOLIVAR.COM">ajellis@livebolivar.com</a><br> 
+<a href="sms:1-417-327-3911" title="sms:1-417-327-3911">text</a><br> 
+<a href=map_office13.html title="Map to the office">Map to the office</a><br>
+<a class="cta noPrint" href="sms:+14173273911?body=There%20is%20a%20fire%20at:" title="sms:+14173273911?body=text There is a fire at:">text There is a fire at:</a><br>
+<a class="cta noPrint" href="sms:+14173273911?body=There%20is%20a%20water%20leak%20at:" title="sms:+14173273911?body=text There is a water leak at:">text There is a water leak at:</a><br>
+<a id=z011619 class="cta noPrint" href="mailto:webmaster@livebolivar.com?subject=Screenshot&amp;body=Include%20your%20device%20name%20and%2For%20screen%20size%20and%20resolution%2C%20os%20and%20version%23%2C%20browser%20and%20version%23.%0D%0A%0D%0A" title="mailto:webmaster@livebolivar.com?subject=Screenshot">Screenshot, device, os, & browser to webmaster.</a><br>
+<a class="cta noPrint" href="sms:+14173273911?body=What%20I%20dislike%20on%20livebolivar.com:%20" title="sms:+14173273911?body=What I dislike on livebolivar.com">What I dislike text w/o pics.</a><br>
+<a class="cta noPrint" href="sms:+14173273911?body=What%20I%20like%20on%20livebolivar.com:%20" title="sms:+14173273911?body=What I like on livebolivar.com">What I like text without pics.</a><br>
+<a class="cta noPrint" href="mailto:ajellis@livebolivar.com?Subject=What%20I%20dislike%20on%20livebolivar.com" title="mailto:ajellis@livebolivar.com?Subject=What I dislike on livebolivar.com">What I dislike email.</a><br>
+<a class="cta noPrint" href="mailto:ajellis@livebolivar.com?Subject=What%20I%20like%20on%20livebolivar.com" title="mailto:ajellis@livebolivar.com?Subject=What I like on livebolivar.com">What I like email.</a><br>
+<a href="mailto:4173273911@vzwpix.com?Subject=What%20I%20dislike%20on%20livebolivar.com" title="mailto:ajellis@vzwpix.com?Subject=What I dislike on livebolivar.com">What i dislike text using email with pics.</a><br>
+<a href="mailto:4173273911@vzwpix.com?Subject=What%20I%20like%20on%20livebolivar.com" title="mailto:ajellis@vzwpix.com?Subject=What I like on livebolivar.com">What i like text using email with pics.</a><br>
+<a href="mailto:4173273911@vtext.com?Subject=What%20I%20dislike%20on%20livebolivar.com" title="mailto:ajellis@vtext.com?Subject=What I dislike on livebolivar.com">What i dislike text using email without pics.</a><br>
+<a href="mailto:4173273911@vtext.com?Subject=What%20I%20like%20on%20livebolivar.com" title="mailto:ajellis@vtext.com?Subject=What I like on livebolivar.com">What i like text using email without pics.</a><br>
+
+<br>
+OR BY USING THE FORM BELOW.</p>
+ <p>WELCOME TO BOLIVAR.</p>
+ <img src="../images/_sig13.gif" alt="CALL AJ ELLIS AT 1-417-327-3911 FOR ALL YOUR PROPERTY RENTAL NEEDS IN AND AROUND BOLIVAR, MISSOURI 65613" width="150" height="72" border="0" align="left">
+
+<P>&nbsp;</P><P>&nbsp;</P>
+
+
+           
+
+
+  			<nav id=bottom>
+				<a href="../index.html">HOME</a>
+<a href=tel:1-417-327-3911>CALL <span class=hidelg>327-3911 M-F10-5</span></a> <a href=map_office13.html><span class=hidelg>MAP TO</span> OFFICE</a> <a href=app_exported/app.php><span class=hidelg>ONLINE</span> APPLICATION</a>
+<a href=weather13.php>WEATHER <span class=hidelg>RADAR</span></a> <a href=info13.html>INFO<span class=hidelg>RMATION</span></a> <a href="https://www.google.com/maps/dir/?api=1&destination=37.6019214,-93.4168756&travelmode=driving&zoom=13">DRIVING DIRECTIONS AT GOOGLE MAPS</a>
+
+		
+			</nav>
+
+<p>&nbsp; </p>
+&#169; <a href="https://www.google.com/search?source=hp&q=DOUG+FELLOWS+site%3Alivebolivar.com">LIVEBOLIVAR.COM</a>
+<div class="clear-fix"></div>
+
+</div>
+</body>
+</html>
