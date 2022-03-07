@@ -98,6 +98,7 @@ https://howtocreateapps.com/fetch-and-display-json-html-javascript/
 
 <br />
 <p><span id="myDate"></span></p>
+<p><span id="myOrdinal"></span></p>
 <p><span id="result"></span></p>
 <p>TIME: <span id="myTime"></span></p>
 <p>SUNRISE: <span id="mySunrise"></span></p>
@@ -224,6 +225,7 @@ var zsunrise;
 var zsunset;
 var zdegree;
 var date = new Date();
+var date1 = new Date();
 var date9 = date.toLocaleDateString('en-GB').split('/').reverse().join(''); // '20220204'
 var directions;
 var ztime;
@@ -233,6 +235,7 @@ var arr;
 var r;
 var zwindspeed;
 var zwindgust;
+//var moment;
 
 // javascript datetime format
 // Monday, March 7th, 2022
@@ -339,5 +342,39 @@ var myDate = new Date().toLocaleDateString('en-us', { weekday:"long", year:"nume
 
 document.getElementById("myDate").innerHTML = myDate;
 
+//ordinal suffixes
+// https://stackoverflow.com/a/56438768
+// wanted format: Thursday, May 2nd 2019
+// NOT WORKING BUT NOT CRACKING
+function convertDateToString(date) {
+  return moment(date)
+    .format("dddd, MMMM Do YYYY")
+}
+
+console.log(convertDateToString(date4));
+document.getElementById("myOrdinal").innerHTML = (convertDateToString(new Date()));
+
+
+// GET DATE PARTS
+// https://stackoverflow.com/a/70342457
+const dateNumber = dateInTwoWeeks.getDate();
+const dateMonth = dateInTwoWeeks.toLocaleString('default', {month: 'long'});
+const dateYear = dateInTwoWeeks.getFullYear();
+
+// DETERMINE DATE ORDINAL
+let dateOrdinal = 'th';
+
+dateOrdinal = ([1, 21, 31].indexOf(dateNumber) > -1) ? 'st' : dateOrdinal;
+dateOrdinal = ([2, 22].indexOf(dateNumber) > -1) ? 'nd' : dateOrdinal;
+dateOrdinal = ([3, 23].indexOf(dateNumber) > -1) ? 'rd' : dateOrdinal;
+
+// FORMAT DATE AS STRING
+const dateInTwoWeeksString = `${dateNumber}${dateOrdinal} ${dateMonth} ${dateYear}`; 
+
+//document.body.textContent = dateInTwoWeeksString;
+document.getElementById("myOrdinal").innerHTML = dateInTwoWeeksString;
+
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
 </body></html>
