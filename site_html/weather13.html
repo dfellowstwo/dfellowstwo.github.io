@@ -80,17 +80,14 @@ setTimeout(function(){
 </article>
 <div id="openweathermap-widget-11"></div>
 <script src='//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script>
-<script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 11,cityid: '4377835',appid: '81fd6bf03bee58a02d735b12c7959cf1',units: 'imperial',containerid: 'openweathermap-widget-11',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script>
-
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script> -->
-<!-- https://zetcode.com/javascript/jsonurl/ -->
-
+<script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 11,cityid: '4377835',appid: '81fd6bf03bee58a02d735b12c7959cf1',units: 'imperial',containerid: 'openweathermap-widget-11',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();
+</script>
 
 <div class=promo_container>
 <div class='promo one'>
 <div class=content>
-<br />
+<p>SUNRISE: <span id="myText"></span>
+<br />SUNSET: &nbsp;<span id="myText2"></span></p>
 <p><a href=https://w1.weather.gov/xml/current_obs/KSGF.xml>Weather Data</a> </p>
 <p>&nbsp;</p>
 <p><a href=http://www.moonmodule.com/cs/dm/vn.gif>Moonphase graphic.</a> Update every hour at ~00:17:00. </p> 
@@ -98,65 +95,14 @@ setTimeout(function(){
 <p><a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg>7 day graphic.</a> Update at ~8:47am and ~11:47pm</p>
 <p>&nbsp;</p>
 <p><a href=https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=hourly,daily,minutely&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial>Weather Data: RAW</a></p>
-<br />
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<div class="mypanel"></div>
-<script>
-    $.getJSON('https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=hourly,daily,minutely&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial', function(data) {
 
-        var text = `Sunrise is: ${data.current.sunrise}<br>
-                    Sunset: ${data.current.sunset}`
-var z = console.log(data.current.sunrise);
-<!-- document.write(z); -->
-        $(".mypanel").html(text);
-    });
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
+<!-- <div class="mypanel"></div> -->
+<!-- https://stackoverflow.com/a/41852604/8826818 -->
+<!-- <button onclick="myFunction()">Try it</button> -->
+<!-- <p id="demo"></p> -->
 
 
-    </script>
- <script>   
-function Unix_timestamp(t)
-{
-var dt = new Date(t*1000);
-var hr = dt.getHours();
-var m = "0" + dt.getMinutes();
-var s = "0" + dt.getSeconds();
-return hr+ ':' + m.substr(-2) + ':' + s.substr(-2);  
-}
-
-document.write(Unix_timestamp(1412743274));
-
-var time = new Date();
-document.write("<br/>"+time.toLocaleString('en-US', { hour: 'numeric', hour12: true })
-);  
-    </script>
-
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script> -->
-
-<script></script>
-<script>
-
-    function formatAMPM(UNIX_timestamp) {
-
-        var date = new Date(UNIX_timestamp * 1000);
-
-        var hours = date.getHours();
-        var minutes = date.getMinutes();
-        var secends = date.getSeconds();
-
-        var ampm = hours >= 12 ? 'pm' : 'am';
-        hours = hours % 12;
-        hours = hours ? hours : 12;
-        minutes = minutes < 10 ? '0' + minutes : minutes;
-        secends = secends < 10 ? '0' + secends : secends;
-        var strTime ="<br/>"+ hours + ':' + minutes + ampm;
-
-        return strTime;
-    }
-
-    document.write(formatAMPM(1560994096));
-
-</script>
 </div>
 </div>
 <div class='promo two'>
@@ -230,7 +176,7 @@ width=940 height=705 alt='LOCAL WEATHER RADAR FROM WEATHER UNDERGROUND' title='L
 <a href=https://www.wunderground.com/weather-radar>(regional radar weather underground)</a>
 <a href='https://www.wunderground.com/radar/radblast.asp?ID=SGF&lat=0&lon=0&label=you&type=N0R&zoommode=pan&map.x=400&map.y=240&centerx=382&centery=567&prevzoom=pan&num=10&delay=15&scale=0.125&showlabels=1&smooth=1&noclutter=1&showstorms=0&rainsnow=1&lightning=0&remembersettings=on&setprefs.0.key=RADNUM&setprefs.0.val=10&setprefs.1.key=RADSPD&setprefs.1.val=15&setprefs.2.key=RADC&setprefs.2.val=1&setprefs.3.key=RADSTM&setprefs.3.val=0&setprefs.4.key=SLABS&setprefs.4.val=1&setprefs.5.key=RADRMS&setprefs.5.val=1&setprefs.6.key=RADLIT&setprefs.6.val=0&setprefs.7.key=RADSMO&setprefs.7.val=1'>(local radar weather underground)</a>
 <a href=https://skyandtelescope.org/observing/sky-at-a-glance/>sky and telescope</a>
-<a href=https://www.almanac.com/astronomy/planets-rise-and-set/zipcode/65613/<?php echo date('Y-m-d')?>>(rise and set times of the planets)</a>
+<a href=https://www.almanac.com/astronomy/planets-rise-and-set/zipcode/65613/<?php echo date('Y-m-d')?>(rise and set times of the planets)</a>
 <a href=https://www.suncalc.org/#/37.6018,-93.4155,18/<?php echo date('Y.m.d'); ?>/<?php echo date('h:i');?>/1/0>SUN</a>
 <a href=https://www.weather.gov/wrh/Climate?wfo=sgf>weather.gov (Change location to Bolivar)</a>
 <a href=https://forecast.weather.gov/MapClick.php?textField1=37.2090&textField2=-93.2923#.YBihCXlMHcc>Weather.gov Forecast</a>
@@ -279,5 +225,34 @@ php Create arrays of timestamps.
 <div class="mimgs hide" data-imginfo ........</div>    Replace timestamps w/ variables.
 </div> this is <div class="maps" closing div
 -->
+<script>
+var zsunrise; 
+var zsunset;
+var d;
+    $.getJSON('https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=hourly,daily,minutely&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial', function(data) {
 
+        var text = `Sunrise is: ${data.current.sunrise}<br>
+                    Sunset: ${data.current.sunset}`
+
+			  // var z = z.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+			  //let T =console.log(data.current.sunrise);
+//console.log(var z =${data.current.sunrise});
+
+//document.write(z.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }));
+        // $(".mypanel").html(text);
+			  // https://dd.engineering/blog/a-guide-to-handling-date-and-time-for-full-stack-javascript-developers#unix-timestamp
+			  //https://stackoverflow.com/questions/17003202			  
+			 var zsunrise = new Date(data.current.sunrise*1000);
+			 var zsunrise2 = zsunrise.toLocaleString([], { hour: '2-digit', minute: '2-digit' });
+			 var zsunset = new Date(data.current.sunset*1000);
+                  var zsunset2 = zsunset.toLocaleString([], { hour: '2-digit', minute: '2-digit' });
+document.getElementById("myText").innerHTML = zsunrise2;
+document.getElementById("myText2").innerHTML = zsunset2;
+			 //var zsunrise = zsunrise.toString("hh:mm tt");
+			  <!-- document.write(zsunrise2); -->
+
+    });
+
+
+</script>
 </body></html>
