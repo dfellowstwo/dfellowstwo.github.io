@@ -1,245 +1,430 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html lang="en">
+<!-- https://goldfirestudios.com/blog/104/howler.js-Modern-Web-Audio-Javascript-Library -->
+<!-- saved from url=(0014)http://dfellows.rf.gd/ -->
+<!-- saved from url=(0014)about:internet -->
 <head>
 <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-<title>ScienceFridayWithSeekControl</title>
-<meta name="description" content="Radio shows around the world.">
-<meta name="keywords" content="">
-
-<!-- Mobile viewport -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-<!-- <meta http-equiv=refresh content=3600> -->
-
-<!-- CSS-->
-<!-- Google web fonts. You can get your own bundle at http://www.google.com/fonts. Don't forget to update the CSS accordingly!-->
-<!-- <link href='http://fonts.googleapis.com/css?family=Droid+Serif|Ubuntu' rel='stylesheet' type='text/css'> -->
-<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type='text/css'>
-<link rel="stylesheet" href="../Css/normalize1.1.0.css">
-<link rel="stylesheet" href="radio-stations13d-colorblocks-style.css">
-<link rel="stylesheet" href="radio-stations13d-styles.css">
-<!-- end CSS-->
-    
-<!-- JS-->
-
-<!-- end JS-->
-<style>
-
-</style>
-<link rel="shortcut icon" href="../images/radio-favicons/favicon.ico?v=CYAgJn4vA0">
-<link rel="apple-touch-icon" sizes="180x180" href="../images/radio-favicons/apple-touch-icon.png?v=CYAgJn4vA0">
-<link rel="shortcut icon" sizes="196x196" href="../images/radio-favicons/favicon-196x196.png?v=CYAgJn4vA0">
-<link rel="icon" type="image/png" sizes="32x32" href="../images/radio-favicons/favicon-32x32.png?v=CYAgJn4vA0">
-<!-- <link rel="icon" type="image/png" sizes="194x194" href="../images/radio-favicons/favicon-194x194.png?v=CYAgJn4vA0"> -->
-<link rel="icon" type="image/png" sizes="192x192" href="../images/radio-favicons/android-chrome-192x192.png?v=CYAgJn4vA0">
-<link rel="icon" type="image/png" sizes="512x512" href="../images/radio-favicons/android-chrome-512x512.png?v=CYAgJn4vA0">
-<link rel="icon" type="image/png" sizes="16x16" href="../images/radio-favicons/favicon-16x16.png?v=CYAgJn4vA0">
-<link rel="manifest" href="../images/radio-favicons/site.webmanifest?v=CYAgJn4vA0">
-<link rel="mask-icon" href="../images/radio-favicons/safari-pinned-tab.svg?v=CYAgJn4vA0" color="#1a8bb3">
-<link rel="manifest" href="../images/radio-favicons/manifest.json">
-<meta name="apple-mobile-web-app-title" content="WEATHER">
-<meta name="application-name" content="WEATHER">
-<meta name="msapplication-TileColor" content="#603cba">
-<meta name="msapplication-config" content="../images/radio-favicons/browserconfig.xml?v=CYAgJn4vA0">
-<meta name="theme-color" content="#ffffff">
-
-
+<meta content="width=device-width,minimum-scale=1,initial-scale=1" name="viewport">
+<title>RADIO</title>
+<!-- <meta http-equiv="refresh" content="900"> -->
+<meta content="PLUG YOUR FAVORITE AUDIO STREAM URLS INTO HOWLERJS.COM LOADS FAST." name="description">
+<meta content="HOWLERJS.COM" name="keywords">
+<meta content="NOINDEX, FOLLOW" name="robots">
+<meta content="DOUG FELLOWS" name="author">
+<link href="screen_styles.css" rel="stylesheet" type="text/css">
+<link href="screen_layout_large.css" rel="stylesheet" type="text/css">
+<link href="screen_layout_small.css" media="only screen and (min-width:50px) and (max-width:600px)" rel="stylesheet" type="text/css">
+<link href="screen_layout_medium.css" media="only screen and (min-width:601px) and (max-width:800px)" rel="stylesheet" type="text/css">
+<link href="print.css" media="print" rel="stylesheet" type="text/css">
+<link href="../images/_icon_radio_apple-touch-icon.png?v=almEKrgqpX" rel="apple-touch-icon" sizes="180x180">
+<link href="../images/r-favicon-32x32.png?v=almEKrgqpX" rel="icon" sizes="32x32" type="image/png">
+<link href="../images/r-favicon-16x16.png?v=almEKrgqpX" rel="icon" sizes="16x16" type="image/png">
+<link href="site.radio.webmanifest?v=WlmEKrgqpX" rel="manifest">
+<link href="../images/r-safari-pinned-tab.svg?v=almEKrgqpX" rel="mask-icon">
+<link href="../images/r-favicon.ico?v=almEKrgqpX" rel="shortcut icon">
+<link href="radio-stations13d-howler.min.js" rel="preload" as="script">
+<meta content="#da532c" name="msapplication-TileColor">
+<meta content="r-browserconfig.xml?v=almEKrgqpX" name="msapplication-config">
+<meta content="#ffffff" name="theme-color">
+<!--[if lt IE 9]><script src="../scripts/html5shiv.js"></script><![endif]-->
 
 <style>
-
 html {
-	color: white;
+width: 100%;
+height: 100%;  
+overflow: auto;
+padding: 0;
+margin: 0;
+outline: 0;
 }
-.srt-menu a, .srt-menu a:visited {
-	color: #fff;
+.hidelg 
+body {
 }
-.srt-menu li a {
-	color: #fff;
+.page {
+background-color: #575c7a;
 }
-@media only screen and (max-width:480px){
-button, input, select, textarea {
-	font-size: 100%;
-	margin: 1.25em 0 1em .8em;
-	vertical-align: baseline;
-	*vertical-align: middle;
-	border-radius: 18px;
-	-moz-border-radius: 5px;
-	background-color: #E1E1E1;
-	
+
+h1, p {color:#fff; margin: 12px 0px 0px 12px;}
+/* Stations */
+.padding {
+width: 100%;
+height: 6%;
 }
-.menu-toggle {
-	margin: 0;
+.station {
+position: relative;
+width: 100%;
+height: 15%;
+display: -webkit-box;
+display: -ms-flexbox;
+display: -webkit-flex;
+display: flex;
+-webkit-flex-direction: column;
+-webkit-box-direction: column;
+-ms-flex-direction: column;
+flex-direction: column;
+-webkit-justify-content: center;
+-webkit-box-pack: center;
+-ms-flex-pack: center;
+justify-content: center;
+padding-left: 5%;
+cursor: pointer;
+box-sizing: border-box;
 }
-nav {
-margin: 1em 0 0 0;
+.title {
+color: #fff;
+}
+
+@media only screen and (min-width:321px){
+.station {
+position: relative;
+width: 100%;
+height: 15%;
+display: -webkit-box;
+display: -ms-flexbox;
+display: -webkit-flex;
+display: flex;
+-webkit-flex-direction: column;
+-webkit-box-direction: column;
+-ms-flex-direction: column;
+flex-direction: column;
+-webkit-justify-content: center;
+-webkit-box-pack: center;
+-ms-flex-pack: center;
+justify-content: center;
+padding-left: 5%;
+cursor: pointer;
+box-sizing: border-box;
+
+}
+.title {
+font-size: 4vw;
+line-height: 2vw;
+font-weight: 300;
+color: #fff;
+text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.33);
+}
+}
+.station:hover {
+background-color: rgba(255, 255, 255, 0.1);
+}
+
+@media only screen and (min-width:533px){
+.title {
+font-size: 18px;
+
+font-weight: 300;
+color: #fff;
+text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.33);
+}
+h1, p {color:#fff; float:right; margin: 12px 12px 0px 0px;}
+
+.station {
+
+height: 15%;
+
+}
+
+}
+.subtitle{
+display: inline-block;
+vertical-align: middle;
+
+}
+
+@media only screen and (min-width:600px){
+.title {
+font-size: 2.5vw;
+line-height: 1vw;
+font-weight: 300;
+color: #fff;
+text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.33);
+}
+.station {height: 15%;}
+}
+@media only screen and (min-width:801px){
+p {margin: 3em 12px 0px 0px;}
+.hidelg {display:none;}
+}
+
+.subtitle {
+display: inline-block;
+vertical-align: middle;
+margin: 2em 0 0 0;
+}
+.live {
+width: 8vw;
+height: 3vw;
+background-color: #cc1919;
+border-radius: 3px;
+font-weight: bold;
+color: #fff;
+font-size: 2.25vw;
+line-height: 3vw;
+display: inline-block;
+text-align: center;
+opacity: 0;
+text-shadow: none;
+}
+
+/* Playing Animation */
+.playing {
+position: absolute;
+display: none;
+}
+.playing > div {
+background-color: #fff;
+height: 100%;
+width: 6px;
+display: inline-block;
+-webkit-transition: all 0.2s ease;
+transition: all 0.2s ease;
+-webkit-animation: wavy 1s ease infinite forwards;
+animation: wavy 1s ease infinite forwards;
+-webkit-transform-origin: 50% 50%;
+transform-origin: 50% 50%;
+box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.33);
+}
+.playing .rect2 {
+-webkit-animation-delay: 0.25s;
+animation-delay: 0.25s;
+}
+.playing .rect3 {
+-webkit-animation-delay: 0.5s;
+animation-delay: 0.5s;
+}
+.playing .rect4 {
+-webkit-animation-delay: 0.75s;
+animation-delay: 0.75s;
+}
+.playing .rect5 {
+-webkit-animation-delay: 1.0s;
+animation-delay: 1.0s;
+}
+.playing .rect6 {
+-webkit-animation-delay: 1.0s;
+animation-delay: 1.0s;
+}
+.playing .rect7 {
+-webkit-animation-delay: 1.0s;
+animation-delay: 1.0s;
+}
+.playing .rect8 {
+-webkit-animation-delay: 1.0s;
+animation-delay: 1.0s;
+}
+@-webkit-keyframes wavy {
+0% {
+-webkit-transform: scaleY(1);
+transform: scaleY(1);
+}
+50% {
+-webkit-transform: scaleY(0.6);
+transform: scaleY(0.6);
+}
+100% {
+-webkit-transform: scaleY(1);
+transform: scaleY(1);
+}
+}
+@keyframes wavy {
+0% {
+-webkit-transform: scaleY(1);
+transform: scaleY(1);
+}
+50% {
+-webkit-transform: scaleY(0.6);
+transform: scaleY(0.6);
+}
+100% {
+-webkit-transform: scaleY(1);
+transform: scaleY(1);
 }
 }
 
+.subtitle{
+display: inline-block;
+vertical-align: middle;
+margin: 1.5em 0;
+}
+@media only screen and (min-width:50px) and (max-width:532px){
+.title {font-size: 14px;}
+nav {padding: 11px 0px 0px 0px;}
 
+}
+.clear-fix { clear: both; line-height: 1px; }
+/*----- BEGIN https://inspirationalpixels.com/creating-a-dropdown-menu-with-html-css/ 
+http://demos.inspirationalpixels.com/dropdown-with-html-css-demo/#
+-----*/
+.clearfix:after {
+display:block;
+clear:both;
+}
+
+/*----- Menu Outline -----*/
+.menu-wrap {
+width:100%;
+box-shadow:0px 1px 3px rgba(0,0,0,0.2);
+background:#3e3436;
+}
+
+.menu {
+
+margin:0px auto;
+
+}
+
+.menu li {
+margin:0px;
+list-style:none;
+
+}
+
+.menu li:hover > a, .menu .current-item > a {
+text-decoration:none;
+}
+
+.menu .arrow {
+font-size:11px;
+line-height:0%;
+}
+
+/*----- Top Level -----*/
+.menu > ul + li {
+
+display:inline;
+position:relative;
+width: 17%;
+}
+/*----- Bottom Level -----*/
+.menu li:hover .sub-menu {
+z-index:1;
+opacity:1;
+}
+
+.sub-menu li {
+display:block;
+font-size:14px;
+
+}
+
+.sub-menu {
+
+padding:5px 0px;
+position:absolute;
+top:100%;
+left:74%;
+z-index:-1;
+opacity:0;
+transition:opacity linear 0.15s;
+box-shadow:0px 2px 3px rgba(0,0,0,0.2);
+background-color: #515673;
+}
+
+/*-----    END https://inspirationalpixels.com/creating-a-dropdown-menu-with-html-css/ -----*/
+/*-----    BEGIN DOUG https://inspirationalpixels.com/creating-a-dropdown-menu-with-html-css/ -----*/
+ul, menu, dir{
+
+list-style-type: none;
+display: inline;
+-webkit-margin-before: 0em;
+-webkit-margin-after: 0em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+-webkit-padding-start: 0px;
+}
+@media only screen and (min-width:50px) and (max-width:800px){
+.sub-menu {
+
+position:inherit;
+left:0%;
+
+}
+ul, menu, dir{
+display: inline;
+width:100%
+}
+
+ul, menu {width: 100%;}
+.menu {font-size:125%;}
+.menu > ul > li {width: 100%;}
+span.arrow {display:none;}
+.sub-menu li {
+margin: 0 0 2em 2em}    
+
+nav ul .sub-menu a {
+font-size: 100%;
+}
+}
+@media only screen and (min-width:801px) and (max-width:968px){
+p { margin: 6em 12px 0px 0px;}
+}
+
+@media only screen and (max-width:340px){
+header {
+height: 84px;
+background: url(../images/banner_small4.jpg);
+background-size: 300px 84px;
+background-repeat: no-repeat;
+background-position: center top;
+}}
+
+@media only screen and (min-width:341px) and (max-width:540px){
+header {
+height: 140px;
+background: url(../images/banner_small2.jpg);
+background-size: 500px 140px;
+background-repeat: no-repeat;
+background-position: center top;
+}
+.station {
+text-align: right;
+}
+}
+/*-----       END DOUG https://inspirationalpixels.com/creating-a-dropdown-menu-with-html-css/ -----*/
+						  
 </style>
 
 </head>
-
-<body id="home">
+<body>
 <div class="page">
-<!-- header area -->
-    <header class="wrapper clearfix">
+<header class="noPrint">
+<a class="logo" href="tel:+14173999579"></a>
+</header>
 
-        <div id="banner">        
-        	<div id="logo"><a href="tel:+14174134944" title="Call Doug 1-417-413-4944"><img src="../images/dfellows.rf.gd1360x382.jpg" title="Call Doug 1-417-413-4944" alt="HummingbirdBanner ../images/dfellows.rf.gd1360x382.jpg"></a></div> 
-        </div>
-		
-		
-		
-<!-- 	
-	The key was changing the button type from submit to button.
--->
 
-<form autocomplete="off"><button type="button" id="button1">Sleep Timer</button><input type="radio" name="TurnOff" onclick="ChangeTurnOff()" value="5000"><label>5s</label>&nbsp;&nbsp;&nbsp;<input type="radio" name="TurnOff" onclick="ChangeTurnOff()" value="1800000"><label>30m</label>&nbsp;&nbsp;&nbsp;<input type="radio" name="TurnOff" onclick="ChangeTurnOff()" value="2700000"><label>45m</label>&nbsp;&nbsp;&nbsp;<input type="radio" name="TurnOff" onclick="ChangeTurnOff()" value="3600000"><label>1h</label>&nbsp;&nbsp;&nbsp;<input type="radio" name="TurnOff" onclick="ChangeTurnOff()" value="7200000"><label>2h</label>
-</form>
-
-<script>
-
-function refresh(){window .location.reload();}
-function ChangeTurnOff() {
-	// BEGIN https://stackoverflow.com/a/17796775/8826818
-	var msec = document.querySelector('input[name = "TurnOff"]:checked').value;
-	// alert(msec);
-	//   END https://stackoverflow.com/a/17796775/8826818
-	// BEGIN https://www.encodedna.com/javascript/auto-refresh-page-every-10-second-using-javascript-setInterval-method.htm 	Depends on refresh() function in the head tag.
-	window.setInterval('refresh()', msec);
-	//   END https://www.encodedna.com/javascript/auto-refresh-page-every-10-second-using-javascript-setInterval-method.htm 	
-	// BEGIN https://stackoverflow.com/a/20618592/8826818 Change text of button to countdown timer
-	time=msec/1000,r=document.getElementById('button1'),tmp=time;
-	setInterval(function(){
-	var c=tmp--,m=(c/60)>>0,s=(c-m*60)+'';
-	r.textContent='Off '+m+':'+(s.length>1?'':'0')+s
-	tmp!=0||(tmp=time);
-	},1000);
-	//   END https://stackoverflow.com/a/20618592/8826818 Change text of button to countdown timer
-	// BEGIN https://www.codegrepper.com/code-examples/javascript/javascript+change+button+text+onclick Change text of button
-	<!-- document.getElementById("button1").innerHTML = "Timer On"; -->
-	//   END https://www.codegrepper.com/code-examples/javascript/javascript+change+button+text+onclick Change text of button
-}
-
-</script>
-        
-        <!-- main navigation -->
-<nav id="topnav" role="navigation">
-<div class="menu-toggle">Menu</div>  
-<ul class="srt-menu" id="menu-main-navigation">
-
-<li><a href="tel:+14174134944" title="Call Doug 1-417-413-4944">Call</a></li>
-
-<li><a href="#">Radio</a>
-<ul>
-<li><a href="radio-stations13e.html">PROBLEMS?</a></li>
+<ul style="text-align:right; line-height: 3; font-size: 16px;">
+<li><a href="radio-stations13d.html">BACK TO THE STATIONS</a></li>
+<li><a href=#>"BUFFERING 12 SECONDS. Works Win10 Pro 64-bit 1903 or greater. Firefox 79 64-bit, Edge 84 64-bit, Chrome 84 64-bit.
+ IE11 does not work on: WTOP, CNN, ALICE 95.5, WHRB."</a></li>
 <li><a href="radio-stations13g.html">Find iheart streaming url</a></li>
-<li><a href="https://www.sciencefriday.com" title="sciencefriday.com New Friday 2pm ET">Science Friday. New Friday 2pmET </a></li>
 <li><a href="https://wtop.com">WTOP 103.5FM NEWS WASHINGTON, DC</a></li>
 <li><a href="https://wamu.org">WAMU 88.5FM NPR WASHINGTON,DC</a></li>
 <li><a href="https://www.radio.com/cnn/listen">CNN TV</a></li>
-<li><a href="https://www.scpr.org/">KPCC 89.3FM NPR IN LOS ANGELES</a></li> 
-<li><a href="https://bbc.co.uk/sounds">BBC RADIO</a></li>
-<li><a href="radio-stations13j.html">BBC stream urls1</a></li>
-<li><a href="http://www.suppertime.co.uk/blogmywiki/2015/04/updated-list-of-bbc-network-radio-urls/">BBC stream urls2</a></li>
-<li><a href="https://www.audacy.com/wxrt">WXRT 93.1FM CHICAGO</a></li>
-<li><a href="https://radiomilwaukee.org/">WYMS 88.9FM MILWAUKEE, WI</a></li>
-<li><a href="https://alice955.iheart.com/">ALICE 95.5FM Springfield, MO</a></li>
+<li><a href="bbc.co.uk/sounds">BBC RADIO</a></li>
+<li><a href="http://www.suppertime.co.uk/blogmywiki/2015/04/updated-list-of-bbc-network-radio-urls/">BBC stream urls</a></li>
 <li><a href="http://ksmu.org">KSMU 91.1FM NPR Springfield, MO</a></li>
 <li><a href="https://xray.fm">KXRY 107.1FM PORTLAND, OR</a></li>
 <li><a href="http://pigpenradio.org/">PIGPENRADIO BRISTOL, ENGLAND</a></li>
 <li><a href="https://kexp.org/listen/">KEXP 90.3FM SEATTLE. UNIVERSITY OF WASHINGTON</a></li>
 <li><a href="https://whrb.org/">WHRB 95.3FM HARVARD UNIVERSITY</a></li>
 <li><a href="http://kzsu.stanford.edu/live/">KZSU 90.1FM STANFORD UNIVERSITY</a></li>
-<li><a href="https://wybc.com">WYBC 1340AM YALE UNIVERSITY</a></li>
 <li><a href="http://hawaiipublicradio.org">HAWAII PUBLIC RADIO</a></li>
 <li><a href="http://wuts.sewanee.edu/">WUTS 91.3FM UNIVERSITY OF THE SOUTH</a></li>
 <li><a href="https://ktoo.org">KTOO 104.3 FM JUNEAU, ALASKA</a></li>
 <li><a href="https://whcr.org">WHCR 90.3FM THE VOICE OF HARLEM</a></li>
-<li><a href="http://www.espn.com/espnradio/play?s=espn">ESPN RADIO</a></li>
+<li><a href="https://www.scpr.org/">KPCC 89.3FM NPR IN LOS ANGELES</a></li> 
 <li><a href="http://www.ksfo.com/">KSFO 560AM NEWS SAN FRANCISCO</a></li> 
+<li><a href="http://www.espn.com/espnradio/play?s=espn">ESPN RADIO</a></li>
 <li><a href="https://www.iheart.com/live/710-wor-5874">WOR 710AM NYC</a></li>
 <li><a href="https://tunein.com/podcasts/US-News/ABC-World-News-Tonight-with-David-Muir-p643278/">ABC WORLD NEWS TONIGHT</a></li>
 <li><a href="https://www.iheart.com/live/nbc-news-radio-6043/">NBC NEWS RADIO</a></li>
 <li><a href="https://howlerjs.com">HOW TO BUILD THIS PAGE</a></li>
-
-<!-- BEGIN MENU WITH SUBMENUs. Nested menus. The "current" class color highlight is light green.
-<li class="current">
-<a href="radio-stations13e.html">PROBLEMS?</a>
-<ul>
-<li><a href="#">menu item 3.2.1</a></li>
-<li><a href="#">menu item 3.2.2 with longer link name</a></li>
-<li><a href="#">menu item 3.2.3</a></li>
-<li><a href="#">menu item 3.2.4</a></li>
-<li><a href="#">menu item 3.2.5</a></li>
 </ul>
 </li>
-<li>
-<a href="#">menu item 4</a>
-<ul>
-<li><a href="#">menu item 4.1</a></li>
-<li><a href="#">menu item 4.2</a></li>
 </ul>
-</li>
+</nav>
 
-     END MENU WITH SUBMENUs. Nested menus. The "current" class color highlight is light green. -->
-
-
-</ul> <!-- END RADIO STATION SUBMENUS -->
-</li> <!-- END RADIO STATION -->
-
-<li><a href="weather13.php" title="Weather Conditions, Forecast, Radar Springfield, MO">Weather</a></li>
-<li><a href="javascript:history.back()" title="Back">Back</a></li>
-<li class="current"><a href="../index.html">Home</a></li>
-
-
-
-
-
-</ul> <!-- END menu-main-navigation -->
-    
-</nav>  
-    </header><!-- end header -->
- 
-
-<script></script>
-<style>
-
-audio::-webkit-media-controls-panel {
-  background-color: #56AEFF;
-}
-
-audio::-webkit-media-controls-volume-slider {
-  background-color: #B1D4E0;
-  border-radius: 25px;
-  padding-left: 8px;
-  padding-right: 8px;
-}
-</style>
-
-<!-- Create Audio element dynamically in Javascript -->
-
-<p id="audio">Science Friday. New 2pmFridayET<br /></p>
-
-<script src="radio-stations13d-radio.js"></script>
-
-<script type="text/javascript">
-
-//var date3=20220225;
-var sound      = document.createElement('audio');
-sound.id       = 'audio-player';
-sound.controls = 'controls ';
-sound.src      = 'https://s3.amazonaws.com/scifri-episodes/scifri'+date3+'-episode.mp3';
-sound.type     = 'audio/mpeg';
-document.getElementById('audio').appendChild(sound);
-
-</script>	
-
+</div>
 </body>
 </html>
