@@ -66,6 +66,8 @@ setTimeout(function(){
 <script src="weather13.js"></script>
 <!-- <script src="jquery-1.6.4.js"></script> -->
 <script src="jquery-3.2.1.min.js"></script>
+<!-- Reload page once when focus is restored to the page -->
+<script type="text/javascript">window.onblur= function() {window.onfocus= function () {location.reload(true)}};</script>
 </head>
 <style>body{text-transform: none;}</style>
 <body>
@@ -294,7 +296,7 @@ zdegrees = Math.round(zdegrees, 0);
 // Ensure it's within 0-7
 zdegrees = (zdegrees + 8) % 8
 //document.getElementById("myText4").innerHTML = (directions[zdegrees]);	
-document.getElementById("myText4").innerHTML= (directions[zdegrees]) + ' at ' + zwindspeed + 'mph gusting to ' + zwindgust + 'mph';
+document.getElementById("myText4").innerHTML= (directions[zdegrees]) + ' at ' + zwindspeed + ' mph gusting to ' + zwindgust + ' mph';
 
 //if(!(zwindgust=calm)){
 //document.getElementById("myText4").innerHTML= (directions[zdegrees]) + ' at ' + zwindspeed + 'mph gusting to ' + zwindgust;
