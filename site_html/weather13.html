@@ -98,8 +98,12 @@ https://howtocreateapps.com/fetch-and-display-json-html-javascript/
 </div>
 
 <div class="promo two">
-<div class="content">
-<a href=https://www.moonmodule.com/cs/dm/vn.gif><img src="vn.gif" width=153 height=235 title='Current Moon phase graphic at moonconnection.com' alt='CLICK TO GO TO https://www.moonmodule.com/cs/dm/vn.gif'></a>
+<div id=container class="content">
+<!-- <a href=https://www.moonmodule.com/cs/dm/vn.gif> -->
+<!-- <img src="vn.gif" width=153 height=235 title='Current Moon phase graphic at moonconnection.com' alt='CLICK TO GO TO https://www.moonmodule.com/cs/dm/vn.gif'></a> -->
+<!-- <script type="text/javascript" src="http://moonphases.co.uk/js/widget.js" id="moonphase_widget" widget="standard" lat="37.60" lng="-93.41" date="date" tz="-6"> </script> -->
+<!-- <script type="text/javascript" src="http://widgets.joeswebtools.com/moon-phases/javascript.php" height='235'></script> -->
+<script>document.write('<a href=https://www.moonmodule.com/cs/dm/vn.gif><img src="https://www.moonmodule.com/cs/dm/vn.gif" width="153" height="235" /></a>');</script>
 </div>
 </div>
 
@@ -107,6 +111,7 @@ https://howtocreateapps.com/fetch-and-display-json-html-javascript/
 <div class="content">
 <br />
 <p><span id="myDate"></span></p>
+<!-- <p><span id="myDate2"></span></p> -->
 <!-- <p><span id="myOrdinal"></span></p> -->
 <!-- <p><span id="result"></span></p> -->
 <p>TIME: <span id="myTime"></span></p>
@@ -120,8 +125,8 @@ https://howtocreateapps.com/fetch-and-display-json-html-javascript/
 </div>
 
 <script>
-var date = new Date();
 <!-- var date9 = date.toLocaleDateString('en-GB').split('/').reverse().join(''); // '20220204' -->
+var date = new Date();
 var zsunrise; 
 var zsunset;
 var zdegree;
@@ -130,13 +135,17 @@ var ztime;
 var myDate;
 var zwindspeed;
 var zwindgust;
+var zmoonphase;
 
 var myDate = new Date().toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"long", day:"numeric"}) ;
 document.getElementById("myDate").innerHTML = myDate;
+//document.getElementById("myDate2").innerHTML = date;
 
-    $.getJSON('https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=hourly,daily,minutely&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial', function(data) {
 
-			var text = `Sunrise is: ${data.current.sunrise}<br>Sunset: ${data.current.sunset}`
+    
+    $.getJSON('https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=minutely,hourly,alerts&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial', function(data) {
+
+			//var text = `Sunrise is: ${data.current.sunrise}<br>Sunset: ${data.current.sunset}`
 			var ztime = data.current.dt;
 			var ztime2 = new Date(data.current.dt*1000);
                    var ztime2 = ztime2.toLocaleString([], { hour: '2-digit', minute: '2-digit' });
@@ -164,7 +173,7 @@ document.getElementById("myDate").innerHTML = myDate;
 <div class="promo three">
 <div class="content">
 <br />
-<p><a href=https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=hourly,daily,minutely&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial>Weather Data OpenWeatherMap</a></p>
+<p><a href=https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=minutely,hourly,alerts&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial>Weather Data OpenWeatherMap</a></p>
 <p>&nbsp;</p>
 <p><a href=http://www.moonmodule.com/cs/dm/vn.gif>Moonphase graphic.</a> Update every hour at ~00:17:00. </p> 
 <p>&nbsp;</p>
