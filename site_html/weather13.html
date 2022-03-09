@@ -37,9 +37,9 @@
 @media only screen and (min-width:800px) and (max-width:883px){article{padding:19em 0 0 0}}
 @media only screen and (min-width:718px) and (max-width:799px){article{padding:2.25em 0 0 0}}
 @media only screen and (max-width:717px){
-	article{padding:1em 0 0 0}header{display:none}article h2{display:none}.navrule1{display:none}.promo_container .promo.three{padding-top:.25em;width:100%;margin:0 auto;float:none}.promo_container .promo.three img{padding-top:.25em;width:100%;margin:0 auto;float:none}nav{display:block;position:static;padding:10px 0 10px 10px;background-color:#515673}footer a{display:inline-block;padding:10px 0;}
+	article{padding:1em 0 0 0}header{display:none}article h2{display:none}.navrule1{display:none}.promo_container .promo.two{padding-top:.25em;width:50%;float:left}.promo_container .promo.three{padding-top:.25em;width:50%;float:right}nav{display:block;position:static;padding:10px 0 10px 10px;background-color:#515673}footer a{display:inline-block;padding:10px 0;}
 }
-@media only screen and (min-width:810px){.promo.three{display:none}}
+
 @media only screen and (max-width:810px){.promo.seven{display:none}}
 @media screen and (orientation:portrait){.promo.three{display:none}}
 @media screen and (orientation:landscape){.promo.six{display:none}}.promo_container .promo.four img{width:940px}.promo_container .promo.five img{width:940px}.promo_container .promo.seven img{width:480px;margin:0 auto;float:none}.promo_container .promo.six img{padding-top:.25em;width:100%;margin:0 auto;float:none}.promo .one .content{line-height:1.45em}
@@ -67,7 +67,7 @@ setTimeout(function(){
 <!-- <script src="jquery-1.6.4.js"></script> -->
 <script src="jquery-3.2.1.min.js"></script>
 <!-- Reload page once when focus is restored to the page -->
-<script type="text/javascript">window.onblur= function() {window.onfocus= function () {location.reload(true)}};</script>
+<!-- <script type="text/javascript">window.onblur= function() {window.onfocus= function () {location.reload(true)}};</script> -->
 </head>
 <style>body{text-transform: none;}</style>
 <body>
@@ -90,14 +90,25 @@ https://howtocreateapps.com/fetch-and-display-json-html-javascript/
 
 -->
 
-<div style='float:left;' id="openweathermap-widget-11"></div>
-<script src='//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script><script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 11,cityid: '4377835',appid: '81fd6bf03bee58a02d735b12c7959cf1',units: 'imperial',containerid: 'openweathermap-widget-11',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script><a href=http://www.moonmodule.com/cs/dm/vn.gif><img style='float:left;' src="http://www.moonmodule.com/cs/dm/vn.gif" width=153 height=235 title='Current Moon phase graphic at moonconnection.com' alt='CLICK TO GO TO http://www.moonmodule.com/cs/dm/vn.gif'></a>
-
-
 <div class="promo_container">
+
+
 <div class="promo one">
 <div class="content">
+<div id="openweathermap-widget-11"></div>
+</div>
+</div>
 
+
+
+<div class="promo two">
+<div class="content">
+<a href=https://www.moonmodule.com/cs/dm/vn.gif><img src="https://www.moonmodule.com/cs/dm/vn.gif" width=153 height=235 title='Current Moon phase graphic at moonconnection.com' alt='CLICK TO GO TO https://www.moonmodule.com/cs/dm/vn.gif'></a>
+</div>
+</div>
+
+<div class="promo three">
+<div class="content">
 <br />
 <p><span id="myDate"></span></p>
 <p><span id="myOrdinal"></span></p>
@@ -108,27 +119,13 @@ https://howtocreateapps.com/fetch-and-display-json-html-javascript/
 <!-- <p>Wind from the: &nbsp;<span id="myText3"></span></p> -->
 <p>WIND FROM THE <span id="myText4"></span></p>
 <!-- <p>Wind from the: &nbsp;<span id="myText5"></span></p> -->
-
-
-
-</div>
-</div>
-
-<div class='promo two'>
-<div class=content> 
-<p><a href=https://w1.weather.gov/xml/current_obs/KSGF.xml>Weather Data</a> </p>
-<p>&nbsp;</p>
-<p><a href=http://www.moonmodule.com/cs/dm/vn.gif>Moonphase graphic.</a> Update every hour at ~00:17:00. </p> 
-<p>&nbsp;</p>
-<p><a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg title="Thanks to ozarksfirst.com for this seven day weather forecast graphic.">7 day graphic.</a> Update at ~8:47am and ~11:47pm</p>
-<p>&nbsp;</p>
-<p><a href=https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=hourly,daily,minutely&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial>Weather Data: RAW</a></p>
 <p>&nbsp;</p>
 </div>
 </div>
 
-<div class='promo three'>
-<div class=content> 
+<div class="promo three">
+<div class="content">
+<br />
 <p><a href=https://w1.weather.gov/xml/current_obs/KSGF.xml>Weather Data</a> </p>
 <p>&nbsp;</p>
 <p><a href=http://www.moonmodule.com/cs/dm/vn.gif>Moonphase graphic.</a> Update every hour at ~00:17:00. </p> 
@@ -141,26 +138,24 @@ https://howtocreateapps.com/fetch-and-display-json-html-javascript/
 </div>
 
 
-<div class="promo four">
+<div class="promo four"> 
 <iframe width='100%' height='640px' src='https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOiJuYXRpb25hbCIsImNlbnRlciI6Wy05My4wODQsMzcuNzk3XSwiem9vbSI6NS43NjY3MTUwNzc1MjY4NTcsImxheWVyIjoiYnJlZl9xY2QiLCJ0cmFuc3BhcmVudCI6dHJ1ZSwiYWxlcnRzT3ZlcmxheSI6dHJ1ZX0sImFuaW1hdGluZyI6dHJ1ZSwiYmFzZSI6InN0YW5kYXJkIiwiY291bnR5IjpmYWxzZSwiY3dhIjpmYWxzZSwic3RhdGUiOmZhbHNlLCJtZW51IjpmYWxzZSwic2hvcnRGdXNlZE9ubHkiOnRydWUsIm9wYWNpdHkiOnsiYWxlcnRzIjowLCJsb2NhbCI6MC42LCJsb2NhbFN0YXRpb25zIjowLjgsIm5hdGlvbmFsIjowLjZ9fQ%3D%3D' frameborder='0' scrolling='no'></iframe>
+</div>
 
-
-<!-- https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOiJuYXRpb25hbCIsImNlbnRlciI6Wy05My4wODQsMzcuNzk3XSwiem9vbSI6NS43NjY3MTUwNzc1MjY4NTcsImxheWVyIjoiYnJlZl9xY2QiLCJ0cmFuc3BhcmVudCI6dHJ1ZSwiYWxlcnRzT3ZlcmxheSI6dHJ1ZX0sImFuaW1hdGluZyI6dHJ1ZSwiYmFzZSI6InN0YW5kYXJkIiwiY291bnR5IjpmYWxzZSwiY3dhIjpmYWxzZSwic3RhdGUiOmZhbHNlLCJtZW51IjpmYWxzZSwic2hvcnRGdXNlZE9ubHkiOnRydWUsIm9wYWNpdHkiOnsiYWxlcnRzIjowLCJsb2NhbCI6MC42LCJsb2NhbFN0YXRpb25zIjowLjgsIm5hdGlvbmFsIjowLjZ9fQ%3D%3D#/ -->
+ 
+<!-- https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOiJuYXRpb25hbCIsImNlbnRlciI6Wy05My4wODQsMzcuNzk3XSwiem9vbSI6NS43NjY3MTUwNzc1MjY4NTcsImxheWVyIjoiYnJlZl9xY2QiLCJ0cmFuc3BhcmVudCI6dHJ1ZSwiYWxlcnRzT3ZlcmxheSI6dHJ1ZX0sImFuaW1hdGluZyI6dHJ1ZSwiYmFzZSI6InN0YW5kYXJkIiwiY291bnR5IjpmYWxzZSwiY3dhIjpmYWxzZSwic3RhdGUiOmZhbHNlLCJtZW51IjpmYWxzZSwic2hvcnRGdXNlZE9ubHkiOnRydWUsIm9wYWNpdHkiOnsiYWxlcnRzIjowLCJsb2NhbCI6MC42LCJsb2NhbFN0YXRpb25zIjowLjgsIm5hdGlvbmFsIjowLjZ9fQ%3D%3D#/ 
+-->
 
 <!-- https://noaa.maps.arcgis.com/apps/TimeAware/index.html?appid=3eb23d7688154631858c128c6ae83be2 -->
 
-																																																																																																																																																																																																				    
-	
-</div>
-<div id=radar2 class="promo five">
+																																																				<div id=radar2 class="promo five">
 <a href='https://www.wunderground.com/radar/us/mo/springfield/sgf'>
-
 <img src='https://radblast.wunderground.com/cgi-bin/radar/WUNIDS_map?num=10&type=N1R&mapx=400&mapy=240&brand=wui&delay=15&frame=0&scale=0.125&centerx=423.704347826087&centery=583.2&transx=23.704347826086973&transy=343.20000000000004&severe=0&smooth=1&station=SGF&rainsnow=0&lightning=0&noclutter=1&showlabels=1&showstorms=0&rand=27178699' width=940 height=705 alt='LOCAL WEATHER RADAR FROM WEATHER UNDERGROUND' title='LOCAL WEATHER RADAR FROM WEATHER UNDERGROUND'>
 </a>
 </div>
 
 
-</div>
+</div><!-- END class=page -->
 
 
 
@@ -196,12 +191,13 @@ https://howtocreateapps.com/fetch-and-display-json-html-javascript/
 <a href=weather-seven-day-forecast-graphicLOG.html>WeatherLog</a>
 <a href=../index.html>HOME</a>
 </nav>
-</div>
+
+<br />
 <footer style=page-break-inside:avoid>
 &#169; dfellows.rf.gd &nbsp; 37.601835,-93.415584  &nbsp;  37&#176;36'06.6"N 93&#176;24'56.1"W <a href=https://w1.weather.gov/xml/current_obs/KSGF.xml>Weather data</a> and <a href=http://www.moonmodule.com/cs/dm/vn.gif>moonphase graphic</a> update every hour at ~00:17:00. <a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg title="Thanks to ozarksfirst.com for this seven day weather forecast graphic.">7 day graphic</a> at ~8:47am and ~11:47pm
+
+
 <br />
-
-
 <div class="container">
 <div><a class="hidelg" style="cursor: pointer" onclick="javascript: window.location = '34.php';"><img src='../images/placemark44x31.jpg' title='ky3 graphic' alt='alt=ky3 graphic'></a></div>
 <div><a class="hidelg" style="cursor: pointer" onclick="javascript: window.location = '33.php';"><img src='../images/placemark44x31.jpg' title='update weather data' alt='alt=update weather data'></a></div>
@@ -212,7 +208,7 @@ https://howtocreateapps.com/fetch-and-display-json-html-javascript/
 </div>
 <div class="clear-fix"></div>
 </footer>
-<br />
+</div>
 
 <script>
 var zsunrise; 
@@ -369,7 +365,7 @@ const dateInTwoWeeksString = `${dateNumber}${dateOrdinal} ${dateMonth} ${dateYea
 document.getElementById("myOrdinal").innerHTML = dateInTwoWeeksString;
 
 </script>
-<script src="moment.min.js"></script>
+<!-- <script src="moment.min.js"></script> -->
 <!--   END GET DATE PARTS -->
-
+<script src='//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script><script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 11,cityid: '4377835',appid: '81fd6bf03bee58a02d735b12c7959cf1',units: 'imperial',containerid: 'openweathermap-widget-11',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script>
 </body></html>

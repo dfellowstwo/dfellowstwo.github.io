@@ -50,16 +50,17 @@ header a.logo {
   padding: 0px 0px 15px 20px;
 }
 .promo_container .promo.one {
-  width: 36%;
+  width: 73%;
   float: left;
+  
 }
 .promo_container .promo.two {
-  width: 14%;
+  width: 20%;
   float: left;
 }
 .promo_container .promo.three {
-  width: 51%;
-  float: right;
+  width: 49%;
+  float: left;
 }
 .promo_container .promo.seven {
   width: 50%;
@@ -70,7 +71,7 @@ header a.logo {
   float: left;
 }
 .promo_container .promo.five {
-  width: 100%;
+  width: 90%;
   float: left;
 }
 /* .promo_container .promo .content { padding: 0px 30px 0px 70px; } */

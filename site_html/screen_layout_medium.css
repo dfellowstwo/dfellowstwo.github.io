@@ -40,8 +40,8 @@ nav a {
 .promo_container { padding: 0px 20px 15px 20px; }
 .promo_container .promo { background-position: 0px 0px; }
 .promo_container .promo.one { width:73%;}
-.promo_container .promo.two { width: 27%; float: right;}
-.promo_container .promo.three { width: 78%; }
+.promo_container .promo.two { width: 50%; float: left;}
+.promo_container .promo.three { width: 50%; }
 
 
 body { background-image: none; }

@@ -57,7 +57,7 @@ var now_utc =  Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDa
 
 var date1 = (date.getFullYear() + ("0" + (date.getMonth() + 1)).slice(-2) + ("0" + date.getDate()).slice(-2)); // WORKS. 
 var date2 = (date.getFullYear() + ("0" + (date.getMonth() + 1)).slice(-2) + ("0" + date.getDate()).slice(-2)+" " + ("0" + date.getHours() ).slice(-2) +":"+ ("0" + date.getMinutes()).slice(-2)+":" + ("0" + date.getSeconds()).slice(-2) );
-document.write("<br/>Today's date is "+date1);
+//document.write("<br/>Today's date is "+date1);
 
 // BEGIN https://stackoverflow.com/a/44118057/8826818 
 // Every Friday at 2pm ET a url is created that contains a date string i.e. 20220204. YYYYMMDD. I am in CentralTime.
@@ -431,5 +431,5 @@ var sunrisePos = SunCalc.getPosition(times.sunrise, 51.5, -0.1);
 // get sunrise azimuth in degrees
 var sunriseAzimuth = sunrisePos.azimuth * 180 / Math.PI;
 
-document.write("<br/>Today's date is "+date1);
-document.write("<br/>Sunrise is "+sunriseStr);
+//document.write("<br/>Today's date is "+date1);
+//document.write("<br/>Sunrise is "+sunriseStr);

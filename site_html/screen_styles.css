@@ -43,6 +43,7 @@ a.cta {
 }
 a.cta:hover { background-position: right -50px; }
 footer { font-size: .85em; color: #000; background-color: #fff; padding: 10px 10px 10px 0px; }
+
 .promo.one br {line-height:1.45em;}
 .promo h3 { font-size: 1.1em; margin: 0; }
 .promo p { line-height: 1.2em; font-size: .9em; margin-bottom: .5em; }
