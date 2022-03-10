@@ -111,7 +111,7 @@ https://howtocreateapps.com/fetch-and-display-json-html-javascript/
 </div>
 </div>
 
-<div class="promo three">
+<div class="promo one">
 <div class="content">
 <br />
 <p><span id="myDate"></span></p>
@@ -127,6 +127,7 @@ https://howtocreateapps.com/fetch-and-display-json-html-javascript/
 <p>&nbsp;</p>
 </div>
 </div>
+
 <script src=moment.min.js></script>
 <script>
 <!-- var date9 = date.toLocaleDateString('en-GB').split('/').reverse().join(''); // '20220204' -->
@@ -136,12 +137,9 @@ var zsunset;
 var zdegree;
 var zdirections;
 var ztime;
-var myDate;
 
 //https://momentjs.com/
 document.getElementById("myDate").innerHTML = moment(date).format("dddd, MMMM Do, YYYY");
-//document.getElementById("myDate").innerHTML = new Date().toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"long", day:"numeric"}) ;
-//document.getElementById("myDate2").innerHTML = date; // Full date with timezone offset
 
 //https://stackoverflow.com/a/36475516/8826818
 function  DegToCompass(degree){
@@ -184,7 +182,7 @@ function  DegToCompass(degree){
 
 </script>
 
-<div class="promo three">
+<div class="promo one">
 <div class="content">
 <br />
 <p><a href=https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=minutely,hourly,alerts&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial>Weather Data OpenWeatherMap</a></p>
@@ -200,7 +198,8 @@ function  DegToCompass(degree){
 
 <div class="promo one">
 <div class="content">
-<p><a href=#><img src="https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg" width="480" height="196" /></a></p>
+<script>document.write('<a href=https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg><img src="https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg" width="480" height="196" /></a>');</script>
+
 </div>
 </div>
 
