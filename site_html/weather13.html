@@ -114,7 +114,7 @@ https://howtocreateapps.com/fetch-and-display-json-html-javascript/
 <!-- <p><span id="myDate2"></span></p> -->
 <!-- <p><span id="myOrdinal"></span></p> -->
 <!-- <p><span id="result"></span></p> -->
-<p>TIME: <span id="myTime"></span></p>
+<p>TIME:&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<span id="myTime"></span></p>
 <p>SUNRISE: <span id="mySunrise"></span></p>
 <p>SUNSET: &nbsp; <span id="mySunset"></span></p>
 <!-- <p>Wind from the: &nbsp;<span id="myText3"></span></p> -->
@@ -123,7 +123,7 @@ https://howtocreateapps.com/fetch-and-display-json-html-javascript/
 <p>&nbsp;</p>
 </div>
 </div>
-
+<script src=moment.min.js></script>
 <script>
 <!-- var date9 = date.toLocaleDateString('en-GB').split('/').reverse().join(''); // '20220204' -->
 var date = new Date();
@@ -134,10 +134,13 @@ var zdirections;
 var ztime;
 var myDate;
 
-var myDate = new Date().toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"long", day:"numeric"}) ;
-document.getElementById("myDate").innerHTML = myDate;
+//var myDate = new Date().toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"long", day:"numeric"}) ;
+//https://momentjs.com/
+document.getElementById("myDate").innerHTML = moment(date).format("dddd, MMMM Do, YYYY");
+//document.getElementById("myDate").innerHTML = myDate;
 //document.getElementById("myDate2").innerHTML = date;
 
+//https://stackoverflow.com/a/36475516/8826818
 function  DegToCompass(degree){
     if (degree>337.5) return 'N';
     if (degree>292.5) return 'NW';
@@ -149,6 +152,10 @@ function  DegToCompass(degree){
     if(degree>22.5){return 'NE';}
     return 'N';
 }
+
+//https://stackoverflow.com/a/39466341/8826818 new date() ordinal
+//function nth(n){return["st","nd","rd"][((n+90)%100-10)%10-1]||"th"}
+
     // https://openweathermap.org/api/one-call-api
     $.getJSON('https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=minutely,hourly,alerts&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial', function(data) {
 
