@@ -35,8 +35,9 @@
 
 <style>
 
-@media only screen and (min-width:884px) and (max-width:984px){article{padding:16.5em 0 0 0}}
-@media only screen and (min-width:800px) and (max-width:883px){article{padding:19em 0 0 0}}
+@media only screen and (min-width:923px) and (max-width:999px){article{padding:16.5em 0 0 0}}
+@media only screen and (min-width:811px) and (max-width:922px){article{padding:19em 0 0 0}}
+@media only screen and (min-width:800px) and (max-width:810px){article{padding:21em 0 0 0}}
 @media only screen and (min-width:718px) and (max-width:799px){article{padding:2.25em 0 0 0}}
 @media only screen and (max-width:717px){
 	article{padding:1em 0 0 0}header{display:none}article h2{display:none}.navrule1{display:none}.promo_container .promo.two{padding-top:.25em;width:50%;float:left}.promo_container .promo.three{padding-top:.25em;width:50%;float:right}nav{display:block;position:static;padding:10px 0 10px 10px;background-color:#515673}footer a{display:inline-block;padding:10px 0;}
@@ -103,10 +104,6 @@ https://howtocreateapps.com/fetch-and-display-json-html-javascript/
 
 <div class="promo two">
 <div id=container class="content">
-<!-- <a href=https://www.moonmodule.com/cs/dm/vn.gif> -->
-<!-- <img src="vn.gif" width=153 height=235 title='Current Moon phase graphic at moonconnection.com' alt='CLICK TO GO TO https://www.moonmodule.com/cs/dm/vn.gif'></a> -->
-<!-- <script type="text/javascript" src="http://moonphases.co.uk/js/widget.js" id="moonphase_widget" widget="standard" lat="37.60" lng="-93.41" date="date" tz="-6"> </script> -->
-<!-- <script type="text/javascript" src="http://widgets.joeswebtools.com/moon-phases/javascript.php" height='235'></script> -->
 <script>document.write('<a href=https://www.moonmodule.com/cs/dm/vn.gif><img src="https://www.moonmodule.com/cs/dm/vn.gif" width="153" height="235" /></a>');</script>
 </div>
 </div>
@@ -116,14 +113,12 @@ https://howtocreateapps.com/fetch-and-display-json-html-javascript/
 <br />
 <p><span id="myDate"></span></p>
 <!-- <p><span id="myDate2"></span></p> -->
-<!-- <p><span id="myOrdinal"></span></p> -->
-<!-- <p><span id="result"></span></p> -->
-<p>TIME:&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; <span id="myTime"></span></p>
+<p>TIME:&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<span id="myTime"></span></p>
+<p>CONDITIONS: <span id="zcondition"></span></p>
+<p>TEMP: <span id="myText6"></span></p>
 <p>SUNRISE: <span id="mySunrise"></span></p>
 <p>SUNSET: &nbsp; <span id="mySunset"></span></p>
-<!-- <p>Wind from the: &nbsp;<span id="myText3"></span></p> -->
 <p>WIND FROM THE <span id="myText4"></span></p>
-<!-- <p>Wind from the: &nbsp;<span id="myText5"></span></p> -->
 <p>&nbsp;</p>
 </div>
 </div>
@@ -149,7 +144,7 @@ function  DegToCompass(degree){
     if(degree>202.5) return 'SW';
     if(degree>157.5) return 'S';
     if(degree>122.5) return 'SE';
-    if(degree>67.5) return 'E';
+    if(degree>67.5) return 'East';
     if(degree>22.5){return 'NE';}
     return 'N';
 }
@@ -161,23 +156,23 @@ function  DegToCompass(degree){
     $.getJSON('https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=minutely,hourly,alerts&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial', function(data) {
 
 			//var text = `Sunrise is: ${data.current.sunrise}<br>Sunset: ${data.current.sunset}`
-			//var ztime = new Date(data.current.dt*1000);
-                  //var ztime = (new Date(data.current.dt*1000)).toLocaleString([], { hour: '2-digit', minute: '2-digit' });
 			document.getElementById("myTime").innerHTML = (new Date(data.current.dt*1000)).toLocaleString([], { hour: '2-digit', minute: '2-digit' });
 			
-			zdirections = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
+			zdirections = ['N', 'NE', 'East', 'SE', 'S', 'SW', 'W', 'NW'];
 			zdegree = data.current.wind_deg * 8 / 360;
 			zdegree = Math.round(zdegree, 0);
 			zdegree = (zdegree + 8) % 8;
 			document.getElementById("myText4").innerHTML= (zdirections[zdegree]) + ' at ' + data.current.wind_speed + ' mph gusting to ' + data.current.wind_gust + ' mph';
 
-			//var zsunrise = new Date(data.current.sunrise*1000);
-			//var zsunrise = (new Date(data.current.sunrise*1000)).toLocaleString([], { hour: '2-digit', minute: '2-digit' });
-			//var zsunset = new Date(data.current.sunset*1000);
-			//var zsunset = (new Date(data.current.sunset*1000)).toLocaleString([], { hour: '2-digit', minute: '2-digit' });
 			document.getElementById("mySunrise").innerHTML = (new Date(data.current.sunrise*1000)).toLocaleString([], { hour: '2-digit', minute: '2-digit' });
 			document.getElementById("mySunset").innerHTML = (new Date(data.current.sunset*1000)).toLocaleString([], { hour: '2-digit', minute: '2-digit' });
 			
+			document.getElementById("zcondition").innerHTML= data.current.weather[0].main;
+			//document.getElementById("zcondition").innerHTML= data.current.weather[0].main+'<img src=http://openweathermap.org/img/w/'+data.current.weather[0].icon+'.png width="32" height="32" align=center>';
+
+			var ztemp = Math.round(data.current.temp, 0);
+			document.getElementById("myText6").innerHTML= ztemp+'&#8457;';
+
 })
 
 </script>
@@ -319,6 +314,6 @@ function  DegToCompass(degree){
 <!-- <script src="moment.min.js"></script> -->
 <!--   END GET DATE PARTS -->
 
-<script src='//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script><script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 11,cityid: '4377835',appid: '81fd6bf03bee58a02d735b12c7959cf1',units: 'imperial',containerid: 'openweathermap-widget-11',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script>
+<!-- <script src='//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script><script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 11,cityid: '4377835',appid: '81fd6bf03bee58a02d735b12c7959cf1',units: 'imperial',containerid: 'openweathermap-widget-11',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script> -->
 
 </body></html>
