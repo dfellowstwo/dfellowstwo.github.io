@@ -6,6 +6,7 @@
   padding: 0;
   margin: 0 0 -1.1em 0;
 }
+
 a {
   text-decoration: none;
 }
@@ -50,12 +51,11 @@ header a.logo {
   padding: 0px 0px 15px 20px;
 }
 .promo_container .promo.one {
-  width: 73%;
+  width: 37%;
   float: left;
-  
 }
 .promo_container .promo.two {
-  width: 20%;
+  width: 13%;
   float: left;
 }
 .promo_container .promo.three {
@@ -63,8 +63,11 @@ header a.logo {
   float: left;
 }
 .promo_container .promo.seven {
-  width: 50%;
+  width: 49.5%;
   float: right;
+}
+.promo_container .promo.six {
+  display:none;
 }
 .promo_container .promo.four {
   width: 100%;
@@ -94,7 +97,7 @@ nav a {
   header a.logo {
     background-image: url(../images/icon-phone.png);
   }
-  header {
-    background-image: url(../images/dfellows.rf.gd1360x382.jpg);
-  }
+  /* header { */
+    /* background-image: url(../images/dfellows.rf.gd1360x382.jpg); */
+  /* } */
 }

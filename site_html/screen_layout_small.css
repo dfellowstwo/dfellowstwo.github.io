@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+/* Moonphase graphic: Bottom margin 1em pushes 7day forecast graphic down. */
+.promo_container .promo.two img {
+	width: 128px;
+	display: block;
+	margin: 0 auto 1em auto;
+}
 /* Layout Small Screens */
 #radar2 { padding: 0; margin: 0 0 -.5em 0; }
 span.small { display:block; }
@@ -7,17 +13,30 @@ span.small { display:block; }
 article { padding: 1em 0 0 0; }
 h1 {line-height:1em; font-size:1em; }
 
+.date031022 a {
+	padding: 0;
+	margin: 2em 0 0em 0;
+	display: inline-block;
+}
+
 .liheading { padding:1em 0 0 2em;}
 .liheading li{ padding:2em 0 0 1em;}
 
 header {
-	height: 84px;
-	background: url(../images/banner_small4.jpg) no-repeat;
+	height: 99px;
+	background: url(../images/banner_small.jpg) no-repeat;
 	background-size: 100%;
 	background-position:center top
 }
-header a.logo { width: 40px; height: 40px; top: 0px; right: 10px; background-image: url(../images/icon-phone.png); background-size: 40px 40px; }
-
+/* header a.logo { width: 40px; height: 40px; top: 0px; right: 10px; background-image: url(../images/icon-phone.png); background-size: 40px 40px; } */
+header a.logo {
+	width: 35px;
+	height: 35px;
+	top: 6px;
+	right: -5px;
+	background-image: url(../images/icon-phone.png);
+	background-size: 25px 25px;
+}
 
 nav {
 	display: block;
@@ -75,7 +94,7 @@ nav a:hover { color: #fff; background-color: rgba(255,255,255,.15); }
 	float: none;
 	
 }
-
+.promo_container .promo.six {display:block;}
 
 .promo_container .promo .content { padding: 0; }
 
@@ -94,8 +113,8 @@ body { background-image: none;  }
 	only screen and (                min-resolution: 2dppx)
 {
 
-	header a.logo { background-image: url(../images/icon-phone.png); background-size: 120px 120px;  }
-	header { background-image: url(../images/icon-phone.png); background-size: 120px 120px;  }
+	/* header a.logo { background-image: url(../images/icon-phone.png); background-size: 120px 120px;  } */
+	/* header { background-image: url(../images/icon-phone.png); background-size: 120px 120px;  } */
 
 }
 

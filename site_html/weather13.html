@@ -40,12 +40,12 @@
 @media only screen and (min-width:800px) and (max-width:810px){article{padding:21em 0 0 0}}
 @media only screen and (min-width:718px) and (max-width:799px){article{padding:2.25em 0 0 0}}
 @media only screen and (max-width:717px){
-	article{padding:1em 0 0 0}header{display:none}article h2{display:none}.navrule1{display:none}.promo_container .promo.two{padding-top:.25em;width:50%;float:left}.promo_container .promo.three{padding-top:.25em;width:50%;float:right}nav{display:block;position:static;padding:10px 0 10px 10px;background-color:#515673}footer a{display:inline-block;padding:10px 0;}
+	article{padding:1em 0 0 0}header{display:none}article h2{display:none}.navrule1{display:none}.promo_container .promo.three{padding-top:.25em;width:100%;margin:0 auto;float:none}.promo_container .promo.three img{padding-top:.25em;width:100%;margin:0 auto;float:none}nav{display:block;position:static;padding:10px 0 10px 10px;background-color:#515673}footer a{display:inline-block;padding:10px 0;}
 }
-
+@media only screen and (min-width:810px){.promo.three{display:none}}
 @media only screen and (max-width:810px){.promo.seven{display:none}}
 @media screen and (orientation:portrait){.promo.three{display:none}}
-@media screen and (orientation:landscape){.promo.six{display:none}}.promo_container .promo.four img{width:940px}.promo_container .promo.five img{width:940px}.promo_container .promo.seven img{width:480px;margin:0 auto;float:none}.promo_container .promo.six img{padding-top:.25em;width:100%;margin:0 auto;float:none}.promo .one .content{line-height:1.45em}
+@media screen and (orientation:landscape){}.promo_container .promo.four img{width:940px}.promo_container .promo.five img{width:940px}.promo_container .promo.seven img{width:480px;margin:0 auto;float:none}.promo_container .promo.six img{padding-top:.25em;width:100%;margin:0 auto;float:none}.promo .one .content{line-height:1.45em}
 @media only screen and (min-width:600px){.hidelg{display:none}}
 .hide{display:none}
 h2{
@@ -58,6 +58,7 @@ body{font-family:"Segoe UI Semibold","Segoe WP Semibold","Segoe WP","Segoe UI",A
 .container{display: flex;justify-content: space-between; }
 .border {border-width: 1px; border-color: black; border-style:solid;}
 
+
 </style>
 
 <script language="javascript">
@@ -69,9 +70,7 @@ setTimeout(function(){
 <!-- <script type="text/javascript">window.onblur= function() {window.onfocus= function () {location.reload(true)}};</script> -->
 </head>
 <style>body{text-transform: none;}
-sup {
-  font-size: x-small
-}
+
 </style>
 <body>
 
@@ -95,31 +94,28 @@ https://howtocreateapps.com/fetch-and-display-json-html-javascript/
 
 <div class="promo_container">
 
+<div id="openweathermap-widget-11"></div>
 
 <div class="promo one">
 <div class="content">
-<div id="openweathermap-widget-11"></div>
+<span id="myDate"></span><br>
+<!-- <span id="myDate2"></span> -->
+<span id="myTime"></span><br>
+CONDITIONS: <span id="zcondition"></span><br>
+<a href=https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=minutely,hourly,alerts&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial>TEMP; </a><span id="myText6"></span><br>
+SUNRISE: <span id="mySunrise"></span><br>
+SUNSET: &nbsp; <span id="mySunset"></span><br>
+WIND FROM THE <span id="myText4"></span><br>
+<div class=date031022>
+<a href=https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=minutely,hourly,alerts&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial>Weather Data OpenWeather (LEFT CLICK GUI / RIGHT CLICK "SAVE AS" JSON)</a>
+<a href=https://w1.weather.gov/xml/current_obs/KSGF.xml>Weather Data NWS (LEFT CLICK GUI / RIGHT CLICK "SAVE AS" XML)</a> 
+</div>
 </div>
 </div>
 
 <div class="promo two">
 <div id=container class="content">
-<script>document.write('<a href=https://www.moonmodule.com/cs/dm/vn.gif><img src="https://www.moonmodule.com/cs/dm/vn.gif" width="153" height="235" /></a>');</script>
-</div>
-</div>
-
-<div class="promo one">
-<div class="content">
-<br />
-<p><span id="myDate"></span></p>
-<!-- <p><span id="myDate2"></span></p> -->
-<p>TIME:&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<span id="myTime"></span></p>
-<p>CONDITIONS: <span id="zcondition"></span></p>
-<p>TEMP: <span id="myText6"></span></p>
-<p>SUNRISE: <span id="mySunrise"></span></p>
-<p>SUNSET: &nbsp; <span id="mySunset"></span></p>
-<p>WIND FROM THE <span id="myText4"></span></p>
-<p>&nbsp;</p>
+<script>document.write('<a href=https://www.moonmodule.com/cs/dm/vn.gif><img src="https://www.moonmodule.com/cs/dm/vn.gif" width=128 height=196 /></a>');</script>
 </div>
 </div>
 
@@ -156,7 +152,7 @@ function  DegToCompass(degree){
     $.getJSON('https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=minutely,hourly,alerts&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial', function(data) {
 
 			//var text = `Sunrise is: ${data.current.sunrise}<br>Sunset: ${data.current.sunset}`
-			document.getElementById("myTime").innerHTML = (new Date(data.current.dt*1000)).toLocaleString([], { hour: '2-digit', minute: '2-digit' });
+			document.getElementById("myTime").innerHTML = (new Date(data.current.dt*1000)).toLocaleString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true });
 			
 			zdirections = ['N', 'NE', 'East', 'SE', 'S', 'SW', 'W', 'NW'];
 			zdegree = data.current.wind_deg * 8 / 360;
@@ -177,25 +173,28 @@ function  DegToCompass(degree){
 
 </script>
 
-<div class="promo one">
-<div class="content">
-<br />
-<p><a href=https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=minutely,hourly,alerts&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial>Weather Data OpenWeatherMap</a></p>
-<p>&nbsp;</p>
-<p><a href=http://www.moonmodule.com/cs/dm/vn.gif>Moonphase graphic.</a> Update every hour at ~00:17:00. </p> 
-<p>&nbsp;</p>
-<p><a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg title="Thanks to ozarksfirst.com for this seven day weather forecast graphic.">7 day graphic.</a> Update at ~8:47am and ~11:47pm</p>
-<p>&nbsp;</p>
-<p><a href=https://w1.weather.gov/xml/current_obs/KSGF.xml>Weather Data NWS (LEFT CLICK GUI / RIGHT CLICK "SAVE AS" XML DATA)</a> </p>
-<p>&nbsp;</p>
-</div>
-</div>
-
-<div class="promo one ">
+<div class="promo six ">
 <div class="content">
 <script>document.write('<a href=https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg><img src="https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg" width="480" height="196" /></a>');</script>
 </div>
 </div>
+
+
+<div class="promo seven ">
+<div class="content">
+<script>document.write('<a href=https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg><img src="https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg" width="480" height="196" /></a>');</script>
+</div>
+</div>
+
+<div class="clear-fix"></div>
+
+<!-- <p>&nbsp;</p> -->
+<!-- <p><a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg title="Thanks to ozarksfirst.com for this seven day weather forecast graphic.">7 day graphic.</a> Update at ~8:47am and ~11:47pm</p> -->
+<!-- <p><a href=https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=minutely,hourly,alerts&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial>Weather Data OpenWeatherMap</a></p> -->
+<!-- <p><a href=http://www.moonmodule.com/cs/dm/vn.gif>Moonphase graphic.</a> Update every hour at ~00:17:00. </p>  -->
+<!-- <p><a href=https://w1.weather.gov/xml/current_obs/KSGF.xml>Weather Data NWS (LEFT CLICK GUI / RIGHT CLICK "SAVE AS" XML DATA)</a> </p> -->
+<!-- <p>&nbsp;</p> -->
+
 
 <div class="promo four"> 
 <iframe width='100%' height='640px' src='https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOiJuYXRpb25hbCIsImNlbnRlciI6Wy05My4wODQsMzcuNzk3XSwiem9vbSI6NS43NjY3MTUwNzc1MjY4NTcsImxheWVyIjoiYnJlZl9xY2QiLCJ0cmFuc3BhcmVudCI6dHJ1ZSwiYWxlcnRzT3ZlcmxheSI6dHJ1ZX0sImFuaW1hdGluZyI6dHJ1ZSwiYmFzZSI6InN0YW5kYXJkIiwiY291bnR5IjpmYWxzZSwiY3dhIjpmYWxzZSwic3RhdGUiOmZhbHNlLCJtZW51IjpmYWxzZSwic2hvcnRGdXNlZE9ubHkiOnRydWUsIm9wYWNpdHkiOnsiYWxlcnRzIjowLCJsb2NhbCI6MC42LCJsb2NhbFN0YXRpb25zIjowLjgsIm5hdGlvbmFsIjowLjZ9fQ%3D%3D' frameborder='0' scrolling='no'></iframe>
