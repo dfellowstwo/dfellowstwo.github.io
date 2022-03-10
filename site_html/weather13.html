@@ -67,7 +67,11 @@ setTimeout(function(){
 <!-- Reload page once when focus is restored to the page -->
 <!-- <script type="text/javascript">window.onblur= function() {window.onfocus= function () {location.reload(true)}};</script> -->
 </head>
-<style>body{text-transform: none;}</style>
+<style>body{text-transform: none;}
+sup {
+  font-size: x-small
+}
+</style>
 <body>
 
 <div class="page">
@@ -134,7 +138,6 @@ var zdirections;
 var ztime;
 var myDate;
 
-//var myDate = new Date().toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"long", day:"numeric"}) ;
 //https://momentjs.com/
 document.getElementById("myDate").innerHTML = moment(date).format("dddd, MMMM Do, YYYY");
 //document.getElementById("myDate").innerHTML = myDate;
