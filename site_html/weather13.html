@@ -140,8 +140,8 @@ var myDate;
 
 //https://momentjs.com/
 document.getElementById("myDate").innerHTML = moment(date).format("dddd, MMMM Do, YYYY");
-//document.getElementById("myDate").innerHTML = myDate;
-//document.getElementById("myDate2").innerHTML = date;
+//document.getElementById("myDate").innerHTML = new Date().toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"long", day:"numeric"}) ;
+//document.getElementById("myDate2").innerHTML = date; // Full date with timezone offset
 
 //https://stackoverflow.com/a/36475516/8826818
 function  DegToCompass(degree){
