@@ -16,7 +16,7 @@ h1 {line-height:1em; font-size:1em; }
 .date031022 a {
 	padding: 0;
 	margin: 2em 0 0em 0;
-	display: inline-block;
+	display: block;
 }
 
 .liheading { padding:1em 0 0 2em;}

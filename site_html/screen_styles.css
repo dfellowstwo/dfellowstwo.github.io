@@ -8,12 +8,6 @@ ul { list-style-type: disk; }
 ol { list-style-type: decimal; }
 /*DOUG*/ /*CORRECT VERTICAL SPACING BETWEEN EVER CHANGING NAV HEIGHT AND ARTICLE*/
 
-.date031022 a {
-	padding: 0;
-	margin: .5em 0 0em 0;
-	display: inline-block;
-}
-
 body {
 	color: #575c7a;
 	line-height: 1em;
