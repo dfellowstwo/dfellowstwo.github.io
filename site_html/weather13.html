@@ -35,10 +35,10 @@
 
 <style>
 
-@media only screen and (min-width:923px) and (max-width:999px){article{padding:16.5em 0 0 0}}
-@media only screen and (min-width:811px) and (max-width:922px){article{padding:19em 0 0 0}}
-@media only screen and (min-width:800px) and (max-width:810px){article{padding:21em 0 0 0}}
-@media only screen and (min-width:718px) and (max-width:799px){article{padding:2.25em 0 0 0}}
+@media only screen and (min-width:923px) and (max-width:999px){article{padding:16.5em 0 1em 0}}
+@media only screen and (min-width:811px) and (max-width:922px){article{padding:19em 0 1em 0}}
+@media only screen and (min-width:800px) and (max-width:810px){article{padding:21em 0 1em 0}}
+@media only screen and (min-width:718px) and (max-width:799px){article{padding:2.25em 0 1em 0}}
 @media only screen and (max-width:717px){
 	article{padding:1em 0 0 0}header{display:none}article h2{display:none}.navrule1{display:none}.promo_container .promo.three{padding-top:.25em;width:100%;margin:0 auto;float:none}.promo_container .promo.three img{padding-top:.25em;width:100%;margin:0 auto;float:none}nav{display:block;position:static;padding:10px 0 10px 10px;background-color:#515673}footer a{display:inline-block;padding:10px 0;}
 }
@@ -107,7 +107,8 @@ SUNRISE: <span id="mySunrise"></span><br>
 SUNSET: &nbsp; <span id="mySunset"></span><br>
 WIND FROM THE <span id="myText4"></span><br>
 <div class=date031022>
-<a href=https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=minutely,hourly,alerts&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial>Weather Data OpenWeather (LEFT CLICK GUI / RIGHT CLICK "SAVE AS" JSON)</a>
+<a href=https://api.weather.gov/gridpoints/SGF/62,54/forecast>Weather Data Weather.gov (JSON)</a>
+<a href=https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=minutely,hourly,alerts&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial>Weather Data OpenWeather (JSON)</a>
 <a href=https://w1.weather.gov/xml/current_obs/KSGF.xml>Weather Data NWS (LEFT CLICK GUI / RIGHT CLICK "SAVE AS" XML)</a> 
 </div>
 </div>
@@ -148,8 +149,12 @@ function  DegToCompass(degree){
 //https://stackoverflow.com/a/39466341/8826818 new date() ordinal
 //function nth(n){return["st","nd","rd"][((n+90)%100-10)%10-1]||"th"}
 
+//https://api.weather.gov/points/37.653690,-93.399376
+//https://api.weather.gov/gridpoints/SGF/62,54/forecast
+
+
     // https://openweathermap.org/api/one-call-api
-    $.getJSON('https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=minutely,hourly,alerts&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial', function(data) {
+$.getJSON('https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=minutely,hourly,alerts&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial', function(data) {
 
 			//var text = `Sunrise is: ${data.current.sunrise}<br>Sunset: ${data.current.sunset}`
 			document.getElementById("myTime").innerHTML = (new Date(data.current.dt*1000)).toLocaleString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true });
@@ -163,11 +168,11 @@ function  DegToCompass(degree){
 			document.getElementById("mySunrise").innerHTML = (new Date(data.current.sunrise*1000)).toLocaleString([], { hour: '2-digit', minute: '2-digit' });
 			document.getElementById("mySunset").innerHTML = (new Date(data.current.sunset*1000)).toLocaleString([], { hour: '2-digit', minute: '2-digit' });
 			
-			document.getElementById("zcondition").innerHTML= data.current.weather[0].main;
+			document.getElementById("zcondition").innerHTML= data.current.weather[0].main ; //Rain, clouds, snow ...
 			//document.getElementById("zcondition").innerHTML= data.current.weather[0].main+'<img src=http://openweathermap.org/img/w/'+data.current.weather[0].icon+'.png width="32" height="32" align=center>';
 
 			var ztemp = Math.round(data.current.temp, 0);
-			document.getElementById("myText6").innerHTML= ztemp+'&#8457;';
+			document.getElementById("myText6").innerHTML= ztemp+'&#8457;'; // *F
 
 })
 
@@ -175,14 +180,15 @@ function  DegToCompass(degree){
 
 <div class="promo six ">
 <div class="content">
-<script>document.write('<a href=https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg><img src="https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg" width="480" height="196" /></a>');</script>
+<script>document.write('<a href=https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg><img src="https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg" width="480" height="196" alt=""Click to load the 7day forecast graphic./></a>');</script>
 </div>
 </div>
 
 
 <div class="promo seven ">
 <div class="content">
-<script>document.write('<a href=https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg><img src="https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg" width="480" height="196" /></a>');</script>
+<script>document.write('<a href=https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg><img src="https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg" width="480" height="196" alt=""Click to load the 7day forecast graphic./ /></a>');</script>
+<!-- <script type="text/javascript" src="https://www.dfellows.rf.gd/site_html/7day.php"></script> -->
 </div>
 </div>
 
@@ -313,6 +319,6 @@ function  DegToCompass(degree){
 <!-- <script src="moment.min.js"></script> -->
 <!--   END GET DATE PARTS -->
 
-<script src='//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script><script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 11,cityid: '4377835',appid: '81fd6bf03bee58a02d735b12c7959cf1',units: 'imperial',containerid: 'openweathermap-widget-11',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script>
+<!-- <script src='//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script><script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 11,cityid: '4377835',appid: '81fd6bf03bee58a02d735b12c7959cf1',units: 'imperial',containerid: 'openweathermap-widget-11',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script> -->
 
 </body></html>

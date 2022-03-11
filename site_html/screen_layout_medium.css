@@ -18,7 +18,7 @@
 /*DOUG*/ /*CORRECT VERTICAL SPACING BETWEEN EVER CHANGING NAV HEIGHT AND ARTICLE*/
 h1, p {margin: 1em 12px 0px 0px;}
 
-article { padding: 2em 0 0 1em; }
+article { padding: 2em 0 1em 1em; }
 
 
 header {
