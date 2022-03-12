@@ -58,7 +58,8 @@ body{font-family:"Segoe UI Semibold","Segoe WP Semibold","Segoe WP","Segoe UI",A
 .container{display: flex;justify-content: space-between; }
 .border {border-width: 1px; border-color: black; border-style:solid;}
 
-
+.weatherwidget-io {display:block;width:480px;height:196px;}
+iframe {height:196px;}
 </style>
 
 <script language="javascript">
@@ -94,7 +95,11 @@ https://howtocreateapps.com/fetch-and-display-json-html-javascript/
 
 <div class="promo_container">
 
-<div id="openweathermap-widget-11"></div>
+<!-- <div id="openweathermap-widget-11"></div> -->
+<div style='height:120px'><a class="weatherwidget-io" href="https://forecast7.com/en/37d65n93d40/65613/?unit=us" data-font="Arial" data-mode="Forecast" data-theme="original" width="480px" height="196">BOLIVAR WEATHER</a></div>
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+</script>
 
 <div class="promo one">
 <div class="content">
@@ -108,12 +113,7 @@ CONDITIONS: <span id="zcondition"></span><br>
 SUNRISE: <span id="mySunrise"></span><br>
 SUNSET: &nbsp; <span id="mySunset"></span><br>
 WIND FROM THE <span id="myText4"></span><br>
-<div class=date031022>
-<a href=https://api.weather.gov/gridpoints/SGF/62,54/forecast>Weather Data Weather.gov (JSON)</a>
-<a href=https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=minutely,hourly,alerts&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial>Weather Data OpenWeather (JSON)</a>
-<a href=https://w1.weather.gov/xml/current_obs/KSGF.xml>Weather Data NWS (LEFT CLICK GUI / RIGHT CLICK "SAVE AS" XML)</a> 
-<a href=https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg><img src="https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg" width="480" height="196" alt="Click to load the 7day forecast graphic." title="Click to load the 7 day forecast graphic." /></a>
-</div>
+
 </div>
 </div>
 
@@ -183,7 +183,7 @@ $.getJSON('https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&
 
 <div class="promo six ">
 <div class="content">
-<script>document.write('<a href=https://www.dfellows.rf.gd/sitehtml/weather-seven-day-forecast-graphic.jpg><img src="https://www.dfellows.rf.gd/sitehtml/weather-seven-day-forecast-graphic.jpg" width="480" height="196" alt="Click to load the 7day forecast graphic." /></a>');</script>
+<!-- <script>document.write('<a href=https://www.dfellows.rf.gd/sitehtml/weather-seven-day-forecast-graphic.jpg><img src="https://www.dfellows.rf.gd/sitehtml/weather-seven-day-forecast-graphic.jpg" width="480" height="196" alt="Click to load the 7day forecast graphic." /></a>');</script> -->
 <!-- <a href=https://www.dfellows.rf.gd/sitehtml/weather-seven-day-forecast-graphic.jpg><img src="https://www.dfellows.rf.gd/sitehtml/weather-seven-day-forecast-graphic.jpg" width=480 height=196 title="7 day forecast graphic" alt="Click to load the 7day forecast graphic."/></a> -->
 </div>
 </div>
@@ -191,14 +191,18 @@ $.getJSON('https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&
 
 <div class="promo seven ">
 <div class="content">
-
-<script>document.write('<a href=https://www.dfellows.rf.gd/sitehtml/weather-seven-day-forecast-graphic.jpg><img src="https://www.dfellows.rf.gd/sitehtml/weather-seven-day-forecast-graphic.jpg" width="480" height="196" alt="Click to load the 7day forecast graphic." /></a>');</script>
-<script type="text/javascript" src="https://www.dfellows.rf.gd/site_html/7day.php"></script>
-
-<script>document.write('<a href=https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.gif><img src="https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.gif" width="480" height="196" alt="Click to load the 7day forecast graphic." /></a>');</script>
+<div class=date031022>
+<a href=https://api.weather.gov/gridpoints/SGF/62,54/forecast>Weather Data Weather.gov (JSON)</a>
+<a href=https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=minutely,hourly,alerts&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial>Weather Data OpenWeather (JSON)</a>
+<a href=https://w1.weather.gov/xml/current_obs/KSGF.xml>Weather Data NWS (LEFT CLICK GUI / RIGHT CLICK "SAVE AS" XML)</a> 
+<a href=https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg><img src="https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg" width="480" height="196" alt="Click to load the 7day forecast graphic" title="Click to load the 7 day forecast graphic" /></a>
+</div>
+<!-- <script>document.write('<a href=https://www.dfellows.rf.gd/sitehtml/weather-seven-day-forecast-graphic.jpg><img src="https://www.dfellows.rf.gd/sitehtml/weather-seven-day-forecast-graphic.jpg" width="480" height="196" alt="Click to load the 7day forecast graphic." /></a>');</script> -->
 <!-- <script type="text/javascript" src="https://www.dfellows.rf.gd/site_html/7day.php"></script> -->
 
-<a href=https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.gif><img src="https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.gif" width=480 height=196 title="7 day forecast graphic" alt="Click to load the 7day forecast graphic."/></a>
+<!-- <script>document.write('<a href=https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.gif><img src="https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.gif" width="480" height="196" alt="Click to load the 7day forecast graphic." /></a>');</script> -->
+
+<!-- <a href=https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.gif><img src="https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.gif" width=480 height=196 title="7 day forecast graphic" alt="Click to load the 7day forecast graphic."/></a> -->
 </div>
 </div>
 
