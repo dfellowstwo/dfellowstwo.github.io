@@ -118,8 +118,12 @@ Radio.prototype = {
 // node.js version = cmd /k node -v
 // javascript 1.5 on desktop, 1.7 on iphone. A developer worth his salt does not check javascript version number, he detects features supported.
 
+/*
+BEGIN SCIENCE FRIDAY. Science Friday is a radio program that streams starting at 2pm EasternTime on Friday and is distributed by WNYC-FM, New York City to public radio stations across the nation. This code supplies part of the url of the stream. The url is in the format of: https://s3.amazonaws.com/scifri-episodes/scifri20220211-episode.mp3
 
-// BEGIN SCIENCE FRIDAY. Science Friday is a radio program that streams starting at 2pm EasternTime on Friday and is distributed by WNYC-FM, New York City to public radio stations across the nation. This code supplies part of the url of the stream. The url is in the format of: https://s3.amazonaws.com/scifri-episodes/scifri20220211-episode.mp3
+If it is before Friday 2PM ET use last weeks URL else use this weeks URL.
+
+*/
 
 // BEGIN WORKS. IN PRODUCTION. PART OF https://stackoverflow.com/a/47889259/8826818
 // if you check for last Friday's date on Friday it returns todays date
@@ -182,7 +186,7 @@ var date2 = (date.getFullYear() + ("0" + (date.getMonth() + 1)).slice(-2) + ("0"
 var hour = date.getHours(); // Hour w/o leading zero
 var day = date.getDay(); // 0 = Sun
 var combined = day+'_'+hour;
-var run_on = ['5_0','5_1','5_2','5_3','5_4','5_5','5_6','5_7','5_8','5_9','5_10','5_11','5_12']; // This week's stream starts at 2pm EasternTime. I am in CST.
+var run_on = ['5_0','5_1','5_2','5_3','5_4','5_5','5_6','5_7','5_8','5_9','5_10','5_11','5_12']; // This week's stream starts at 2pm EasternTime. I am in CT.
 for (i = 0; i < run_on.length; i++){
     if (combined == run_on[i]){
     // begin https://stackoverflow.com/a/30323659/8826818
@@ -494,7 +498,8 @@ var radio = new Radio([
 
     title: "U OF THE SOUTH",
 
-    src: 'https://sewanee.streamguys1.com/live',
+    src: 'https://sewanee.streamguys1.com/sewanee',
+    // https://sewanee.streamguys1.com/live
 
     howl: null
 

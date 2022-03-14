@@ -1,18 +1,32 @@
 @charset "UTF-8";
 
+/* Moonphase graphic: Bottom margin 1em pushes 7day forecast graphic down. */
+.promo_container .promo.two {
+	width: 27%;
+	float: right;
+	margin: 0 auto 1em auto;
+}
+
 /* Layout Medium Screens */
 #radar2 { padding: 0; margin: 0 0 -1.1em 0;}
 
+.date031022 a {
+	padding: 0;
+	margin: 1em 0 0em 0;
+	display: block;
+}
+
 /*DOUG*/ /*CORRECT VERTICAL SPACING BETWEEN EVER CHANGING NAV HEIGHT AND ARTICLE*/
+h1, p {margin: 1em 12px 0px 0px;}
 
-
-article { padding: 2em 0 0 1em; }
+article { padding: 2em 0 1em 1em; }
 
 
 header {
 	height: 200px;
-	background: url(../images/banner_medium.jpg) no-repeat 90% 0px;
-	background-size: 800px 200px;
+	background: url(../images/dfellows.rf.gd980x275.jpg);
+	background-repeat: no-repeat;
+	background-size: 100%;
 }
 /* header a.logo { width: 128px; height: 196px; top: 4px; right: 2px; background-image: url(http://www.moonmodule.com/cs/dm/vn.gif); background-size: 128px 196px; } */
 header a.logo { width: 60px; height: 60px; top: 6px; right: 6px; background-image: url(../images/icon-phone.png); background-size: 60px 60px; }
@@ -42,7 +56,7 @@ nav a {
 .promo_container .promo.one { width:73%;}
 .promo_container .promo.two { width: 27%; float: right;}
 .promo_container .promo.three { width: 78%; }
-
+.promo_container .promo.six {display:block;}
 
 body { background-image: none; }
 

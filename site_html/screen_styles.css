@@ -8,8 +8,6 @@ ul { list-style-type: disk; }
 ol { list-style-type: decimal; }
 /*DOUG*/ /*CORRECT VERTICAL SPACING BETWEEN EVER CHANGING NAV HEIGHT AND ARTICLE*/
 
-
-
 body {
 	color: #575c7a;
 	line-height: 1em;
@@ -77,6 +75,7 @@ nav a:hover { color: #fff; }
 .clear-fix { clear: both; line-height: 1px; }
 
 .print { display: none; }
+
 
 /*@media
 	only screen and (-webkit-min-device-pixel-ratio: 2),
