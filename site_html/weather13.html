@@ -190,6 +190,7 @@ $.getJSON('https://api.weather.gov/gridpoints/SGF/62,54/forecast', function(data
 
 			document.getElementById("zforecast").innerHTML= data.properties.periods[0].detailedForecast;
 			document.getElementById("zhi").innerHTML= data.properties.periods[0].temperature+'&#8457;';
+			document.getElementById("zlow").innerHTML= data.properties.periods[1].temperature+'&#8457;';
 			document.getElementById("zupdateTime").innerHTML= data.properties.updateTime;
 
 })
@@ -283,7 +284,7 @@ $.getJSON('https://api.weather.gov/gridpoints/SGF/62,54/forecast', function(data
 <br />
 <footer style=page-break-inside:avoid>
 &#169; dfellows.rf.gd &nbsp; 37.601835,-93.415584  &nbsp;  37&#176;36'06.6"N 93&#176;24'56.1"W <br />
-<a href=https://api.weather.gov/gridpoints/SGF/62,54/forecast>api.weather.gov</a>  data update ~ 3hrs<br />See <a href=https://dfellows.rf.gd/site_html/log.html></a>log.html<br />
+<a href=https://api.weather.gov/gridpoints/SGF/62,54/forecast>api.weather.gov</a>  data is updated every ~3hrs<br />See <a href=https://dfellows.rf.gd/site_html/log.html>log.html</a><br />
 Data this page updated at: <text id=zupdateTime></text> yyyy-mm-dd hh:mm:ss Offset<br />
 The <a href=http://www.moonmodule.com/cs/dm/vn.gif>moonphase graphic</a> is update every hour at ~00:17:00<br />
 <a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg title="Thanks to ozarksfirst.com for this seven day weather forecast graphic.">
