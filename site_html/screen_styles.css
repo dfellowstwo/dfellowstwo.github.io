@@ -50,10 +50,13 @@ font-size: 1.25em;
 .promo.one br {line-height:1.45em;}
 .promo h3 { font-size: 1.1em; margin: 0; }
 .promo p { line-height: 1.2em; font-size: .9em; margin-bottom: .5em; }
+
 /*
-.promo.two { background-repeat: no-repeat; background-size: 128px 196px; }
-.promo.three { background-repeat: no-repeat; background-size: 324px 196px; }
+.promo.one { padding: .25em 0 0 0; }
+.promo.two { padding: .25em 0 0 0; }
+.promo.seven { padding: .25em 0 0 0; }
 .promo.six { background-repeat: no-repeat; background-size: 324px 196px; }
+
 */
 /*.promo.two { background-image: url(http://www.moonmodule.com/cs/dm/vn.gif); background-repeat: no-repeat; background-size: 128px 196px; }*/
 /* SERVING THIS FROM THE HTML
