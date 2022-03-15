@@ -166,7 +166,7 @@ function  DegToCompass(degree){
 
 // https://forecast.weather.gov/MapClick.php?lat=37.2144&lon=-93.3014&unit=0&lg=english&FcstType=dwml
 
-document.getElementById("myTime").innerHTML = (new Date()).toLocaleString([], { hour: '1-digit', minute: '2-digit', second: '2-digit' , hour12: true });
+document.getElementById("myTime").innerHTML = (new Date()).toLocaleString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true });
 
     // https://openweathermap.org/api/one-call-api
 $.getJSON('https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=minutely,hourly,alerts&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial', function(data) {
