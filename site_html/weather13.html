@@ -114,7 +114,7 @@ Springfield / Bolivar, MO<br>
 CONDITIONS: <span id="zcondition"></span><br>
 HI:&nbsp; &nbsp; &nbsp; &nbsp;<span id="zhi"></span><br>
 <a href=https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=minutely,hourly,alerts&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial>
-TEMP; </a><span id="myText6"></span><br>
+TEMP; </a><span id="ztemp"></span><br>
 LOW:&nbsp;   <span id="zlow"></span><br>
 SUNRISE: <span id="mySunrise"></span><br>
 SUNSET: &nbsp; <span id="mySunset"></span><br>
@@ -163,6 +163,8 @@ function  DegToCompass(degree){
 //https://api.weather.gov/points/37.653690,-93.399376
 //https://api.weather.gov/gridpoints/SGF/62,54/forecast
 
+// https://forecast.weather.gov/MapClick.php?lat=37.2144&lon=-93.3014&unit=0&lg=english&FcstType=dwml
+
 document.getElementById("myTime").innerHTML = (new Date()).toLocaleString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true });
 
     // https://openweathermap.org/api/one-call-api
@@ -182,16 +184,14 @@ $.getJSON('https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&
 			document.getElementById("zcondition").innerHTML= data.current.weather[0].main ; //Rain, clouds, snow ...
 			//document.getElementById("zcondition").innerHTML= data.current.weather[0].main+'<img src=http://openweathermap.org/img/w/'+data.current.weather[0].icon+'.png width="32" height="32" align=center>';
 
-			var ztemp = Math.round(data.current.temp, 0);
-			document.getElementById("myText6").innerHTML= ztemp+'&#8457;'; // *F
-
+			document.getElementById("zhi").innerHTML= Math.round(data.daily[0].temp.max, 0)+'&#8457;';
+			document.getElementById("ztemp").innerHTML= Math.round(data.current.temp, 0)+'&#8457;'; // *F
+			document.getElementById("zlow").innerHTML= Math.round(data.daily[0].temp.min, 0)+'&#8457;';
 })
 
 $.getJSON('https://api.weather.gov/gridpoints/SGF/62,54/forecast', function(data) {
 
 			document.getElementById("zforecast").innerHTML= data.properties.periods[0].detailedForecast;
-			document.getElementById("zhi").innerHTML= data.properties.periods[0].temperature+'&#8457;';
-			document.getElementById("zlow").innerHTML= data.properties.periods[1].temperature+'&#8457;';
 			document.getElementById("zupdateTime").innerHTML= (new Date(data.properties.updateTime)).toLocaleString([], { month: '2-digit', day: '2-digit',year: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true });
 			
 
