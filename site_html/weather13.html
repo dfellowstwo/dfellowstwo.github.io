@@ -176,7 +176,7 @@ $.getJSON('https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&
 			zdegree = data.current.wind_deg * 8 / 360;
 			zdegree = Math.round(zdegree, 0);
 			zdegree = (zdegree + 8) % 8;
-			document.getElementById("myText4").innerHTML= (zdirections[zdegree]) + ' at ' + Math.round(data.current.wind_speed, 0) + ' mph gusting to ' + Math.round(data.current.wind_gust, 0) + ' mph';
+			document.getElementById("myText4").innerHTML= (zdirections[zdegree]) + ' at ' + Math.ceil(data.current.wind_speed, 0) + ' mph gusting to ' + Math.ceil(data.current.wind_gust, 0) + ' mph';
 
 			document.getElementById("mySunrise").innerHTML = (new Date(data.current.sunrise*1000)).toLocaleString([], { hour: '2-digit', minute: '2-digit' });
 			document.getElementById("mySunset").innerHTML = (new Date(data.current.sunset*1000)).toLocaleString([], { hour: '2-digit', minute: '2-digit' });
@@ -184,9 +184,9 @@ $.getJSON('https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&
 			document.getElementById("zcondition").innerHTML= data.current.weather[0].main ; //Rain, clouds, snow ...
 			//document.getElementById("zcondition").innerHTML= data.current.weather[0].main+'<img src=http://openweathermap.org/img/w/'+data.current.weather[0].icon+'.png width="32" height="32" align=center>';
 
-			document.getElementById("zhi").innerHTML= Math.round(data.daily[0].temp.max, 0)+'&#8457;';
+			document.getElementById("zhi").innerHTML= Math.ceil(data.daily[0].temp.max, 0)+'&#8457;';
 			document.getElementById("ztemp").innerHTML= Math.round(data.current.temp, 0)+'&#8457;'; // *F
-			document.getElementById("zlow").innerHTML= Math.round(data.daily[0].temp.min, 0)+'&#8457;';
+			document.getElementById("zlow").innerHTML= Math.floor(data.daily[0].temp.min, 0)+'&#8457;';
 })
 
 $.getJSON('https://api.weather.gov/gridpoints/SGF/62,54/forecast', function(data) {
