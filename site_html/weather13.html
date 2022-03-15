@@ -168,6 +168,10 @@ function  DegToCompass(degree){
 
 document.getElementById("myTime").innerHTML = (new Date()).toLocaleString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true });
 
+// http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
+
+// http://api.openweathermap.org/geo/1.0/direct?q=BOLIVAR,MO,US&limit=3&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial
+
     // https://openweathermap.org/api/one-call-api
 $.getJSON('https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=minutely,hourly,alerts&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial', function(data) {
 
