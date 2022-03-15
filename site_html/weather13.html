@@ -36,9 +36,9 @@
 <style>
 
 @media only screen and (min-width:923px) and (max-width:999px){article{padding:16.5em 0 1em 0}}
-@media only screen and (min-width:811px) and (max-width:922px){article{padding:19em 0 1em 0}}
-@media only screen and (min-width:800px) and (max-width:810px){article{padding:21em 0 1em 0}}
-@media only screen and (min-width:718px) and (max-width:799px){article{padding:2.25em 0 1em 0}}
+@media only screen and (min-width:808px) and (max-width:922px){article{padding:19em 0 1em 0}}
+@media only screen and (min-width:801px) and (max-width:807px){article{padding:21em 0 1em 0}}
+@media only screen and (min-width:718px) and (max-width:800px){article{padding:2em 0 1em 0}}
 @media only screen and (max-width:717px){
 	article{padding:1em 0 0 0}header{display:none}article h2{display:none}.navrule1{display:none}.promo_container .promo.three{padding-top:.25em;width:100%;margin:0 auto;float:none}.promo_container .promo.three img{padding-top:.25em;width:100%;margin:0 auto;float:none}nav{display:block;position:static;padding:10px 0 10px 10px;background-color:#515673}footer a{display:inline-block;padding:10px 0;}
 }
@@ -102,9 +102,10 @@ https://howtocreateapps.com/fetch-and-display-json-html-javascript/
 <!-- <script> -->
 <!-- !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js'); -->
 <!-- </script> -->
-
+<span id="zforecast"></span></a></p>
 <div class="promo one">
 <div class="content">
+
 Springfield Regional Airport<br>
 Springfield / Bolivar, MO<br>
 <span id="myDate"></span><br>
@@ -119,7 +120,7 @@ SUNRISE: <span id="mySunrise"></span><br>
 SUNSET: &nbsp; <span id="mySunset"></span><br>
 WIND FROM THE <span id="myText4"></span><br>
 <p><a href=https://api.weather.gov/gridpoints/SGF/62,54/forecast>
-<span id="zforecast"></span></a></p>
+
 
 </div>
 </div>
@@ -190,7 +191,9 @@ $.getJSON('https://api.weather.gov/gridpoints/SGF/62,54/forecast', function(data
 
 			document.getElementById("zforecast").innerHTML= data.properties.periods[0].detailedForecast;
 			document.getElementById("zhi").innerHTML= data.properties.periods[0].temperature+'&#8457;';
-			document.getElementById("zupdateTime").innerHTML= data.properties.updateTime;
+			document.getElementById("zlow").innerHTML= data.properties.periods[1].temperature+'&#8457;';
+			document.getElementById("zupdateTime").innerHTML= (new Date(data.properties.updateTime)).toLocaleString([], { month: '2-digit', day: '2-digit',year: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true });
+			
 
 })
 
@@ -242,6 +245,12 @@ $.getJSON('https://api.weather.gov/gridpoints/SGF/62,54/forecast', function(data
 </a>
 </div>
 
+<div class=date031022>
+<a href=https://api.weather.gov/gridpoints/SGF/62,54/forecast>Weather Data api.weather.gov (JSON)</a>
+<a href=https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=minutely,hourly,alerts&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial>Weather Data api.openweather.org (JSON)</a>
+<a href=https://w1.weather.gov/xml/current_obs/KSGF.xml>Weather Data NWS (LEFT CLICK GUI / RIGHT CLICK "SAVE AS" XML)</a> 
+<a href=https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg><img src="https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg" width="480" height="196" alt="Click to load the 7day forecast graphic" title="Click to load the 7 day forecast graphic" /></a>
+</div>
 
 </div><!-- END class=page -->
 
@@ -283,12 +292,12 @@ $.getJSON('https://api.weather.gov/gridpoints/SGF/62,54/forecast', function(data
 <br />
 <footer style=page-break-inside:avoid>
 &#169; dfellows.rf.gd &nbsp; 37.601835,-93.415584  &nbsp;  37&#176;36'06.6"N 93&#176;24'56.1"W <br />
-How often <a href=https://api.weather.gov/gridpoints/SGF/62,54/forecast>api.weather.gov</a>  data is updated: Once an hour? See <a href=https://dfellows.rf.gd/site_html/log.html></a>log.html<br />
-Updated at: <text id=zupdateTime></text> yyyy-mm-dd hh:mm:ss Offset<br />
+<a href=https://api.weather.gov/gridpoints/SGF/62,54/forecast>api.weather.gov</a>  data is updated every ~3hrs. Best viewed in Firefox<br /><a href=https://dfellows.rf.gd/site_html/log.html>Weather data update log</a><br />
+Weather data updated: <text id=zupdateTime></text><br />
 The <a href=http://www.moonmodule.com/cs/dm/vn.gif>moonphase graphic</a> is update every hour at ~00:17:00<br />
 <a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg title="Thanks to ozarksfirst.com for this seven day weather forecast graphic.">
 The 7 day forecast graphic</a> is updated at ~8:47am and ~11:47pm
-
+</footer>
 <!-- 
 
 https://en.wikipedia.org/wiki/ISO_8601
