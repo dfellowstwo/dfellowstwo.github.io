@@ -96,7 +96,7 @@ class ForecastFetcher {
     forecastWrapper.innerHTML = this.wrapRenderer(forecast, forecastMarkup);
     return forecastWrapper;
   };
-}
+};
 
 (async () => {
 
