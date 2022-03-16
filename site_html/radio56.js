@@ -1,6 +1,11 @@
 /*!
 
-  radio-stations13d-radio.js
+  This is radio56.js
+  This was radio-stations13d-radio.js
+  
+  Services: 
+	
+	radio.html
   
  *  Howler.js Radio Demo
  *  howlerjs.com
