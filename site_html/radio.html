@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<title>RADIO</title>
+<meta name="description" content="Radio shows around the world.">
+<meta name="keywords" content="">
+
+<!-- Mobile viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<!-- <meta http-equiv=refresh content=3600> -->
+
+<!-- CSS-->
+<!-- Google web fonts. You can get your own bundle at http://www.google.com/fonts. Don't forget to update the CSS accordingly!-->
+<!-- <link href='http://fonts.googleapis.com/css?family=Droid+Serif|Ubuntu' rel='stylesheet' type='text/css'> -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type='text/css'>
+<link rel="stylesheet" href="../Css/normalize1.1.0.css">
+<link rel="stylesheet" href="radio56.css">
+<link rel="stylesheet" href="radio57.css">
+<!-- end CSS-->
+    
+<!-- JS-->
+
+<!-- end JS-->
+<style>
+
+</style>
+<link rel="shortcut icon" href="../images/radio-favicons/favicon.ico?v=CYAgJn4vA0">
+<link rel="apple-touch-icon" sizes="180x180" href="../images/radio-favicons/apple-touch-icon.png?v=CYAgJn4vA0">
+<link rel="shortcut icon" sizes="196x196" href="../images/radio-favicons/favicon-196x196.png?v=CYAgJn4vA0">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/radio-favicons/favicon-32x32.png?v=CYAgJn4vA0">
+<!-- <link rel="icon" type="image/png" sizes="194x194" href="../images/radio-favicons/favicon-194x194.png?v=CYAgJn4vA0"> -->
+<link rel="icon" type="image/png" sizes="192x192" href="../images/radio-favicons/android-chrome-192x192.png?v=CYAgJn4vA0">
+<link rel="icon" type="image/png" sizes="512x512" href="../images/radio-favicons/android-chrome-512x512.png?v=CYAgJn4vA0">
+<link rel="icon" type="image/png" sizes="16x16" href="../images/radio-favicons/favicon-16x16.png?v=CYAgJn4vA0">
+<link rel="manifest" href="../images/radio-favicons/site.webmanifest?v=CYAgJn4vA0">
+<link rel="mask-icon" href="../images/radio-favicons/safari-pinned-tab.svg?v=CYAgJn4vA0" color="#1a8bb3">
+<link rel="manifest" href="../images/radio-favicons/manifest.json">
+<meta name="apple-mobile-web-app-title" content="WEATHER">
+<meta name="application-name" content="WEATHER">
+<meta name="msapplication-TileColor" content="#603cba">
+<meta name="msapplication-config" content="../images/radio-favicons/browserconfig.xml?v=CYAgJn4vA0">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<style>
+
+html {
+	color: white;
+}
+.srt-menu a, .srt-menu a:visited {
+	color: #fff;
+}
+.srt-menu li a {
+	color: #fff;
+}
+@media only screen and (max-width:480px){
+button, input, select, textarea {
+	font-size: 100%;
+	margin: 1.25em 0 1em .8em;
+	vertical-align: baseline;
+	*vertical-align: middle;
+	border-radius: 18px;
+	-moz-border-radius: 5px;
+	background-color: #E1E1E1;
+	
+}
+.menu-toggle {
+	margin: 0;
+}
+nav {
+margin: 1em 0 0 0;
+}
+}
+
+
+</style>
+
+</head>
+
+<body id="home">
+<div class="page">
+<!-- header area -->
+    <header class="wrapper clearfix">
+
+        <div id="banner">        
+        	<div id="logo"><a href="tel:+14174134944" title="Call Doug 1-417-413-4944"><img src="../images/dfellows.rf.gd1360x382.jpg" title="Call Doug 1-417-413-4944" alt="HummingbirdBanner ../images/dfellows.rf.gd1360x382.jpg"></a></div> 
+        </div>
+		
+		
+		
+<!-- 	
+	The key was changing the button type from submit to button.
+-->
+
+<form autocomplete="off"><button type="button" id="button1">Sleep Timer</button><input type="radio" name="TurnOff" onclick="ChangeTurnOff()" value="5000"><label>5s</label>&nbsp;&nbsp;&nbsp;<input type="radio" name="TurnOff" onclick="ChangeTurnOff()" value="1800000"><label>30m</label>&nbsp;&nbsp;&nbsp;<input type="radio" name="TurnOff" onclick="ChangeTurnOff()" value="2700000"><label>45m</label>&nbsp;&nbsp;&nbsp;<input type="radio" name="TurnOff" onclick="ChangeTurnOff()" value="3600000"><label>1h</label>&nbsp;&nbsp;&nbsp;<input type="radio" name="TurnOff" onclick="ChangeTurnOff()" value="7200000"><label>2h</label>
+</form>
+
+<script>
+
+function refresh(){window .location.reload();}
+function ChangeTurnOff() {
+	// BEGIN https://stackoverflow.com/a/17796775/8826818
+	var msec = document.querySelector('input[name = "TurnOff"]:checked').value;
+	// alert(msec);
+	//   END https://stackoverflow.com/a/17796775/8826818
+	// BEGIN https://www.encodedna.com/javascript/auto-refresh-page-every-10-second-using-javascript-setInterval-method.htm 	Depends on refresh() function in the head tag.
+	window.setInterval('refresh()', msec);
+	//   END https://www.encodedna.com/javascript/auto-refresh-page-every-10-second-using-javascript-setInterval-method.htm 	
+	// BEGIN https://stackoverflow.com/a/20618592/8826818 Change text of button to countdown timer
+	time=msec/1000,r=document.getElementById('button1'),tmp=time;
+	setInterval(function(){
+	var c=tmp--,m=(c/60)>>0,s=(c-m*60)+'';
+	r.textContent='Off '+m+':'+(s.length>1?'':'0')+s
+	tmp!=0||(tmp=time);
+	},1000);
+	//   END https://stackoverflow.com/a/20618592/8826818 Change text of button to countdown timer
+	// BEGIN https://www.codegrepper.com/code-examples/javascript/javascript+change+button+text+onclick Change text of button
+	<!-- document.getElementById("button1").innerHTML = "Timer On"; -->
+	//   END https://www.codegrepper.com/code-examples/javascript/javascript+change+button+text+onclick Change text of button
+}
+
+</script>
+        
+        <!-- main navigation -->
+<nav id="topnav" role="navigation">
+<div class="menu-toggle">Menu</div>  
+<ul class="srt-menu" id="menu-main-navigation">
+
+
+<li><a href="#">Problem</a>
+<ul><li><a href="radio-stations13g.html">Find iheart streaming url</a></li>
+<li><a href="https://www.sciencefriday.com" title="sciencefriday.com New Friday 2pmET">Science Friday. New Friday 2pmET</a></li>
+<li id="date3"></li><!-- date3 provided by radio56.js : Science Friday current episode -->
+<li><a href="https://wtop.com">WTOP 103.5FM NEWS WASHINGTON, DC</a></li>
+<li><a href="https://wamu.org">WAMU 88.5FM NPR WASHINGTON,DC</a></li>
+<li><a href="https://www.radio.com/cnn/listen">CNN TV</a></li>
+<li><a href="https://www.scpr.org/">KPCC 89.3FM NPR IN LOS ANGELES</a></li> 
+<li><a href="https://bbc.co.uk/sounds">BBC RADIO</a></li>
+<li><a href="radio-stations13j.html">BBC stream urls1</a></li>
+<li><a href="http://www.suppertime.co.uk/blogmywiki/2015/04/updated-list-of-bbc-network-radio-urls/">BBC stream urls2</a></li>
+<li><a href="https://www.audacy.com/wxrt">WXRT 93.1FM CHICAGO</a></li>
+<li><a href="https://radiomilwaukee.org/">WYMS 88.9FM MILWAUKEE, WI</a></li>
+<li><a href="https://alice955.iheart.com/">ALICE 95.5FM Springfield, MO</a></li>
+<li><a href="http://ksmu.org">KSMU 91.1FM NPR Springfield, MO</a></li>
+<li><a href="https://xray.fm">KXRY 107.1FM PORTLAND, OR</a></li>
+<li><a href="http://pigpenradio.org/">PIGPENRADIO BRISTOL, ENGLAND</a></li>
+<li><a href="https://kexp.org/listen/">KEXP 90.3FM SEATTLE. UNIVERSITY OF WASHINGTON</a></li>
+<li><a href="https://whrb.org/">WHRB 95.3FM HARVARD UNIVERSITY</a></li>
+<li><a href="http://kzsu.stanford.edu/live/">KZSU 90.1FM STANFORD UNIVERSITY</a></li>
+<li><a href="https://wybc.com">WYBC 1340AM YALE UNIVERSITY</a></li>
+<li><a href="http://hawaiipublicradio.org">HAWAII PUBLIC RADIO</a></li>
+<li><a href="http://wuts.sewanee.edu/">WUTS 91.3FM UNIVERSITY OF THE SOUTH</a></li>
+<li><a href="https://ktoo.org">KTOO 104.3 FM JUNEAU, ALASKA</a></li>
+<li><a href="https://whcr.org">WHCR 90.3FM THE VOICE OF HARLEM</a></li>
+<li><a href="http://www.espn.com/espnradio/play?s=espn">ESPN RADIO</a></li>
+<li><a href="http://www.ksfo.com/">KSFO 560AM NEWS SAN FRANCISCO</a></li> 
+<li><a href="https://www.iheart.com/live/710-wor-5874">WOR 710AM NYC</a></li>
+<li><a href="https://tunein.com/podcasts/US-News/ABC-World-News-Tonight-with-David-Muir-p643278/">ABC WORLD NEWS TONIGHT</a></li>
+<li><a href="https://www.iheart.com/live/nbc-news-radio-6043/">NBC NEWS RADIO</a></li>
+<li><a href="https://howlerjs.com">HOW TO BUILD THIS PAGE</a></li>
+
+<!-- BEGIN MENU WITH SUBMENUs. Nested menus. The "current" class color highlight is light green.
+<li class="current">
+<a href="radio-stations13e.html">PROBLEMS?</a>
+<ul>
+<li><a href="#">menu item 3.2.1</a></li>
+<li><a href="#">menu item 3.2.2 with longer link name</a></li>
+<li><a href="#">menu item 3.2.3</a></li>
+<li><a href="#">menu item 3.2.4</a></li>
+<li><a href="#">menu item 3.2.5</a></li>
+</ul>
+</li>
+<li>
+<a href="#">menu item 4</a>
+<ul>
+<li><a href="#">menu item 4.1</a></li>
+<li><a href="#">menu item 4.2</a></li>
+</ul>
+</li>
+
+     END MENU WITH SUBMENUs. Nested menus. The "current" class color highlight is light green. -->
+
+
+</ul> <!-- END RADIO STATION SUBMENUS -->
+</li> <!-- END RADIO STATION -->
+<li><a href="weather13.php" title="Weather Conditions, Forecast, Radar Springfield, MO">Weather</a></li>
+<li><a href="tel:+14174134944" title="Call Doug 1-417-413-4944">Call</a></li>
+<li class="current"><a href="../index.html">Home</a></li>
+
+
+
+
+
+</ul> <!-- END menu-main-navigation -->
+    
+</nav>  
+    </header><!-- end header -->
+ 
+ 
+
+
+<!-- main content area -->      
+<div id="main" class="wrapper clearfix">  
+  
+<!-- content area -->    
+	<section id="content" class="wide-content">
+   	  
+<div class="padding"></div>
+ <div class="station" id="station0">
+<!-- <div class="title"><a href='_1.html'> -->
+<div class="title" title='New Friday 2pmET'>
+<div class="live" id="live0">LIVE</div>
+<div class="subtitle" id="title0"></div>
+<div class="playing" id="playing0">
+<div class="rect1"></div>
+<div class="rect2"></div>
+<div class="rect3"></div>
+<div class="rect4"></div>
+<div class="rect5"></div>
+<div class="rect6"></div>
+<div class="rect7"></div>
+<div class="rect8"></div>
+<div class="rect9"></div>
+<div class="rect10"></div>
+<div class="rect11"></div>
+<div class="rect12"></div>
+<div class="rect13"></div>
+<div class="rect14"></div>
+<div class="rect15"></div>
+<div class="rect16"></div>
+<div class="rect17"></div>
+<div class="rect18"></div>
+<div class="rect19"></div>
+<div class="rect20"></div>
+<div class="rect21"></div>
+<div class="rect22"></div>
+<div class="rect23"></div>
+<div class="rect24"></div>
+<div class="rect25"></div>
+<div class="rect26"></div>
+<div class="rect27"></div>
+</div>
+<!-- </div></a> -->
+</div></a>
+</div>
+<div class="station" id="station1">
+<div class="title">
+<div class="live" id="live1">LIVE</div>
+<div class="subtitle" id="title1"></div>
+<div class="playing" id="playing1">
+<div class="rect1"></div>
+<div class="rect2"></div>
+<div class="rect3"></div>
+<div class="rect4"></div>
+<div class="rect5"></div>
+<div class="rect6"></div>
+<div class="rect7"></div>
+<div class="rect8"></div>
+<div class="rect9"></div>
+<div class="rect10"></div>
+<div class="rect11"></div>
+<div class="rect12"></div>
+<div class="rect13"></div>
+<div class="rect14"></div>
+<div class="rect15"></div>
+<div class="rect16"></div>
+<div class="rect17"></div>
+<div class="rect18"></div>
+<div class="rect19"></div>
+<div class="rect20"></div>
+<div class="rect21"></div>
+<div class="rect22"></div>
+<div class="rect23"></div>
+<div class="rect24"></div>
+<div class="rect25"></div>
+<div class="rect26"></div>
+<div class="rect27"></div>
+</div>
+</div>
+</div>
+<div class="station" id="station2">
+<div class="title">
+<div class="live" id="live2">LIVE</div>
+<div class="subtitle" id="title2"></div>
+<div class="playing" id="playing2">
+<div class="rect1"></div>
+<div class="rect2"></div>
+<div class="rect3"></div>
+<div class="rect4"></div>
+<div class="rect5"></div>
+<div class="rect6"></div>
+<div class="rect7"></div>
+<div class="rect8"></div>
+<div class="rect9"></div>
+<div class="rect10"></div>
+<div class="rect11"></div>
+<div class="rect12"></div>
+<div class="rect13"></div>
+<div class="rect14"></div>
+<div class="rect15"></div>
+<div class="rect16"></div>
+<div class="rect17"></div>
+<div class="rect18"></div>
+<div class="rect19"></div>
+<div class="rect20"></div>
+<div class="rect21"></div>
+<div class="rect22"></div>
+<div class="rect23"></div>
+<div class="rect24"></div>
+<div class="rect25"></div>
+<div class="rect26"></div>
+<div class="rect27"></div>
+</div>
+</div>
+</div>
+<div class="station" id="station3">
+<div class="title">
+<div class="live" id="live3">LIVE</div>
+<div class="subtitle" id="title3"></div>
+<div class="playing" id="playing3">
+<div class="rect1"></div>
+<div class="rect2"></div>
+<div class="rect3"></div>
+<div class="rect4"></div>
+<div class="rect5"></div>
+<div class="rect6"></div>
+<div class="rect7"></div>
+<div class="rect8"></div>
+<div class="rect9"></div>
+<div class="rect10"></div>
+<div class="rect11"></div>
+<div class="rect12"></div>
+<div class="rect13"></div>
+<div class="rect14"></div>
+<div class="rect15"></div>
+<div class="rect16"></div>
+<div class="rect17"></div>
+<div class="rect18"></div>
+<div class="rect19"></div>
+<div class="rect20"></div>
+<div class="rect21"></div>
+<div class="rect22"></div>
+<div class="rect23"></div>
+<div class="rect24"></div>
+<div class="rect25"></div>
+<div class="rect26"></div>
+<div class="rect27"></div>
+</div>
+</div>
+</div>
+<div class="station" id="station4">
+<div class="title">
+<div class="live" id="live4">LIVE</div>
+<div class="subtitle" id="title4"></div>
+<div class="playing" id="playing4">
+<div class="rect1"></div>
+<div class="rect2"></div>
+<div class="rect3"></div>
+<div class="rect4"></div>
+<div class="rect5"></div>
+<div class="rect6"></div>
+<div class="rect7"></div>
+<div class="rect8"></div>
+<div class="rect9"></div>
+<div class="rect10"></div>
+<div class="rect11"></div>
+<div class="rect12"></div>
+<div class="rect13"></div>
+<div class="rect14"></div>
+<div class="rect15"></div>
+<div class="rect16"></div>
+<div class="rect17"></div>
+<div class="rect18"></div>
+<div class="rect19"></div>
+<div class="rect20"></div>
+<div class="rect21"></div>
+<div class="rect22"></div>
+<div class="rect23"></div>
+<div class="rect24"></div>
+<div class="rect25"></div>
+<div class="rect26"></div>
+<div class="rect27"></div>
+</div>
+</div>
+</div>
+<div class="station" id="station5">
+<div class="title">
+<div class="live" id="live5">LIVE</div>
+<div class="subtitle" id="title5"></div>
+<div class="playing" id="playing5">
+<div class="rect1"></div>
+<div class="rect2"></div>
+<div class="rect3"></div>
+<div class="rect4"></div>
+<div class="rect5"></div>
+<div class="rect6"></div>
+<div class="rect7"></div>
+<div class="rect8"></div>
+<div class="rect9"></div>
+<div class="rect10"></div>
+<div class="rect11"></div>
+<div class="rect12"></div>
+<div class="rect13"></div>
+<div class="rect14"></div>
+<div class="rect15"></div>
+<div class="rect16"></div>
+<div class="rect17"></div>
+<div class="rect18"></div>
+<div class="rect19"></div>
+<div class="rect20"></div>
+<div class="rect21"></div>
+<div class="rect22"></div>
+<div class="rect23"></div>
+<div class="rect24"></div>
+<div class="rect25"></div>
+<div class="rect26"></div>
+<div class="rect27"></div>
+</div>
+</div>
+</div>
+<div class="station" id="station6">
+<div class="title">
+<div class="live" id="live6">LIVE</div>
+<div class="subtitle" id="title6"></div>
+<div class="playing" id="playing6">
+<div class="rect1"></div>
+<div class="rect2"></div>
+<div class="rect3"></div>
+<div class="rect4"></div>
+<div class="rect5"></div>
+<div class="rect6"></div>
+<div class="rect7"></div>
+<div class="rect8"></div>
+<div class="rect9"></div>
+<div class="rect10"></div>
+<div class="rect11"></div>
+<div class="rect12"></div>
+<div class="rect13"></div>
+<div class="rect14"></div>
+<div class="rect15"></div>
+<div class="rect16"></div>
+<div class="rect17"></div>
+<div class="rect18"></div>
+<div class="rect19"></div>
+<div class="rect20"></div>
+<div class="rect21"></div>
+<div class="rect22"></div>
+<div class="rect23"></div>
+<div class="rect24"></div>
+<div class="rect25"></div>
+<div class="rect26"></div>
+<div class="rect27"></div>
+</div>
+</div>
+</div>
+<div class="station" id="station7">
+<div class="title">
+<div class="live" id="live7">LIVE</div>
+<div class="subtitle" id="title7"></div>
+<div class="playing" id="playing7">
+<div class="rect1"></div>
+<div class="rect2"></div>
+<div class="rect3"></div>
+<div class="rect4"></div>
+<div class="rect5"></div>
+<div class="rect6"></div>
+<div class="rect7"></div>
+<div class="rect8"></div>
+<div class="rect9"></div>
+<div class="rect10"></div>
+<div class="rect11"></div>
+<div class="rect12"></div>
+<div class="rect13"></div>
+<div class="rect14"></div>
+<div class="rect15"></div>
+<div class="rect16"></div>
+<div class="rect17"></div>
+<div class="rect18"></div>
+<div class="rect19"></div>
+<div class="rect20"></div>
+<div class="rect21"></div>
+<div class="rect22"></div>
+<div class="rect23"></div>
+<div class="rect24"></div>
+<div class="rect25"></div>
+<div class="rect26"></div>
+<div class="rect27"></div>
+</div>
+</div>
+</div>
+<div class="station" id="station8">
+<div class="title">
+<div class="live" id="live8">LIVE</div>
+<div class="subtitle" id="title8"></div>
+<div class="playing" id="playing8">
+<div class="rect1"></div>
+<div class="rect2"></div>
+<div class="rect3"></div>
+<div class="rect4"></div>
+<div class="rect5"></div>
+<div class="rect6"></div>
+<div class="rect7"></div>
+<div class="rect8"></div>
+<div class="rect9"></div>
+<div class="rect10"></div>
+<div class="rect11"></div>
+<div class="rect12"></div>
+<div class="rect13"></div>
+<div class="rect14"></div>
+<div class="rect15"></div>
+<div class="rect16"></div>
+<div class="rect17"></div>
+<div class="rect18"></div>
+<div class="rect19"></div>
+<div class="rect20"></div>
+<div class="rect21"></div>
+<div class="rect22"></div>
+<div class="rect23"></div>
+<div class="rect24"></div>
+<div class="rect25"></div>
+<div class="rect26"></div>
+<div class="rect27"></div>
+</div>
+</div>
+</div>
+<div class="station" id="station9">
+<div class="title">
+<div class="live" id="live9">LIVE</div>
+<div class="subtitle" id="title9"></div>
+<div class="playing" id="playing9">
+<div class="rect1"></div>
+<div class="rect2"></div>
+<div class="rect3"></div>
+<div class="rect4"></div>
+<div class="rect5"></div>
+<div class="rect6"></div>
+<div class="rect7"></div>
+<div class="rect8"></div>
+<div class="rect9"></div>
+<div class="rect10"></div>
+<div class="rect11"></div>
+<div class="rect12"></div>
+<div class="rect13"></div>
+<div class="rect14"></div>
+<div class="rect15"></div>
+<div class="rect16"></div>
+<div class="rect17"></div>
+<div class="rect18"></div>
+<div class="rect19"></div>
+<div class="rect20"></div>
+<div class="rect21"></div>
+<div class="rect22"></div>
+<div class="rect23"></div>
+<div class="rect24"></div>
+<div class="rect25"></div>
+<div class="rect26"></div>
+<div class="rect27"></div>
+</div>
+</div>
+</div>
+<div class="station" id="station10">
+<div class="title">
+<div class="live" id="live10">LIVE</div>
+<div class="subtitle" id="title10"></div>
+<div class="playing" id="playing10">
+<div class="rect1"></div>
+<div class="rect2"></div>
+<div class="rect3"></div>
+<div class="rect4"></div>
+<div class="rect5"></div>
+<div class="rect6"></div>
+<div class="rect7"></div>
+<div class="rect8"></div>
+<div class="rect9"></div>
+<div class="rect10"></div>
+<div class="rect11"></div>
+<div class="rect12"></div>
+<div class="rect13"></div>
+<div class="rect14"></div>
+<div class="rect15"></div>
+<div class="rect16"></div>
+<div class="rect17"></div>
+<div class="rect18"></div>
+<div class="rect19"></div>
+<div class="rect20"></div>
+<div class="rect21"></div>
+<div class="rect22"></div>
+<div class="rect23"></div>
+<div class="rect24"></div>
+<div class="rect25"></div>
+<div class="rect26"></div>
+<div class="rect27"></div>
+</div>
+</div>
+</div>
+<div class="station" id="station11">
+<div class="title">
+<div class="live" id="live11">LIVE</div>
+<div class="subtitle" id="title11"></div>
+<div class="playing" id="playing11">
+<div class="rect1"></div>
+<div class="rect2"></div>
+<div class="rect3"></div>
+<div class="rect4"></div>
+<div class="rect5"></div>
+<div class="rect6"></div>
+<div class="rect7"></div>
+<div class="rect8"></div>
+<div class="rect9"></div>
+<div class="rect10"></div>
+<div class="rect11"></div>
+<div class="rect12"></div>
+<div class="rect13"></div>
+<div class="rect14"></div>
+<div class="rect15"></div>
+<div class="rect16"></div>
+<div class="rect17"></div>
+<div class="rect18"></div>
+<div class="rect19"></div>
+<div class="rect20"></div>
+<div class="rect21"></div>
+<div class="rect22"></div>
+<div class="rect23"></div>
+<div class="rect24"></div>
+<div class="rect25"></div>
+<div class="rect26"></div>
+<div class="rect27"></div>
+</div>
+</div>
+</div>
+<div class="station" id="station12">
+<div class="title">
+<div class="live" id="live12">LIVE</div>
+<div class="subtitle" id="title12"></div>
+<div class="playing" id="playing12">
+<div class="rect1"></div>
+<div class="rect2"></div>
+<div class="rect3"></div>
+<div class="rect4"></div>
+<div class="rect5"></div>
+<div class="rect6"></div>
+<div class="rect7"></div>
+<div class="rect8"></div>
+<div class="rect9"></div>
+<div class="rect10"></div>
+<div class="rect11"></div>
+<div class="rect12"></div>
+<div class="rect13"></div>
+<div class="rect14"></div>
+<div class="rect15"></div>
+<div class="rect16"></div>
+<div class="rect17"></div>
+<div class="rect18"></div>
+<div class="rect19"></div>
+<div class="rect20"></div>
+<div class="rect21"></div>
+<div class="rect22"></div>
+<div class="rect23"></div>
+<div class="rect24"></div>
+<div class="rect25"></div>
+<div class="rect26"></div>
+<div class="rect27"></div>
+</div>
+</div>
+</div>
+<div class="station" id="station13">
+<div class="title">
+<div class="live" id="live13">LIVE</div>
+<div class="subtitle" id="title13"></div>
+<div class="playing" id="playing13">
+<div class="rect1"></div>
+<div class="rect2"></div>
+<div class="rect3"></div>
+<div class="rect4"></div>
+<div class="rect5"></div>
+<div class="rect6"></div>
+<div class="rect7"></div>
+<div class="rect8"></div>
+<div class="rect9"></div>
+<div class="rect10"></div>
+<div class="rect11"></div>
+<div class="rect12"></div>
+<div class="rect13"></div>
+<div class="rect14"></div>
+<div class="rect15"></div>
+<div class="rect16"></div>
+<div class="rect17"></div>
+<div class="rect18"></div>
+<div class="rect19"></div>
+<div class="rect20"></div>
+<div class="rect21"></div>
+<div class="rect22"></div>
+<div class="rect23"></div>
+<div class="rect24"></div>
+<div class="rect25"></div>
+<div class="rect26"></div>
+<div class="rect27"></div>
+</div>
+</div>
+</div>
+<div class="station" id="station14">
+<div class="title">
+<div class="live" id="live14">LIVE</div>
+<div class="subtitle" id="title14"></div>
+<div class="playing" id="playing14">
+<div class="rect1"></div>
+<div class="rect2"></div>
+<div class="rect3"></div>
+<div class="rect4"></div>
+<div class="rect5"></div>
+<div class="rect6"></div>
+<div class="rect7"></div>
+<div class="rect8"></div>
+<div class="rect9"></div>
+<div class="rect10"></div>
+<div class="rect11"></div>
+<div class="rect12"></div>
+<div class="rect13"></div>
+<div class="rect14"></div>
+<div class="rect15"></div>
+<div class="rect16"></div>
+<div class="rect17"></div>
+<div class="rect18"></div>
+<div class="rect19"></div>
+<div class="rect20"></div>
+<div class="rect21"></div>
+<div class="rect22"></div>
+<div class="rect23"></div>
+<div class="rect24"></div>
+<div class="rect25"></div>
+<div class="rect26"></div>
+<div class="rect27"></div>
+</div>
+</div>
+</div>
+<div class="station" id="station15">
+<div class="title">
+<div class="live" id="live15">LIVE</div>
+<div class="subtitle" id="title15"></div>
+<div class="playing" id="playing15">
+<div class="rect1"></div>
+<div class="rect2"></div>
+<div class="rect3"></div>
+<div class="rect4"></div>
+<div class="rect5"></div>
+<div class="rect6"></div>
+<div class="rect7"></div>
+<div class="rect8"></div>
+<div class="rect9"></div>
+<div class="rect10"></div>
+<div class="rect11"></div>
+<div class="rect12"></div>
+<div class="rect13"></div>
+<div class="rect14"></div>
+<div class="rect15"></div>
+<div class="rect16"></div>
+<div class="rect17"></div>
+<div class="rect18"></div>
+<div class="rect19"></div>
+<div class="rect20"></div>
+<div class="rect21"></div>
+<div class="rect22"></div>
+<div class="rect23"></div>
+<div class="rect24"></div>
+<div class="rect25"></div>
+<div class="rect26"></div>
+<div class="rect27"></div>
+</div>
+</div>
+</div>
+<div class="station" id="station16">
+<div class="title">
+<div class="live" id="live16">LIVE</div>
+<div class="subtitle" id="title16"></div>
+<div class="playing" id="playing16">
+<div class="rect1"></div>
+<div class="rect2"></div>
+<div class="rect3"></div>
+<div class="rect4"></div>
+<div class="rect5"></div>
+<div class="rect6"></div>
+<div class="rect7"></div>
+<div class="rect8"></div>
+<div class="rect9"></div>
+<div class="rect10"></div>
+<div class="rect11"></div>
+<div class="rect12"></div>
+<div class="rect13"></div>
+<div class="rect14"></div>
+<div class="rect15"></div>
+<div class="rect16"></div>
+<div class="rect17"></div>
+<div class="rect18"></div>
+<div class="rect19"></div>
+<div class="rect20"></div>
+<div class="rect21"></div>
+<div class="rect22"></div>
+<div class="rect23"></div>
+<div class="rect24"></div>
+<div class="rect25"></div>
+<div class="rect26"></div>
+<div class="rect27"></div>
+</div>
+</div>
+</div>
+<div class="station" id="station17">
+<div class="title">
+<div class="live" id="live17">LIVE</div>
+<div class="subtitle" id="title17"></div>
+<div class="playing" id="playing17">
+<div class="rect1"></div>
+<div class="rect2"></div>
+<div class="rect3"></div>
+<div class="rect4"></div>
+<div class="rect5"></div>
+<div class="rect6"></div>
+<div class="rect7"></div>
+<div class="rect8"></div>
+<div class="rect9"></div>
+<div class="rect10"></div>
+<div class="rect11"></div>
+<div class="rect12"></div>
+<div class="rect13"></div>
+<div class="rect14"></div>
+<div class="rect15"></div>
+<div class="rect16"></div>
+<div class="rect17"></div>
+<div class="rect18"></div>
+<div class="rect19"></div>
+<div class="rect20"></div>
+<div class="rect21"></div>
+<div class="rect22"></div>
+<div class="rect23"></div>
+<div class="rect24"></div>
+<div class="rect25"></div>
+<div class="rect26"></div>
+<div class="rect27"></div>
+</div>
+</div>
+</div>
+<div class="station" id="station18">
+<div class="title">
+<div class="live" id="live18">LIVE</div>
+<div class="subtitle" id="title18"></div>
+<div class="playing" id="playing18">
+<div class="rect1"></div>
+<div class="rect2"></div>
+<div class="rect3"></div>
+<div class="rect4"></div>
+<div class="rect5"></div>
+<div class="rect6"></div>
+<div class="rect7"></div>
+<div class="rect8"></div>
+<div class="rect9"></div>
+<div class="rect10"></div>
+<div class="rect11"></div>
+<div class="rect12"></div>
+<div class="rect13"></div>
+<div class="rect14"></div>
+<div class="rect15"></div>
+<div class="rect16"></div>
+<div class="rect17"></div>
+<div class="rect18"></div>
+<div class="rect19"></div>
+<div class="rect20"></div>
+<div class="rect21"></div>
+<div class="rect22"></div>
+<div class="rect23"></div>
+<div class="rect24"></div>
+<div class="rect25"></div>
+<div class="rect26"></div>
+<div class="rect27"></div>
+</div>
+</div>
+</div>
+<div class="station" id="station19">
+<div class="title">
+<div class="live" id="live19">LIVE</div>
+<div class="subtitle" id="title19"></div>
+<div class="playing" id="playing19">
+<div class="rect1"></div>
+<div class="rect2"></div>
+<div class="rect3"></div>
+<div class="rect4"></div>
+<div class="rect5"></div>
+<div class="rect6"></div>
+<div class="rect7"></div>
+<div class="rect8"></div>
+<div class="rect9"></div>
+<div class="rect10"></div>
+<div class="rect11"></div>
+<div class="rect12"></div>
+<div class="rect13"></div>
+<div class="rect14"></div>
+<div class="rect15"></div>
+<div class="rect16"></div>
+<div class="rect17"></div>
+<div class="rect18"></div>
+<div class="rect19"></div>
+<div class="rect20"></div>
+<div class="rect21"></div>
+<div class="rect22"></div>
+<div class="rect23"></div>
+<div class="rect24"></div>
+<div class="rect25"></div>
+<div class="rect26"></div>
+<div class="rect27"></div>
+</div>
+</div>
+</div>
+<div class="station" id="station20">
+<div class="title">
+<div class="live" id="live20">LIVE</div>
+<div class="subtitle" id="title20"></div>
+<div class="playing" id="playing20">
+<div class="rect1"></div>
+<div class="rect2"></div>
+<div class="rect3"></div>
+<div class="rect4"></div>
+<div class="rect5"></div>
+<div class="rect6"></div>
+<div class="rect7"></div>
+<div class="rect8"></div>
+<div class="rect9"></div>
+<div class="rect10"></div>
+<div class="rect11"></div>
+<div class="rect12"></div>
+<div class="rect13"></div>
+<div class="rect14"></div>
+<div class="rect15"></div>
+<div class="rect16"></div>
+<div class="rect17"></div>
+<div class="rect18"></div>
+<div class="rect19"></div>
+<div class="rect20"></div>
+<div class="rect21"></div>
+<div class="rect22"></div>
+<div class="rect23"></div>
+<div class="rect24"></div>
+<div class="rect25"></div>
+<div class="rect26"></div>
+<div class="rect27"></div>
+
+</div>
+</div>
+</div>
+<div class="station" id="station21">
+<div class="title">
+<div class="live" id="live21">LIVE</div>
+<div class="subtitle" id="title21"></div>
+<div class="playing" id="playing21">
+<div class="rect1"></div>
+<div class="rect2"></div>
+<div class="rect3"></div>
+<div class="rect4"></div>
+<div class="rect5"></div>
+<div class="rect6"></div>
+<div class="rect7"></div>
+<div class="rect8"></div>
+<div class="rect9"></div>
+<div class="rect10"></div>
+<div class="rect11"></div>
+<div class="rect12"></div>
+<div class="rect13"></div>
+<div class="rect14"></div>
+<div class="rect15"></div>
+<div class="rect16"></div>
+<div class="rect17"></div>
+<div class="rect18"></div>
+<div class="rect19"></div>
+<div class="rect20"></div>
+<div class="rect21"></div>
+<div class="rect22"></div>
+<div class="rect23"></div>
+<div class="rect24"></div>
+<div class="rect25"></div>
+<div class="rect26"></div>
+<div class="rect27"></div>
+</div>
+</div>
+</div>
+<div id="station22" class="station">
+<div class="title">
+<div id="live22" class="live">LIVE</div>
+<div id="title22" class="subtitle"></div>
+<div id="playing22" class="playing">
+<div class="rect1"></div>
+<div class="rect2"></div>
+<div class="rect3"></div>
+<div class="rect4"></div>
+<div class="rect5"></div>
+<div class="rect6"></div>
+<div class="rect7"></div>
+<div class="rect8"></div>
+<div class="rect9"></div>
+<div class="rect10"></div>
+<div class="rect11"></div>
+<div class="rect12"></div>
+<div class="rect13"></div>
+<div class="rect14"></div>
+<div class="rect15"></div>
+<div class="rect16"></div>
+<div class="rect17"></div>
+<div class="rect18"></div>
+<div class="rect19"></div>
+<div class="rect20"></div>
+<div class="rect21"></div>
+<div class="rect22"></div>
+<div class="rect23"></div>
+<div class="rect24"></div>
+<div class="rect25"></div>
+<div class="rect26"></div>
+<div class="rect27"></div>
+</div>
+</div>
+</div>
+
+
+
+<div id="station23" class="station">
+<div class="title">
+<div id="live23" class="live">LIVE</div>
+<div id="title23" class="subtitle"></div>
+<div id="playing23" class="playing">
+<div class="rect1"></div>
+<div class="rect2"></div>
+<div class="rect3"></div>
+<div class="rect4"></div>
+<div class="rect5"></div>
+<div class="rect6"></div>
+<div class="rect7"></div>
+<div class="rect8"></div>
+<div class="rect9"></div>
+<div class="rect10"></div>
+<div class="rect11"></div>
+<div class="rect12"></div>
+<div class="rect13"></div>
+<div class="rect14"></div>
+<div class="rect15"></div>
+<div class="rect16"></div>
+<div class="rect17"></div>
+<div class="rect18"></div>
+<div class="rect19"></div>
+<div class="rect20"></div>
+<div class="rect21"></div>
+<div class="rect22"></div>
+<div class="rect23"></div>
+<div class="rect24"></div>
+<div class="rect25"></div>
+<div class="rect26"></div>
+<div class="rect27"></div>
+</div>
+</div>
+</div>
+<div id="station24" class="station">
+<div class="title">
+<div id="live24" class="live">LIVE</div>
+<div id="title24" class="subtitle"></div>
+<div id="playing24" class="playing">
+<div class="rect1"></div>
+<div class="rect2"></div>
+<div class="rect3"></div>
+<div class="rect4"></div>
+<div class="rect5"></div>
+<div class="rect6"></div>
+<div class="rect7"></div>
+<div class="rect8"></div>
+<div class="rect9"></div>
+<div class="rect10"></div>
+<div class="rect11"></div>
+<div class="rect12"></div>
+<div class="rect13"></div>
+<div class="rect14"></div>
+<div class="rect15"></div>
+<div class="rect16"></div>
+<div class="rect17"></div>
+<div class="rect18"></div>
+<div class="rect19"></div>
+<div class="rect20"></div>
+<div class="rect21"></div>
+<div class="rect22"></div>
+<div class="rect23"></div>
+<div class="rect24"></div>
+<div class="rect25"></div>
+<div class="rect26"></div>
+<div class="rect27"></div>
+</div>
+</div>
+</div>
+<div id="station25" class="station">
+<div class="title">
+<div id="live25" class="live">LIVE</div>
+<div id="title25" class="subtitle"></div>
+<div id="playing25" class="playing">
+<div class="rect1"></div>
+<div class="rect2"></div>
+<div class="rect3"></div>
+<div class="rect4"></div>
+<div class="rect5"></div>
+<div class="rect6"></div>
+<div class="rect7"></div>
+<div class="rect8"></div>
+<div class="rect9"></div>
+<div class="rect10"></div>
+<div class="rect11"></div>
+<div class="rect12"></div>
+<div class="rect13"></div>
+<div class="rect14"></div>
+<div class="rect15"></div>
+<div class="rect16"></div>
+<div class="rect17"></div>
+<div class="rect18"></div>
+<div class="rect19"></div>
+<div class="rect20"></div>
+<div class="rect21"></div>
+<div class="rect22"></div>
+<div class="rect23"></div>
+<div class="rect24"></div>
+<div class="rect25"></div>
+<div class="rect26"></div>
+<div class="rect27"></div>
+</div>
+</div>
+</div>
+<div id="station26" class="station">
+<div class="title">
+<div id="live26" class="live">LIVE</div>
+<div id="title26" class="subtitle"></div>
+<div id="playing26" class="playing">
+<div class="rect1"></div>
+<div class="rect2"></div>
+<div class="rect3"></div>
+<div class="rect4"></div>
+<div class="rect5"></div>
+<div class="rect6"></div>
+<div class="rect7"></div>
+<div class="rect8"></div>
+<div class="rect9"></div>
+<div class="rect10"></div>
+<div class="rect11"></div>
+<div class="rect12"></div>
+<div class="rect13"></div>
+<div class="rect14"></div>
+<div class="rect15"></div>
+<div class="rect16"></div>
+<div class="rect17"></div>
+<div class="rect18"></div>
+<div class="rect19"></div>
+<div class="rect20"></div>
+<div class="rect21"></div>
+<div class="rect22"></div>
+<div class="rect23"></div>
+<div class="rect24"></div>
+<div class="rect25"></div>
+<div class="rect26"></div>
+<div class="rect27"></div>
+</div>
+</div>
+</div>
+
+
+
+<div id="station27" class="station">
+<div class="title">
+<div id="title27" class="subtitle"></div>
+<div id="playing27" class="playing">
+<div class="rect1"></div>
+<div class="rect2"></div>
+<div class="rect3"></div>
+<div class="rect4"></div>
+<div class="rect5"></div>
+<div class="rect6"></div>
+<div class="rect7"></div>
+<div class="rect8"></div>
+<div class="rect9"></div>
+<div class="rect10"></div>
+<div class="rect11"></div>
+<div class="rect12"></div>
+<div class="rect13"></div>
+<div class="rect14"></div>
+<div class="rect15"></div>
+<div class="rect16"></div>
+<div class="rect17"></div>
+<div class="rect18"></div>
+<div class="rect19"></div>
+<div class="rect20"></div>
+<div class="rect21"></div>
+<div class="rect22"></div>
+<div class="rect23"></div>
+<div class="rect24"></div>
+<div class="rect25"></div>
+<div class="rect26"></div>
+<div class="rect27"></div>
+</div>
+</div>
+</div>
+
+
+
+
+
+<div class="padding"></div>
+
+	</section><!-- #end content area -->
+</div><!-- #end div #main .wrapper -->
+
+      
+ 
+
+      
+  
+
+<!-- jQuery -->
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
+<script>window.jQuery || document.write('<script src="../scripts/jquery-1.9.0.min.js">\x3C/script>')</script>
+
+<!-- <script defer src="js/flexslider/jquery.flexslider-min.js"></script> -->
+
+<script src="radio54.js"></script><!-- radio-stations13d-main.js -->
+<script src="radio55.js"></script><!-- radio-stations13d-howler.core.js -->
+<script src="radio56.js"></script><!-- radio-stations13d-radio.js -->
+</div>
+</body>
+</html>
