@@ -4,6 +4,13 @@
 <meta http-equiv=Content-Type content="text/html; charset=UTF-8">
 <meta name=viewport content="width=device-width, initial-scale=1.0">
 <title>WEATHER</title>
+<!-- 
+
+dfellowstwo.github.io site_html/weather13.html 
+Uses jquery and javascript to parse api.weather.gov and api.openweathermap.org and provide data to this page.
+https://zetcode.com/javascript/jsonurl/ 
+
+-->
 <META HTTP-EQUIV="refresh" CONTENT="3600">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <meta http-equiv="Pragma" content="no-cache" /><meta http-equiv="Expires" content="0" />
@@ -69,7 +76,7 @@ setTimeout(function(){
 }, 3600000);
 </script>
 <!-- Reload page once when focus is restored to the page -->
-<!-- <script type="text/javascript">window.onblur= function() {window.onfocus= function () {location.reload(true)}};</script> -->
+<script type="text/javascript">window.onblur= function() {window.onfocus= function () {location.reload(true)}};</script>
 
 
 </head>
@@ -87,7 +94,9 @@ setTimeout(function(){
 <h2>WEATHER SPRINGFIELD / BOLIVAR, MISSOURI 65613</h2>
 </article>
 
-<!-- https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=hourly,daily,minutely&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial 
+<!-- 
+
+https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=hourly,daily,minutely&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial 
 
 http://api.openweathermap.org/data/2.5/forecast?id=4377835&exclude=hourly,daily,minutely&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial 
 
