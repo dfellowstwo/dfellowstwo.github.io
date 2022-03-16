@@ -134,7 +134,7 @@ Radio.prototype = {
 
 BEGIN SCIENCE FRIDAY. Science Friday is a radio program that streams starting at 2pm EasternTime on Friday and is distributed by WNYC-FM, New York City to public radio stations across the nation. This code supplies part of the url of the stream. The url is in the format of: https://s3.amazonaws.com/scifri-episodes/scifri20220211-episode.mp3
 
-If it is before Friday 2PM ET use last weeks URL else use this weeks URL.
+// If ( Friday before 2pm EasternTime ){ last Friday's date } else { today's date till Saturday then last Friday's date }
 
 */
 
