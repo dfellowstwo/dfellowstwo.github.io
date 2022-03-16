@@ -193,7 +193,7 @@ $.getJSON('https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&
 			zdegree = data.current.wind_deg * 8 / 360;
 			zdegree = Math.round(zdegree, 0);
 			zdegree = (zdegree + 8) % 8;
-			document.getElementById("zwind").innerHTML= (zdirections[zdegree]) + ' at ' + Math.ceil(data.current.wind_speed, 0) + ' mph gusting to ' + Math.ceil(data.current.wind_gust, 0) + ' mph';
+			document.getElementById("zwind").innerHTML= (zdirection[zdegree]) + ' at ' + Math.ceil(data.current.wind_speed, 0) + ' mph gusting to ' + Math.ceil(data.current.wind_gust, 0) + ' mph';
 
 			document.getElementById("mySunrise").innerHTML = (new Date(data.current.sunrise*1000)).toLocaleString([], { hour: '2-digit', minute: '2-digit' });
 			document.getElementById("mySunset").innerHTML = (new Date(data.current.sunset*1000)).toLocaleString([], { hour: '2-digit', minute: '2-digit' });
