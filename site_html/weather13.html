@@ -7,7 +7,7 @@
 <!-- 
 
 dfellowstwo.github.io site_html/weather13.html 
-Uses jquery and javascript to parse api.weather.gov and api.openweathermap.org and provide data to this page.
+Uses jquery and javascript to parse National Weather Service (NWS) API and openweathermap.org  One Call API and provide data to this page.
 https://zetcode.com/javascript/jsonurl/ 
 
 -->
@@ -151,7 +151,7 @@ var zdirection;
 var ztime;
 
 //https://momentjs.com/
-document.getElementById("myDate").innerHTML = moment(date).format("dddd, MMMM Do, YYYY");
+document.getElementById("myDate").innerHTML = moment(date).format("dddd, MMMM Do, YYYY"); // Wednesday, March 16th, 2022
 
 //https://stackoverflow.com/a/36475516/8826818
 function  DegToCompass(degree){

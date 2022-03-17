@@ -93,6 +93,7 @@ periods[0].name=dayName;
     let maxDays = this.config.maxDays;
 periods[0].isDaytime='true';
 if (!periods[0].isDaytime) {
+
       offset = 1;
       maxDays -= 1;
       forecastMarkup += this.dayRenderer({ night: periods[0] });
