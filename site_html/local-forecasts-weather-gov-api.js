@@ -48,6 +48,7 @@ class ForecastFetcher {
 <div class="forecast-wrapper">
   ${forecastMarkup}
 </div>
+<p class="forecast-credits">Forecast provided by the <a href="https://www.weather.gov/documentation/services-web-api">National Weather Service API</a>.</p>
     `;
   };
 
