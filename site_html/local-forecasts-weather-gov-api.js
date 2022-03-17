@@ -49,6 +49,7 @@ class ForecastFetcher {
   ${forecastMarkup}
 </div>
 <p class="forecast-credits"><a href="https://www.weather.gov/documentation/services-web-api">Data provided by the National Weather Service API</a></p>
+<p class="forecast-credits"><a href='https://daltonrowe.com/local-forecasts-weather-gov-api.html#'>How to by Dalton Rowe.</a></p>
     `;
   };
 
@@ -82,6 +83,7 @@ class ForecastFetcher {
     const { cwa, gridX, gridY } = point.properties;
 
     return await this.lookupForecast(cwa, gridX, gridY);
+
   };
 
   // manipulate html strings, or let user do it
@@ -125,6 +127,11 @@ if (!periods[0].isDaytime) {
     });
     const forecast = await fetcher.lookupForecastForLatLng(37.6537,-93.3994);
     const forecastNode = fetcher.markupForecast(forecast);
+    
+	let z = forecast ;
+	let z2=z.replace('/This Afternoon/g', 'Wednesday');
+	console.log(z2);
+    
     demo.appendChild(forecastNode);
   }
 
