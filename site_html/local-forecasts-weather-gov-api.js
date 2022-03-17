@@ -49,7 +49,7 @@ class ForecastFetcher {
   ${forecastMarkup}
 </div>
 <p class="forecast-credits"><a href="https://www.weather.gov/documentation/services-web-api">Data provided by the National Weather Service API</a></p>
-<p class="forecast-credits"><a href='https://daltonrowe.com/local-forecasts-weather-gov-api.html#'>How to by Dalton Rowe.</a></p>
+<p class="forecast-credits"><a href='https://daltonrowe.com/local-forecasts-weather-gov-api.html#'>How to by Dalton Rowe</a></p>
     `;
   };
 
@@ -90,21 +90,20 @@ class ForecastFetcher {
   markupForecast = (forecast) => {
     let forecastMarkup = "";
     const { periods } = forecast.properties;
-periods[0].name=dayName;
-
+    periods[0].name=dayName;    
     let offset = 0;
     let maxDays = this.config.maxDays;
-periods[0].isDaytime='true';
+    periods[0].isDaytime='true';
 if (!periods[0].isDaytime) {
-
-      offset = 1;
-      maxDays -= 1;
-      forecastMarkup += this.dayRenderer({ night: periods[0] });
+  
+     offset = 1;
+     maxDays -= 1;
+     forecastMarkup += this.dayRenderer({ night: periods[0] });
     }
     for (let i = offset; i < maxDays * 2; i += 2) {
       const forecastDay = {
-        night: periods[i],
-        day: periods[i + 1],
+	night: periods[i],
+      day: periods[i + 1],
       };
 
       forecastMarkup += this.dayRenderer(forecastDay);
@@ -129,8 +128,9 @@ if (!periods[0].isDaytime) {
     const forecastNode = fetcher.markupForecast(forecast);
     
 	let z = forecast ;
-	let z2=z.replace('/This Afternoon/g', 'Wednesday');
-	console.log(z2);
+	// let z=z.replace('/This Afternoon/g', 'Wednesday');
+	console.log(z);
+    // TypeError: z.replace is not a function
     
     demo.appendChild(forecastNode);
   }

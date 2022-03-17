@@ -1,2 +1,0 @@
-RewriteEngine On
-RewriteRule /index.js [R=403,NC,L]
