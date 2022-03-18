@@ -121,12 +121,12 @@ HI:&nbsp; &nbsp; &nbsp; &nbsp;<span id="zhi"></span><br>
 <a href=https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=minutely,hourly,alerts&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial>
 TEMP; </a><span id="ztemp"></span><br>
 LOW:&nbsp; <span id="zlow"></span><br>
-SUNRISE: <span id="mySunrise"></span><br>
-SUNSET: &nbsp; <span id="mySunset"></span><br>
+SUN: <span id="mySunrise"></span>&nbsp; / &nbsp;<span id="mySunset"></span><br>
+MOON: <span id="myMoonrise"></span>&nbsp; / &nbsp;<span id="myMoonset"></span><br>
 WIND FROM THE <span id="zwind"></span><br>
-<p><a href=https://api.weather.gov/gridpoints/SGF/62,54/forecast>
+<a href=https://api.weather.gov/gridpoints/SGF/62,54/forecast>NWS API</a>
 
-
+<p>&nbsp;</p>
 </div>
 </div>
 
@@ -192,6 +192,8 @@ $.getJSON('https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&
 
 			document.getElementById("mySunrise").innerHTML = (new Date(data.current.sunrise*1000)).toLocaleString([], { hour: '2-digit', minute: '2-digit' });
 			document.getElementById("mySunset").innerHTML = (new Date(data.current.sunset*1000)).toLocaleString([], { hour: '2-digit', minute: '2-digit' });
+			document.getElementById("myMoonrise").innerHTML = (new Date(data.daily[0].moonrise*1000)).toLocaleString([], { hour: '2-digit', minute: '2-digit' });
+			document.getElementById("myMoonset").innerHTML = (new Date(data.daily[0].moonset*1000)).toLocaleString([], { hour: '2-digit', minute: '2-digit' });
 			
 			document.getElementById("zcondition").innerHTML= data.current.weather[0].main ; //Rain, clouds, snow ...
 			//document.getElementById("zcondition").innerHTML= data.current.weather[0].main+'<img src=http://openweathermap.org/img/w/'+data.current.weather[0].icon+'.png width="32" height="32" align=center>';
