@@ -94,20 +94,32 @@ class ForecastFetcher {
     let offset = 0;
     let maxDays = this.config.maxDays;
     periods[0].isDaytime='true';
-if (!periods[0].isDaytime) {
-  
+if (!periods[0].isDaytime) { 
      offset = 1;
      maxDays -= 1;
      forecastMarkup += this.dayRenderer({ night: periods[0] });
     }
+
+if (periods[0].isDaytime) { 
     for (let i = offset; i < maxDays * 2; i += 2) {
       const forecastDay = {
-	night: periods[i],
-      day: periods[i + 1],
+        day: periods[i],
+        night: periods[i + 1],
       };
 
       forecastMarkup += this.dayRenderer(forecastDay);
     }
+    } else {
+    for (let i = offset; i < maxDays * 2; i += 2) {
+      const forecastDay = {
+        night: periods[i + 1],
+        day: periods[i],
+      };
+
+      forecastMarkup += this.dayRenderer(forecastDay);
+    }
+    }
+
 
     const forecastWrapper = document.createElement("DIV");
     forecastWrapper.innerHTML = this.wrapRenderer(forecast, forecastMarkup);
