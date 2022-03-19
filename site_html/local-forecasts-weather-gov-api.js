@@ -99,7 +99,6 @@ if (!periods[0].isDaytime) {
      maxDays -= 1;
      forecastMarkup += this.dayRenderer({ night: periods[0] });
     }
-
 if (periods[0].isDaytime) { 
     for (let i = offset; i < maxDays * 2; i += 2) {
       const forecastDay = {
