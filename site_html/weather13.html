@@ -114,8 +114,7 @@ Springfield / Bolivar, MO<br>
 <span id="myTime"></span><br>
 CONDITIONS: <span id="zcondition"></span><br>
 HI:&nbsp; &nbsp; &nbsp; &nbsp;<span id="zhi"></span><br>
-<a href=https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=minutely,hourly,alerts&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial>
-TEMP; </a><span id="ztemp"></span><br>
+TEMP; <span id="ztemp"></span><br>
 LOW:&nbsp; <span id="zlow"></span><br>
 SUN: <span id="mySunrise"></span>&nbsp; / &nbsp;<span id="mySunset"></span><br>
 MOON: <span id="myMoonrise"></span>&nbsp; / &nbsp;<span id="myMoonset"></span><br>
@@ -168,13 +167,6 @@ function  DegToCompass(degree){
 
 document.getElementById("myTime").innerHTML = (new Date()).toLocaleString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true });
 
-// http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
-
-// http://api.openweathermap.org/geo/1.0/direct?q=BOLIVAR,MO,US&limit=3&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial
-
-// [{"name":"Bolivar","lat":37.6110502,"lon":-93.4107968,"country":"US","state":"Missouri"}]
-
-// https://openweathermap.org/api/one-call-api
 
 $.getJSON("https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=minutely,hourly,alerts&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial", function(data) {
 
@@ -230,10 +222,7 @@ $.getJSON("https://api.weather.gov/gridpoints/SGF/62,54/forecast", function(data
 <div class="clear-fix"></div>
 
 <!-- <p>&nbsp;</p> -->
-<!-- <p><a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg title="Thanks to ozarksfirst.com for this seven day weather forecast graphic.">7 day graphic.</a> Update at ~8:47am and ~11:47pm</p> -->
-<!-- <p><a href=https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=minutely,hourly,alerts&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial>Weather Data OpenWeatherMap</a></p> -->
-<!-- <p><a href=http://www.moonmodule.com/cs/dm/vn.gif>Moonphase graphic.</a> Update every hour at ~00:17:00. </p>  -->
-<!-- <p><a href=https://w1.weather.gov/xml/current_obs/KSGF.xml>Weather Data NWS (LEFT CLICK GUI / RIGHT CLICK "SAVE AS" XML DATA)</a> </p> -->
+
 <!-- <p>&nbsp;</p> -->
 
 
