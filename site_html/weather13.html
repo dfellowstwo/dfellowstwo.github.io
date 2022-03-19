@@ -181,7 +181,7 @@ document.getElementById("myTime").innerHTML = (new Date()).toLocaleString([], { 
 
 // https://openweathermap.org/api/one-call-api
 
-$.getJSON('https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=minutely,hourly,alerts&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial', function(data) {
+$.getJSON("https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&exclude=minutely,hourly,alerts&appid=81fd6bf03bee58a02d735b12c7959cf1&units=imperial", function(data) {
 
 			//var text = `Sunrise is: ${data.current.sunrise}<br>Sunset: ${data.current.sunset}`
 			
@@ -204,7 +204,7 @@ $.getJSON('https://api.openweathermap.org/data/2.5/onecall?lat=37.60&lon=-93.41&
 			document.getElementById("zlow").innerHTML= Math.floor(data.daily[0].temp.min, 0)+'&#8457;';
 })
 
-$.getJSON('https://api.weather.gov/gridpoints/SGF/62,54/forecast', function(data) {
+$.getJSON("https://api.weather.gov/gridpoints/SGF/62,54/forecast", function(data) {
 
 			document.getElementById("zforecast").innerHTML= data.properties.periods[0].detailedForecast;
 			document.getElementById("zupdateTime").innerHTML= (new Date(data.properties.updateTime)).toLocaleString([], { month: '2-digit', day: '2-digit',year: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true });
