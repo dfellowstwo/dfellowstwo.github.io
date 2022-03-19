@@ -124,7 +124,7 @@ if (periods[0].isDaytime) {
     forecastWrapper.innerHTML = this.wrapRenderer(forecast, forecastMarkup);
     return forecastWrapper;
   };
-}
+} // END class ForecastFetcher
 
 (async () => {
 
