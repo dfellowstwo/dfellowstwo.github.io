@@ -95,6 +95,7 @@ class ForecastFetcher {
     let maxDays = this.config.maxDays;
     //periods[0].isDaytime='true';
 if (!periods[0].isDaytime) { 
+     maxDays = 8;
      offset = 1;
      maxDays -= 1;
 
