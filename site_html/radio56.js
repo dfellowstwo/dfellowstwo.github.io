@@ -232,7 +232,7 @@ for (i = 0; i < run_on.length; i++){
     var DateOfLastFriday = getDateOfLast("friday"); // if checked on Friday returns today's date
     var date3 = DateOfLastFriday.toLocaleDateString('en-GB').split('/').reverse().join(''); // '20220204'
     var date3 = (date3.toString());
-    document.getElementById("date3").innerHTML= "<a href=https://s3.amazonaws.com/scifri-episodes/scifri" + date3 + "-episode.mp3>Science Friday current episode</a>";
+    document.getElementById("date3").innerHTML= "<a href=https://s3.amazonaws.com/scifri-episodes/scifri" + date3 + "-episode.mp3>Science Friday current episode w/ seek</a>";
 
     // var date3=(DateOfLastFriday.getFullYear()+("0" + (DateOfLastFriday.getMonth() + 1)).slice(-2)+("0" + DateOfLastFriday.getDate()).slice(-2)); //yyyymmdd. WORKS
 
