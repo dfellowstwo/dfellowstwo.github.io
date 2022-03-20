@@ -28,7 +28,9 @@ h1 { color: #a6430a; margin: 0em 0em .5em 0em; font-size: 2em; font-weight: norm
 h2 { font-size: 1.7em; margin: 0em 0em 1em 0em; }
 h3 { font-size: 1.5em; margin: 0em 0em 1em 0em; }
 p { margin: 0px 0px .75em 0px; }
+
 a { color: #de9000; display:block; }
+
 a:hover { color: #009eff; }
 a.cta {
 	text-transform: uppercase;
