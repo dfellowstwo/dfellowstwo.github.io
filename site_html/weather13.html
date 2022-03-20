@@ -111,8 +111,8 @@ Updated: <text id=zupdateTime></text><br />
 <div class="promo one">
 <div class="content">
 
-Springfield Regional Airport<br>
-Springfield / Bolivar, MO<br>
+<span id="zname"></span><br>
+<span id="zname2"></span><br>
 <span id="zDate"></span><br>
 <!-- <span id="zDate2"></span> -->
 <span id="zTime"></span><br>
@@ -125,6 +125,7 @@ MOON: <span id="zMoonrise"></span>&nbsp; / &nbsp;<span id="zMoonset"></span><br>
 WIND FROM THE <span id="zwind"></span><br>
 <a href=https://api.weather.gov/gridpoints/SGF/62,54/forecast>NWS API forecast</a><br>
 <a href=https://api.weather.gov/gridpoints/SGF/62,54/forecast/hourly>NWS API forecast hourly</a><br>
+<a href=https://api.weather.gov/stations/KSGF/observations/latest>NWS API latest observation</a><br>
 <p>&nbsp;</p>
 </div>
 </div>
@@ -196,6 +197,13 @@ $.getJSON("https://api.weather.gov/gridpoints/SGF/62,54/forecast/hourly", functi
 
 document.getElementById("ztemp").innerHTML=data.properties.periods[0].temperature;
 document.getElementById("zwind").innerHTML= data.properties.periods[0.].windDirection + ' at ' + data.properties.periods[0.].windSpeed ;
+})
+
+$.getJSON("https://api.weather.gov/stations/KSGF", function(data) {
+
+document.getElementById("zname").innerHTML=(data.properties.name).split(',')[1];
+document.getElementById("zname2").innerHTML=(data.properties.name).split(',')[0] + ' / Bolivar Missouri';
+
 })
 
 
