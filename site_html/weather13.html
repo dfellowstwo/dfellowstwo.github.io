@@ -8,8 +8,11 @@
 
 dfellowstwo.github.io site_html/weather13.html 
 https://localhost/dfellows.rf.gd/dfellowstwo.github.io/site_html/weather13.html
-Uses jquery and javascript to parse National Weather Service (NWS) API and openweathermap.org  One Call API and provide data to this page.
-https://zetcode.com/javascript/jsonurl/ 
+Uses jquery and javascript to parse National Weather Service (NWS) API and provide data to this page.
+
+https://api.weather.gov/points/37.653690,-93.399376
+https://api.weather.gov/gridpoints/SGF/62,54/forecast
+https://forecast.weather.gov/MapClick.php?lat=37.2144&lon=-93.3014&unit=0&lg=english&FcstType=dwml
 
 -->
 <META HTTP-EQUIV="refresh" CONTENT="3600">
@@ -40,6 +43,7 @@ https://zetcode.com/javascript/jsonurl/
 <!--[if lt IE 9]><script src=../scripts/html5shiv.js></script><![endif]-->
 <!-- <script src="weather13.js"></script> -->
 <script src="jquery-3.2.1.min.js"></script>
+<script src="suncalc.js"></script>
 
 <style>
 @media only screen and (min-width:958px){article{padding:16.5em 0 1em 0}}
@@ -109,18 +113,18 @@ Updated: <text id=zupdateTime></text><br />
 
 Springfield Regional Airport<br>
 Springfield / Bolivar, MO<br>
-<span id="myDate"></span><br>
-<!-- <span id="myDate2"></span> -->
-<span id="myTime"></span><br>
-CONDITIONS: <span id="zcondition"></span><br>
+<span id="zDate"></span><br>
+<!-- <span id="zDate2"></span> -->
+<span id="zTime"></span><br>
+CONDITION: <span id="zcondition"></span><br>
 HI:&nbsp; &nbsp; &nbsp; &nbsp;<span id="zhi"></span><br>
-TEMP; <span id="ztemp"></span><br>
+TEMP: <span id="ztemp"></span><br>
 LOW:&nbsp; <span id="zlow"></span><br>
-SUN: <span id="mySunrise"></span>&nbsp; / &nbsp;<span id="mySunset"></span><br>
-MOON: <span id="myMoonrise"></span>&nbsp; / &nbsp;<span id="myMoonset"></span><br>
+SUN: <span id="zSunrise"></span>&nbsp; / &nbsp;<span id="zSunset"></span><br>
+MOON: <span id="zMoonrise"></span>&nbsp; / &nbsp;<span id="zMoonset"></span><br>
 WIND FROM THE <span id="zwind"></span><br>
-<a href=https://api.weather.gov/gridpoints/SGF/62,54/forecast>NWS API</a>
-
+<a href=https://api.weather.gov/gridpoints/SGF/62,54/forecast>NWS API forecast</a><br>
+<a href=https://api.weather.gov/gridpoints/SGF/62,54/forecast/hourly>NWS API forecast hourly</a><br>
 <p>&nbsp;</p>
 </div>
 </div>
@@ -130,6 +134,23 @@ WIND FROM THE <span id="zwind"></span><br>
 <script>document.write('<a href=https://www.moonmodule.com/cs/dm/vn.gif><img src="https://www.moonmodule.com/cs/dm/vn.gif" width=128 height=196 /></a>');</script>
 </div>
 </div>
+
+<div class='promo seven'>
+<a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg>
+<div class=content>
+<iframe width='480px' height='196px' src='https://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' frameborder='0' scrolling='no'></iframe>
+</div>
+</a>
+</div>
+
+<div class='promo six'>
+<a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg>
+<div class=content>
+<iframe width='480px' height='196px' src='https://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' frameborder='0' scrolling='no'></iframe>
+</div>
+</a>
+</div>
+
 
 <script src=moment.min.js></script>
 <script>
@@ -141,141 +162,54 @@ var zdegree;
 var zdirection;
 var ztime;
 
-//https://momentjs.com/
-document.getElementById("myDate").innerHTML = moment(date).format("dddd, MMMM Do, YYYY"); // Wednesday, March 16th, 2022
-
-//https://stackoverflow.com/a/36475516/8826818
-function  DegToCompass(degree){
-    if (degree>337.5) return 'N';
-    if (degree>292.5) return 'NW';
-    if(degree>247.5) return 'W';
-    if(degree>202.5) return 'SW';
-    if(degree>157.5) return 'S';
-    if(degree>122.5) return 'SE';
-    if(degree>67.5) return 'East';
-    if(degree>22.5){return 'NE';}
-    return 'N';
-}
-
-//https://stackoverflow.com/a/39466341/8826818 new date() ordinal
-//function nth(n){return["st","nd","rd"][((n+90)%100-10)%10-1]||"th"}
-
-//https://api.weather.gov/points/37.653690,-93.399376
-//https://api.weather.gov/gridpoints/SGF/62,54/forecast
-
-// https://forecast.weather.gov/MapClick.php?lat=37.2144&lon=-93.3014&unit=0&lg=english&FcstType=dwml
-
-document.getElementById("myTime").innerHTML = (new Date()).toLocaleString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true });
-
-
-
-
-
-
-
-
-function readTextFile(file, callback) {
-    var rawFile = new XMLHttpRequest();
-    rawFile.overrideMimeType("application/json");
-    rawFile.open("GET", file, true);
-    rawFile.onreadystatechange = function() {
-        if (rawFile.readyState === 4 && rawFile.status == "200") {
-            callback(rawFile.responseText);
-        }
-    }
-    rawFile.send(null);
-}
-
-//usage: https://stackoverflow.com/a/34579496/8826818
-readTextFile("https://dfellows.rf.gd/site_html/weatherOpenWeatherMapOneCall65613.json", function(text){
-    var data = JSON.parse(text); // formatted. WORKING!
-    //var data = text; // raw
-    // console.log(data);
-
-			zdirection = ['N', 'NE', 'East', 'SE', 'S', 'SW', 'W', 'NW'];
-			zdegree = data.current.wind_deg * 8 / 360;
-			zdegree = Math.round(zdegree, 0);
-			zdegree = (zdegree + 8) % 8;
-			document.getElementById("zwind").innerHTML= (zdirection[zdegree]) + ' at ' + Math.ceil(data.current.wind_speed, 0) + ' mph gusting to ' + Math.ceil(data.current.wind_gust, 0);
-
-			document.getElementById("mySunrise").innerHTML = (new Date(data.current.sunrise*1000)).toLocaleString([], { hour: '2-digit', minute: '2-digit' });
-			document.getElementById("mySunset").innerHTML = (new Date(data.current.sunset*1000)).toLocaleString([], { hour: '2-digit', minute: '2-digit' });
-			document.getElementById("myMoonrise").innerHTML = (new Date(data.daily[0].moonrise*1000)).toLocaleString([], { hour: '2-digit', minute: '2-digit' });
-			document.getElementById("myMoonset").innerHTML = (new Date(data.daily[0].moonset*1000)).toLocaleString([], { hour: '2-digit', minute: '2-digit' });
-			
-			document.getElementById("zcondition").innerHTML= data.current.weather[0].main ; //Rain, clouds, snow ...
-			//document.getElementById("zcondition").innerHTML= data.current.weather[0].main+'<img src=http://openweathermap.org/img/w/'+data.current.weather[0].icon+'.png width="32" height="32" align=center>';
-
-			document.getElementById("zhi").innerHTML= Math.ceil(data.daily[0].temp.max, 0)+'&#8457;';
-			document.getElementById("ztemp").innerHTML= Math.round(data.current.temp, 0)+'&#8457;'; // *F
-			document.getElementById("zlow").innerHTML= Math.floor(data.daily[0].temp.min, 0)+'&#8457;';
-			
-});
-
-
-
-
+//https://momentjs.com/docs/#/parsing/string-format/
+document.getElementById("zDate").innerHTML = moment(date).format("dddd, MMMM Do, YYYY"); // Wednesday, March 16th, 2022
+document.getElementById("zTime").innerHTML = (new Date()).toLocaleString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true });
+document.getElementById("zSunrise").innerHTML = moment((SunCalc.getTimes(date, 37.653690,-93.399376)).rise).format('hh:mm A') ;
+document.getElementById("zSunset").innerHTML =moment((SunCalc.getTimes(date, 37.653690,-93.399376)).set).format('hh:mm A') ;
+document.getElementById("zMoonrise").innerHTML = moment((SunCalc.getMoonTimes(date, 37.653690,-93.399376)).rise).format('hh:mm A') ;
+document.getElementById("zMoonset").innerHTML =moment((SunCalc.getMoonTimes(date, 37.653690,-93.399376)).set).format('hh:mm A') ;
 
 
 
 
 $.getJSON("https://api.weather.gov/gridpoints/SGF/62,54/forecast", function(data) {
 
+if (!data.properties.periods[0].isDaytime) { 
+     zhi=data.properties.periods[1].temperature;
+     zlow=data.properties.periods[2].temperature;
+    } else {
+     zhi=data.properties.periods[0].temperature;
+     zlow=data.properties.periods[1].temperature;
+    }
+
 			document.getElementById("zforecast").innerHTML= data.properties.periods[0].detailedForecast;
 			document.getElementById("zupdateTime").innerHTML= (new Date(data.properties.updateTime)).toLocaleString([], { month: '2-digit', day: '2-digit',year: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true });
+			document.getElementById("zcondition").innerHTML= data.properties.periods[0].shortForecast;
+			document.getElementById("zhi").innerHTML=zhi;
+			document.getElementById("zlow").innerHTML= zlow;
+			//document.getElementById("zwind").innerHTML= data.properties.periods[0.].windDirection + ' at ' + data.properties.periods[0.].windSpeed ;
+
+})
+
+$.getJSON("https://api.weather.gov/gridpoints/SGF/62,54/forecast/hourly", function(data) {
+
+document.getElementById("ztemp").innerHTML=data.properties.periods[0].temperature;
+document.getElementById("zwind").innerHTML= data.properties.periods[0.].windDirection + ' at ' + data.properties.periods[0.].windSpeed ;
 })
 
 
+
+
 </script>
-
-<div class="promo six ">
-<div class="content">
-<a href=https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg><img src="https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg" width=480 height=196 title="7 day forecast graphic. Thanks ozarksfirst.com" alt="7 day forecast graphic. Thanks ozarksfirst.com"/></a>
-</div>
-</div>
-
-
-<div class="promo seven ">
-<div class="content">
-
-<!-- <script>document.write('<a href=https://www.dfellows.rf.gd/sitehtml/weather-seven-day-forecast-graphic.jpg><img src="https://www.dfellows.rf.gd/sitehtml/weather-seven-day-forecast-graphic.jpg" width="480" height="196" alt="7 day forecast graphic. Thanks ozarksfirst.com" /></a>');</script> -->
-<!-- <script type="text/javascript" src="https://www.dfellows.rf.gd/site_html/7day.php"></script> -->
-
-<!-- <script>document.write('<a href=https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.gif><img src="https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.gif" width="480" height="196" alt="7 day forecast graphic. Thanks ozarksfirst.com" /></a>');</script> -->
-
-<a href=https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg><img src="https://www.dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg" width=480 height=196 title="7 day forecast graphic. Thanks ozarksfirst.com" alt="7 day forecast graphic. Thanks ozarksfirst.com"/></a>
-</div>
-</div>
-
-<div class="clear-fix"></div>
-
-<!-- <p>&nbsp;</p> -->
-
-<!-- <p>&nbsp;</p> -->
 
 
 <div class="promo four"> 
 <iframe width='100%' height='640px' src='https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOiJuYXRpb25hbCIsImNlbnRlciI6Wy05My4wODQsMzcuNzk3XSwiem9vbSI6NS43NjY3MTUwNzc1MjY4NTcsImxheWVyIjoiYnJlZl9xY2QiLCJ0cmFuc3BhcmVudCI6dHJ1ZSwiYWxlcnRzT3ZlcmxheSI6dHJ1ZX0sImFuaW1hdGluZyI6dHJ1ZSwiYmFzZSI6InN0YW5kYXJkIiwiY291bnR5IjpmYWxzZSwiY3dhIjpmYWxzZSwic3RhdGUiOmZhbHNlLCJtZW51IjpmYWxzZSwic2hvcnRGdXNlZE9ubHkiOnRydWUsIm9wYWNpdHkiOnsiYWxlcnRzIjowLCJsb2NhbCI6MC42LCJsb2NhbFN0YXRpb25zIjowLjgsIm5hdGlvbmFsIjowLjZ9fQ%3D%3D' frameborder='0' scrolling='no'></iframe>
 </div>
-
- 
-<!-- https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOiJuYXRpb25hbCIsImNlbnRlciI6Wy05My4wODQsMzcuNzk3XSwiem9vbSI6NS43NjY3MTUwNzc1MjY4NTcsImxheWVyIjoiYnJlZl9xY2QiLCJ0cmFuc3BhcmVudCI6dHJ1ZSwiYWxlcnRzT3ZlcmxheSI6dHJ1ZX0sImFuaW1hdGluZyI6dHJ1ZSwiYmFzZSI6InN0YW5kYXJkIiwiY291bnR5IjpmYWxzZSwiY3dhIjpmYWxzZSwic3RhdGUiOmZhbHNlLCJtZW51IjpmYWxzZSwic2hvcnRGdXNlZE9ubHkiOnRydWUsIm9wYWNpdHkiOnsiYWxlcnRzIjowLCJsb2NhbCI6MC42LCJsb2NhbFN0YXRpb25zIjowLjgsIm5hdGlvbmFsIjowLjZ9fQ%3D%3D#/ 
--->
-
-<!-- https://noaa.maps.arcgis.com/apps/TimeAware/index.html?appid=3eb23d7688154631858c128c6ae83be2 -->
-
-																																																				<div id=radar2 class="promo five">
-<a href='https://www.wunderground.com/radar/us/mo/springfield/sgf'>
-<img src='https://radblast.wunderground.com/cgi-bin/radar/WUNIDS_map?num=10&type=N1R&mapx=400&mapy=240&brand=wui&delay=15&frame=0&scale=0.125&centerx=423.704347826087&centery=583.2&transx=23.704347826086973&transy=343.20000000000004&severe=0&smooth=1&station=SGF&rainsnow=0&lightning=0&noclutter=1&showlabels=1&showstorms=0&rand=27178699' width=940 height=705 alt='LOCAL WEATHER RADAR FROM WEATHER UNDERGROUND' title='LOCAL WEATHER RADAR FROM WEATHER UNDERGROUND'>
-</a>
-</div>
-
+																														
 
 </div><!-- END class=page -->
-
-
-
-
 
 <div class="clear-fix"></div>
 

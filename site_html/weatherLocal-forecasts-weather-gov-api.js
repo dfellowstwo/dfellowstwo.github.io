@@ -1,4 +1,11 @@
-        var a = new Date();
+        
+	  /*
+	  weatherLocal-forecasts-weather-gov-api.js
+	  Services: 46.php
+	  */ 
+	  
+	  
+	  var a = new Date();
         var days = new Array(7);
         days[0] = "Sunday";
         days[1] = "Monday";
@@ -48,8 +55,7 @@ class ForecastFetcher {
 <div class="forecast-wrapper">
   ${forecastMarkup}
 </div>
-<p class="forecast-credits"><a href="https://www.weather.gov/documentation/services-web-api">Data provided by the National Weather Service API</a></p>
-<p class="forecast-credits"><a href='https://daltonrowe.com/local-forecasts-weather-gov-api.html#'>How to by Dalton Rowe</a></p>
+
     `;
   };
 
@@ -90,14 +96,13 @@ class ForecastFetcher {
   markupForecast = (forecast) => {
     let forecastMarkup = "";
     const { periods } = forecast.properties;
-    periods[0].name=dayName;
+    periods[0].name=dayName;    
     let offset = 0;
     let maxDays = this.config.maxDays;
     //periods[0].isDaytime='true';
 if (!periods[0].isDaytime) { 
      offset = 1;
      maxDays -= 1;
-
      forecastMarkup += this.dayRenderer({ night: periods[0] });
     }
 if (periods[0].isDaytime) { 
@@ -125,7 +130,7 @@ if (periods[0].isDaytime) {
     forecastWrapper.innerHTML = this.wrapRenderer(forecast, forecastMarkup);
     return forecastWrapper;
   };
-} // END class ForecastFetcher
+}
 
 (async () => {
 
