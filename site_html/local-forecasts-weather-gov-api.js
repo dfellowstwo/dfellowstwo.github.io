@@ -141,7 +141,7 @@ if (periods[0].isDaytime) {
     
 	let z = forecast ;
 	// let z=z.replace('/This Afternoon/g', 'Wednesday');
-	console.log(z);
+	//console.log(z);
     // TypeError: z.replace is not a function
     
     demo.appendChild(forecastNode);

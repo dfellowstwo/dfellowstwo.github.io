@@ -72,6 +72,15 @@ body{font-family:"Segoe UI Semibold","Segoe WP Semibold","Segoe WP","Segoe UI",A
 .weatherwidget-io {display:block;width:480px;height:196px;}
 iframe .weatherwidget-io {height:196px;}
 #zforecast {padding: 0 1em 1em 1em ;}
+
+@media only screen and (min-width:50px) and (max-width:700px){
+
+a {line-height: 2em;}
+img {
+	max-width: 700px;
+}
+}
+
 </style>
 
 <script language="javascript">
@@ -123,9 +132,9 @@ LOW:&nbsp; <span id="zlow"></span><br>
 SUN: <span id="zSunrise"></span>&nbsp; / &nbsp;<span id="zSunset"></span><br>
 MOON: <span id="zMoonrise"></span>&nbsp; / &nbsp;<span id="zMoonset"></span><br>
 WIND FROM THE <span id="zwind"></span><br>
-<a href=https://api.weather.gov/gridpoints/SGF/62,54/forecast>NWS API forecast</a><br>
-<a href=https://api.weather.gov/gridpoints/SGF/62,54/forecast/hourly>NWS API forecast hourly</a><br>
-<a href=https://api.weather.gov/stations/KSGF/observations/latest>NWS API latest observation</a><br>
+<a class=yourclass href=https://api.weather.gov/gridpoints/SGF/62,54/forecast>NWS API forecast</a><br>
+<a class=yourclass href=https://api.weather.gov/gridpoints/SGF/62,54/forecast/hourly>NWS API forecast hourly</a><br>
+<a class=yourclass href=https://api.weather.gov/stations/KSGF/observations/latest>NWS API latest observation</a><br>
 <p>&nbsp;</p>
 </div>
 </div>
@@ -139,7 +148,7 @@ WIND FROM THE <span id="zwind"></span><br>
 <div class='promo seven'>
 <a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg>
 <div class=content>
-<iframe width='480px' height='196px' src='https://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' frameborder='0' scrolling='no'></iframe>
+<img width='480px' height='196px' src='https://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' >
 </div>
 </a>
 </div>
@@ -147,7 +156,7 @@ WIND FROM THE <span id="zwind"></span><br>
 <div class='promo six'>
 <a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg>
 <div class=content>
-<iframe width='480px' height='196px' src='https://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' frameborder='0' scrolling='no'></iframe>
+<!-- <iframe width='480px' height='196px' src='https://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' frameborder='0' scrolling='no'></iframe> -->
 </div>
 </a>
 </div>
