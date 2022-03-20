@@ -222,7 +222,7 @@ for (i = 0; i < run_on.length; i++){
     // document.write("<br/>Combined is "+combined+" and run_on is "+run_on[i]);
     // document.write("<br/>The date is "+date3);
 
-    document.getElementById("date3").innerHTML= "<a href=https://s3.amazonaws.com/scifri-episodes/scifri" + date3 + "-episode.mp3>Science Friday current episode</a>";
+    document.getElementById("date3").innerHTML= "<a href=https://s3.amazonaws.com/scifri-episodes/scifri" + date3 + "-episode.mp3>Science Friday current episode w/ seek</a>";
 
     
     break;
