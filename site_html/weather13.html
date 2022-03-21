@@ -200,7 +200,7 @@ document.getElementById("zcondition").innerHTML = ($(weather).find('weather').te
     $.get("https://forecast.weather.gov/MapClick.php?lat=37.1962&lon=-93.2861&unit=0&lg=english&FcstType=dwml", function( weather ) {
 
 document.getElementById("ztemp").innerHTML = $(weather).find("temperature").text()+'&deg;F' ;
-
+// on dfellows.rf.gd returns all temperature values. on dfellowstwo.github.io returns only the first value
 });
 
 
