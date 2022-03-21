@@ -165,7 +165,7 @@ WIND FROM THE <span id="zwind"></span><br>
 <a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg>
 <div class=content>
 <script>document.write('<a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg><img src="https://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg" width=128 height=196 /></a>');</script>
-<!-- <img width='480px' height='196px' src='https://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' > -->
+<img width='480px' height='196px' src='https://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' >
 <!-- <iframe width='480px' height='196px' src='https://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' frameborder='0' scrolling='no'></iframe> -->
 </div>
 </a>
@@ -178,7 +178,7 @@ WIND FROM THE <span id="zwind"></span><br>
 <a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg>
 <div class=content>
 <script>document.write('<a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg><img src="https://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg" width=128 height=196 /></a>');</script>
-<!-- <img width='480px' height='196px' src='https://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' > -->
+<img width='480px' height='196px' src='https://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' >
 <!-- <iframe width='480px' height='196px' src='https://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' frameborder='0' scrolling='no'></iframe> -->
 </div>
 </a>
@@ -199,8 +199,9 @@ document.getElementById("zcondition").innerHTML = ($(weather).find('weather').te
 
     $.get("https://forecast.weather.gov/MapClick.php?lat=37.1962&lon=-93.2861&unit=0&lg=english&FcstType=dwml", function( weather ) {
 
-document.getElementById("ztemp").innerHTML = $(weather).find("temperature").text()+'&deg;F' ;
-// on dfellows.rf.gd returns all temperature values. on dfellowstwo.github.io returns only the first value
+// document.getElementById("ztemp").innerHTML = $(weather).find("temperature").text()+'&deg;F' ;
+// Online: on dfellows.rf.gd  and  dfellowstwo.github.io returns all temperature values i.e. Daily Maximum Temperature 68 65 46 46 63 58 63
+// localhost sometimes return the one / first / correct value, sometime returns all.
 });
 
 
@@ -252,7 +253,7 @@ if (!data.properties.periods[0].isDaytime) {
 
 $.getJSON("https://api.weather.gov/gridpoints/SGF/62,54/forecast/hourly", function(data) {
 
-//document.getElementById("ztemp").innerHTML=data.properties.periods[0].temperature;
+document.getElementById("ztemp").innerHTML=data.properties.periods[0].temperature+'&deg;F';
 // document.getElementById("zwind").innerHTML= data.properties.periods[0.].windDirection + ' at ' + data.properties.periods[0.].windSpeed ;
 })
 
