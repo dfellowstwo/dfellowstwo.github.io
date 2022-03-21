@@ -124,6 +124,8 @@ setTimeout(function(){
 
 Updated: <span id=zupdateTime></span><br />
 <div id="zforecast"></div>
+<!-- <span id="result"></span><span id="street"></span><br /> <span id="city"></span>, <span id="state"></span> <span id="zip"></span> -->
+
 <div class="promo_container">
 
 <!-- <div id="openweathermap-widget-11"></div> -->
@@ -164,7 +166,7 @@ WIND FROM THE <span id="zwind"></span><br>
 <div class='promo seven'>
 <a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg>
 <div class=content>
-<!-- <img width='480px' height='196px' src='https://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' > -->
+<img width='480px' height='196px' src='https://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' >
 <iframe width='480px' height='196px' src='https://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' frameborder='0' scrolling='no'></iframe>
 </div>
 </a>
@@ -176,14 +178,17 @@ WIND FROM THE <span id="zwind"></span><br>
 <div class='promo six'>
 <a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg>
 <div class=content>
+<img width='480px' height='196px' src='https://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' >
 <iframe width='480px' height='196px' src='https://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' frameborder='0' scrolling='no'></iframe>
 </div>
 </a>
 </div>
 
 
+
 <script src=moment.min.js></script>
 <script>
+
 <!-- var date9 = date.toLocaleDateString('en-GB').split('/').reverse().join(''); // '20220204' -->
 var date = new Date();
 var zsunrise; 
@@ -234,6 +239,8 @@ document.getElementById("zname").innerHTML=(data.properties.name).split(',')[1];
 document.getElementById("zname2").innerHTML=(data.properties.name).split(',')[0] + ' / Bolivar Missouri';
 
 })
+
+
 
 
 
