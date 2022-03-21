@@ -124,8 +124,6 @@ setTimeout(function(){
 
 Updated: <span id=zupdateTime></span><br />
 <div id="zforecast"></div>
-<span id="result"></span><span id="street"></span><br /> <span id="city"></span><span id="state"></span> <span id="zip"></span>
-
 <div class="promo_container">
 
 <!-- <div id="openweathermap-widget-11"></div> -->
@@ -194,9 +192,15 @@ WIND FROM THE <span id="zwind"></span><br>
 
     $.get("https://w1.weather.gov/xml/current_obs/KSGF.xml", function( weather ) {
 
-document.getElementById("ztemp").innerHTML = (($(weather).find("temperature_string").text()).split('(')[0]).split('.')[0]+'&deg;F' ;
+//document.getElementById("ztemp").innerHTML = (($(weather).find("temperature_string").text()).split('(')[0]).split('.')[0]+'&deg;F' ;
 document.getElementById("zwind").innerHTML = ($(weather).find('wind_string').text()).split('(')[0];
 document.getElementById("zcondition").innerHTML = ($(weather).find('weather').text()).split('(')[0];
+});
+
+    $.get("https://forecast.weather.gov/MapClick.php?lat=37.1962&lon=-93.2861&unit=0&lg=english&FcstType=dwml", function( weather ) {
+
+document.getElementById("ztemp").innerHTML = $(weather).find("temperature").text()+'&deg;F' ;
+
 });
 
 
