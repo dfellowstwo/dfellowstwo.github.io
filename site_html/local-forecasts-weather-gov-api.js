@@ -1,4 +1,7 @@
-        var a = new Date();
+       
+	 //GITHUB DOES NOT LIKE UNDERSCORE _
+	  
+	  var a = new Date();
         var days = new Array(7);
         days[0] = "Sunday";
         days[1] = "Monday";
