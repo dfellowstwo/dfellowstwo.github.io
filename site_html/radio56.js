@@ -387,7 +387,7 @@ var radio = new Radio([
 
     title: "MILWAUKEE",
 
-    src: 'https://wyms.streamguys1.com/live?platform=88nine',
+    src: 'https://wyms.streamguys1.com/live',
 
     howl: null
 
