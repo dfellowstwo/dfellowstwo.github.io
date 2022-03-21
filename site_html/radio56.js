@@ -558,7 +558,7 @@ var radio = new Radio([
 
     title: "NPR JUNEAU, ALASKA",
 
-    src: 'https://18443.live.streamtheworld.com/KTOOFM.mp3',
+    src: 'https://14983.live.streamtheworld.com/KTOOFMAAC.aac',
 
     howl: null
 
