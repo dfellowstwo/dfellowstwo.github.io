@@ -124,7 +124,7 @@ setTimeout(function(){
 
 Updated: <span id=zupdateTime></span><br />
 <div id="zforecast"></div>
-<!-- <span id="result"></span><span id="street"></span><br /> <span id="city"></span>, <span id="state"></span> <span id="zip"></span> -->
+<span id="result"></span><span id="street"></span><br /> <span id="city"></span><span id="state"></span> <span id="zip"></span>
 
 <div class="promo_container">
 
@@ -190,6 +190,23 @@ WIND FROM THE <span id="zwind"></span><br>
 
 <script src=moment.min.js></script>
 <script>
+// curl https://w1.weather.gov/xml/current_obs/KSGF.xml
+
+    $.get("https://w1.weather.gov/xml/current_obs/KSGF.xml", function( weather ) {
+
+document.getElementById("ztemp").innerHTML = (($(weather).find("temperature_string").text()).split('(')[0]).split('.')[0]+'&deg;F' ;
+document.getElementById("zwind").innerHTML = ($(weather).find('wind_string').text()).split('(')[0];
+document.getElementById("zcondition").innerHTML = ($(weather).find('weather').text()).split('(')[0];
+});
+
+
+
+
+
+
+
+
+
 
 <!-- var date9 = date.toLocaleDateString('en-GB').split('/').reverse().join(''); // '20220204' -->
 var date = new Date();
@@ -213,16 +230,16 @@ document.getElementById("zMoonset").innerHTML =moment((SunCalc.getMoonTimes(date
 $.getJSON("https://api.weather.gov/gridpoints/SGF/62,54/forecast", function(data) {
 
 if (!data.properties.periods[0].isDaytime) { 
-     zhi=data.properties.periods[1].temperature;
-     zlow=data.properties.periods[2].temperature;
+     zhi=data.properties.periods[1].temperature+'&deg;F';
+     zlow=data.properties.periods[2].temperature+'&deg;F';
     } else {
-     zhi=data.properties.periods[0].temperature;
-     zlow=data.properties.periods[1].temperature;
+     zhi=data.properties.periods[0].temperature+'&deg;F';
+     zlow=data.properties.periods[1].temperature+'&deg;F';
     }
 
 			document.getElementById("zforecast").innerHTML= data.properties.periods[0].detailedForecast;
 			document.getElementById("zupdateTime").innerHTML= (new Date(data.properties.updateTime)).toLocaleString([], { month: '2-digit', day: '2-digit',year: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true });
-			document.getElementById("zcondition").innerHTML= data.properties.periods[0].shortForecast;
+			//document.getElementById("zcondition").innerHTML= data.properties.periods[0].shortForecast;
 			document.getElementById("zhi").innerHTML=zhi;
 			document.getElementById("zlow").innerHTML= zlow;
 			//document.getElementById("zwind").innerHTML= data.properties.periods[0.].windDirection + ' at ' + data.properties.periods[0.].windSpeed ;
@@ -231,8 +248,8 @@ if (!data.properties.periods[0].isDaytime) {
 
 $.getJSON("https://api.weather.gov/gridpoints/SGF/62,54/forecast/hourly", function(data) {
 
-document.getElementById("ztemp").innerHTML=data.properties.periods[0].temperature;
-document.getElementById("zwind").innerHTML= data.properties.periods[0.].windDirection + ' at ' + data.properties.periods[0.].windSpeed ;
+//document.getElementById("ztemp").innerHTML=data.properties.periods[0].temperature;
+// document.getElementById("zwind").innerHTML= data.properties.periods[0.].windDirection + ' at ' + data.properties.periods[0.].windSpeed ;
 })
 
 $.getJSON("https://api.weather.gov/stations/KSGF", function(data) {
