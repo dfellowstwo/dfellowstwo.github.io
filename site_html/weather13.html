@@ -201,7 +201,8 @@ document.getElementById("zcondition").innerHTML = ($(weather).find('weather').te
 
     $.get("https://forecast.weather.gov/MapClick.php?lat=37.1962&lon=-93.2861&unit=0&lg=english&FcstType=dwml", function( weather ) {
 
-// document.getElementById("ztemp").innerHTML = $(weather).find("temperature").text()+'&deg;F' ;
+//document.getElementById("zcondition").innerHTML = $(weather).find("weather summary").text();
+//document.getElementById("ztemp").innerHTML = $(weather).find("temperature").text()+'&deg;F' ;
 // Online: on dfellows.rf.gd  and  dfellowstwo.github.io returns all temperature values i.e. Daily Maximum Temperature 68 65 46 46 63 58 63
 // localhost sometimes return the one / first / correct value, sometime returns all.
 });
