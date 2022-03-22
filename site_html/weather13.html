@@ -195,8 +195,38 @@ WIND FROM THE <span id="zwind"></span><br>
 
     $.get("https://w1.weather.gov/xml/current_obs/KSGF.xml", function( weather ) {
 
+
+/*
+
+Change
+	from the Southeast at 12.7 MPH (11 KT)
+To
+	Southeast at 12.7 MPH
+
+z='from the Southeast at 12.7 MPH (11 KT)';
+z=z.split(' (')[0];
+if (z.length < 5) { document.getElementById("zwind").innerHTML = 'Calm'} else {
+if(z.includes('from the')){ document.getElementById("zwind").innerHTML = z.slice(9);}else{document.getElementById("zwind").innerHTML = z; }};
+
+
+
+z=$(weather).find('wind_string').text().split(' (')[0]);
+if (z.length < 5) { document.getElementById("zwind").innerHTML = 'Calm'} else {
+if(z.includes('from the')){ document.getElementById("zwind").innerHTML = z.slice(9); }else{document.getElementById("zwind").innerHTML = z; }};
+
+Change
+	from the Southeast at 12.7 MPH (11 KT)
+To
+	Southeast at 12.7 MPH
+
+*/
+
+z=$(weather).find('wind_string').text().split(' (')[0];
+if (z.length < 5) { document.getElementById("zwind").innerHTML = 'Calm' ; } else {
+if(z.includes('from the')){ document.getElementById("zwind").innerHTML = z.slice(9) ; }else{document.getElementById("zwind").innerHTML = z; }};
+
 //document.getElementById("ztemp").innerHTML = (($(weather).find("temperature_string").text()).split('(')[0]).split('.')[0]+'&deg;F' ;
-document.getElementById("zwind").innerHTML = ($(weather).find('wind_string').text()).split('(')[0];
+//document.getElementById("zwind").innerHTML = ($(weather).find('wind_string').text()).split('(')[0];
 document.getElementById("zcondition").innerHTML = ($(weather).find('weather').text()).split('(')[0];
 });
 
