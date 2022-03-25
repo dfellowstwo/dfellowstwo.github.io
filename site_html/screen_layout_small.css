@@ -1,5 +1,8 @@
 @charset "UTF-8";
-
+.sm {
+	display: block;
+	text-align: center;
+}
 /* Moonphase graphic: Bottom margin 1em pushes 7day forecast graphic down. */
 .promo_container .promo.two img {
 	width: 128px;
@@ -103,6 +106,7 @@ footer { border-top: 1px solid #a6abc5; }
 
 body { background-image: none;  }
 
+.lg{display: none;}
 
 @media
 	only screen and (-webkit-min-device-pixel-ratio: 2),

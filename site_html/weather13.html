@@ -149,11 +149,6 @@ LOW:&nbsp; <span id="zlow"></span><br>
 SUN: <span id="zSunrise"></span>&nbsp; / &nbsp;<span id="zSunset"></span><br>
 MOON: <span id="zMoonrise"></span>&nbsp; / &nbsp;<span id="zMoonset"></span><br>
 WIND FROM THE <span id="zwind"></span><br>
-<a href=https://forecast.weather.gov/MapClick.php?x=155&y=176&site=sgf&zmx=&zmy=&map_x=155&map_y=176#.Yji8YTVOncc>NWS KSGF latest</a><br>
-<a href=http://w1.weather.gov/xml/current_obs/KSGF.xml>NWS KSGF old</a><br>
-<a href=https://api.weather.gov/gridpoints/SGF/62,54/forecast/hourly>NWS API forecast hourly</a><br>
-<a href=https://api.weather.gov/gridpoints/SGF/62,54/forecast>NWS API forecast</a><br>
-<!-- <a href=https://api.weather.gov/stations/KSGF/observations/latest>NWS API latest observation</a><br> -->
 <p>&nbsp;</p>
 </div>
 </div>
@@ -300,12 +295,27 @@ document.getElementById("zname2").innerHTML=(data.properties.name).split(',')[0]
 
 })
 
-
-
-
-
-
 </script>
+
+<span class=lg>
+<a href=weatherOpenWeatherMapOneCall65613.json>OneCall65613.json</a> &nbsp; &nbsp; &nbsp;
+<a href=https://api.weather.gov/gridpoints/SGF/62,54/forecast/hourly>NWS API forecast hourly</a> &nbsp; &nbsp; &nbsp;
+<a href=https://api.weather.gov/gridpoints/SGF/62,54/forecast>NWS API forecast</a> &nbsp; &nbsp; &nbsp;
+<a href=https://forecast.weather.gov/MapClick.php?lat=37.1962&lon=-93.2861&unit=0&lg=english&FcstType=dwml>NWS MapClick raw</a> &nbsp; &nbsp; &nbsp;
+<a href=https://forecast.weather.gov/MapClick.php?x=155&y=176&site=sgf&zmx=&zmy=&map_x=155&map_y=176#.Yji8YTVOncc>NWS KSGF gui</a> &nbsp; &nbsp; &nbsp;
+<a href=http://w1.weather.gov/xml/current_obs/KSGF.xml>NWS KSGF.xml</a> &nbsp; &nbsp; &nbsp;
+<a href=log.html>LOG</a> &nbsp; &nbsp; &nbsp;
+</span>
+
+<span class=sm>
+<a href=weatherOpenWeatherMapOneCall65613.json>OneCall65613.json</a><br />
+<a href=https://api.weather.gov/gridpoints/SGF/62,54/forecast/hourly>NWS API forecast hourly</a><br />
+<a href=https://api.weather.gov/gridpoints/SGF/62,54/forecast>NWS API forecast</a><br />
+<a href=https://forecast.weather.gov/MapClick.php?lat=37.1962&lon=-93.2861&unit=0&lg=english&FcstType=dwml>NWS MapClick raw</a><br />
+<a href=https://forecast.weather.gov/MapClick.php?x=155&y=176&site=sgf&zmx=&zmy=&map_x=155&map_y=176#.Yji8YTVOncc>NWS KSGF gui</a><br />
+<a href=http://w1.weather.gov/xml/current_obs/KSGF.xml>NWS KSGF.xml</a><br />
+<a href=log.html>LOG</a>
+</span>
 
 
 <div class="promo four"> 
@@ -376,6 +386,7 @@ For example, "P3Y6M4DT12H30M5S" represents a duration of "three years, six month
 <br />
 <div class="container">
 <div><a class="hidelg" style="cursor: pointer" onclick="javascript: window.location = 'https://www.dfellows.rf.gd/site_html/46.php';"><img src='../images/placemark44x31.jpg' title='ky3 graphic' alt='alt=ky3 graphic'></a></div>
+<div><a class=hidelg style="cursor: pointer" onclick="javascript: window.location = '21.php';"><img src='../images/placemark44x31.jpg' title='update weather data' alt='alt=update weather data'></a></div>
 <div><a class="hidelg" style="cursor: pointer" onclick="javascript: window.location = 'https://www.dfellows.rf.gd/site_html/47.php';"><img src='../images/placemark44x31.jpg' title='ozarksfirst graphic' alt='alt=ozarksfirst graphic'></a></div>
 </div>
 <div class="clear-fix"></div>

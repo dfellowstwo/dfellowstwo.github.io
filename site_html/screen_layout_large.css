@@ -107,3 +107,5 @@ nav a {
     /* background-image: url(../images/dfellows.rf.gd1360x382.jpg); */
   /* } */
 }
+.sm{display:none;}
+.lg{width: 100%;float: left;padding:0 0 1em 0;}
