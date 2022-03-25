@@ -138,7 +138,7 @@ Updated: <span id=zupdateTime></span><br />
 <div class="content">
 
 <span id="zname"></span><br>
-<span id="zname2"></span><br>
+<!-- <span id="zname2"></span><br> -->
 <span id="zDate"></span><br>
 <!-- <span id="zDate2"></span> -->
 <span id="zTime"></span><br>
@@ -290,7 +290,7 @@ document.getElementById("ztemp").innerHTML=data.properties.periods[0].temperatur
 
 $.getJSON("https://api.weather.gov/stations/KSGF", function(data) {
 
-document.getElementById("zname").innerHTML=(data.properties.name).split(',')[1];
+document.getElementById("zname").innerHTML=($(weather).find('location').text()).split(', ')[1]+','+($(weather).find('location').text()).split(',')[2]; // Springfield Regional Airport, MO
 document.getElementById("zname2").innerHTML=(data.properties.name).split(',')[0] + ' / Bolivar Missouri';
 
 })
