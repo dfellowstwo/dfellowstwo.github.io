@@ -1,5 +1,5 @@
        
-	 //GITHUB DOES NOT LIKE UNDERSCORE _
+	 // GITHUB DOES NOT LIKE UNDERSCORE _
 	  
 	  var a = new Date();
         var days = new Array(7);
