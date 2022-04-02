@@ -259,11 +259,11 @@ var moonTimes = SunCalc.getMoonTimes(date, 37.653690,-93.399376);
 var sunriseStr = sunTimes.sunrise.getHours() + ':' + sunTimes.sunrise.getMinutes()+'am';
 var sunsetStr = (sunTimes.sunset.getHours() -12) + ':' + sunTimes.sunset.getMinutes()+'pm';
 if (moonTimes.rise.getHours() > 12){
-moonriseStr = ((moonTimes.rise.getHours() + 11) % 12 + 1) + ':' + (moonTimes.set.getMinutes() -5);
-}else{moonriseStr = moonTimes.rise.getHours() + ':' + (moonTimes.set.getMinutes() -5);}
+moonriseStr = ((moonTimes.rise.getHours() + 11) % 12 + 1) + ':' + moonTimes.rise.getMinutes();
+}else{moonriseStr = moonTimes.rise.getHours() + ':' + moonTimes.rise.getMinutes();}
 if (moonTimes.set.getHours() > 12){
-moonsetStr = ((moonTimes.set.getHours() + 11) % 12 + 1) + ':' + (moonTimes.set.getMinutes() -5);
-}else{moonsetStr = moonTimes.set.getHours() + ':' + (moonTimes.set.getMinutes() -5);}
+moonsetStr = ((moonTimes.set.getHours() + 11) % 12 + 1) + ':' + (moonTimes.set.getMinutes()-8);
+}else{moonsetStr = moonTimes.set.getHours() + ':' + (moonTimes.set.getMinutes()-8);}
 var zsuffix = moonTimes.rise.getHours() >= 12 ? "pm":"am"; 
 var zsuffix2 = moonTimes.set.getHours() >= 12 ? "pm":"am"; 
 
