@@ -251,14 +251,34 @@ var zsunset;
 var zdegree;
 var zdirection;
 var ztime;
+var moonriseStr ;
+var moonsetStr;
+// get today's sunlight times for London
+var sunTimes = SunCalc.getTimes(date, 37.653690,-93.399376);
+var moonTimes = SunCalc.getMoonTimes(date, 37.653690,-93.399376);
+
+// format sunrise time from the Date object
+var sunriseStr = sunTimes.sunrise.getHours() + ':' + sunTimes.sunrise.getMinutes()+'am';
+var sunsetStr = (sunTimes.sunset.getHours() -12) + ':' + sunTimes.sunset.getMinutes()+'pm';
+if (moonTimes.rise.getHours() > 12){
+moonriseStr = ((moonTimes.rise.getHours() + 11) % 12 + 1) + ':' + moonTimes.rise.getMinutes();
+}else{moonriseStr = moonTimes.rise.getHours() + ':' + moonTimes.rise.getMinutes();}
+if (moonTimes.set.getHours() > 12){
+moonsetStr = ((moonTimes.set.getHours() + 11) % 12 + 1) + ':' + moonTimes.set.getMinutes();
+}else{moonsetStr = moonTimes.set.getHours() + ':' + moonTimes.set.getMinutes();}
+var zsuffix = moonTimes.rise.getHours() >= 12 ? "pm":"am"; 
+var zsuffix2 = moonTimes.set.getHours() >= 12 ? "pm":"am"; 
+
 
 //https://momentjs.com/docs/#/parsing/string-format/
 document.getElementById("zDate").innerHTML = moment(date).format("dddd, MMMM Do, YYYY"); // Wednesday, March 16th, 2022
 document.getElementById("zTime").innerHTML = (new Date()).toLocaleString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true });
-document.getElementById("zSunrise").innerHTML = moment((SunCalc.getTimes(date, 37.653690,-93.399376)).rise).format('hh:mma') ;
-document.getElementById("zSunset").innerHTML =moment((SunCalc.getTimes(date, 37.653690,-93.399376)).set).format('hh:mma') ;
-document.getElementById("zMoonrise").innerHTML = moment((SunCalc.getMoonTimes(date, 37.653690,-93.399376)).rise).format('hh:mma') ;
-document.getElementById("zMoonset").innerHTML =moment((SunCalc.getMoonTimes(date, 37.653690,-93.399376)).set).format('hh:mma') ;
+document.getElementById("zSunrise").innerHTML = sunriseStr ;
+document.getElementById("zSunset").innerHTML = sunsetStr;
+document.getElementById("zMoonrise").innerHTML = moonriseStr+zsuffix ;
+document.getElementById("zMoonset").innerHTML = moonsetStr+zsuffix2 ;
+<!-- document.getElementById("zMoonrise").innerHTML = moment((SunCalc.getMoonTimes(date, 37.653690,-93.399376)).rise).format('hh:mma') ; -->
+<!-- document.getElementById("zMoonset").innerHTML =moment((SunCalc.getMoonTimes(date, 37.653690,-93.399376)).set).format('hh:mma') ; -->
 
 
 
