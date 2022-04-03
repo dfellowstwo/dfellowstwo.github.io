@@ -135,14 +135,14 @@ Updated: <span id=zupdateTime></span><br />
 <div class="promo one">
 <div class="content">
 
-<span id="zname"></span><br>
+<a style='line-height:1em;' href=https://wxradio.org/MO-Springfield-WXL46><span id="zname"></span></a><br>
 <!-- <span id="zname2"></span><br> -->
 <span id="zDate"></span><br>
 <!-- <span id="zDate2"></span> -->
 <span id="zTime"></span><br>
-CONDITION: <span id="zcondition"></span><br>
+<a style='line-height:1em;' href=log.html>CONDITION: </a><span id="zcondition"></span><br>
 HI:&nbsp; &nbsp; &nbsp; &nbsp;<span id="zhi"></span><br>
-TEMP: <span id="ztemp"></span><br>
+<a style='line-height:1em;' href=https://www.wunderground.com/dashboard/pws/KMOBOLIV31 target=_new>TEMP:</a> &nbsp; <span id="ztemp"></span><br>
 LOW:&nbsp; <span id="zlow"></span><br>
 SUN: <span id="zSunrise"></span>&nbsp; / &nbsp;<span id="zSunset"></span><br>
 MOON: <span id="zMoonrise"></span>&nbsp; / &nbsp;<span id="zMoonset"></span><br>
@@ -200,14 +200,14 @@ Calm if necessary.
 
 z='from the Southeast at 12.7 MPH (11 KT)';
 z=z.split(' (')[0];
-if (z.length < 5) { document.getElementById("zwind").innerHTML = 'Calm'} else {
-if(z.includes('from the')){ document.getElementById("zwind").innerHTML = z.slice(9);}else{document.getElementById("zwind").innerHTML = z; }};
+if (z.length < 5) { $("#zwind").html('Calm'} else {
+if(z.includes('from the')){ $("#zwind").html(z.slice(9);}else{$("#zwind").html(z; }};
 
 
 
 z=$(weather).find('wind_string').text().split(' (')[0]);
-if (z.length < 5) { document.getElementById("zwind").innerHTML = 'Calm'} else {
-if(z.includes('from the')){ document.getElementById("zwind").innerHTML = z.slice(9); }else{document.getElementById("zwind").innerHTML = z; }};
+if (z.length < 5) { $("#zwind").html('Calm'} else {
+if(z.includes('from the')){ $("#zwind").html(z.slice(9); }else{$("#zwind").html(z; }};
 
 Change
 	from the Southeast at 12.7 MPH (11 KT)
@@ -217,21 +217,24 @@ To
 */
 
 z=$(weather).find('wind_string').text().split(' (')[0];
-if (z.length < 5) { document.getElementById("zwind").innerHTML = 'Calm' ; } else {
-if(z.includes('from the')){ document.getElementById("zwind").innerHTML = z.slice(9) ; }else{document.getElementById("zwind").innerHTML = z; }};
+if (z.length < 5) { $("#zwind").html('Calm' ); } else {
+if(z.includes('from the')){ $("#zwind").html(z.slice(9)) ; }else{$("#zwind").html(z); }};
 
-//document.getElementById("ztemp").innerHTML = (($(weather).find("temperature_string").text()).split('(')[0]).split('.')[0]+'&deg;F' ;
-//document.getElementById("zwind").innerHTML = ($(weather).find('wind_string').text()).split('(')[0];
-document.getElementById("zcondition").innerHTML = ($(weather).find('weather').text()).split('(')[0];
+//$("#ztemp").html((($(weather).find("temperature_string").text()).split('(')[0]).split('.')[0]+'&deg;F' ;
+//$("#zwind").html(($(weather).find('wind_string').text()).split('(')[0];
+//$("#zcondition").html(($(weather).find('weather').text()).split('(')[0];
+$("#zcondition").html(($(weather).find('weather').text()).split('(')[0]);
+$("#zname").html(($(weather).find('location').text()).split(', ')[1]+','+($(weather).find('location').text()).split(',')[2]);
+			
 });
 
-    $.get("https://forecast.weather.gov/MapClick.php?lat=37.1962&lon=-93.2861&unit=0&lg=english&FcstType=dwml", function( weather ) {
+   //$.get("https://forecast.weather.gov/MapClick.php?lat=37.1962&lon=-93.2861&unit=0&lg=english&FcstType=dwml", function( weather ) {
 
-//document.getElementById("zcondition").innerHTML = $(weather).find("weather summary").text();
-//document.getElementById("ztemp").innerHTML = $(weather).find("temperature").text()+'&deg;F' ;
+//$("#zcondition").html($(weather).find("weather summary").text();
+//$("#ztemp").html($(weather).find("temperature").text()+'&deg;F' ;
 // Online: on dfellows.rf.gd  and  dfellowstwo.github.io returns all temperature values i.e. Daily Maximum Temperature 68 65 46 46 63 58 63
 // localhost sometimes return the one / first / correct value, sometime returns all.
-});
+//});
 
 
 
@@ -259,8 +262,8 @@ var moonTimes = SunCalc.getMoonTimes(date, 37.653690,-93.399376);
 var sunriseStr = sunTimes.sunrise.getHours() + ':' + sunTimes.sunrise.getMinutes()+'am';
 var sunsetStr = (sunTimes.sunset.getHours() -12) + ':' + sunTimes.sunset.getMinutes()+'pm';
 if (moonTimes.rise.getHours() > 12){
-moonriseStr = ((moonTimes.rise.getHours() + 11) % 12 + 1) + ':' + moonTimes.rise.getMinutes();
-}else{moonriseStr = moonTimes.rise.getHours() + ':' + moonTimes.rise.getMinutes();}
+moonriseStr = ((moonTimes.rise.getHours() + 11) % 12 + 1) + ':' + (moonTimes.rise.getMinutes()-4);
+}else{moonriseStr = moonTimes.rise.getHours() + ':' + (moonTimes.rise.getMinutes()-4);}
 if (moonTimes.set.getHours() > 12){
 moonsetStr = ((moonTimes.set.getHours() + 11) % 12 + 1) + ':' + (moonTimes.set.getMinutes()-8);
 }else{moonsetStr = moonTimes.set.getHours() + ':' + (moonTimes.set.getMinutes()-8);}
@@ -269,14 +272,14 @@ var zsuffix2 = moonTimes.set.getHours() >= 12 ? "pm":"am";
 
 
 //https://momentjs.com/docs/#/parsing/string-format/
-document.getElementById("zDate").innerHTML = moment(date).format("dddd, MMMM Do, YYYY"); // Wednesday, March 16th, 2022
-document.getElementById("zTime").innerHTML = (new Date()).toLocaleString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true });
-document.getElementById("zSunrise").innerHTML = sunriseStr ;
-document.getElementById("zSunset").innerHTML = sunsetStr;
-document.getElementById("zMoonrise").innerHTML = moonriseStr+zsuffix ;
-document.getElementById("zMoonset").innerHTML = moonsetStr+zsuffix2 ;
-<!-- document.getElementById("zMoonrise").innerHTML = moment((SunCalc.getMoonTimes(date, 37.653690,-93.399376)).rise).format('hh:mma') ; -->
-<!-- document.getElementById("zMoonset").innerHTML =moment((SunCalc.getMoonTimes(date, 37.653690,-93.399376)).set).format('hh:mma') ; -->
+$("#zDate").html(moment(date).format("dddd, MMMM Do, YYYY")); // Wednesday, March 16th, 2022
+$("#zTime").html((new Date()).toLocaleString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true }));
+$("#zSunrise").html(sunriseStr);
+$("#zSunset").html(sunsetStr);
+$("#zMoonrise").html(moonriseStr+zsuffix);
+$("#zMoonset").html(moonsetStr+zsuffix2);
+<!-- $("#zMoonrise").html(moment((SunCalc.getMoonTimes(date, 37.653690,-93.399376)).rise).format('hh:mma') ; -->
+<!-- $("#zMoonset").innerHTML =moment((SunCalc.getMoonTimes(date, 37.653690,-93.399376)).set).format('hh:mma') ; -->
 
 
 
@@ -291,27 +294,20 @@ if (!data.properties.periods[0].isDaytime) {
      zlow=data.properties.periods[1].temperature+'&deg;F';
     }
 
-			document.getElementById("zforecast").innerHTML= data.properties.periods[0].detailedForecast;
-			document.getElementById("zupdateTime").innerHTML= (new Date(data.properties.updateTime)).toLocaleString([], { month: '2-digit', day: '2-digit',year: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true });
-			//document.getElementById("zcondition").innerHTML= data.properties.periods[0].shortForecast;
-			document.getElementById("zhi").innerHTML=zhi;
-			document.getElementById("zlow").innerHTML= zlow;
-			//document.getElementById("zwind").innerHTML= data.properties.periods[0.].windDirection + ' at ' + data.properties.periods[0.].windSpeed ;
+			$("#zforecast").html(data.properties.periods[0].detailedForecast);
+			$("#zupdateTime").html((new Date(data.properties.updateTime)).toLocaleString([], { month: '2-digit', day: '2-digit',year: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true }));
+			//$("#zcondition").html(data.properties.periods[0].shortForecast);
+			$("#zhi").html(zhi);
+			$("#zlow").html(zlow);
+			//$("#zwind").html(data.properties.periods[0.].windDirection + ' at ' + data.properties.periods[0.].windSpeed );
 
 })
 
-$.getJSON("https://api.weather.gov/gridpoints/SGF/62,54/forecast/hourly", function(data) {
+// $.getJSON("https://api.weather.gov/gridpoints/SGF/62,54/forecast/hourly", function(data) {
 
-document.getElementById("ztemp").innerHTML=data.properties.periods[0].temperature+'&deg;F';
-// document.getElementById("zwind").innerHTML= data.properties.periods[0.].windDirection + ' at ' + data.properties.periods[0.].windSpeed ;
-})
-
-$.getJSON("https://api.weather.gov/stations/KSGF", function(data) {
-
-document.getElementById("zname").innerHTML=($(weather).find('location').text()).split(', ')[1]+','+($(weather).find('location').text()).split(',')[2]; // Springfield Regional Airport, MO
-document.getElementById("zname2").innerHTML=(data.properties.name).split(',')[0] + ' / Bolivar Missouri';
-
-})
+// $("#ztemp").html(data.properties.periods[0].temperature+'&deg;F');
+// $("#zwind").html(data.properties.periods[0.].windDirection + ' at ' + data.properties.periods[0.].windSpeed );
+// })
 
 </script>
 
