@@ -284,7 +284,7 @@ $("#zMoonset").html(moonsetStr+zsuffix2);
 
 
 
-$.getJSON("https://cors-anywhere.herokuapp.com/https://api.weather.gov/gridpoints/SGF/62,54/forecast", function(data) {
+$.getJSON("https://api.weather.gov/gridpoints/SGF/62,54/forecast", function(data) {
 
 if (!data.properties.periods[0].isDaytime) { 
      zhi=data.properties.periods[1].temperature+'&deg;F';
