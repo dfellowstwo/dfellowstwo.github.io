@@ -104,7 +104,10 @@ nav a:hover { color: #fff; background-color: rgba(255,255,255,.15); }
 
 footer { border-top: 1px solid #a6abc5; }
 
-body { background-image: none;  }
+body { background-image: none; 
+	font-size: 1.25em;
+	line-height: 1.1em;
+ }
 
 .lg{display: none;}
 
@@ -121,5 +124,4 @@ body { background-image: none;  }
 	/* header { background-image: url(../images/icon-phone.png); background-size: 120px 120px;  } */
 
 }
-
 
