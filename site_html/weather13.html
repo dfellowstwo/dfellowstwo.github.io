@@ -235,7 +235,7 @@ $("#zname").html(($(weather).find('location').text()).split(', ')[1]+','+($(weat
 
 $.get("https://forecast.weather.gov/MapClick.php?lat=37.1962&lon=-93.2861&unit=0&lg=english&FcstType=json", function( weather ) {
 
-$("#zcondition").html(weather.currentobservation.Weather);
+// $("#zcondition").html(weather.currentobservation.Weather);
 $("#ztemp").html(weather.currentobservation.Temp+'&deg;F');
 // $("#zcondition").html($(weather).find("weather-conditions").text());
 // $("#ztemp").html($(weather).find("temperature").text()+'&deg;F') ;
