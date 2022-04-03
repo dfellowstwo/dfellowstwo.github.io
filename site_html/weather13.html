@@ -228,12 +228,12 @@ $("#zname").html(($(weather).find('location').text()).split(', ')[1]+','+($(weat
 			
 });
 
-   //$.get("https://forecast.weather.gov/MapClick.php?lat=37.1962&lon=-93.2861&unit=0&lg=english&FcstType=dwml", function( weather ) {
+$.get("https://forecast.weather.gov/MapClick.php?lat=37.1962&lon=-93.2861&unit=0&lg=english&FcstType=dwml", function( weather ) {
 
 //$("#zcondition").html($(weather).find("weather summary").text();
-//$("#ztemp").html($(weather).find("temperature").text()+'&deg;F' ;
+$("#ztemp").html($(weather).find("temperature").text()+'&deg;F' ;
 
-//});
+});
 
 
 
@@ -302,11 +302,11 @@ if (!data.properties.periods[0].isDaytime) {
 
 })
 
-$.getJSON("https://api.weather.gov/gridpoints/SGF/62,54/forecast/hourly", function(data) {
+// $.getJSON("https://api.weather.gov/gridpoints/SGF/62,54/forecast/hourly", function(data) {
 
-$("#ztemp").html(data.properties.periods[0].temperature+'&deg;F');
+// $("#ztemp").html(data.properties.periods[0].temperature+'&deg;F');
 // $("#zwind").html(data.properties.periods[0.].windDirection + ' at ' + data.properties.periods[0.].windSpeed );
-})
+// })
 
 </script>
 
