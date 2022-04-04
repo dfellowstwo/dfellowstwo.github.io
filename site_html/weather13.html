@@ -123,8 +123,7 @@ setTimeout(function(){
 <h2>WEATHER SPRINGFIELD / BOLIVAR, MISSOURI 65613</h2>
 </article>
 
-Updated: <span id=zupdateTime></span><br />
-<div id="zforecast"></div>
+Updated: <span id=zupdateTime></span><br /><div style="padding: 0 0 1em .5em;"  id="zforecast"></div>
 <div class="promo_container">
 
 <!-- <div id="openweathermap-widget-11"></div> -->
@@ -136,18 +135,18 @@ Updated: <span id=zupdateTime></span><br />
 <div class="promo one">
 <div class="content">
 
-<a href=https://wxradio.org/MO-Springfield-WXL46><span id="zname"></span></a><br>
+<a style='line-height:1em;' href=https://wxradio.org/MO-Springfield-WXL46><span id="zname"></span></a><br>
 <!-- <span id="zname2"></span><br> -->
 <span id="zDate"></span><br>
 <!-- <span id="zDate2"></span> -->
 <span id="zTime"></span><br>
-<a href=log.html>CONDITION: </a><span id="zcondition"></span><br>
+CONDITION:<span id="zcondition" style='line-height:1em;'></span><br>
 HI:&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span id="zhi"></span><br>
 <a href=https://www.wunderground.com/dashboard/pws/KMOBOLIV31 target=_new>TEMP:</a> &nbsp; <span id="ztemp"></span><br>
 LOW:&nbsp;&nbsp;&nbsp; <span id="zlow"></span><br>
 SUN: <span id="zSunrise"></span>&nbsp; / &nbsp;<span id="zSunset"></span><br>
 MOON: <span id="zMoonrise"></span>&nbsp; / &nbsp;<span id="zMoonset"></span><br>
-WIND FROM THE <span id="zwind"></span><br>
+WIND FROM THE <span id="zwind" style='line-height:1em;'></span><br>
 <p>&nbsp;</p>
 </div>
 </div>
@@ -178,7 +177,7 @@ WIND FROM THE <span id="zwind"></span><br>
 </div>
 
 
-
+<!-- https://momentjs.com/docs/#/parsing/string-format/ -->
 <script src=moment.min.js></script>
 <script>
 
@@ -197,31 +196,12 @@ To
 If necessary. 
 Calm if necessary.
 
-z='from the Southeast at 12.7 MPH (11 KT)';
-z=z.split(' (')[0];
-if (z.length < 5) { $("#zwind").html('Calm'} else {
-if(z.includes('from the')){ $("#zwind").html(z.slice(9);}else{$("#zwind").html(z; }};
-
-
-
-z=$(weather).find('wind_string').text().split(' (')[0]);
-if (z.length < 5) { $("#zwind").html('Calm'} else {
-if(z.includes('from the')){ $("#zwind").html(z.slice(9); }else{$("#zwind").html(z; }};
-
-Change
-	from the Southeast at 12.7 MPH (11 KT)
-To
-	Southeast at 12.7 MPH
-
 */
 
 z=$(weather).find('wind_string').text().split(' (')[0];
 if (z.length < 5) { $("#zwind").html('Calm' ); } else {
 if(z.includes('from the')){ $("#zwind").html(z.slice(9)) ; }else{$("#zwind").html(z); }};
 
-//$("#ztemp").html((($(weather).find("temperature_string").text()).split('(')[0]).split('.')[0]+'&deg;F' ;
-//$("#zwind").html(($(weather).find('wind_string').text()).split('(')[0];
-//$("#zcondition").html(($(weather).find('weather').text()).split('(')[0];
 $("#zcondition").html(($(weather).find('weather').text()).split('(')[0]);
 $("#zname").html(($(weather).find('location').text()).split(', ')[1]+','+($(weather).find('location').text()).split(',')[2]);
 			
@@ -234,10 +214,7 @@ $("#zname").html(($(weather).find('location').text()).split(', ')[1]+','+($(weat
 
 $.get("https://forecast.weather.gov/MapClick.php?lat=37.1962&lon=-93.2861&unit=0&lg=english&FcstType=json", function( weather ) {
 
-// $("#zcondition").html(weather.currentobservation.Weather);
 $("#ztemp").html(weather.currentobservation.Temp+'&deg;F');
-// $("#zcondition").html($(weather).find("weather-conditions").text());
-// $("#ztemp").html($(weather).find("temperature").text()+'&deg;F') ;
 
 });
 
@@ -255,15 +232,12 @@ var zdirection;
 var ztime;
 var moonriseStr ;
 var moonsetStr;
-// get today's sunlight times for London
 var sunTimes = SunCalc.getTimes(date, 37.653690,-93.399376);
 var moonTimes = SunCalc.getMoonTimes(date, 37.653690,-93.399376);
-
-// format sunrise time from the Date object
 var sunriseStr = sunTimes.sunrise.getHours() + ':' + sunTimes.sunrise.getMinutes()+'am';
 var sunsetStr = (sunTimes.sunset.getHours() -12) + ':' + sunTimes.sunset.getMinutes()+'pm';
 if (moonTimes.rise.getHours() > 12){
-moonriseStr = ((moonTimes.rise.getHours() + 11) % 12 + 1) + ':' + (moonTimes.rise.getMinutes()-4);
+moonriseStr = ((moonTimes.rise.getHours() + 11) % 12 + 1) + ':' + (moonTimes.rise.getMinutes()-4); // SunCalc always 4 minutes late?
 }else{moonriseStr = moonTimes.rise.getHours() + ':' + (moonTimes.rise.getMinutes()-4);}
 if (moonTimes.set.getHours() > 12){
 moonsetStr = ((moonTimes.set.getHours() + 11) % 12 + 1) + ':' + (moonTimes.set.getMinutes()-8);
@@ -272,15 +246,13 @@ var zsuffix = moonTimes.rise.getHours() >= 12 ? "pm":"am";
 var zsuffix2 = moonTimes.set.getHours() >= 12 ? "pm":"am"; 
 
 
-//https://momentjs.com/docs/#/parsing/string-format/
+
 $("#zDate").html(moment(date).format("dddd, MMMM Do, YYYY")); // Wednesday, March 16th, 2022
 $("#zTime").html((new Date()).toLocaleString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true }));
 $("#zSunrise").html(sunriseStr);
 $("#zSunset").html(sunsetStr);
 $("#zMoonrise").html(moonriseStr+zsuffix);
 $("#zMoonset").html(moonsetStr+zsuffix2);
-<!-- $("#zMoonrise").html(moment((SunCalc.getMoonTimes(date, 37.653690,-93.399376)).rise).format('hh:mma') ; -->
-<!-- $("#zMoonset").innerHTML =moment((SunCalc.getMoonTimes(date, 37.653690,-93.399376)).set).format('hh:mma') ; -->
 
 
 
@@ -296,19 +268,13 @@ if (!data.properties.periods[0].isDaytime) {
     }
 
 			$("#zforecast").html(data.properties.periods[0].detailedForecast);
-			$("#zupdateTime").html((new Date(data.properties.updateTime)).toLocaleString([], { month: '2-digit', day: '2-digit',year: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true }));
-			//$("#zcondition").html(data.properties.periods[0].shortForecast);
+			document.getElementById("zupdateTime").innerHTML= moment(data.properties.updateTime).format("dddd, MMMM Do h:mm:ss a");
 			$("#zhi").html(zhi);
 			$("#zlow").html(zlow);
-			//$("#zwind").html(data.properties.periods[0.].windDirection + ' at ' + data.properties.periods[0.].windSpeed );
 
 })
 
-// $.getJSON("https://api.weather.gov/gridpoints/SGF/62,54/forecast/hourly", function(data) {
 
-// $("#ztemp").html(data.properties.periods[0].temperature+'&deg;F');
-// $("#zwind").html(data.properties.periods[0.].windDirection + ' at ' + data.properties.periods[0.].windSpeed );
-// })
 
 </script>
 
