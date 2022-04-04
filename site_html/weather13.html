@@ -14,7 +14,7 @@ Uses jquery and javascript to parse National Weather Service (NWS) API and provi
 
 https://api.weather.gov/points/37.653690,-93.399376
 https://api.weather.gov/gridpoints/SGF/62,54/forecast
-https://forecast.weather.gov/MapClick.php?lat=37.2144&lon=-93.3014&unit=0&lg=english&FcstType=dwml
+https://forecast.weather.gov/MapClick.php?lat=37.2144&lon=-93.3014&unit=0&lg=english&FcstType=json
 
 -->
 <META HTTP-EQUIV="refresh" CONTENT="3600">
@@ -46,8 +46,8 @@ https://forecast.weather.gov/MapClick.php?lat=37.2144&lon=-93.3014&unit=0&lg=eng
 <script src="suncalc.js"></script>
 
 <style>
-@media only screen and (min-width:958px){article{padding:16.5em 0 1em 0}}
-@media only screen and (min-width:884px) and (max-width:957px){article{padding:19em 0 1em 0}}
+@media only screen and (min-width:981px){article{padding:16.5em 0 1em 0}}
+@media only screen and (min-width:884px) and (max-width:980px){article{padding:19em 0 1em 0}}
 @media only screen and (min-width:801px) and (max-width:883px){article{padding:21em 0 1em 0}}
 @media only screen and (min-width:718px) and (max-width:800px){article{padding:2em 0 1em 0}}
 @media only screen and (max-width:717px){
@@ -146,7 +146,7 @@ HI:&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span id="zhi"></span><br>
 LOW:&nbsp;&nbsp;&nbsp; <span id="zlow"></span><br>
 SUN: <span id="zSunrise"></span>&nbsp; / &nbsp;<span id="zSunset"></span><br>
 MOON: <span id="zMoonrise"></span>&nbsp; / &nbsp;<span id="zMoonset"></span><br>
-WIND FROM THE <span id="zwind" style='line-height:1em;'></span><br>
+<a href=https://api.weather.gov/gridpoints/SGF/61,52/forecast>WIND FROM THE </a><span id="zwind" style='line-height:1em;'></span><br>
 <p>&nbsp;</p>
 </div>
 </div>
@@ -315,7 +315,7 @@ if (!data.properties.periods[0].isDaytime) {
 <a href=https://w1.weather.gov/xml/current_obs/KSGF.xml>WEATHER DATA (LEFT CLICK GUI / RIGHT CLICK "SAVE AS" XML DATA)</a>
 <a href=https://www.weather.gov/documentation/services-web-api>NWS DOCS</a>
 <a href=https://api.weather.gov/gridpoints/SGF/61,52/forecast>NWS API</a>
-<a href=weather-seven-day-forecast-graphicLOG.html>WeatherLog</a>
+<a href=https://openweathermap.org/price>openweathermap</a>
 <a href=../index.html>HOME</a>
 </nav>
 
