@@ -298,8 +298,8 @@ var radio = new Radio([
     freq: 'CNN',
 
     title: "LIVE TV",
-
-    src: 'https://16803.live.streamtheworld.com/CNNTVAAC_SC',
+//https://16803.live.streamtheworld.com/CNNTVAAC_SC
+    src: 'https://tunein.streamguys1.com/cnn-new',
 
     howl: null
 
