@@ -129,8 +129,8 @@ CONDITION:<span id="zcondition" style='line-height:1em;'></span><br>
 HI:&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span id="zhi"></span><br>
 <a href=https://www.wunderground.com/dashboard/pws/KMOBOLIV31 target=_new>TEMP:</a> &nbsp; <span id="ztemp"></span><br>
 LOW:&nbsp;&nbsp;&nbsp; <span id="zlow"></span><br>
-SUN: <span id="zSunrise"></span>&nbsp; / &nbsp;<span id="zSunset"></span><br>
-MOON: <span id="zMoonrise"></span>&nbsp; / &nbsp;<span id="zMoonset"></span><br>
+SUN: &nbsp; &nbsp; &nbsp; <span id="zSunrise"></span> &nbsp; &nbsp; <span id="zSunset"></span><br>
+MOON: &nbsp; <span id="zMoonrise"></span> &nbsp; &nbsp; <span id="zMoonset"></span><br>
 <a href=https://api.weather.gov/gridpoints/SGF/61,52/forecast>WIND FROM THE </a><span id="zwind" style='line-height:1em;'></span><br>
 <p>&nbsp;</p>
 </div>
@@ -165,7 +165,7 @@ MOON: <span id="zMoonrise"></span>&nbsp; / &nbsp;<span id="zMoonset"></span><br>
 <!-- https://momentjs.com/docs/#/parsing/string-format/ -->
 <script src=moment.min.js></script>
 <script>
-
+var date = new Date();
 
 // curl https://w1.weather.gov/xml/current_obs/KSGF.xml
 
@@ -184,66 +184,78 @@ Calm if necessary.
 */
 
 z=$(weather).find('wind_string').text().split(' (')[0];
-if (z.length < 5) { $("#zwind").html('Calm' ); } else {
-if(z.includes('from the')){ $("#zwind").html(z.slice(9)) ; }else{$("#zwind").html(z); }};
+if (z.length < 5) { document.getElementById("zwind").innerHTML= 'Calm' ; } else {
+if(z.includes('from the')){ document.getElementById("zwind").innerHTML= z.slice(9) ; }else{document.getElementById("zwind").innerHTML= z; }};
 
-$("#zcondition").html(($(weather).find('weather').text()).split('(')[0]);
-$("#zname").html(($(weather).find('location').text()).split(', ')[1]+','+($(weather).find('location').text()).split(',')[2]);
+document.getElementById("zcondition").innerHTML= ($(weather).find('weather').text()).split('(')[0];
+document.getElementById("zname").innerHTML= ($(weather).find('location').text()).split(', ')[1]+','+($(weather).find('location').text()).split(',')[2];
 			
+}) ;
+
+
+
+
+
+
+$.get('https://forecast.weather.gov/MapClick.php?lat=37.1962&lon=-93.2861&unit=0&lg=english&FcstType=json', function( weather ) {
+
+document.getElementById("ztemp").innerHTML= weather.currentobservation.Temp+'&deg;F';
+
 });
 
 
 
 
 
+/*
 
-$.get("https://forecast.weather.gov/MapClick.php?lat=37.1962&lon=-93.2861&unit=0&lg=english&FcstType=json", function( weather ) {
+This is suncalc.js. On 040522 the moon times stopped working.
+https://github.com/mourner/suncalc
 
-$("#ztemp").html(weather.currentobservation.Temp+'&deg;F');
+*/ 
 
-});
+// date.toLocaleDateString('en-GB').split('/').reverse().join(''); // '20220204'
+// date.toLocaleDateString('en-US'); // 4/5/2022
 
-
-
-
-
-// <!-- https://github.com/mourner/suncalc -->
-// var date9 = date.toLocaleDateString('en-GB').split('/').reverse().join(''); // '20220204'
-var date = new Date();
 var zsunrise; 
 var zsunset;
 var zdegree;
 var zdirection;
 var ztime;
-var moonriseStr ;
-var moonsetStr;
 var sunTimes = SunCalc.getTimes(date, 37.653690,-93.399376);
-var moonTimes = SunCalc.getMoonTimes(date, 37.653690,-93.399376);
 var sunriseStr = sunTimes.sunrise.getHours() + ':' + sunTimes.sunrise.getMinutes()+'am';
 var sunsetStr = (sunTimes.sunset.getHours() -12) + ':' + sunTimes.sunset.getMinutes()+'pm';
+var sunriseStr = sunTimes.sunrise.getHours() + ':' + sunTimes.sunrise.getMinutes()+'am';
+var sunsetStr = (sunTimes.sunset.getHours() -12) + ':' + sunTimes.sunset.getMinutes()+'pm';
+document.getElementById("zDate").innerHTML= moment(date).format("dddd, MMMM Do, YYYY"); // Wednesday, March 16th, 2022
+document.getElementById("zTime").innerHTML= (new Date()).toLocaleString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true });
+document.getElementById("zSunrise").innerHTML= sunriseStr;
+document.getElementById("zSunset").innerHTML= sunsetStr;
+</script>
+
+
+<script src="suncalc9.js"></script>
+<script>
+var moonriseStr;
+var moonsetStr;
+var moonTimes = SunCalc.getMoonTimes(date, 37.653690,-93.399376);
 if (moonTimes.rise.getHours() > 12){
-moonriseStr = ((moonTimes.rise.getHours() + 11) % 12 + 1) + ':' + (moonTimes.rise.getMinutes()-4); // SunCalc always 4 minutes late?
+moonriseStr = ((moonTimes.rise.getHours() + 11) % 12 + 1) + ':' + (moonTimes.rise.getMinutes()-3); // SunCalc always 4 minutes late?
 }else{
-moonriseStr = moonTimes.rise.getHours() + ':' + (moonTimes.rise.getMinutes()-4);}
-if (moonTimes.set.getHours() > 12){
-moonsetStr = ((moonTimes.set.getHours() + 11) % 12 + 1) + ':' + (moonTimes.set.getMinutes()-8);
+moonriseStr = moonTimes.rise.getHours() + ':' + (moonTimes.rise.getMinutes()-3);
+}
+if (moonTimes.set.getHours() < 1){
+moonsetStr = (moonTimes.set.getHours() + 12) + ':' + (moonTimes.set.getMinutes()-6);
 }else{
-moonsetStr = moonTimes.set.getHours() + ':' + (moonTimes.set.getMinutes()-8);}
+moonsetStr = moonTimes.set.getHours() + ':' + (moonTimes.set.getMinutes()-6);
+}
 var zsuffix = moonTimes.rise.getHours() >= 12 ? "pm":"am"; 
-var zsuffix2 = moonTimes.set.getHours() >= 12 ? "pm":"am"; 
+document.getElementById("zMoonrise").innerHTML= moonriseStr+zsuffix;
+document.getElementById("zMoonset").innerHTML= moonsetStr+zsuffix;
+</script>
 
 
-
-$("#zDate").html(moment(date).format("dddd, MMMM Do, YYYY")); // Wednesday, March 16th, 2022
-$("#zTime").html((new Date()).toLocaleString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true }));
-$("#zSunrise").html(sunriseStr);
-$("#zSunset").html(sunsetStr);
-$("#zMoonrise").html(moonriseStr+zsuffix);
-$("#zMoonset").html(moonsetStr+zsuffix2);
-
-
-
-
+<script>
 $.getJSON("https://api.weather.gov/gridpoints/SGF/62,54/forecast", function(data) {
 
 if (!data.properties.periods[0].isDaytime) { 
@@ -254,12 +266,12 @@ if (!data.properties.periods[0].isDaytime) {
      zlow=data.properties.periods[1].temperature+'&deg;F';
     }
 
-			$("#zforecast").html(data.properties.periods[0].detailedForecast);
+			document.getElementById("zforecast").innerHTML= data.properties.periods[0].detailedForecast;
 			document.getElementById("zupdateTime").innerHTML= moment(data.properties.updateTime).format("dddd, MMMM Do h:mm:ss a");
-			$("#zhi").html(zhi);
-			$("#zlow").html(zlow);
+			document.getElementById("zhi").innerHTML= zhi;
+			document.getElementById("zlow").innerHTML= zlow;
 
-})
+});
 
 
 
