@@ -8,7 +8,7 @@
 
 GITHUB DOES NOT LIKE UNDERSCORE _
 
-dfellowstwo.github.io site_html/weather13.html 
+dfellowstwo.github.io/site_html/weather13.html 
 https://localhost/dfellows.rf.gd/dfellowstwo.github.io/site_html/weather13.html
 Uses jquery and javascript to parse National Weather Service (NWS) API and provide data to this page.
 
@@ -92,6 +92,26 @@ setTimeout(function(){
 <!-- Reload page once when focus is restored to the page -->
 <!-- <script type="text/javascript">window.onblur= function() {window.onfocus= function () {location.reload(true)}};</script> -->
 
+    <script type="text/javascript">
+
+        // Wait for the page to load first
+        window.onload = function() {
+
+          //Get a reference to the link on the page
+          // with an id of "mylink"
+          var a = document.getElementById("link1");
+
+          //Set code to run when the link is clicked
+          // by assigning a function to "onclick"
+          a.onclick = function() {
+		setTimeout(function(){
+		window.location.reload(1);
+		}, 5000);
+
+            return false;
+          }
+        }
+    </script>
 
 </head>
 <style>body{text-transform: none;}
@@ -143,9 +163,9 @@ MOON: &nbsp; <span id="zMoonrise"></span> &nbsp; &nbsp; <span id="zMoonset"></sp
 </div>
 
 <div class='promo seven'>
-<a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg>
+<a id="link1" href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg alt='Click/Tap here and refresh the page.'>
 <div class=content>
-<a href=http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg><img width='480px' height='196px' src='http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' alt='http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg'></a>
+<a id="link1" href=http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg><img width='480px' height='196px' src='http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' alt='http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg'></a>
 </div>
 </a>
 </div>
@@ -154,9 +174,9 @@ MOON: &nbsp; <span id="zMoonrise"></span> &nbsp; &nbsp; <span id="zMoonset"></sp
 <!-- <script src="weatherLocal-forecasts-weather-gov-api.js"></script> -->
 
 <div class='promo six'>
-<a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg>
+<a id="link1" href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg alt='Click/Tap here and refresh the page.'>
 <div class=content>
-<a href=http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg><img width='480px' height='196px' src='http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' alt='http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg'></a>
+<a id="link1" href=http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg><img width='480px' height='196px' src='http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' alt='http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg'></a>
 </div>
 </a>
 </div>

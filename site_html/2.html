@@ -1,0 +1,46 @@
+    <script>
+var getJSON = function(url, callback) {
+
+    var xmlhttprequest = new XMLHttpRequest();
+    xmlhttprequest.open('GET', url, true);
+    xmlhttprequest.responseType = 'json';
+
+    xmlhttprequest.onload = function() {
+
+        var status = xmlhttprequest.status;
+
+        if (status == 200) {
+            callback(null, xmlhttprequest.response);
+        } else {
+            callback(status, xmlhttprequest.response);
+        }
+    };
+
+    xmlhttprequest.send();
+};
+
+getJSON('http://aa.usno.navy.mil/api/rstt/oneday?date=4/5/2022&coords=37.653690,-93.399376&tz=-5&dst=false',  function(err, data) {
+
+    if (err != null) {
+        console.error(err);
+    } else {
+
+       var display = `User_ID: ${data.apiversion}`;
+    }
+  console.log(display);
+});
+
+
+
+
+fetch('http://aa.usno.navy.mil/api/rstt/oneday?date=4/5/2022&coords=37.653690,-93.399376&tz=-5&dst=false'')
+    .then(result => result.json())
+    .then((output) => {
+        console.log('Output: ', output);
+        
+}).catch(err => console.error(err));
+
+
+
+
+    </script>
