@@ -1,0 +1,62 @@
+Dear Sir or Madam,
+
+	I toured the United States Naval Observatory when I lived in Washington, D.C.. Thank you.
+	
+	I've failed to query https://aa.usno.navy.mil/api/rstt/oneday?date=4/6/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm with javascript.
+	
+	
+Purpose:
+
+	Using Windows 10 Pro 64-bit, html, jquery and javascript retrieve data from https://aa.usno.navy.mil/api/rstt/oneday?date=4/6/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm
+
+Procedure:
+	
+	What I tried:
+	http
+	https
+	single quotes
+	double quotes
+	jquery-1.12.4.js, jquery-1.5.1.js, jquery-1.6.4.js, jquery-3.2.1.min.js, jquery-3.6.0.js, jquery-3.6.0.min.js
+	Document results and post to github
+		https://dfellowstwo.github.io/site_html/brokenNavy.html
+		
+Results:
+	
+	Query fails.
+	
+	Dev Tools console error message:
+	
+		Chrome:
+		
+			Trailing space.
+			
+			Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://aa.usno.navy.mil/api/rstt/oneday?date=4/5/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm. (Reason: CORS header ‘Access-Control-Allow-Origin’ missing). Status code: 200.
+
+			
+		Firefox:
+			
+			Uncaught SyntaxError: '' string literal contains an unescaped line break brokenNavy.html:21:108.
+
+			Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://aa.usno.navy.mil/api/rstt/oneday?date=4/5/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm. (Reason: CORS header ‘Access-Control-Allow-Origin’ missing). Status code: 200.
+			
+		I copied the RAW Data into a file, wrote code that would read the file and can confirm that if either the unescaped line break or the trailing space is removed javascript is able to retrieve your data. 
+		
+		I know you did not make a mistake. I've exhausted Google search.
+		
+		Do you have a working demo of retrieving your data with Windows and jquery or javascript?
+		
+		Thank you.
+		
+		Sincerely,
+		
+		Douglas Rae Fellows
+		1325 S Lillian Ave 213
+		Bolivar, MO 65613
+		dfellows2@gmail.com
+		4173999579
+	
+
+
+			
+			
+

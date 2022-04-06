@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>  <meta charset="utf-8">  <meta name="viewport" content="width=device-width">  
-  <title>FIX</title></head><body>
+  <title>Failure to query data from https://aa.usno.navy.mil/api/rstt/oneday?date=4/5/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm</title></head><body>
 <div id="myTime"></div>
 <div class="display"></div>
 HI: <span id="zhi"></span><br />
@@ -10,7 +10,7 @@ SUN2: <span id="zSunrise2"></span> &nbsp; &nbsp; <span id="zSunset2"></span><br>
 
 <script src="https://code.jquery.com/jquery-1.6.4.js"></script>
  
- <script src=moment.min.js></script>
+ <script src=https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js></script>
  <script>
 
 document.getElementById("myTime").innerHTML = (new Date()).toLocaleString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true });
