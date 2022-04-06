@@ -1,0 +1,139 @@
+<!DOCTYPE html><html><head>  <meta charset="utf-8">  <meta name="viewport" content="width=device-width">  
+  <title>FIX</title></head><body>
+<div id="myTime"></div>
+<div class="display"></div>
+HI: <span id="zhi"></span><br />
+LOW: <span id="zlow"></span><br />
+FORECAST: <span id="zforecast"></span><br />
+SUN: <span id="zSunrise"></span> &nbsp; &nbsp; <span id="zSunset"></span><br>
+SUN2: <span id="zSunrise2"></span> &nbsp; &nbsp; <span id="zSunset2"></span><br>
+
+<script src="https://code.jquery.com/jquery-1.6.4.js"></script>
+ 
+ <script src=moment.min.js></script>
+ <script>
+
+document.getElementById("myTime").innerHTML = (new Date()).toLocaleString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true });
+
+
+
+
+
+
+var getJSON = function(url, callback) {
+
+    var xmlhttprequest = new XMLHttpRequest();
+    xmlhttprequest.open('GET', url, true);
+    xmlhttprequest.responseType = 'json';
+
+    xmlhttprequest.onload = function() {
+
+        var status = xmlhttprequest.status;
+
+        if (status == 200) {
+            callback(null, xmlhttprequest.response);
+        } else {
+            callback(status, xmlhttprequest.response);
+        }
+    };
+
+    xmlhttprequest.send();
+};
+
+getJSON('https://jsonplaceholder.typicode.com/todos/1',  function(err, data) {
+
+    if (err != null) {
+        console.error(err);
+    } else {
+
+       var display = `User_ID: ${data.userId}
+ID: ${data.id}
+Title: ${data.title} 
+Completion_Status: ${data.completed}`;
+    }
+  console.log(display);
+});
+
+
+
+
+
+
+$.getJSON('https://jsonplaceholder.typicode.com/todos/1', function(data){		
+				var display = `
+				User_ID: ${data.userId}<br>
+                   ID: ${data.id}<br>
+                   Title: ${data.title}<br>
+                   Completion_Status: ${data.completed}`
+    $(".display").html(display);
+  });
+
+
+
+
+
+
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+    .then(result => result.json())
+    .then((output) => {
+        console.log('Output: ', output);
+        
+}).catch(err => console.error(err));
+
+
+
+
+
+
+$.getJSON('https://api.weather.gov/gridpoints/SGF/62,54/forecast', function(data) {
+
+			document.getElementById("zforecast").innerHTML= data.properties.periods[0].detailedForecast;
+			document.getElementById("zhi").innerHTML= data.properties.periods[0].temperature+'&#8457;';
+			document.getElementById("zlow").innerHTML= data.properties.periods[1].temperature+'&#8457;';
+
+});
+
+
+
+
+
+function readTextFile(file, callback) {
+    var rawFile = new XMLHttpRequest();
+    rawFile.overrideMimeType("application/json");
+    rawFile.open("GET", file, true);
+    rawFile.onreadystatechange = function() {
+        if (rawFile.readyState === 4 && rawFile.status == "200") {
+            callback(rawFile.responseText);
+        }
+    }
+    rawFile.send(null);
+}
+
+readTextFile("usno.json", function(text){
+var data = JSON.parse(text); // formatted. WORKING!
+
+document.getElementById("zSunrise").innerHTML= (moment(data.properties.data.sundata[1].time,"h:mma")).format("h:mma");
+document.getElementById("zSunset").innerHTML= (moment(data.properties.data.sundata[3].time,"h:mma")).format("h:mma");
+
+
+}); // END readTextFile
+
+
+
+
+
+
+$.getJSON("https://aa.usno.navy.mil/api/rstt/oneday?date=4/5/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm", function(data) {
+
+document.getElementById("zSunrise2").innerHTML= (moment(data.properties.data.sundata[1].time,"h:mma")).format("h:mma");
+document.getElementById("zSunset2").innerHTML= (moment(data.properties.data.sundata[3].time,"h:mma")).format("h:mma");
+
+})
+
+
+
+
+
+  </script>
+</body>
+</html>
