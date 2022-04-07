@@ -5,9 +5,10 @@
 "Segoe WP Semibold","Segoe WP","Segoe UI",Arial,Sans-Serif;}</style>
 </head>
 <body>
-<h3>I've failed to query https://aa.usno.navy.mil/api/rstt/oneday?date=4/6/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm with Windows and jQuery.</h3>
+<h3>I failed to query https://aa.usno.navy.mil/api/rstt/oneday?date=4/6/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm with Windows and jQuery.</h3>
 <div id="myTime"></div>
 <div class="display"></div>
+<div id="somediv"></div>
 HI: <span id="zhi"></span><br />
 LOW: <span id="zlow"></span><br />
 FORECAST: <span id="zforecast"></span><br />
@@ -102,9 +103,6 @@ $.getJSON('https://api.weather.gov/gridpoints/SGF/62,54/forecast', function(data
 });
 
 
-
-
-
 function readTextFile(file, callback) {
     var rawFile = new XMLHttpRequest();
     rawFile.overrideMimeType("application/json");
@@ -142,6 +140,10 @@ document.getElementById("zSunset2").innerHTML= (moment(data.properties.data.sund
 
 
 
-  </script>
+ $.post('usno2.json', { url: 'https://aa.usno.navy.mil/api/rstt/oneday?date=4/5/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm' }, function(data) {
+    document.getElementById('somediv').innerHTML = data;        
+});
+
+ </script>
 </body>
 </html>

@@ -92,7 +92,7 @@ setTimeout(function(){
 <!-- Reload page once when focus is restored to the page -->
 <!-- <script type="text/javascript">window.onblur= function() {window.onfocus= function () {location.reload(true)}};</script> -->
 
-    <script type="text/javascript">
+<script type="text/javascript">
 
         // Wait for the page to load first
         window.onload = function() {
@@ -104,13 +104,17 @@ setTimeout(function(){
           //Set code to run when the link is clicked
           // by assigning a function to "onclick"
           a.onclick = function() {
-		setTimeout(function(){
-		window.location.reload(1);
-		}, 5000);
-
-            return false;
+	      var img = new Image(); 
+		var div = document.getElementById('link1'); 
+		img.onload = function() { 
+		div.innerHTML += '<br /><img src="'+img.src+'" />';  
+		}; 
+		img.src = 'http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg'; 
+		}; 
+		//window.location.reload(1);
+           //return false;
           }
-        }
+
     </script>
 
 </head>
