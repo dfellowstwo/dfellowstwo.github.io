@@ -20,8 +20,8 @@ document.getElementById("myTime").innerHTML = (new Date()).toLocaleString([], { 
 $.getJSON('https://api.weather.gov/gridpoints/SGF/62,54/forecast', function(data) {
 
 			document.getElementById("zforecast").innerHTML= data.properties.periods[0].detailedForecast;
-			document.getElementById("zhi").innerHTML= data.properties.periods[0].temperature+'&#8457;';
-			document.getElementById("zlow").innerHTML= data.properties.periods[1].temperature+'&#8457;';
+			document.getElementById("zhi").innerHTML= data.properties.periods[0].temperature+'&deg;';
+			document.getElementById("zlow").innerHTML= data.properties.periods[1].temperature+'&deg;';
 
 });
 
