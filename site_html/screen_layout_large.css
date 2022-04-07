@@ -28,6 +28,7 @@ header a.logo {
   background-repeat: no-repeat;
 }
 nav {
+  top: 275px;
   width: 99.3%;
   display: block;
   position: absolute;
@@ -88,11 +89,9 @@ header a.logo {
 .promo_container .promo.one .content {
   padding: 0;
 }
-nav {
-  top: 275px;
-}
+
 nav a {
-  margin: 10px 0px 10px 25px;
+  margin: 10px 1px 10px 1px;
 }
 @media screen and (max-width: 990px) {
   footer {

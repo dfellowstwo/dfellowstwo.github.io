@@ -79,7 +79,7 @@ nav a {
 	display: inline-block;
 	font-weight: bold;
 	font-size: .9em;  /* i like 1em but it caused formatting problem  */
-	padding: 0 1em;
+	padding: 0 .5em;
 }
 nav a:hover { color: #fff; }
 
