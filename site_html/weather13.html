@@ -109,10 +109,14 @@ setTimeout(function(){
 		div.innerHTML += '<br /><img src="'+img.src+'" />';  
 		}; 
 		img.src = 'http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg'; 
-		}; 
+		setTimeout(function() {
+		javascript:history.go(-1);
+		}, (2000));
 		//window.location.reload(1);
            //return false;
-          }
+		}; 
+
+          }; // END window.onload = function()
 
     </script>
 
@@ -151,9 +155,9 @@ Updated: <span id=zupdateTime></span><br /><div style="padding: 0 0 1em .5em;"  
 CONDITION:<span id="zcondition" style='line-height:1em;'></span><br>
 HI:&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span id="zhi"></span><br>
 <a href=https://www.wunderground.com/dashboard/pws/KMOBOLIV31 target=_new>TEMP:</a> &nbsp; <span id="ztemp"></span><br>
+TEMP2: <span id="zSunrise2"></span> &nbsp; &nbsp; <span id="zSunset2"></span><br>
 LOW:&nbsp;&nbsp;&nbsp; <span id="zlow"></span><br>
 SUN: &nbsp; &nbsp; &nbsp; <span id="zSunrise"></span> &nbsp; &nbsp; <span id="zSunset"></span><br>
-SUN: &nbsp; &nbsp; &nbsp; <span id="zSunrise2"></span> &nbsp; &nbsp; <span id="zSunset2"></span><br>
 MOON: &nbsp; <span id="zMoonrise"></span> &nbsp; &nbsp; <span id="zMoonset"></span><br>
 <a href=https://api.weather.gov/gridpoints/SGF/61,52/forecast>WIND FROM THE </a><span id="zwind" style='line-height:1em;'></span><br>
 <p>&nbsp;</p>
@@ -167,7 +171,7 @@ MOON: &nbsp; <span id="zMoonrise"></span> &nbsp; &nbsp; <span id="zMoonset"></sp
 </div>
 
 <div class='promo seven'>
-<a id="link1" href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg alt='Click/Tap here and refresh the page.'>
+<a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg alt='Click/Tap here and refresh the page.'>
 <div class=content>
 <a id="link1" href=http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg><img width='480px' height='196px' src='http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' alt='http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg'></a>
 </div>
@@ -178,9 +182,9 @@ MOON: &nbsp; <span id="zMoonrise"></span> &nbsp; &nbsp; <span id="zMoonset"></sp
 <!-- <script src="weatherLocal-forecasts-weather-gov-api.js"></script> -->
 
 <div class='promo six'>
-<a id="link1" href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg alt='Click/Tap here and refresh the page.'>
+<a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg alt='Click/Tap here and refresh the page.'>
 <div class=content>
-<a id="link1" href=http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg><img width='480px' height='196px' src='http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' alt='http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg'></a>
+<a href=http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg><img width='480px' height='196px' src='http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' alt='http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg'></a>
 </div>
 </a>
 </div>
@@ -201,6 +205,13 @@ document.getElementById("zSunrise2").innerHTML= output.current_condition[0].temp
 console.log('Output: ', output.current_condition[0].temp_F);
         
 }).catch(err => console.error(err));
+
+
+
+
+
+
+
 
 
 

@@ -51,12 +51,6 @@ console.log('Output: ', output.current_condition[0].temp_F);
 
 
 
-
-
-
-
-
-
 fetch("http://aa.usno.navy.mil/api/rstt/oneday?date=4/5/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm")
     .then(result => result.json())
     .then((output) => {
