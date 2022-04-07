@@ -1,0 +1,65 @@
+{  "apiversion": "3.0.0",   "geometry": {    "coordinates": [      -93.399376,       37.65369    ],     "type": "Point"  },   "properties": {    "data": {      "closestphase": {        "day": 9,         "month": 4,         "phase": "First Quarter",         "time": "01:48",         "year": 2022      },       "curphase": "Waxing Crescent",       "day": 5,       "day_of_week": "Tuesday",       "fracillum": "19%",       "isdst": false,       "label": null,       "month": 4,       "moondata": [        {          "phen": "Rise",           "time": "09:19"        },         {          "phen": "Upper Transit",           "time": "16:47"        }      ],       "sundata": [        {          "phen": "Begin Civil Twilight",           "time": "06:26"        },         {          "phen": "Rise",           "time": "06:53"        },         {          "phen": "Upper Transit",           "time": "13:16"        },         {          "phen": "Set",           "time": "19:40"        },         {          "phen": "End Civil Twilight",           "time": "20:07"        }      ],       "tz": -5.0,       "year": 2022    }  },   "type": "Feature"}
+
+
+
+
+
+
+<script>
+
+var getJSON = function(url, callback) {
+
+    var xmlhttprequest = new XMLHttpRequest();
+    xmlhttprequest.open('GET', url, true);
+    xmlhttprequest.responseType = 'json';
+
+    xmlhttprequest.onload = function() {
+
+        var status = xmlhttprequest.status;
+
+        if (status == 200) {
+            callback(null, xmlhttprequest.response);
+        } else {
+            callback(status, xmlhttprequest.response);
+        }
+    };
+
+    xmlhttprequest.send();
+};
+
+getJSON('http://aa.usno.navy.mil/api/rstt/oneday?date=4/5/2022&coords=37.653690,-93.399376&tz=-5&dst=false',  function(err, data) {
+
+    if (err != null) {
+        console.error(err);
+    } else {
+
+       var display = `User_ID: ${data.apiversion}`;
+    }
+  console.log(display);
+});
+
+
+
+
+
+
+fetch('http://aa.usno.navy.mil/api/rstt/oneday?date=4/5/2022&coords=37.653690,-93.399376&tz=-5&dst=false'')
+  .then(res => res.json()) // the .json() method parses the JSON response into a JS object literal
+  .then(data => console.log(data));
+
+
+
+
+
+$(function() {
+  $.ajax({
+    url: "http://aa.usno.navy.mil/api/rstt/oneday?date=4/5/2022&coords=37.653690,-93.399376&tz=-5&dst=false"
+  }).done(function(data) {
+document.getElementById("zSunrise").innerHTML= data.properties.data.moondata[0].time;
+document.getElementById("zSunset").innerHTML= data.properties.data.moondata[0].time;
+document.getElementById("zMoonrise").innerHTML= data.properties.data.moondata[0].time;
+document.getElementById("zMoonset").innerHTML= data.properties.data.moondata[0].time;
+}); 		  
+}); 
+</script>
+
