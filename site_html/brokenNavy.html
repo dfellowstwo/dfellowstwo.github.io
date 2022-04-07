@@ -1,11 +1,13 @@
 <!DOCTYPE html><html><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
+<meta name=viewport content="width=device-width, initial-scale=1.0">
 <title>Failure to query data from https://aa.usno.navy.mil/api/...</title>
 <style>body{font-size:16px;font-family:"Segoe UI Semibold",
 "Segoe WP Semibold","Segoe WP","Segoe UI",Arial,Sans-Serif;}</style>
 </head>
 <body>
 <h3>I failed to query https://aa.usno.navy.mil/api/rstt/oneday?date=4/6/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm with Windows and jQuery.</h3>
+<p></p>
+<input type="button" id="ajaxBtn" value="Send Ajax request" />
 <div id="myTime"></div>
 <div class="display"></div>
 <div id="somediv"></div>
@@ -113,7 +115,7 @@ function readTextFile(file, callback) {
         }
     }
     rawFile.send(null);
-}
+};
 
 readTextFile("usno.json", function(text){
 var data = JSON.parse(text); // formatted. WORKING!
@@ -134,16 +136,114 @@ $.getJSON("https://aa.usno.navy.mil/api/rstt/oneday?date=4/5/2022&coords=37.6536
 document.getElementById("zSunrise2").innerHTML= (moment(data.properties.data.sundata[1].time,"h:mma")).format("h:mma");
 document.getElementById("zSunset2").innerHTML= (moment(data.properties.data.sundata[3].time,"h:mma")).format("h:mma");
 
-})
-
-
-
-
-
- $.post('usno2.json', { url: 'https://aa.usno.navy.mil/api/rstt/oneday?date=4/5/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm' }, function(data) {
-    document.getElementById('somediv').innerHTML = data;        
 });
 
+
+
+
+
+async function file_get_contents(uri, callback) {
+    let res = await fetch(uri),
+        ret = await res.text(); 
+    return callback ? callback(ret) : ret; // a Promise() actually.
+};
+
+file_get_contents("http://aa.usno.navy.mil/api/rstt/oneday?date=4/5/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm'", console.log);
+
+file_get_contents("http://aa.usno.navy.mil/api/rstt/oneday?date=4/5/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm'").then(ret => console.log(ret));
+
+
+
+
+
+    </script>
+<script type="text/javascript" 
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+    </script>
+	<script type="text/javascript">
+$.ajax('http://aa.usno.navy.mil/api/rstt/oneday?date=4/5/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm', 
+{
+    dataType: 'json', // type of response data
+    timeout: 500,     // timeout milliseconds
+    success: function (data,status,xhr) {   // success callback function
+
+	document.getElementById("zSunrise2").innerHTML= (moment(data.properties.data.sundata[1].time,"h:mma")).format("h:mma");
+	document.getElementById("zSunset2").innerHTML= (moment(data.properties.data.sundata[3].time,"h:mma")).format("h:mma");
+    },
+    error: function (jqXhr, textStatus, errorMessage) { // error callback 
+        $('p').append('Query1: ' + errorMessage);
+    }
+});
+
+
+
+
+
+
+var ajaxReq = $.ajax("http://aa.usno.navy.mil/api/rstt/oneday?date=4/5/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm'', {
+                        dataType: 'json',
+                        timeout: 500
+                    });
+
+    ajaxReq.success(function (data, status, jqXhr) {
+	document.getElementById("zSunrise2").innerHTML= (moment(data.properties.data.sundata[1].time,"h:mma")).format("h:mma");
+	document.getElementById("zSunset2").innerHTML= (moment(data.properties.data.sundata[3].time,"h:mma")).format("h:mma");
+    })
+                
+    ajaxReq.error(function (jqXhr, textStatus, errorMessage) {
+        $('p').append('Query2: ' + errorMessage);
+    })
+
  </script>
+ 
+ 
+ 
+ 
+ 
+ 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+$(document).ready(function () {
+    $("#submit").click(function (e) {
+        var validate = Validate();
+        $("#message").html(validate);
+        if (validate.length == 0) {
+            $.ajax({
+                type: "POST",
+                url: "http://aa.usno.navy.mil/api/rstt/oneday?date=4/5/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm''",
+                dataType: "json",
+                success: function (result, status, xhr) {
+                    var table = $("<table><tr><th>Weather Description</th></tr>");
+  
+                    table.append("<tr><td>City:</td><td>" + result["properties"]["data"]["sundata[1].time"] + "</td></tr>");
+
+  
+                    $("#message").html(table);
+                },
+                error: function (xhr, status, error) {
+                    alert("Query3: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+                }
+            });
+        }
+    });
+  
+    $(document).ajaxStart(function () {
+        $("img").show();
+    });
+  
+    $(document).ajaxStop(function () {
+        $("img").hide();
+    });
+  
+    function Validate() {
+        var errorMessage = "";
+        if ($("#citySelect").val() == "Select") {
+            errorMessage += "? Select City";
+        }
+        return errorMessage;
+    }
+});
+</script>
+
 </body>
 </html>
