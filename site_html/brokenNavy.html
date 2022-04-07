@@ -23,71 +23,26 @@ SUN2: <span id="zSunrise2"></span> &nbsp; &nbsp; <span id="zSunset2"></span><br>
  
  <script src=https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js></script>
  <script>
-
-document.getElementById("myTime").innerHTML = (new Date()).toLocaleString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true });
-
-
-
-
-
-
-var getJSON = function(url, callback) {
-
-    var xmlhttprequest = new XMLHttpRequest();
-    xmlhttprequest.open('GET', url, true);
-    xmlhttprequest.responseType = 'json';
-
-    xmlhttprequest.onload = function() {
-
-        var status = xmlhttprequest.status;
-
-        if (status == 200) {
-            callback(null, xmlhttprequest.response);
-        } else {
-            callback(status, xmlhttprequest.response);
-        }
-    };
-
-    xmlhttprequest.send();
+ 
+ 
+async function file_get_contents(uri, callback) {
+    let res = await fetch(uri),
+        ret = await res.text(); 
+    return callback ? callback(ret) : ret; // a Promise() actually.
 };
 
-getJSON('https://jsonplaceholder.typicode.com/todos/1',  function(err, data) {
-
-    if (err != null) {
-        console.error(err);
-    } else {
-
-       var display = `User_ID: ${data.userId}
-ID: ${data.id}
-Title: ${data.title} 
-Completion_Status: ${data.completed}`;
-    }
-  console.log(display);
-});
+//file_get_contents('https://wttr.in/Bolivar,MO?format=j1', console.log);
 
 
-
-
-
-
-$.getJSON('https://jsonplaceholder.typicode.com/todos/1', function(data){		
-				var display = `
-				User_ID: ${data.userId}<br>
-                   ID: ${data.id}<br>
-                   Title: ${data.title}<br>
-                   Completion_Status: ${data.completed}`
-    $(".display").html(display);
-  });
-
-
-
-
-
-
-fetch('https://jsonplaceholder.typicode.com/todos/1')
+fetch('https://wttr.in/Bolivar,MO?format=j1')
     .then(result => result.json())
     .then((output) => {
-        console.log('Output: ', output);
+        
+document.getElementById("zSunrise2").innerHTML= output.current_condition[0].temp_F+'&deg;F';
+	  
+
+
+console.log('Output: ', output.current_condition[0].temp_F);
         
 }).catch(err => console.error(err));
 
@@ -96,153 +51,34 @@ fetch('https://jsonplaceholder.typicode.com/todos/1')
 
 
 
-$.getJSON('https://api.weather.gov/gridpoints/SGF/62,54/forecast', function(data) {
-
-			document.getElementById("zforecast").innerHTML= data.properties.periods[0].detailedForecast;
-			document.getElementById("zhi").innerHTML= data.properties.periods[0].temperature+'&#8457;';
-			document.getElementById("zlow").innerHTML= data.properties.periods[1].temperature+'&#8457;';
-
-});
-
-
-function readTextFile(file, callback) {
-    var rawFile = new XMLHttpRequest();
-    rawFile.overrideMimeType("application/json");
-    rawFile.open("GET", file, true);
-    rawFile.onreadystatechange = function() {
-        if (rawFile.readyState === 4 && rawFile.status == "200") {
-            callback(rawFile.responseText);
-        }
-    }
-    rawFile.send(null);
-};
-
-readTextFile("usno.json", function(text){
-var data = JSON.parse(text); // formatted. WORKING!
-
-document.getElementById("zSunrise").innerHTML= (moment(data.properties.data.sundata[1].time,"h:mma")).format("h:mma");
-document.getElementById("zSunset").innerHTML= (moment(data.properties.data.sundata[3].time,"h:mma")).format("h:mma");
-
-
-}); // END readTextFile
 
 
 
 
 
 
-$.getJSON("https://aa.usno.navy.mil/api/rstt/oneday?date=4/5/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm", function(data) {
-
-document.getElementById("zSunrise2").innerHTML= (moment(data.properties.data.sundata[1].time,"h:mma")).format("h:mma");
-document.getElementById("zSunset2").innerHTML= (moment(data.properties.data.sundata[3].time,"h:mma")).format("h:mma");
-
-});
-
-
+fetch("http://aa.usno.navy.mil/api/rstt/oneday?date=4/5/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm")
+    .then(result => result.json())
+    .then((output) => {
+        
+document.getElementById("zSunset2").innerHTML= output.properties.data.moondata[0].time;
+	  
 
 
-
-async function file_get_contents(uri, callback) {
-    let res = await fetch(uri),
-        ret = await res.text(); 
-    return callback ? callback(ret) : ret; // a Promise() actually.
-};
-
-file_get_contents("http://aa.usno.navy.mil/api/rstt/oneday?date=4/5/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm'", console.log);
-
-file_get_contents("http://aa.usno.navy.mil/api/rstt/oneday?date=4/5/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm'").then(ret => console.log(ret));
-
-
-
-
-
-    </script>
-<script type="text/javascript" 
-            src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
-    </script>
-	<script type="text/javascript">
-$.ajax('http://aa.usno.navy.mil/api/rstt/oneday?date=4/5/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm', 
-{
-    dataType: 'json', // type of response data
-    timeout: 500,     // timeout milliseconds
-    success: function (data,status,xhr) {   // success callback function
-
-	document.getElementById("zSunrise2").innerHTML= (moment(data.properties.data.sundata[1].time,"h:mma")).format("h:mma");
-	document.getElementById("zSunset2").innerHTML= (moment(data.properties.data.sundata[3].time,"h:mma")).format("h:mma");
-    },
-    error: function (jqXhr, textStatus, errorMessage) { // error callback 
-        $('p').append('Query1: ' + errorMessage);
-    }
-});
+console.log('Output: ', output.properties.data.moondata[0].time);
+        
+}).catch(err => console.error(err));
 
 
 
 
 
 
-var ajaxReq = $.ajax("http://aa.usno.navy.mil/api/rstt/oneday?date=4/5/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm'', {
-                        dataType: 'json',
-                        timeout: 500
-                    });
 
-    ajaxReq.success(function (data, status, jqXhr) {
-	document.getElementById("zSunrise2").innerHTML= (moment(data.properties.data.sundata[1].time,"h:mma")).format("h:mma");
-	document.getElementById("zSunset2").innerHTML= (moment(data.properties.data.sundata[3].time,"h:mma")).format("h:mma");
-    })
-                
-    ajaxReq.error(function (jqXhr, textStatus, errorMessage) {
-        $('p').append('Query2: ' + errorMessage);
-    })
 
- </script>
- 
- 
- 
- 
- 
- 
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script>
-$(document).ready(function () {
-    $("#submit").click(function (e) {
-        var validate = Validate();
-        $("#message").html(validate);
-        if (validate.length == 0) {
-            $.ajax({
-                type: "POST",
-                url: "http://aa.usno.navy.mil/api/rstt/oneday?date=4/5/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm''",
-                dataType: "json",
-                success: function (result, status, xhr) {
-                    var table = $("<table><tr><th>Weather Description</th></tr>");
-  
-                    table.append("<tr><td>City:</td><td>" + result["properties"]["data"]["sundata[1].time"] + "</td></tr>");
 
-  
-                    $("#message").html(table);
-                },
-                error: function (xhr, status, error) {
-                    alert("Query3: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
-                }
-            });
-        }
-    });
-  
-    $(document).ajaxStart(function () {
-        $("img").show();
-    });
-  
-    $(document).ajaxStop(function () {
-        $("img").hide();
-    });
-  
-    function Validate() {
-        var errorMessage = "";
-        if ($("#citySelect").val() == "Select") {
-            errorMessage += "? Select City";
-        }
-        return errorMessage;
-    }
-});
+
+
 </script>
 
 </body>
