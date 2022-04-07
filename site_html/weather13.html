@@ -155,10 +155,12 @@ Updated: <span id=zupdateTime></span><br /><div style="padding: 0 0 1em .5em;"  
 CONDITION:<span id="zcondition" style='line-height:1em;'></span><br>
 HI:&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span id="zhi"></span><br>
 <a href=https://www.wunderground.com/dashboard/pws/KMOBOLIV31 target=_new>TEMP:</a> &nbsp; <span id="ztemp"></span><br>
-TEMP2: <span id="zSunrise2"></span> &nbsp; &nbsp; <span id="zSunset2"></span><br>
+TEMP2: <span id="ztemp2"></span><br>
 LOW:&nbsp;&nbsp;&nbsp; <span id="zlow"></span><br>
 SUN: &nbsp; &nbsp; &nbsp; <span id="zSunrise"></span> &nbsp; &nbsp; <span id="zSunset"></span><br>
+SUN2: &nbsp; &nbsp; &nbsp; <span id="zSunrise2"></span> &nbsp; &nbsp; <span id="zSunset2"></span><br>
 MOON: &nbsp; <span id="zMoonrise"></span> &nbsp; &nbsp; <span id="zMoonset"></span><br>
+MOON2: &nbsp; <span id="zMoonrise2"></span> &nbsp; &nbsp; <span id="zMoonset2"></span><br>
 <a href=https://api.weather.gov/gridpoints/SGF/61,52/forecast>WIND FROM THE </a><span id="zwind" style='line-height:1em;'></span><br>
 <p>&nbsp;</p>
 </div>
@@ -199,8 +201,12 @@ var date = new Date();
 fetch('https://wttr.in/Bolivar,MO?format=j1')
     .then(result => result.json())
     .then((output) => {
-        
-document.getElementById("zSunrise2").innerHTML= output.current_condition[0].temp_F+'&deg;F';
+
+document.getElementById("ztemp2").innerHTML= output.current_condition[0].temp_F+'&deg;F';       
+document.getElementById("zSunrise2").innerHTML= output.weather[0].astronomy[0].sunrise;
+document.getElementById("zSunset2").innerHTML= output.weather[0].astronomy[0].sunset;
+document.getElementById("zMoonrise2").innerHTML= output.weather[0].astronomy[0].moonrise;
+document.getElementById("zMoonset2").innerHTML= output.weather[0].astronomy[0].moonset;
 
 console.log('Output: ', output.current_condition[0].temp_F);
         
