@@ -27,7 +27,7 @@ var getJSON = function(url, callback) {
     xmlhttprequest.send();
 };
 
-getJSON('http://aa.usno.navy.mil/api/rstt/oneday?date=4/7/2022&coords=37.653690,-93.399376&tz=-5&dst=false',  function(err, data) {
+getJSON('https://aa.usno.navy.mil/api/rstt/oneday?date=4/7/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm',  function(err, data) {
 
     if (err != null) {
         console.error(err);
@@ -43,7 +43,7 @@ getJSON('http://aa.usno.navy.mil/api/rstt/oneday?date=4/7/2022&coords=37.653690,
 
 
 
-fetch('http://aa.usno.navy.mil/api/rstt/oneday?date=4/7/2022&coords=37.653690,-93.399376&tz=-5&dst=false'')
+fetch('https://aa.usno.navy.mil/api/rstt/oneday?date=4/7/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm'')
   .then(res => res.json()) // the .json() method parses the JSON response into a JS object literal
   .then(data => console.log(data));
 
@@ -53,7 +53,7 @@ fetch('http://aa.usno.navy.mil/api/rstt/oneday?date=4/7/2022&coords=37.653690,-9
 
 $(function() {
   $.ajax({
-    url: "http://aa.usno.navy.mil/api/rstt/oneday?date=4/7/2022&coords=37.653690,-93.399376&tz=-5&dst=false"
+    url: "https://aa.usno.navy.mil/api/rstt/oneday?date=4/7/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm"
   }).done(function(data) {
 document.getElementById("zSunrise").innerHTML= data.properties.data.moondata[0].time;
 document.getElementById("zSunset").innerHTML= data.properties.data.moondata[0].time;

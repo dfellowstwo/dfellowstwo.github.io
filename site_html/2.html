@@ -19,7 +19,7 @@ var getJSON = function(url, callback) {
     xmlhttprequest.send();
 };
 
-getJSON('http://aa.usno.navy.mil/api/rstt/oneday?date=4/7/2022&coords=37.653690,-93.399376&tz=-5&dst=false',  function(err, data) {
+getJSON('https://aa.usno.navy.mil/api/rstt/oneday?date=4/7/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm',  function(err, data) {
 
     if (err != null) {
         console.error(err);
@@ -33,7 +33,7 @@ getJSON('http://aa.usno.navy.mil/api/rstt/oneday?date=4/7/2022&coords=37.653690,
 
 
 
-fetch('http://aa.usno.navy.mil/api/rstt/oneday?date=4/7/2022&coords=37.653690,-93.399376&tz=-5&dst=false'')
+fetch('https://aa.usno.navy.mil/api/rstt/oneday?date=4/7/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm'')
     .then(result => result.json())
     .then((output) => {
         console.log('Output: ', output);
