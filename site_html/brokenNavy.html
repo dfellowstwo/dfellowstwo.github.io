@@ -1,160 +1,30 @@
 <!DOCTYPE html><html><head><meta charset="utf-8">
 <meta name=viewport content="width=device-width, initial-scale=1.0">
-<title>Failure to query data from https://aa.usno.navy.mil/api/...</title>
+<title>Receive results from https://aa.usno.navy.mil/api/...</title>
 <style>body{font-size:16px;font-family:"Segoe UI Semibold",
 "Segoe WP Semibold","Segoe WP","Segoe UI",Arial,Sans-Serif;}</style>
 </head>
 <body>
-<h3>I failed to query https://aa.usno.navy.mil/api/rstt/oneday?date=4/6/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm with Windows and jQuery.</h3>
-<p></p>
-<input type="button" id="ajaxBtn" value="Send Ajax request" />
+<h3>How to receive results which can be embedded within a web page using Windows, javascript, no php and https://aa.usno.navy.mil/api/rstt/oneday?date=4/6/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm</h3>
 <div id="myTime"></div>
-<div class="display"></div>
-<div id="somediv"></div>
-HI: <span id="zhi"></span><br />
-LOW: <span id="zlow"></span><br />
-FORECAST: <span id="zforecast"></span><br />
-SUN: <span id="zSunrise"></span> &nbsp; &nbsp; <span id="zSunset"></span><br>
 MOON: &nbsp; <span id="zMoonrise"></span> &nbsp; &nbsp; <span id="zMoonset"></span><br>
+SUN: <span id="zSunrise"></span> &nbsp; &nbsp; <span id="zSunset"></span><br>
 
 <!-- 
 
 I have used jsonp for requesting the JSON data because AJAX doesn’t support cross domain calls by default because of security reasons. 
 
-<script src="https://code.jquery.com/jquery-1.6.4.js"></script>
- <script src=https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js></script>
+
 -->
 
 
 
-<script src="jquery-3.6.0.js"></script>
- 
+<script src="https://code.jquery.com/jquery-1.6.4.js"></script>
 
- <script>
+ 
+  <script>
  
 document.getElementById("myTime").innerHTML = (new Date()).toLocaleString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true });
-
-
-
-
-
-
-
-
-
-
-
-fetch("http://aa.usno.navy.mil/api/rstt/oneday?date=4/7/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm")
-  .then(response => {
-    // indicates whether the response is successful (status code 200-299) or not
-    if (!response.ok) {
-      throw new Error(`Request failed with status ${reponse.status}`)
-    }
-    return response.json()
-  })
-  .then(data => {
-    console.log(data.count)
-    console.log(data.products)
-  })
-  .catch(error => console.log(error))
-
-
-
-
-
-
-
-// \r\n removed. WORKS.
-var data={  "apiversion": "3.0.0",   "geometry": {    "coordinates": [      -93.399376,       37.65369    ],     "type": "Point"  },   "properties": {    "data": {      "closestphase": {        "day": 9,         "month": 4,         "phase": "First Quarter",         "time": "01:48",         "year": 2022      },       "curphase": "Waxing Crescent",       "day": 6,       "day_of_week": "Wednesday",       "fracillum": "27%",       "isdst": false,       "label": null,       "month": 4,       "moondata": [        {          "phen": "Set",           "time": "00:22"        },         {          "phen": "Rise",           "time": "09:56"        },         {          "phen": "Upper Transit",           "time": "17:36"        }      ],       "sundata": [        {          "phen": "Begin Civil Twilight",           "time": "06:25"        },         {          "phen": "Rise",           "time": "06:51"        },         {          "phen": "Upper Transit",           "time": "13:16"        },         {          "phen": "Set",           "time": "19:41"        },         {          "phen": "End Civil Twilight",           "time": "20:08"        }      ],       "tz": -5.0,       "year": 2022    }  },   "type": "Feature" };
-
-document.getElementById("zMoonrise").innerHTML= data.properties.data.moondata[0].time;
-document.getElementById("zMoonset").innerHTML= data.properties.data.moondata[1].time;
-document.getElementById("zSunrise").innerHTML= data.properties.data.sundata[1].time;
-document.getElementById("zSunset").innerHTML= data.properties.data.sundata[3].time;
-
-
-
-
-
-
-// trailing space (", ) removed. WORKS.
-var data={
-"apiversion":"3.0.0",
-"geometry":{
-"coordinates":[
--93.399376,
-37.65369
-],
-"type":"Point"
-},
-"properties":{
-"data":{
-"closestphase":{
-"day":9,
-"month":4,
-"phase":"FirstQuarter",
-"time":"01:48",
-"year":2022
-},
-"curphase":"WaxingCrescent",
-"day":6,
-"day_of_week":"Wednesday",
-"fracillum":"27%",
-"isdst":false,
-"label":null,
-"month":4,
-"moondata":[
-{
-"phen":"Set",
-"time":"00:22"
-},
-{
-"phen":"Rise",
-"time":"09:56"
-},
-{
-"phen":"UpperTransit",
-"time":"17:36"
-}
-],
-"sundata":[
-{
-"phen":"BeginCivilTwilight",
-"time":"06:25"
-},
-{
-"phen":"Rise",
-"time":"06:51"
-},
-{
-"phen":"UpperTransit",
-"time":"13:16"
-},
-{
-"phen":"Set", 
-"time":"19:41"
-}, 
-{
-"phen":"EndCivilTwilight", 
-"time":"20:08"
-}
-], 
-"tz":-5.0, 
-"year":2022
-}
-}, 
-"type":"Feature"
-};
-
-document.getElementById("zMoonrise").innerHTML= data.properties.data.moondata[0].time;
-document.getElementById("zMoonset").innerHTML= data.properties.data.moondata[1].time;
-document.getElementById("zSunrise").innerHTML= data.properties.data.sundata[1].time;
-document.getElementById("zSunset").innerHTML= data.properties.data.sundata[3].time;
-
-
-
-
-
 
 // nothing removed. WORKS.
 var data={
