@@ -2,13 +2,14 @@
 <meta name=viewport content="width=device-width, initial-scale=1.0">
 <title>Receive results from https://aa.usno.navy.mil/api/...</title>
 <style>body{font-size:16px;font-family:"Segoe UI Semibold",
-"Segoe WP Semibold","Segoe WP","Segoe UI",Arial,Sans-Serif;}</style>
+"Segoe WP Semibold","Segoe WP","Segoe UI",Arial,Sans-Serif;}.page{max-width:1360px;margin:0 auto;position:relative;background-color:#fff;padding:.25em}</style>
 </head>
 <body>
+<div class=page>
 <h3>How to receive results which can be embedded within a web page using Windows, javascript, no php and https://aa.usno.navy.mil/api/rstt/oneday?date=4/6/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm</h3>
 <div id="myTime"></div>
 MOON: &nbsp; <span id="zMoonrise"></span> &nbsp; &nbsp; <span id="zMoonset"></span><br>
-SUN: <span id="zSunrise"></span> &nbsp; &nbsp; <span id="zSunset"></span><br>
+SUN: &nbsp; &nbsp; &nbsp; &nbsp;<span id="zSunrise"></span> &nbsp; &nbsp; <span id="zSunset"></span><br>
 
 <!-- 
 
@@ -105,4 +106,4 @@ document.getElementById("zSunset").innerHTML= data.properties.data.sundata[3].ti
 
 
 
-</script></body></html>
+</script></div></body></html>
