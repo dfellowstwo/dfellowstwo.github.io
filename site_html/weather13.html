@@ -80,7 +80,7 @@ img {
 }
 
 }
-
+#radar1{display:none;}
 </style>
 
 <script language="javascript">
@@ -132,7 +132,7 @@ setTimeout(function(){
 		 
 <article>
 <h1 class="hide">WEATHER SPRINGFIELD / BOLIVAR, MISSOURI 65613</h1>
-<h2>WEATHER SPRINGFIELD / BOLIVAR, MISSOURI 65613</h2>
+<h2><a onclick="toggleRadar()" id="radarButton" href=# title='Tap / Click Radar'>WEATHER SPRINGFIELD / BOLIVAR, MISSOURI 65613</a></h2>
 </article>
 
 Updated: <span id=zupdateTime></span><br /><div style="padding: 0 0 1em .5em;"  id="zforecast"></div>
@@ -155,12 +155,12 @@ Updated: <span id=zupdateTime></span><br /><div style="padding: 0 0 1em .5em;"  
 CONDITION:<span id="zcondition" style='line-height:1em;'></span><br>
 HI:&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span id="zhi"></span><br>
 <a href=https://www.wunderground.com/dashboard/pws/KMOBOLIV31 target=_new>TEMP:</a> &nbsp; <span id="ztemp"></span><br>
-TEMP2: <span id="ztemp2"></span><br>
+<!-- TEMP2: <span id="ztemp2"></span><br> -->
 LOW:&nbsp;&nbsp;&nbsp; <span id="zlow"></span><br>
-SUN: &nbsp; &nbsp; &nbsp; <span id="zSunrise"></span> &nbsp; &nbsp; <span id="zSunset"></span><br>
-SUN2: &nbsp; &nbsp; &nbsp; <span id="zSunrise2"></span> &nbsp; &nbsp; <span id="zSunset2"></span><br>
 MOON: &nbsp; <span id="zMoonrise"></span> &nbsp; &nbsp; <span id="zMoonset"></span><br>
-MOON2: &nbsp; <span id="zMoonrise2"></span> &nbsp; &nbsp; <span id="zMoonset2"></span><br>
+SUN: &nbsp; &nbsp;&nbsp; <span id="zSunrise"></span> &nbsp; &nbsp; <span id="zSunset"></span><br>
+<!-- SUN2: &nbsp; &nbsp; &nbsp; <span id="zSunrise2"></span> &nbsp; &nbsp; <span id="zSunset2"></span><br> -->
+<!-- MOON2: &nbsp; <span id="zMoonrise2"></span> &nbsp; &nbsp; <span id="zMoonset2"></span><br> -->
 <a href=https://api.weather.gov/gridpoints/SGF/61,52/forecast>WIND FROM THE </a><span id="zwind" style='line-height:1em;'></span><br>
 <p>&nbsp;</p>
 </div>
@@ -175,7 +175,7 @@ MOON2: &nbsp; <span id="zMoonrise2"></span> &nbsp; &nbsp; <span id="zMoonset2"><
 <div class='promo seven'>
 <a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg alt='Click/Tap here and refresh the page.'>
 <div class=content>
-<a id="link1" href=http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg><img width='480px' height='196px' src='http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' alt='http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg'></a>
+<a id="link1" href=http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg><img width='480px' height='196px' src='http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' alt='Tap / Click, go back, refresh. http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg'></a>
 </div>
 </a>
 </div>
@@ -186,7 +186,7 @@ MOON2: &nbsp; <span id="zMoonrise2"></span> &nbsp; &nbsp; <span id="zMoonset2"><
 <div class='promo six'>
 <a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg alt='Click/Tap here and refresh the page.'>
 <div class=content>
-<a href=http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg><img width='480px' height='196px' src='http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' alt='http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg'></a>
+<a href=http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg><img width='480px' height='196px' src='http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' alt='Tap / Click, go back, refresh. http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg'></a>
 </div>
 </a>
 </div>
@@ -202,11 +202,11 @@ fetch('https://wttr.in/Bolivar,MO?format=j1')
     .then(result => result.json())
     .then((output) => {
 
-document.getElementById("ztemp2").innerHTML= output.current_condition[0].temp_F+'&deg;F';       
-document.getElementById("zSunrise2").innerHTML= output.weather[0].astronomy[0].sunrise;
-document.getElementById("zSunset2").innerHTML= output.weather[0].astronomy[0].sunset;
-document.getElementById("zMoonrise2").innerHTML= output.weather[0].astronomy[0].moonrise;
-document.getElementById("zMoonset2").innerHTML= output.weather[0].astronomy[0].moonset;
+//document.getElementById("ztemp2").innerHTML= output.current_condition[0].temp_F+'&deg;F';       
+document.getElementById("zMoonrise").innerHTML= output.weather[0].astronomy[0].moonrise;
+document.getElementById("zMoonset").innerHTML= output.weather[0].astronomy[0].moonset;
+document.getElementById("zSunrise").innerHTML= output.weather[0].astronomy[0].sunrise;
+document.getElementById("zSunset").innerHTML= output.weather[0].astronomy[0].sunset;
 
 console.log('Output: ', output.current_condition[0].temp_F);
         
@@ -284,8 +284,8 @@ var sunriseStr = sunTimes.sunrise.getHours() + ':' + sunTimes.sunrise.getMinutes
 var sunsetStr = (sunTimes.sunset.getHours() -12) + ':' + sunTimes.sunset.getMinutes()+'pm';
 document.getElementById("zDate").innerHTML= moment(date).format("dddd, MMMM Do, YYYY"); // Wednesday, March 16th, 2022
 document.getElementById("zTime").innerHTML= (new Date()).toLocaleString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true });
-document.getElementById("zSunrise").innerHTML= sunriseStr;
-document.getElementById("zSunset").innerHTML= sunsetStr;
+//document.getElementById("zSunrise").innerHTML= sunriseStr;
+//document.getElementById("zSunset").innerHTML= sunsetStr;
 </script>
 
 
@@ -310,8 +310,8 @@ moonsetStr = (moonTimes.set.getHours() + 12) + ':' + (moonTimes.set.getMinutes()
 moonsetStr = moonTimes.set.getHours() + ':' + (moonTimes.set.getMinutes()-6);
 }
 var zsuffix = moonTimes.rise.getHours() >= 12 ? "pm":"am"; 
-document.getElementById("zMoonrise").innerHTML= moonriseStr+zsuffix;
-document.getElementById("zMoonset").innerHTML= moonsetStr+zsuffix;
+//document.getElementById("zMoonrise").innerHTML= moonriseStr+zsuffix;
+//document.getElementById("zMoonset").innerHTML= moonsetStr+zsuffix;
 </script>
 
 
@@ -346,16 +346,47 @@ if (!data.properties.periods[0].isDaytime) {
 
 
 
-<div class="promo four"> 
+<div id=radar1 class="promo four"> 
 <iframe width='100%' height='640px' src='https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOiJuYXRpb25hbCIsImNlbnRlciI6Wy05My4wODQsMzcuNzk3XSwiem9vbSI6NS43NjY3MTUwNzc1MjY4NTcsImxheWVyIjoiYnJlZl9xY2QiLCJ0cmFuc3BhcmVudCI6dHJ1ZSwiYWxlcnRzT3ZlcmxheSI6dHJ1ZX0sImFuaW1hdGluZyI6dHJ1ZSwiYmFzZSI6InN0YW5kYXJkIiwiY291bnR5IjpmYWxzZSwiY3dhIjpmYWxzZSwic3RhdGUiOmZhbHNlLCJtZW51IjpmYWxzZSwic2hvcnRGdXNlZE9ubHkiOnRydWUsIm9wYWNpdHkiOnsiYWxlcnRzIjowLCJsb2NhbCI6MC42LCJsb2NhbFN0YXRpb25zIjowLjgsIm5hdGlvbmFsIjowLjZ9fQ%3D%3D' frameborder='0' scrolling='no'></iframe>
 </div>
-																														
+<script>
+function toggleRadar() {
+    // get the radar
+    var myRadar = document.getElementById('radar1');
+    var myRadar2 = document.getElementById('radarButton2');
+
+    // get the current value of the radar's display property
+    var displaySetting = myRadar.style.display;
+
+    // also get the radar button, so we can change what it says
+    var radarButton = document.getElementById('radarButton');
+var radarButton2 = document.getElementById('radarButton2');
+
+    // now toggle the radar and the button text, depending on current state
+    if (displaySetting == 'block') {
+      // radar is visible. hide it
+      myRadar.style.display = 'none';
+      // change button text
+      radarButton.innerHTML = 'WEATHER SPRINGFIELD / BOLIVAR, MISSOURI 65613';
+	radarButton2.innerHTML = 'Radar off';
+    }
+    else {
+      // radar is hidden. show it
+      myRadar.style.display = 'block';
+      // change button text
+      radarButton.innerHTML = 'WEATHER SPRINGFIELD / BOLIVAR, MISSOURI 65613';
+	radarButton2.innerHTML = 'Radar on';
+    }
+  }
+</script>
+
+
 
 </div><!-- END class=page -->
-
+	
 <div class="clear-fix"></div>
 
-<p class="navrule1">&nbsp;</p>
+<span class="navrule1">&nbsp;</span>
 
 <nav>
 <a href=../index.html>HOME</a>
@@ -373,8 +404,6 @@ if (!data.properties.periods[0].isDaytime) {
 <a href=https://www.almanac.com/astronomy/moon-rise-and-set/zipcode/65613/>moon</a>
 <a href=https://www.almanac.com/astronomy/sun-rise-and-set/zipcode/65613/>sun</a>
 <a href=https://www.suncalc.org/#/37.6018,-93.4155,18/>SUNCALC</a>
-<a href=https://www.weather.gov/wrh/Climate?wfo=sgf>weather.gov (Change location to Bolivar)</a>
-<a href=https://forecast.weather.gov/MapClick.php?textField1=37.2090&textField2=-93.2923#.YBihCXlMHcc>Weather.gov Forecast</a>
 <a href=https://www.moonconnection.com/moon_module_2.phtml>moon1</a>
 <a href=https://svs.gsfc.nasa.gov/Gallery/moonphase.html>moon2</a>
 <a href=https://wttr.in/%22bolivar,mo%22?fqn.png title="PNG">WTTR1</a>
@@ -384,18 +413,23 @@ if (!data.properties.periods[0].isDaytime) {
 <a href=https://www.wttr.in/Bolivar,MO title="3 DAY">WTTR5</a>
 <a href=https://v2.wttr.in/MO title="v2.wttr.in/MO graph">WTTR6</a>
 <a href=https://v3.wttr.in/MO title="v3.wttr.in/MO temperature. map.">WTTR7</a>
+<a href=https://www.weather.gov/wrh/Climate?wfo=sgf>weather.gov (Change location to Bolivar)</a>
+<a href=https://forecast.weather.gov/MapClick.php?textField1=37.2090&textField2=-93.2923#.YBihCXlMHcc>Weather.gov Forecast</a>
 <a href=https://w1.weather.gov/xml/current_obs/KSGF.xml>WEATHER DATA (LEFT CLICK GUI / RIGHT CLICK "SAVE AS" XML DATA)</a>
 <a href=https://www.weather.gov/documentation/services-web-api>NWS DOCS</a>
 <a href=https://api.weather.gov/gridpoints/SGF/61,52/forecast>NWS API</a>
 <a href=../index.html>HOME</a>
 </nav>
 
-<br />
+
 <footer style=page-break-inside:avoid>
 &#169; dfellows.rf.gd &nbsp; 37.601835,-93.415584  &nbsp;  37&#176;36'06.6"N 93&#176;24'56.1"W <br />
+Weather data updated once an hour at ~ the half hour<br />
+<a id="radarButton2" onclick="toggleRadar()" href=# title='Tap / Click Radar'>Radar</a><br />
 <a href=https://api.weather.gov/gridpoints/SGF/62,54/forecast>api.weather.gov</a>  data is updated every 2 to 4hrs. Best viewed in Firefox<br />
 <a href=http://dfellows.rf.gd/site_html/openweathermapCurrent.json>api.openweathermap.org</a>  current data is updated every hour.<br />
 <a href=http://dfellows.rf.gd/site_html/openweathermapForecast.json>api.openweathermap.org</a>  forecast data is updated every hour.<br />
+<a href=https://v2.wttr.in/Bolivar,MO title="v2.wttr.in graph">wttr.in</a> data is updated every ~1 to ?hrs.<br />
 <a href=http://dfellows.rf.gd/site_html/logData.html>Weather data update log</a><br />
 The <a href=http://www.moonmodule.com/cs/dm/vn.gif>moonphase graphic</a> is update every hour at ~00:17:00<br />
 <a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg title="Thanks to ozarksfirst.com for this seven day weather forecast graphic.">
