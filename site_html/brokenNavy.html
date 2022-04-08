@@ -10,7 +10,9 @@
 <h3>How to receive results which can be embedded within a web page using Windows, javascript / jquery, no PHP and https://aa.usno.navy.mil/api/rstt/oneday?date=4/8/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm'&ID=qatsenzm</h3>
 <div id="myTime"></div>
 MOON: &nbsp; <span id="zMoonrise"></span> &nbsp; &nbsp; <span id="zMoonset"></span><br>
+MOON2: &nbsp; <span id="zMoonrise2"></span> &nbsp; &nbsp; <span id="zMoonset2"></span><br>
 SUN: &nbsp; &nbsp; &nbsp; &nbsp;<span id="zSunrise"></span> &nbsp; &nbsp; <span id="zSunset"></span><br>
+SUN2: &nbsp; &nbsp; &nbsp; &nbsp;<span id="zSunrise2"></span> &nbsp; &nbsp; <span id="zSunset2"></span><br>
 
 <!-- 
 
@@ -27,6 +29,38 @@ I have used jsonp for requesting the JSON data because AJAX doesn’t support cr
   <script>
  
 document.getElementById("myTime").innerHTML = (new Date()).toLocaleString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true });
+
+
+
+
+
+// WORKS. REQUIRES PHP PROXY.
+$.ajax({
+    url: 'proxy.php',
+    type: 'POST',
+    data: {
+        address: "https://aa.usno.navy.mil/api/rstt/oneday?date=4/8/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm"
+    },
+    success: function(response) {
+    // console.log(response);
+
+var data = JSON.parse(response);
+
+document.getElementById("zMoonrise2").innerHTML= data.properties.data.moondata[0].time;
+document.getElementById("zMoonset2").innerHTML= data.properties.data.moondata[1].time;
+document.getElementById("zSunrise2").innerHTML= data.properties.data.sundata[1].time;
+document.getElementById("zSunset2").innerHTML= data.properties.data.sundata[3].time;
+
+
+	  
+    };
+});
+
+
+
+
+
+
 
 // WORKS.
 var data={
