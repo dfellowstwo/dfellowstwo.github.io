@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class=page>
-<h3>How to receive results which can be embedded within a web page using Windows, jquery / javascript, no php and https://aa.usno.navy.mil/api/rstt/oneday?date=4/7/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm</h3>
+<h3>How to receive results which can be embedded within a web page using Windows, javascript / jquery, no PHP and https://aa.usno.navy.mil/api/rstt/oneday?date=4/7/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm</h3>
 <div id="myTime"></div>
 MOON: &nbsp; <span id="zMoonrise"></span> &nbsp; &nbsp; <span id="zMoonset"></span><br>
 SUN: &nbsp; &nbsp; &nbsp; &nbsp;<span id="zSunrise"></span> &nbsp; &nbsp; <span id="zSunset"></span><br>
@@ -28,7 +28,7 @@ I have used jsonp for requesting the JSON data because AJAX doesn’t support cr
  
 document.getElementById("myTime").innerHTML = (new Date()).toLocaleString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true });
 
-// nothing removed. WORKS.
+// WORKS.
 var data={
 "apiversion":"3.0.0", 
 "geometry":{
