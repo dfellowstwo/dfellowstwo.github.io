@@ -200,14 +200,14 @@ var date = new Date();
 
 	fetch('https://wttr.in/Bolivar,MO?format=j1')
     .then(result => result.json())
-    .then((output) => {
+    .then((data) => {
       
-document.getElementById("zMoonrise").innerHTML= output.weather[0].astronomy[0].moonrise;
-document.getElementById("zMoonset").innerHTML= output.weather[0].astronomy[0].moonset;
-document.getElementById("zSunrise").innerHTML= output.weather[0].astronomy[0].sunrise;
-document.getElementById("zSunset").innerHTML= output.weather[0].astronomy[0].sunset;
+document.getElementById("zMoonrise").innerHTML= data.weather[0].astronomy[0].moonrise;
+document.getElementById("zMoonset").innerHTML= data.weather[0].astronomy[0].moonset;
+document.getElementById("zSunrise").innerHTML= data.weather[0].astronomy[0].sunrise;
+document.getElementById("zSunset").innerHTML= data.weather[0].astronomy[0].sunset;
 
-console.log('Output: ', output.current_condition[0].temp_F);
+console.log('Output: ', data.current_condition[0].temp_F);
         
 }).catch(err => console.error(err));
 

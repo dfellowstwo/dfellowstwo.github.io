@@ -35,8 +35,8 @@ getJSON("https://aa.usno.navy.mil/api/rstt/oneday?date=4/8/2022&coords=37.653690
 
 fetch("https://aa.usno.navy.mil/api/rstt/oneday?date=4/8/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm")
     .then(result => result.json())
-    .then((output) => {
-        console.log('Output: ', output);
+    .then((data) => {
+        console.log('Output: ', data);
         
 }).catch(err => console.error(err));
 
