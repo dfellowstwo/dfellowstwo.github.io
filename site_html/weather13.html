@@ -198,7 +198,36 @@ SUN: &nbsp; &nbsp;&nbsp; <span id="zSunrise"></span> &nbsp; &nbsp; <span id="zSu
 var date = new Date();
 
 
-fetch('https://wttr.in/Bolivar,MO?format=j1')
+
+
+
+
+// function dtime_nums(e) {
+  // var n = new Date;
+  // n.setDate(n.getDate() + e);
+  // return n.toLocaleDateString();
+// }
+
+// localStorage.setItem('hasOneDayPassed', dtime_nums(-2));
+// localStorage.getItem('hasOneDayPassed');
+// localStorage.removeItem('hasOneDayPassed');
+// localStorage.clear();
+// localStorage.hasOneDayPassed;
+
+// fetch weather data once every 24 hours.
+window.setTimeout(function(){ 
+	if (window.localStorage) {
+		var nextPopup = localStorage.getItem( 'updateData' );
+		if (nextPopup > new Date()) {
+			return;
+		}
+		var expires = new Date();
+		expires = expires.setHours(expires.getHours() + 36);
+		localStorage.setItem( 'updateData', expires );
+	}
+	console.log('Once a day has come.');
+	
+	fetch('https://wttr.in/Bolivar,MO?format=j1')
     .then(result => result.json())
     .then((output) => {
       
@@ -210,6 +239,9 @@ document.getElementById("zSunset").innerHTML= output.weather[0].astronomy[0].sun
 console.log('Output: ', output.current_condition[0].temp_F);
         
 }).catch(err => console.error(err));
+}, 3000);
+
+
 
 
 // curl https://w1.weather.gov/xml/current_obs/KSGF.xml
