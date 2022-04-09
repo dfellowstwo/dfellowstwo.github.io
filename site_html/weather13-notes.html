@@ -1,3 +1,51 @@
+
+
+
+#radar1{display:none;}
+
+<h2><a onclick="toggleRadar()" id="radarButton" href=# title='Tap / Click Radar'>WEATHER SPRINGFIELD / BOLIVAR, MISSOURI 65613</a></h2>
+
+<div id=radar1 class="promo four"> 
+<script>
+function toggleRadar() {
+    // get the radar
+    var myRadar = document.getElementById('radar1');
+    var myRadar2 = document.getElementById('radarButton2');
+
+    // get the current value of the radar's display property
+    var displaySetting = myRadar.style.display;
+
+    // also get the radar button, so we can change what it says
+    var radarButton = document.getElementById('radarButton');
+var radarButton2 = document.getElementById('radarButton2');
+
+    // now toggle the radar and the button text, depending on current state
+    if (displaySetting == 'block') {
+      // radar is visible. hide it
+      myRadar.style.display = 'none';
+      // change button text
+      radarButton.innerHTML = 'WEATHER SPRINGFIELD / BOLIVAR, MISSOURI 65613';
+	radarButton2.innerHTML = 'Radar off';
+    }
+    else {
+      // radar is hidden. show it
+      myRadar.style.display = 'block';
+      // change button text
+      radarButton.innerHTML = 'WEATHER SPRINGFIELD / BOLIVAR, MISSOURI 65613';
+	radarButton2.innerHTML = 'Radar on';
+    }
+  }
+</script>
+
+<a id="radarButton2" onclick="toggleRadar()" href=# title='Tap / Click Radar'>Radar</a><br />
+
+
+
+
+
+
+
+
 <!--[if lt IE 9]><script src=../scripts/html5shiv.js></script><![endif]-->
 <!-- <script src="weather13.js"></script> -->
 

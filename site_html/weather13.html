@@ -80,7 +80,7 @@ img {
 }
 
 }
-#radar1{display:none;}
+
 </style>
 
 <script language="javascript">
@@ -132,7 +132,7 @@ setTimeout(function(){
 		 
 <article>
 <h1 class="hide">WEATHER SPRINGFIELD / BOLIVAR, MISSOURI 65613</h1>
-<h2><a onclick="toggleRadar()" id="radarButton" href=# title='Tap / Click Radar'>WEATHER SPRINGFIELD / BOLIVAR, MISSOURI 65613</a></h2>
+<h2>WEATHER SPRINGFIELD / BOLIVAR, MISSOURI 65613</h2>
 </article>
 
 Updated: <span id=zupdateTime></span><br /><div style="padding: 0 0 1em .5em;"  id="zforecast"></div>
@@ -368,39 +368,10 @@ if (!data.properties.periods[0].isDaytime) {
 
 
 
-<div id=radar1 class="promo four"> 
+<div class="promo four"> 
 <iframe width='100%' height='640px' src='https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOiJuYXRpb25hbCIsImNlbnRlciI6Wy05My4wODQsMzcuNzk3XSwiem9vbSI6NS43NjY3MTUwNzc1MjY4NTcsImxheWVyIjoiYnJlZl9xY2QiLCJ0cmFuc3BhcmVudCI6dHJ1ZSwiYWxlcnRzT3ZlcmxheSI6dHJ1ZX0sImFuaW1hdGluZyI6dHJ1ZSwiYmFzZSI6InN0YW5kYXJkIiwiY291bnR5IjpmYWxzZSwiY3dhIjpmYWxzZSwic3RhdGUiOmZhbHNlLCJtZW51IjpmYWxzZSwic2hvcnRGdXNlZE9ubHkiOnRydWUsIm9wYWNpdHkiOnsiYWxlcnRzIjowLCJsb2NhbCI6MC42LCJsb2NhbFN0YXRpb25zIjowLjgsIm5hdGlvbmFsIjowLjZ9fQ%3D%3D' frameborder='0' scrolling='no'></iframe>
 </div>
-<script>
-function toggleRadar() {
-    // get the radar
-    var myRadar = document.getElementById('radar1');
-    var myRadar2 = document.getElementById('radarButton2');
 
-    // get the current value of the radar's display property
-    var displaySetting = myRadar.style.display;
-
-    // also get the radar button, so we can change what it says
-    var radarButton = document.getElementById('radarButton');
-var radarButton2 = document.getElementById('radarButton2');
-
-    // now toggle the radar and the button text, depending on current state
-    if (displaySetting == 'block') {
-      // radar is visible. hide it
-      myRadar.style.display = 'none';
-      // change button text
-      radarButton.innerHTML = 'WEATHER SPRINGFIELD / BOLIVAR, MISSOURI 65613';
-	radarButton2.innerHTML = 'Radar off';
-    }
-    else {
-      // radar is hidden. show it
-      myRadar.style.display = 'block';
-      // change button text
-      radarButton.innerHTML = 'WEATHER SPRINGFIELD / BOLIVAR, MISSOURI 65613';
-	radarButton2.innerHTML = 'Radar on';
-    }
-  }
-</script>
 
 
 
@@ -447,7 +418,6 @@ var radarButton2 = document.getElementById('radarButton2');
 <footer style=page-break-inside:avoid>
 &#169; dfellows.rf.gd &nbsp; 37.601835,-93.415584  &nbsp;  37&#176;36'06.6"N 93&#176;24'56.1"W <br />
 Weather data updated once an hour at ~ the half hour<br />
-<a id="radarButton2" onclick="toggleRadar()" href=# title='Tap / Click Radar'>Radar</a><br />
 <a href=https://api.weather.gov/gridpoints/SGF/62,54/forecast>api.weather.gov</a>  data is updated every 2 to 4hrs. Best viewed in Firefox<br />
 <a href=http://dfellows.rf.gd/site_html/openweathermapCurrent.json>api.openweathermap.org</a>  current data is updated every hour.<br />
 <a href=http://dfellows.rf.gd/site_html/openweathermapForecast.json>api.openweathermap.org</a>  forecast data is updated every hour.<br />
