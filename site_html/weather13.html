@@ -173,9 +173,9 @@ SUN: &nbsp; &nbsp;&nbsp; <span id="zSunrise"></span> &nbsp; &nbsp; <span id="zSu
 </div>
 
 <div class='promo seven'>
-<a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg alt='Click/Tap here and refresh the page.'>
+<a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg alt='http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg'>
 <div class=content>
-<a id="link1" href=http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg><img width='480px' height='196px' src='http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' alt='Tap / Click, go back, refresh. http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg'></a>
+<a id="link1" href=http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg><img width='480px' height='196px' src='http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' alt='TAP / CLICK, GO BACK, REFRESH FOR 7 DAY GRAPHIC.  http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg'></a>
 </div>
 </a>
 </div>
@@ -184,9 +184,9 @@ SUN: &nbsp; &nbsp;&nbsp; <span id="zSunrise"></span> &nbsp; &nbsp; <span id="zSu
 <!-- <script src="weatherLocal-forecasts-weather-gov-api.js"></script> -->
 
 <div class='promo six'>
-<a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg alt='Click/Tap here and refresh the page.'>
+<a href=http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg alt='http://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg'>
 <div class=content>
-<a href=http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg><img width='480px' height='196px' src='http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' alt='Tap / Click, go back, refresh. http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg'></a>
+<a href=http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg><img width='480px' height='196px' src='http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' alt='TAP / CLICK, GO BACK, REFRESH FOR 7 DAY GRAPHIC. http://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg'></a>
 </div>
 </a>
 </div>
@@ -196,6 +196,21 @@ SUN: &nbsp; &nbsp;&nbsp; <span id="zSunrise"></span> &nbsp; &nbsp; <span id="zSu
 <script src=moment.min.js></script>
 <script>
 var date = new Date();
+
+
+fetch('https://wttr.in/Bolivar,MO?format=j1')
+    .then(result => result.json())
+    .then((output) => {
+      
+document.getElementById("zMoonrise").innerHTML= output.weather[0].astronomy[0].moonrise;
+document.getElementById("zMoonset").innerHTML= output.weather[0].astronomy[0].moonset;
+document.getElementById("zSunrise").innerHTML= output.weather[0].astronomy[0].sunrise;
+document.getElementById("zSunset").innerHTML= output.weather[0].astronomy[0].sunset;
+
+console.log('Output: ', output.current_condition[0].temp_F);
+        
+}).catch(err => console.error(err));
+
 
 // curl https://w1.weather.gov/xml/current_obs/KSGF.xml
 
