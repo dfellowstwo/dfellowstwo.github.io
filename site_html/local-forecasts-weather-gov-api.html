@@ -4,16 +4,340 @@
     <title>Local forecasts with Weather.gov API</title>
     <link rel="stylesheet" href="main.css" />
     <link rel="stylesheet" href="local-forecasts-weather-gov-api.css" />
+        <link rel="stylesheet" type="text/css" href="indexzmin.css" />
+<link rel="stylesheet" type="text/css" href="indexz.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style>
+
+<!-- 
+
+3 Column Responsive CSS (Ordering Contents Positions)
+
+https://stackoverflow.com/a/15725000/8826818 
+
+http://jsfiddle.net/4KUUt/3/ 
+ 
+ -->
+
+
+
+
+/*  SECTIONS  */
+/* line 5, ../sass/test.scss */
+.section {
+  clear: both;
+  padding: 0px;
+  margin: 0px;
+}
+
+/* Column colors */
+.red {background:#ffe6e6}
+.orange {background:#f99e50}
+.yellow {background:#f5d55f}
+.green {background:#e6ffe6}
+.aqua {background:#72f1d4}
+.blue {background:#e6e6ff}
+.purple {background:#987ded}
+.pink {background:#dc7ded}
+.white {background:#ffffff}
+
+/* line 11, ../sass/test.scss */
+.a {
+  background-color: #ffe6e6;
+}
+
+/* line 14, ../sass/test.scss */
+.b {
+  background-color: #e6e6ff;
+}
+
+/* line 17, ../sass/test.scss */
+.c {
+  background-color: #e6ffe6;
+}
+.d {
+  background-color: #ffe6e6;
+}
+
+/*  GRID OF THREE           ============================================================================= */
+@media only screen and (min-width: 480px) {
+  /* line 24, ../sass/test.scss */
+  .span_4_of_4 {
+    width: 100%;
+  }
+
+  /* line 28, ../sass/test.scss */
+  .span_3_of_4 {
+    width: 72.75%;
+  }
+
+  /* line 32, ../sass/test.scss */
+  .span_2_of_4 {
+    width: 48.5%;
+  }
+  .span_1_of_4{
+    width: 23.8%;
+  }
+
+  /*  COLUMN SETUP  */
+  /* line 37, ../sass/test.scss */
+  .col {
+    display: block;
+    float: left;
+  }
+
+  /* line 42, ../sass/test.scss */
+  .col:first-child {
+    margin-left: 0;
+  }
+}
+@media only screen and (max-width: 480px) {
+  /* line 48, ../sass/test.scss */
+  .section {
+    width: 100%; /* fix for Firefox */
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flexbox;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  /* line 53, ../sass/test.scss */
+  .a {
+    -webkit-box-ordinal-group: 2;
+    -moz-box-ordinal-group: 2;
+    -webkit-flex-order: 2;
+    -ms-flex-order: 2;
+    -webkit-order: 2;
+    order: 2;
+  }
+
+  /* line 57, ../sass/test.scss */
+  .b {
+    -webkit-box-ordinal-group: 3;
+    -moz-box-ordinal-group: 3;
+    -webkit-flex-order: 3;
+    -ms-flex-order: 3;
+    -webkit-order: 3;
+    order: 3;
+  }
+   .c {
+    -webkit-box-ordinal-group: 1;
+    -moz-box-ordinal-group: 1;
+    -webkit-flex-order: 1;
+    -ms-flex-order:1;
+    -webkit-order: 1;
+    order: 1;
+  }
+  
+
+ 
+
+
+ 
+  
+}
+
+html {
+    font-size: calc(15px + 0.390625vw);
+}
+
+</style>
   </head>
-  <body>
 
 
-    <main id="main">
-    <div id="demo"></div>
-    </main>
-<script src="jquery-3.6.0.js"></script>
-    <script src="_storage/local-forecasts-weather-gov-api.js" async defer></script>
+<body>
+
+
+<div class="section group">
+
+
+
+
+
+
+    <div class="col span_1_of_3 a">
+
+
+
+
+<div id="z2"><h3>Springfield / Bolivar, Missouri</h3>
+Updated: <span id=zupdateTime></span><br />
+<div style="padding: 0 0 1em .5em;width:95%;" id="zforecast"></div>
+
+<script>
+$.getJSON("https://api.weather.gov/gridpoints/SGF/62,54/forecast", function(data3) {
+document.getElementById("zforecast").innerHTML= data3.properties.periods[0].detailedForecast;
+document.getElementById("zupdateTime").innerHTML= (new Date(data3.properties.updateTime)).toLocaleString([], { month: '2-digit', day: '2-digit',year: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true });
+
+});
+</script>
+
+
+            <div><?php echo date("l, F jS Y", $currentTime); ?></div>
+            <div><?php echo date("g:i:s a",$currentTime); ?></div>
+            <div><?php echo ucwords($data->weather[0]->description); ?></div>
+
+        <div>
+          <?php echo 'HI:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.round($data->main->temp_max,0); ?>&deg;F<br />
+		  <?php echo 'Current: '.round($data->main->temp,0); ?>&deg;F<br />
+		  <?php echo 'LOW:&nbsp;&nbsp;&nbsp;&nbsp; '.round($data->main->temp_min,0); ?>&deg;F<br />
+		  
+		<?php echo 'SUNRISE:&nbsp;&nbsp;&nbsp;&nbsp; '.date('h:i A', ($data2->daily[0]->sunrise)); ?><br />
+		  <?php echo 'SUNSET:&nbsp;&nbsp;&nbsp; &nbsp; '.date('h:i A', ($data2->daily[0]->sunset)); ?><br />
+		  
+		
+		<?php echo 'MOONRISE:&nbsp;'.date('h:i A', ($data2->daily[0]->moonrise)); ?><br />
+		  <?php echo 'MOONSET:&nbsp; '.date('h:i A', ($data2->daily[0]->moonset)); ?><br />
+		  
+		
+		
+		
+		
+		
+	<?php 
+		if(isset($data->wind->gust)){
+			if(round($data->wind->speed+25,0) > round($data->wind->gust,0)){echo 'Wind from the <span id="zwind"></span> at '.round($data->wind->speed,0).'mph'; }else{echo 'Wind from the <span id="zwind"></span> at '.round($data->wind->speed,0).' gusting to '.round($data->wind->gust,0).'mph'; }
+		}else{
+			echo 'Wind from the <span id="zwind"></span> at '.round($data->wind->speed,0).'mph'; 
+		}
+	?>
+
+</div>
+<p>&nbsp;</p>
+<span class=lg>
+<a href=https://api.weather.gov/gridpoints/SGF/62,54/forecast/hourly>NWS API forecast hourly</a> &nbsp; &nbsp; &nbsp;
+<a href=openweathermapCurrent.json>Current.json</a> &nbsp; &nbsp; &nbsp;
+<a href=openweathermapForecast.json>Forecast.json</a> &nbsp; &nbsp; &nbsp;
+<a href=https://www.wunderground.com/dashboard/pws/KMOBOLIV31>LOCAL</a> &nbsp; &nbsp; &nbsp;
+<a href=https://wxradio.org/MO-Springfield-WXL46>NOAA RADIO</a> &nbsp; &nbsp; &nbsp;
+<a href=http://w1.weather.gov/xml/current_obs/KSGF.xml>NWS KSGF.xml</a> &nbsp; &nbsp; &nbsp;
+<a href=https://forecast.weather.gov/MapClick.php?x=155&y=176&site=sgf&zmx=&zmy=&map_x=155&map_y=176#.Yji8YTVOncc>NWS KSGF gui</a> &nbsp; &nbsp; &nbsp;
+<a href="https://www.weather.gov/documentation/services-web-api">How to: The National Weather Service API</a> &nbsp; &nbsp; &nbsp;
+<a href='https://daltonrowe.com/local-forecasts-weather-gov-api.html#'>How to by Dalton Rowe</a> &nbsp; &nbsp; &nbsp;
+<!-- <a href=http://bulk.openweathermap.org/sample/city.list.min.json.gz>openweathermapCityIdList (4MB .gz)</a> &nbsp; &nbsp; &nbsp; -->
+<a href="?fn1" title="logData.html">logData.html</a>&nbsp; &nbsp; &nbsp;
+</span>
+
+<span class=sm>
+<a href=https://api.weather.gov/gridpoints/SGF/62,54/forecast/hourly>NWS API forecast hourly</a><br />
+<a href=openweathermapCurrent.json>Current.json</a><br />
+<a href=openweathermapForecast.json>Forecast.json</a><br />
+<a href=https://www.wunderground.com/dashboard/pws/KMOBOLIV31>LOCAL</a><br />
+<a href=https://wxradio.org/MO-Springfield-WXL46>NOAA RADIO</a><br />
+<a href=http://w1.weather.gov/xml/current_obs/KSGF.xml>NWS KSGF.xml</a><br />
+<a href=https://forecast.weather.gov/MapClick.php?x=155&y=176&site=sgf&zmx=&zmy=&map_x=155&map_y=176#.Yji8YTVOncc>NWS KSGF gui</a><br />
+<a href="https://www.weather.gov/documentation/services-web-api">How to: The National Weather Service API</a><br />
+<a href='https://daltonrowe.com/local-forecasts-weather-gov-api.html#'>How to by Dalton Rowe</a><br />
+<!-- <a href=http://bulk.openweathermap.org/sample/city.list.min.json.gz>openweathermapCityIdList (4MB .gz)</a><br /> -->
+<a href="?fn1" title="logData.html">logData.html</a><br />
+</span>
+</div>	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="col span_1_of_3 b">
+
+</div>
+
+
+
+
+
+<div class="col span_1_of_3 c">
+<a href=https://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg><img style="img:display: block;width: 480px;height: 196px" width='480px' height='196px' src='weather-seven-day-forecast-graphic.jpg' alt='TAP / CLICK, GO BACK, REFRESH FOR 7 DAY GRAPHIC.  https://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg'></a>
+<a href=https://api.weather.gov/gridpoints/SGF/62,54/forecast><div id="demo"></div></a>
+</div>
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+<script>
+
+	fetch('https://wttr.in/Bolivar,MO?format=j1')
+    .then(result => result.json())
+    .then((data) => {
+      
+document.getElementById("zMoonrise").innerHTML= data.weather[0].astronomy[0].moonrise;
+document.getElementById("zMoonset").innerHTML= data.weather[0].astronomy[0].moonset;
+document.getElementById("zSunrise").innerHTML= data.weather[0].astronomy[0].sunrise;
+document.getElementById("zSunset").innerHTML= data.weather[0].astronomy[0].sunset;
+
+console.log('The current temperature in Bolivar, MO is:',data.current_condition[0].temp_F+"*F");
+        
+}).catch(err => console.error(err));
+    
+
+</script>
+ 
+
+
+
+
+
+    <script src="local-forecasts-weather-gov-api.js" async defer></script>
     
   </body>
 </html>
