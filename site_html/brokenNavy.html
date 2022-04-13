@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class=page>
-<h3>How to receive results which can be embedded within a web page using Windows, javascript / jquery, no PHP and https://aa.usno.navy.mil/api/rstt/oneday?date=4/8/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm'&ID=qatsenzm</h3>
+<h3>How to receive results which can be embedded within a web page using Windows, javascript / jquery, no PHP and https://aa.usno.navy.mil/api/rstt/oneday?date=4/8/2022&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm&ID=qatsenzm</h3>
 <div id="myTime"></div>
 MOON: &nbsp; <span id="zMoonrise"></span> &nbsp; &nbsp; <span id="zMoonset"></span><br>
 MOON2: &nbsp; <span id="zMoonrise2"></span> &nbsp; &nbsp; <span id="zMoonset2"></span><br>
@@ -23,7 +23,7 @@ I have used jsonp for requesting the JSON data because AJAX doesn’t support cr
 
 
 
-<script src="https://code.jquery.com/jquery-1.6.4.js"></script>
+
 
  
   <script>
@@ -138,4 +138,6 @@ document.getElementById("zSunset").innerHTML= data.properties.data.sundata[3].ti
 
 
 
-</script></div></body></html>
+</script></div>
+<script src="https://code.jquery.com/jquery-1.6.4.js"></script>
+</body></html>
