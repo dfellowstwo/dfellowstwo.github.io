@@ -1,0 +1,837 @@
+/*
+BEGIN MAIN.CSS
+*/
+
+/* ------------------------------------------------------------------------ */
+/* Reset */
+/* ------------------------------------------------------------------------ */
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+p,
+a {
+  color: black;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #161616;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  display: block;
+  margin-bottom: 1em;
+  padding: 0;
+}
+
+/* ------------------------------------------------------------------------ */
+/* Site Layout */
+/* ------------------------------------------------------------------------ */
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  padding: 1em 1em 0.25em 1em;
+  width: 100%;
+  z-index: 999;
+  background: rgba(20, 20, 20, 0.9);
+}
+
+#header h1 {
+  font-size: 30px;
+  line-height: 30px;
+}
+
+#icons {
+  display: flex;
+  padding-bottom: 8px;
+}
+
+#icons a {
+  fill: white;
+  height: 18px;
+  width: 18px;
+  margin-left: 14px;
+  font-size: 18px;
+}
+
+#icons a.resume {
+  margin-top: 2px;
+  font-size: 16px;
+}
+
+#main {
+  padding: 1em;
+  margin-top: 50px;
+}
+
+
+footer {
+  padding: 1em;
+}
+
+footer .no-tracking {
+  font-size: 8px;
+  opacity: 0.6;
+}
+
+/*
+END MAIN.CSS
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+BEGIN LOCAL-FORECAST-WEATHER-GOV-API.CSS
+*/
+
+.forecast-wrapper {
+  display:flex;
+  max-width:100%;
+  width:476px;
+  height:196px;
+  color:black;
+  margin:0 auto;
+  justify-content: space-around;
+}
+
+.forecast-day {
+  border:1px solid white;
+  text-align: center;
+  flex:0 1 19%;
+}
+
+.forecast-day--night-only {
+  background: black;
+}
+
+@media screen and (max-width:1000px) {
+  .forecast-wrapper {
+    /* overflow-x: scroll; */
+    justify-content: flex-start;
+    border-right:1px dashed var(--accent-color);
+  }
+
+  .forecast-day {
+    /* flex:0 0 200px; */
+    /* margin-right:0 2px; */
+  }
+}
+
+.forecast-section {
+  margin:0 auto;
+  padding:0 4px;
+
+}
+
+.forecast-day--night-only .forecast-section {
+  /* height:700px; */
+  /* padding-top:200px; */
+}
+
+.forecast-section--day {
+  margin:0 auto;
+}
+
+.forecast-section--night {
+  background:#0000002e;
+}
+
+.forecast-section__name {
+  font-size: 22px;
+  /* margin-bottom:10px; */
+  display:block;
+}
+
+.forecast-section--night .forecast-section__name {
+  font-size: 16px;
+}
+
+.forecast-section__icon {
+  width:65px;
+  height:65px;
+  object-fit: contain;
+  margin:0 auto ;
+}
+
+.forecast-section__temp {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.forecast-section--day .forecast-section__temp {
+  color:red;
+}
+
+.forecast-section--night .forecast-section__temp {
+  color:blue;
+}
+
+.forecast-section__short {
+  font-size: 14px;
+  margin-bottom:10px;
+  display:block;
+}
+
+.forecast-section__wind {
+  font-size: 13px;
+  color:#000;
+  padding: .5em 0 0 0;
+}
+
+.forecast-credits {
+  margin-top:0px;
+  text-align: center;
+}
+
+/*
+END LOCAL-FORECAST-WEATHER-GOV-API.CSS
+*/
+
+
+
+
+
+
+
+
+
+
+/*BEGIN INDEXZ.CSS*/
+
+/* Page body styles */
+
+h3, :is(article, aside, nav, section) :is(article, aside, nav, section) h1 {
+	padding: 10px;
+	display: block;
+	font-size: 1.17em;
+	font-weight: bold;
+	margin-block-start: 0em;
+	margin-block-end: 0em;
+}
+
+.h3 {
+
+	font-size: 1.17em;
+	font-weight: bold;
+
+	}
+	
+body {
+	
+    margin:0; /* Remove the default page margin */
+    background:#fff;
+    font-size:18px;font-family:"Segoe UI Semibold","Segoe WP Semibold","Segoe WP","Segoe UI",Arial,Sans-Serif;}.page{max-width:1360px;margin:0 auto;position:relative;background-color:#fff;padding:.25em
+    
+}
+
+/* General styles that apply to everything */
+* {
+    
+    line-height:1em;
+    
+}
+a {
+    color:#004e9d; /* Link color */
+}
+a:hover {
+    color:#000; /* Hovered link color */
+}
+
+/* Column colors */
+//.red {background:#f97171}
+.red {background:#ffe6e6}
+.orange {background:#f99e50}
+.yellow {background:#f5d55f}
+//.green {background:#c5ed77}
+.green {background:#e6ffe6}
+.aqua {background:#72f1d4}
+//.blue {background:#72c2f1}
+.blue {background:#e6e6ff}
+.purple {background:#987ded}
+.pink {background:#dc7ded}
+.white {background:#ffffff}
+
+
+
+/* The following are styles for specific demos */
+
+/* fixed-width */
+.fixed-width > * {
+    max-width:30em;
+    margin:0 auto;
+}
+
+/* full-screen centered */
+.full-height-centered {
+    min-height:100vh;
+    text-align:center;
+    background:#f97171;
+}
+
+/* full screen */
+.full-height {
+    min-height:100vh;
+}
+
+/* cover photo */
+.cover-photo {
+    background-image:url(https://placeimg.com/640/480/arch);
+    background-size:cover;
+    background-position:50% 50%;
+}
+
+/* love heart */
+.love-heart {
+    margin:0;
+    padding:1rem;
+    min-height:100vh;
+    background:#f97171;
+}
+.love-heart > :first-child {
+    border-radius:50% 50% 0% 100% / 36% 26% 74% 64%;
+    background-color:#fff;
+    background-image:url(https://placeimg.com/640/480/people);
+    background-size:cover;
+    background-position:50% 50%;
+}
+.love-heart > :last-child {
+    border-radius:50% 50% 100% 0% / 26% 36% 64% 74%;
+    background-color:#fff;
+    background-image:url(https://placeimg.com/640/480/animals);
+    background-size:cover;
+    background-position:50% 50%;
+}
+
+/* open book */
+.open-book {
+    margin:2rem 1rem 1rem;
+    padding:1rem;
+    background:#7e1010;
+    border-radius:.3rem;
+    gap:0;
+}
+.open-book > * {
+    background:#fff;
+}
+.open-book > :first-child {
+    transform-origin:100% 100%;
+    transform:skew(0, 4deg);
+}
+.open-book > :last-child {
+    transform-origin:0 100%;
+    transform:skew(0, -4deg);
+    background: linear-gradient(90deg, #eee 0%, #fff 100%);
+}
+
+/* heading boxes */
+.heading-boxes > * {
+    background:#fff;
+    border-radius:.4em;
+    overflow:hidden;
+}
+.heading-boxes > * > h1,
+.heading-boxes > * > h2,
+.heading-boxes > * > h3 {
+    background:#f97171;
+    margin:0;
+    padding:.5em calc(8px + 1.5625vw);
+}
+.heading-boxes > * > div {
+    padding:0 calc(8px + 1.5625vw) .5em;
+}
+
+/* product comparison */
+.comparison {
+    margin-top:2.5em;
+}
+.comparison > * {
+    position:relative;
+    padding:0;
+    text-align:center;
+}
+.comparison > :nth-child(2) {
+    z-index:10;
+    box-shadow:0 5px 10px rgba(0, 0, 0, 25%);
+}
+.comparison > :nth-child(2):before {
+    content:"Most Popular";
+    display:block;
+    position:absolute;
+    top:-2em;
+    left:0;
+    right:0;
+    line-height:2em;
+    background:#000;
+    color:#fff;
+    border-top-left-radius:.4em;
+    border-top-right-radius:.4em;
+}
+.comparison ul {
+    list-style:none;
+    margin:0;
+    padding:0;
+    background:#fff;
+}
+.comparison li {
+    white-space:nowrap;
+    line-height:2.2em;
+    border-top:1px solid #eee;
+}
+.comparison li:first-child {
+    border-top:0;
+}
+.comparison li.tick:before {
+    content: '✓ ';
+    color:#006e37;
+    font-weight:bold;
+    font-size:1.3em;
+}
+.comparison li.cross:before {
+    content: '✗ ';
+    color:#ec1358;
+    font-weight:bold;
+    font-size:1.3em;
+}
+.comparison h3 {
+    margin:0;
+    padding:.4em 0 0;
+}
+.comparison .price {
+    margin:0 0 .2em;
+    font-size:2em;
+    font-weight:bold;
+}
+.comparison span {
+    display:none;
+}
+.comparison .button {
+    display:inline-block;
+    margin:.5em 0;
+    padding:.4em .5em;
+    background:#fff;
+    color:#000;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:.4em;
+}
+.comparison > :nth-child(2) .button {
+    background:#000;
+    color:#fff;
+}
+@media (min-width:900px) {
+    .comparison {
+        margin:2.5em calc(8px + 1.5625vw);
+    }
+    .comparison span {
+        display:inline;
+    }
+}
+
+/* rounded window */
+.round-window {
+    min-height:100vw;
+    background:#72c2f1;
+    margin:0;
+    padding:calc(8px + 1.5625vw);
+}
+.round-window > * {
+    background-color:#fff;
+    background-size:cover;
+    background-position:50% 50%;
+}
+.round-window > :nth-child(1) {
+    border-top-left-radius:100%;
+    background-image:url(https://placeimg.com/640/640/people);
+}
+.round-window > :nth-child(2) {
+    border-top-right-radius:100%;
+    background-image:url(https://placeimg.com/640/640/arch);
+}
+.round-window > :nth-child(3) {
+    border-bottom-left-radius:100%;
+    background-image:url(https://placeimg.com/640/640/animals);
+}
+.round-window > :nth-child(4) {
+    border-bottom-right-radius:100%;
+    background-image:url(https://placeimg.com/640/640/nature);
+}
+
+/* image cards */
+.image-cards > * {
+    background:#fff;
+    border-radius:.5em;
+    overflow:hidden;
+    box-shadow:0 5px 10px rgba(0, 0, 0, 25%);
+    position:relative;
+}
+.image-cards figure {
+    margin:0;
+    padding:0;
+    display:block;
+}
+.image-cards img {
+    display:block;
+    max-width:100%;
+    height:auto;
+}
+.image-cards figcaption {
+    margin:0;
+    padding:.5em 1em;
+    text-align:center;
+    font-style:italic;
+}
+.image-cards figcaption a {
+    text-decoration:none;
+}
+.image-cards figcaption a:hover {
+    text-decoration:underline;
+}
+.image-cards figcaption a:after {
+    content:"";
+    display:block;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+}
+
+/* arrow steps */
+.step-arrows > * {
+    background:#fff;
+    padding:0;
+    border:2px solid #444;
+    position:relative;
+}
+.step-arrows > *:before {
+    content:"";
+    display:block;
+    position:absolute;
+    width:calc((8px + 1.5625vw)*2);
+    height:calc((8px + 1.5625vw)*2/3);
+    background-image:url('data:image/svg+xml;utf8,<svg width="150" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 50"><path fill="%23ec1358" d="M90 0v13.15H0v23.7h90V50l60-25z"/></svg>');
+    background-size:contain;
+    background-repeat:no-repeat;
+    z-index:10;
+}
+.step-arrows > *:first-child:before {
+    display:none;
+}
+.step-arrows > * h3 {
+    background:#444;
+    color:#fff;
+    margin:0;
+    padding:.4em 1em .5em;
+}
+.step-arrows > * p {
+    margin:0;
+    padding:.5em 1em;
+}
+@media (max-width:599px) {
+    .step-arrows > *:before {
+        right:50%;
+        bottom:100%;
+        transform:translate(50%, calc(-50% + 4px)) rotate(90deg);
+
+    }
+    body,a{line-height: 3.5em;font-size:20px;}
+}
+@media (min-width:600px) and (max-width:1199px) {
+    .step-arrows > *:before {
+        top:50%;
+        right:100%;
+        transform:translate(calc((8px + 1.5625vw)/2), -50%);
+
+    }
+    .step-arrows > *:nth-child(2n+1):before {
+        transform:translate(-24%, -30%) rotate(135deg);
+        top:auto;
+        right:auto;
+        left:100%;
+        bottom:100%;
+    }
+}
+@media (min-width:1200px) {
+    .step-arrows > *:before {
+        top:50%;
+        right:100%;
+        transform:translate(calc((8px + 1.5625vw)/2), -50%);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* END INDEXZ.CSS*/
+
+
+
+
+
+
+
+
+
+
+
+/* BEGIN INLINE*/
+
+/*  SECTIONS  */
+/* line 5, ../sass/test.scss */
+.section {
+  clear: both;
+  padding: 0px;
+  margin: 0px;
+  /*! width: 67%; */
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* Column colors */
+.red {background:#ffe6e6}
+.orange {background:#f99e50}
+.yellow {background:#f5d55f}
+.green {background:#e6ffe6}
+.aqua {background:#72f1d4}
+.blue {background:#e6e6ff}
+.purple {background:#987ded}
+.pink {background:#dc7ded}
+.white {background:#ffffff}
+
+/* line 11, ../sass/test.scss */
+.a {
+  <!-- background-color: #ffe6e6; -->
+  text-align: ;
+  text-align: center;
+}
+
+/* line 14, ../sass/test.scss */
+.b {
+  /*! background-color: #e6e6ff; */
+  text-align: ;
+  width: ;
+}
+
+/* line 17, ../sass/test.scss */
+.c {
+  <!-- background-color: #e6ffe6; -->
+  padding: ;
+  padding: 0 0 0 2em;
+}
+.d {
+  background-color: #ffe6e6;
+}
+
+/*  GRID OF THREE           ============================================================================= */
+@media only screen and (min-width: 1001px) {
+  /* line 24, ../sass/test.scss */
+  .span_4_of_4 {
+    width: 100%;
+  }
+
+  /* line 28, ../sass/test.scss */
+  .span_3_of_4 {
+    width: 72.75%;
+  }
+
+  /* line 32, ../sass/test.scss */
+  .span_2_of_4 {
+    width: 48.5%;
+  }
+  .span_1_of_4{
+    width: 23.8%;
+  }
+
+  /*  COLUMN SETUP  */
+  /* line 37, ../sass/test.scss */
+  .col {
+    display: block;
+    float: left;
+  }
+
+  /* line 42, ../sass/test.scss */
+  .col:first-child {
+    width: 33%;		   
+    /*! margin: 0 0 0 16em; */
+  }
+  .sm{display:none;}
+  
+  .c {padding:1em 0;}
+  
+  
+  
+  
+  
+  
+  
+}
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1000px) {
+  /* line 48, ../sass/test.scss */
+  .section {
+    width: 100%; /* fix for Firefox */
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flexbox;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .b {
+    -webkit-box-ordinal-group: 4;
+    -moz-box-ordinal-group: 4;
+    -webkit-flex-order: 4;
+    -ms-flex-order: 4;
+    -webkit-order: 4;
+    order: 4;
+  }
+
+  /* line 57, ../sass/test.scss */
+  .a {
+    -webkit-box-ordinal-group: 3;
+    -moz-box-ordinal-group: 3;
+    -webkit-flex-order: 3;
+    -ms-flex-order: 3;
+    -webkit-order: 3;
+    order: 3;
+  }
+   .c {
+    -webkit-box-ordinal-group: 2;
+    -moz-box-ordinal-group: 2;
+    -webkit-flex-order: 2;
+    -ms-flex-order:2;
+    -webkit-order: 2;
+    order: 2;
+  }
+  
+  .lg{display:none;}
+
+ .c {
+	padding:1em 0 0 1em;
+}
+ 
+ 
+ .b {
+
+	/* width: 0%; */
+
+}
+ 
+ 
+ 
+ 
+ 
+ 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+html { 
+    font-size: calc(15px + 0.390625vw);
+}
+#zforecast, #zwrapper{
+	padding: 0 1em 1em 1em;
+}
+#demo {
+	border: solid;
+	width: 480px;
+}
+
+.b {
+	/*! text-align: center; */
+	/*! width: 33%; */
+	text-decoration:none;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	padding: 1em 1em 0 0;
+}
+
+
+
+/* END INLINE*/
+
+
+
+

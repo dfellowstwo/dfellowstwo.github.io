@@ -1,0 +1,204 @@
+<!DOCTYPE HTML><html><head><meta http-equiv=Content-Type content="text/html; charset=utf-8"><meta name=viewport content="width=device-width, initial-scale=1.0"><title>ALLWEATHER</title><link rel=stylesheet type=text/css href=22min.css /><link rel=stylesheet type=text/css href=22.css /><style>body{font-size:18px;font-family:"Segoe UI Semibold","Segoe WP Semibold","Segoe WP","Segoe UI",Arial,Sans-Serif;}.page{max-width:1360px;margin:0 auto;position:relative;background-color:#fff;padding:.25em}a{text-decoration:none} input,select{font-size:1em;padding:10px;border-radius:18px;-moz-border-radius:5px;background-color:#E1E1E1}@media only screen and (max-device-width:400px){input,select{display:block;font-size:1.25em;margin:auto;padding:10px}.centerText{text-align:center}}</style><script src="jquery-3.6.0.min.js"></script><script src=moment.min.js></script></head><body><div class=page>
+
+<!-- https://cdn.matthewjamestaylor.com/files/responsive-columns.zip -->
+<!-- See site_html/responsive-columns.zip -->
+
+
+<r-c join>
+
+<c1-1 sm1-5 class="red">
+<h3><a href="https://api.weather.gov/gridpoints/SGF/62,54/forecast">NWS API</a></h3>
+<span id=zhi></span><br /><span id=ztemp></span><br /><span id=zlow></span><br /><span id=zupdateTime></span><br />Wind:<span id=zwind></span><br /><span id=zgust><span id=zdir></span><br /></span><span id=zforecastShort></span><br /><span id=zforecastLong></span>
+</c1-1>
+
+
+
+
+
+
+<c1-1 sm1-5 class="blue">
+<h3><a href="https://www.wunderground.com/dashboard/pws/KMOBOLIV31" target=_new>LOCAL (new window)</a></h3>
+</c1-1>
+
+
+
+
+
+
+<c1-1 sm1-5 class="green">
+<h3><a href=https://wttr.in/Bolivar,MO?format=j1>WTTR.IN</a></h3>
+<span id=zhi6></span><br /><span id=ztemp6></span><br /><span id=zlow6></span><br /><span id=zupdateTime6></span><br />From the <span id=zdir6></span> at <span id=zwind6></span> mph<br /><span id=zgust6></span><br /></span><br /><span id=zforecastShort6></span><br /><span id=zforecastLong6></span><br /><span id=zall6></span>
+</c1-1>
+
+
+
+
+
+
+<c1-1 sm1-5 class="red">
+<h3><a href="https://forecast.weather.gov/MapClick.php?lat=37.1962&lon=-93.2861&unit=0&lg=english&FcstType=json">NWS MapClick</a></h3>
+<span id=zhi3></span><br /><span id=ztemp3></span><br /><span id=zlow3></span><br /><span id=zupdateTime3></span><br /><span id=zwind3></span><br /><span id=zdir3></span><br /><span id=zforecastShort3></span><br /><span id=zforecastLong3></span><br />
+</c1-1>
+
+
+
+
+
+
+<c1-1 sm1-5 class="blue">
+<h3><a href="KSGF.txt">KSGF.txt</a></h3><span id=zname4></span><br /><span id=ztemp4></span><br /><span></span><br /><span id=zupdateTime4></span><br /><span id=zwind_string4></span><br /><span id=zwind4></span><br /><span id=zgust4></span><br /><span id=zforecastShort4></span><br /><span id=zdir4></span>
+<h3><a href=http://w1.weather.gov/xml/current_obs/KSGF.xml>KSGF.xml</a></h3>
+</c1-1>
+
+
+
+
+
+
+
+<c1-1 sm1-5 class="green">
+SUN2:&nbsp; &nbsp; &nbsp; <span id="zSunrise2"></span> &nbsp; &nbsp; <span id="zSunset2"></span><br>
+<h3><a id=navy>Navy API</a></h3>
+
+</c1-1>
+
+</r-c>
+
+
+
+
+
+
+<script> 
+
+// Today yyyy-mm-dd into <a id=navy href ...>Navy API</a>
+document.getElementById("navy").setAttribute("href","https://aa.usno.navy.mil/api/rstt/oneday?date="+new Date().toISOString().split('T')[0]+"&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm");
+
+
+
+
+/*jshint esversion: 6 */
+// put key variable in url. Template literal ECMAScript 2015 (ES6)
+// Place your api app key in index.html line 13
+// javascript variable in url i.e. `https://api.openweathermap.org/data/2.5/forecast/daily?lat=37.60&lon=-93.41&appid=${key}&units=imperial&cnt=7&mode=json`
+var key="";
+var zhi="";
+var zlow="";
+
+
+fetch("https://wttr.in/Bolivar,MO?format=j1")
+    .then(result => result.json())
+    .then((data) => {
+      
+document.getElementById("zupdateTime6").innerHTML= data.current_condition[0].localObsDateTime;
+document.getElementById("zhi6").innerHTML= data.weather[0].maxtempF+"&deg;F";
+document.getElementById("ztemp6").innerHTML= data.current_condition[0].temp_F+"&deg;F";
+document.getElementById("zlow6").innerHTML= data.weather[0].mintempF+"&deg;F";
+document.getElementById("zforecastShort6").innerHTML= data.current_condition[0].weatherDesc[0].value;
+document.getElementById("zwind6").innerHTML= data.current_condition[0].windspeedMiles;
+document.getElementById("zdir6").innerHTML= data.current_condition[0].winddir16Point;
+
+}).catch(err => console.error(err));
+
+
+
+
+
+
+$.getJSON("https://api.weather.gov/gridpoints/SGF/62,54/forecast", function(data) {
+if (data.properties.periods[0].isDaytime) { 
+     zhi=Math.ceil(data.properties.periods[0].temperature)+"&deg;F";
+     zlow=Math.floor(data.properties.periods[1].temperature)+"&deg;F";
+    } else {
+     zhi=Math.ceil(data.properties.periods[1].temperature)+"&deg;F";
+     zlow=Math.floor(data.properties.periods[0].temperature)+"&deg;F";
+    }
+document.getElementById("zupdateTime").innerHTML= (new Date(data.properties.updateTime)).toLocaleString([], { hour: "2-digit", minute: "2-digit", second: "2-digit" , hour12: true });
+document.getElementById("zforecastLong").innerHTML= data.properties.periods[0].detailedForecast;
+document.getElementById("zforecastShort").innerHTML= data.properties.periods[0].shortForecast;
+document.getElementById("zhi").innerHTML=zhi;
+document.getElementById("zlow").innerHTML= zlow;
+document.getElementById("zwind").innerHTML = data.properties.periods[0].windDirection+" at "+data.properties.periods[0].windSpeed;
+
+});
+
+
+
+
+
+
+$.getJSON("https://api.weather.gov/gridpoints/SGF/62,54/forecast/hourly", function(data) {
+document.getElementById("ztemp").innerHTML=Math.ceil(data.properties.periods[0].temperature,0)+"&deg;F";
+
+}) ; // END fetch
+
+
+
+
+
+
+
+$(function() {
+  $.ajax({
+    url: "https://forecast.weather.gov/MapClick.php?lat=37.1962&lon=-93.2861&unit=0&lg=english&FcstType=json"
+  }).done(function(data) {
+document.getElementById("zupdateTime3").innerHTML = data.creationDateLocal;
+document.getElementById("zforecastShort3").innerHTML= data.data.weather[0];
+document.getElementById("zforecastLong3").innerHTML= data.data.weather[1];
+document.getElementById("zhi3").innerHTML=Math.ceil(data.data.temperature[0])+"&deg;F";
+document.getElementById("ztemp3").innerHTML= Math.ceil(data.currentobservation.Temp)+"&deg;F";
+document.getElementById("zlow3").innerHTML= Math.floor(data.data.temperature[1])+"&deg;F" ;
+zdirection = ["N", "NE", "East", "SE", "S", "SW", "W", "NW"];
+zdegree = data.currentobservation.Windd * 8 / 360;
+zdegree = Math.round(zdegree, 0);
+zdegree = (zdegree + 8) % 8;
+document.getElementById("zwind3").innerHTML = zdirection[zdegree]+" at "+Math.ceil(data.currentobservation.Winds)+" gusting to "+Math.ceil(data.currentobservation.Gust)+" mph";
+
+  });
+});
+
+
+
+    $.get("https://w1.weather.gov/xml/current_obs/KSGF.xml", function( data ) {
+
+
+/*
+
+Change
+	from the Southeast at 12.7 MPH (11 KT)
+To
+	Southeast at 12.7 MPH
+If necessary. 
+Calm if necessary.
+
+*/
+
+z=$(data).find('wind_string4').text().split(' (')[0];
+if (z.length < 5) { document.getElementById("zwind4").innerHTML= 'Calm' ; } else {
+if(z.includes('from the')){ document.getElementById("zwind4").innerHTML= z.slice(9) ; }else{document.getElementById("zwind4").innerHTML= z; }};
+
+document.getElementById("zname4").innerHTML= ($(data).find('location').text()).split(', ')[1];
+document.getElementById("zupdateTime4").innerHTML = ($(data).find("observation_time").text()).slice(16);	
+document.getElementById("zforecastShort4").innerHTML = $(data).find("weather").text();	
+document.getElementById("ztemp4").innerHTML= Math.ceil($(data).find("temp_f").text())+"&deg;F";
+zdirection = ["N", "NE", "East", "SE", "S", "SW", "W", "NW"];
+zdegree = $(data).find("wind_degrees").text() * 8 / 360;
+zdegree = Math.round(zdegree, 0);
+zdegree = (zdegree + 8) % 8;
+document.getElementById("zwind_string4").innerHTML = $(data).find("wind_string").text().split('(')[0];	
+document.getElementById("zwind4").innerHTML = zdirection[zdegree]+" at "+Math.ceil($(data).find("wind_mph").text())+" mph";
+}) ;
+
+
+
+
+</script>
+
+
+
+
+
+  
+</div>
+</body>
+</html>
