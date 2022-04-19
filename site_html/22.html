@@ -173,7 +173,7 @@ Calm if necessary.
 
 */
 
-z=$(data).find('wind_string4').text().split(' (')[0];
+z=$(data).find('wind_string4').text().split(' (')[0]; 
 if (z.length < 5) { document.getElementById("zwind4").innerHTML= 'Calm' ; } else {
 if(z.includes('from the')){ document.getElementById("zwind4").innerHTML= z.slice(9) ; }else{document.getElementById("zwind4").innerHTML= z; }};
 
