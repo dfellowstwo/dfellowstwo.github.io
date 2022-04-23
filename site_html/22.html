@@ -71,7 +71,10 @@ SUN2:&nbsp; &nbsp; &nbsp; <span id="zSunrise2"></span> &nbsp; &nbsp; <span id="z
 
 <script> 
 
-// Today yyyy-mm-dd into <a id=navy href ...>Navy API</a> yyyymmdd javascript
+// new Date().toLocaleDateString('en-GB').split('/').reverse().join('-'); // = 2022-02-04 yyyymmdd javascript ; 
+// new Date().toISOString().split('T')[0]; // = 2022-02-04 yyyymmdd javascript ; 
+
+// Today yyyy-mm-dd into <a id=navy href ...>Navy API</a>
 document.getElementById("navy").setAttribute("href","https://aa.usno.navy.mil/api/rstt/oneday?date="+new Date().toISOString().split('T')[0]+"&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm");
 
 
