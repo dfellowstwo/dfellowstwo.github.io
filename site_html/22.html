@@ -71,7 +71,7 @@ SUN2:&nbsp; &nbsp; &nbsp; <span id="zSunrise2"></span> &nbsp; &nbsp; <span id="z
 
 <script> 
 
-// Today yyyy-mm-dd into <a id=navy href ...>Navy API</a>
+// Today yyyy-mm-dd into <a id=navy href ...>Navy API</a> yyyymmdd javascript
 document.getElementById("navy").setAttribute("href","https://aa.usno.navy.mil/api/rstt/oneday?date="+new Date().toISOString().split('T')[0]+"&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm");
 
 
@@ -192,15 +192,6 @@ document.getElementById("zwind4").innerHTML = zdirection[zdegree]+" at "+Math.ce
 
 
 
-
-
-
-
-// navy.mil if i can get javascript to work.
-<!-- document.getElementById("zMoonrise7").innerHTML= data.properties.data.moondata[0].time; -->
-<!-- document.getElementById("zMoonset7").innerHTML= data.properties.data.moondata[1].time; -->
-<!-- document.getElementById("zSunrise7").innerHTML= data.properties.data.sundata[1].time; -->
-<!-- document.getElementById("zSunset7").innerHTML= data.properties.data.sundata[3].time; -->
 
 </script>
 
