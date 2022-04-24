@@ -201,18 +201,19 @@ SUN: &nbsp; &nbsp;&nbsp; <span id="zSunrise"></span> &nbsp; &nbsp; <span id="zSu
 var date = new Date();
 
 
-	fetch('https://wttr.in/Bolivar,MO?format=j1')
-    .then(result => result.json())
-    .then((data) => {
-      
-document.getElementById("zMoonrise").innerHTML= data.weather[0].astronomy[0].moonrise;
-document.getElementById("zMoonset").innerHTML= data.weather[0].astronomy[0].moonset;
-document.getElementById("zSunrise").innerHTML= data.weather[0].astronomy[0].sunrise;
-document.getElementById("zSunset").innerHTML= data.weather[0].astronomy[0].sunset;
 
-console.log('Output: ', data.current_condition[0].temp_F);
+// fetch('https://wttr.in/Bolivar,MO?format=j1')
+    // .then(result => result.json())
+    // .then((data) => {
+      
+// document.getElementById("zMoonrise").innerHTML= data.weather[0].astronomy[0].moonrise;
+// document.getElementById("zMoonset").innerHTML= data.weather[0].astronomy[0].moonset;
+// document.getElementById("zSunrise").innerHTML= data.weather[0].astronomy[0].sunrise;
+// document.getElementById("zSunset").innerHTML= data.weather[0].astronomy[0].sunset;
+
+// console.log('Output: ', data.current_condition[0].temp_F);
         
-}).catch(err => console.error(err));
+// }).catch(err => console.error(err));
 
 
 
@@ -309,8 +310,8 @@ var sunriseStr = sunTimes.sunrise.getHours() + ':' + sunTimes.sunrise.getMinutes
 var sunsetStr = (sunTimes.sunset.getHours() -12) + ':' + sunTimes.sunset.getMinutes()+'pm';
 document.getElementById("zDate").innerHTML= moment(date).format("dddd, MMMM Do, YYYY"); // Wednesday, March 16th, 2022
 document.getElementById("zTime").innerHTML= (new Date()).toLocaleString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true });
-//document.getElementById("zSunrise").innerHTML= sunriseStr;
-//document.getElementById("zSunset").innerHTML= sunsetStr;
+document.getElementById("zSunrise").innerHTML= sunriseStr;
+document.getElementById("zSunset").innerHTML= sunsetStr;
 </script>
 
 
@@ -335,8 +336,8 @@ moonsetStr = (moonTimes.set.getHours() + 12) + ':' + (moonTimes.set.getMinutes()
 moonsetStr = moonTimes.set.getHours() + ':' + (moonTimes.set.getMinutes()-6);
 }
 var zsuffix = moonTimes.rise.getHours() >= 12 ? "pm":"am"; 
-//document.getElementById("zMoonrise").innerHTML= moonriseStr+zsuffix;
-//document.getElementById("zMoonset").innerHTML= moonsetStr+zsuffix;
+document.getElementById("zMoonrise").innerHTML= moonriseStr+zsuffix;
+document.getElementById("zMoonset").innerHTML= moonsetStr+zsuffix;
 </script>
 
 
@@ -399,7 +400,7 @@ if (!data.properties.periods[0].isDaytime) {
 <a href=https://www.almanac.com/astronomy/planets-rise-and-set/zipcode/65613/>planets</a>
 <a href=https://www.almanac.com/astronomy/moon-rise-and-set/zipcode/65613/>moon</a>
 <a href=https://www.almanac.com/astronomy/sun-rise-and-set/zipcode/65613/>sun</a>
-<a href=https://www.suncalc.org/#/37.6018,-93.4155,18/>SUNCALC</a>
+<a href=https://www.suncalc.org/#/37.6018,-93.4165,18/>SUNCALC</a>
 <a href=https://www.moonconnection.com/moon_module_2.phtml>moon1</a>
 <a href=https://svs.gsfc.nasa.gov/Gallery/moonphase.html>moon2</a>
 <a href=https://wttr.in/%22bolivar,mo%22?fqn.png title="PNG">WTTR1</a>
