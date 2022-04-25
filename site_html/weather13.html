@@ -121,8 +121,10 @@ setTimeout(function(){
 <style>body{text-transform: none;}
 
 </style>
+	
 <script src="jquery-1.6.4.min.js"></script>
-
+<script src="suncalc.js"></script>
+	
 </head>
 
 <body>
@@ -204,18 +206,18 @@ var date = new Date();
 
 
 
-// fetch('https://wttr.in/Bolivar,MO?format=j1')
-    // .then(result => result.json())
-    // .then((data) => {
+fetch('https://wttr.in/Bolivar,MO?format=j1')
+    .then(result => result.json())
+    .then((data) => {
       
-// document.getElementById("zMoonrise").innerHTML= data.weather[0].astronomy[0].moonrise;
-// document.getElementById("zMoonset").innerHTML= data.weather[0].astronomy[0].moonset;
-// document.getElementById("zSunrise").innerHTML= data.weather[0].astronomy[0].sunrise;
-// document.getElementById("zSunset").innerHTML= data.weather[0].astronomy[0].sunset;
+document.getElementById("zMoonrise").innerHTML= data.weather[0].astronomy[0].moonrise;
+document.getElementById("zMoonset").innerHTML= data.weather[0].astronomy[0].moonset;
+document.getElementById("zSunrise").innerHTML= data.weather[0].astronomy[0].sunrise;
+document.getElementById("zSunset").innerHTML= data.weather[0].astronomy[0].sunset;
 
-// console.log('Output: ', data.current_condition[0].temp_F);
+console.log('Output: ', data.current_condition[0].temp_F);
         
-// }).catch(err => console.error(err));
+}).catch(err => console.error(err));
 
 
 
@@ -300,10 +302,25 @@ https://github.com/mourner/suncalc
 // date.toLocaleDateString('en-GB').split('/').reverse().join(''); // '20220204'
 // date.toLocaleDateString('en-US'); // 4/8/2022
 
+var zsunrise; 
+var zsunset;
+var zdegree;
+var zdirection;
+var ztime;
+var sunTimes = SunCalc.getTimes(date, 37.653690,-93.399376);
+var sunriseStr = sunTimes.sunrise.getHours() + ':' + sunTimes.sunrise.getMinutes()+'am';
+var sunsetStr = (sunTimes.sunset.getHours() -12) + ':' + sunTimes.sunset.getMinutes()+'pm';
+var sunriseStr = sunTimes.sunrise.getHours() + ':' + sunTimes.sunrise.getMinutes()+'am';
+var sunsetStr = (sunTimes.sunset.getHours() -12) + ':' + sunTimes.sunset.getMinutes()+'pm';
+document.getElementById("zDate").innerHTML= moment(date).format("dddd, MMMM Do, YYYY"); // Wednesday, March 16th, 2022
+document.getElementById("zTime").innerHTML= (new Date()).toLocaleString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true });
+document.getElementById("zSunrise").innerHTML= sunriseStr;
+document.getElementById("zSunset").innerHTML= sunsetStr;
+	
 </script>
 
 
-<script src="suncalc3.js"></script>
+<!-- <script src="suncalc3.js"></script> -->
 <script>
 /*
 
@@ -324,8 +341,8 @@ moonsetStr = (moonTimes.set.getHours() + 12) + ':' + (moonTimes.set.getMinutes()
 moonsetStr = moonTimes.set.getHours() + ':' + (moonTimes.set.getMinutes()-6);
 }
 var zsuffix = moonTimes.rise.getHours() >= 12 ? "pm":"am"; 
-document.getElementById("zMoonrise").innerHTML= moonriseStr+zsuffix;
-document.getElementById("zMoonset").innerHTML= moonsetStr+zsuffix;
+// document.getElementById("zMoonrise").innerHTML= moonriseStr+zsuffix;
+// document.getElementById("zMoonset").innerHTML= moonsetStr+zsuffix;
 </script>
 
 
