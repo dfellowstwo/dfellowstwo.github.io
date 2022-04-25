@@ -326,7 +326,7 @@ https://github.com/Hypnos3/suncalc3
 */ 
 var moonriseStr;
 var moonsetStr;
-var moonTimes = SunCalc.getMoonTimes(date, 37.653690,-93.399376);
+var moonTimes = SunCalc3.getMoonTimes(date, 37.653690,-93.399376);
 if (moonTimes.rise.getHours() > 12){
 moonriseStr = ((moonTimes.rise.getHours() + 11) % 12 + 1) + ':' + (moonTimes.rise.getMinutes()-3); // SunCalc always 4 minutes late?
 }else{
