@@ -314,8 +314,8 @@ var sunriseStr = sunTimes.sunrise.getHours() + ':' + sunTimes.sunrise.getMinutes
 var sunsetStr = (sunTimes.sunset.getHours() -12) + ':' + sunTimes.sunset.getMinutes()+'pm';
 document.getElementById("zDate").innerHTML= moment(date).format("dddd, MMMM Do, YYYY"); // Wednesday, March 16th, 2022
 document.getElementById("zTime").innerHTML= (new Date()).toLocaleString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true });
-document.getElementById("zSunrise").innerHTML= sunriseStr;
-document.getElementById("zSunset").innerHTML= sunsetStr;
+// document.getElementById("zSunrise").innerHTML= sunriseStr;
+// document.getElementById("zSunset").innerHTML= sunsetStr;
 	
 </script>
 
