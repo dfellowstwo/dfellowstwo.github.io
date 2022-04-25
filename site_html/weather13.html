@@ -122,7 +122,7 @@ setTimeout(function(){
 
 </style>
 <script src="jquery-1.6.4.min.js"></script>
-<script src="suncalc.js"></script>
+
 </head>
 
 <body>
@@ -326,7 +326,7 @@ An effort to get moon times. An effort to replace suncalc.
 */ 
 var moonriseStr;
 var moonsetStr;
-var moonTimes = SunCalc3.getMoonTimes(date, 37.653690,-93.399376);
+var moonTimes = SunCalc.getMoonTimes(date, 37.653690,-93.399376);
 if (moonTimes.rise.getHours() > 12){
 moonriseStr = ((moonTimes.rise.getHours() + 11) % 12 + 1) + ':' + (moonTimes.rise.getMinutes()-3); // SunCalc always 4 minutes late?
 }else{
