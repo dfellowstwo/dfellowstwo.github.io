@@ -80,8 +80,7 @@ img {
 }
 
 }
-		<link rel="stylesheet" type="text/css" href="weather2min.css" />
-		<link rel="stylesheet" type="text/css" href="weather2.css" />
+
 </style>
 
 <script language="javascript">
@@ -187,9 +186,14 @@ SUN: &nbsp; &nbsp;&nbsp; <span id="zSunrise"></span> &nbsp; &nbsp; <span id="zSu
 <!-- <div id=demo style=""></div> -->
 <!-- <script src="weatherLocal-forecasts-weather-gov-api.js"></script> -->
 
-<a href=https://api.weather.gov/gridpoints/SGF/62,54/forecast>
-<div id="demo"></div></a>
-<script src="weather2.js" async defer></script>
+<div class='promo six'>
+
+<a href=https://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg>
+<div class=content>
+<img width='480px' height='196px' src='https://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' alt='TAP / CLICK. GO BACK. REFRESH. 7 DAY GRAPHIC.' title='7 day forecast graphic'>
+</div>
+</a>
+</div>
 <p style='float:right;'><a href=https://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg alt='https://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg' title='https://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg'>https://media.psg.nexstardigital.net/kolr/weather/7day_New.jpeg</a></p>
 
 
@@ -321,20 +325,12 @@ https://github.com/Hypnos3/suncalc3
 */ 
 var moonriseStr;
 var moonsetStr;
-var moonTimes = SunCalc.getMoonTimes(new Date(), 37.653690,-93.399376);
-if (moonTimes.rise.getHours() > 12){
-moonriseStr = ((moonTimes.rise.getHours() + 11) % 12 + 1) + ':' + (moonTimes.rise.getMinutes()-3); // SunCalc always 4 minutes late?
-}else{
-moonriseStr = moonTimes.rise.getHours() + ':' + (moonTimes.rise.getMinutes()-3);
-}
-if (moonTimes.set.getHours() < 1){
-moonsetStr = (moonTimes.set.getHours() + 12) + ':' + (moonTimes.set.getMinutes()-6);
-}else{
-moonsetStr = moonTimes.set.getHours() + ':' + (moonTimes.set.getMinutes()-6);
-}
-var zsuffix = moonTimes.rise.getHours() >= 12 ? "pm":"am"; 
-<!-- document.getElementById("zMoonrise").innerHTML= moonriseStr+zsuffix; -->
-<!-- document.getElementById("zMoonset").innerHTML= moonsetStr+zsuffix; -->
+var moonTimes = SunCalc3.getMoonTimes(new Date(), 37.653690,-93.399376);
+moonriseStr = moonTimes.rise.getHours()+ ':' + (moonTimes.rise.getMinutes()-4); // SunCalc3 always 4 minutes late?
+moonsetStr = moonTimes.set.getHours() + ':' + (moonTimes.set.getMinutes()-9);
+<!-- document.getElementById("zMoonrise").innerHTML= moment(moonriseStr, "HH:mm").format("hh:mm A"); -->
+<!-- document.getElementById("zMoonset").innerHTML= moment(moonsetStr, "HH:mm").format("hh:mm A"); -->
+
 
 
 

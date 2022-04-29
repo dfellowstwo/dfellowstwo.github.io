@@ -1,7 +1,7 @@
 // @ts-check
 /*
  (c) 2011-2015, Vladimir Agafonkin
- SunCalc is a JavaScript library for calculating sun/moon position and light phases.
+ SunCalc3 is a JavaScript library for calculating sun/moon position and light phases.
  https://github.com/mourner/suncalc
 
  Reworked and enhanced by Robert Gester
@@ -311,7 +311,7 @@
         };
     }
 
-    const SunCalc = {};
+    const SunCalc3 = {};
 
     /**
      * calculates sun position for a given date and latitude/longitude
@@ -320,7 +320,7 @@
      * @param {number} lng longitude for calculating sun-position
      * @return {ISunPosition} result object of sun-position
     */
-    SunCalc.getPosition = function (dateValue, lat, lng) {
+    SunCalc3.getPosition = function (dateValue, lat, lng) {
         // console.log(`getPosition dateValue=${dateValue}  lat=${lat}, lng=${lng}`);
         if (isNaN(lat)) {
             throw new Error('latitude missing');
@@ -354,7 +354,7 @@
     /** sun times configuration
      * @type {Array.<ISunTimeNames>}
      */
-    const sunTimes = SunCalc.times = [
+    const sunTimes = SunCalc3.times = [
         { angle: 6, riseName: 'goldenHourDawnEnd', setName: 'goldenHourDuskStart'}, // GOLDEN_HOUR_2
         { angle: -0.3, riseName: 'sunriseEnd', setName: 'sunsetStart'}, // SUNRISE_END
         { angle: -0.833, riseName: 'sunriseStart', setName: 'sunsetEnd'}, // SUNRISE
@@ -370,7 +370,7 @@
     /** alternate time names for backward compatibility
      * @type {Array.<[string, string]>}
     */
-    const suntimesDeprecated = SunCalc.timesDeprecated = [
+    const suntimesDeprecated = SunCalc3.timesDeprecated = [
         ['dawn', 'civilDawn'],
         ['dusk', 'civilDusk'],
         ['nightEnd', 'astronomicalDawn'],
@@ -392,7 +392,7 @@
      * @param {boolean} [degree=true] defines if the elevationAngle is in degree not in radians
      * @return {Boolean} true if new time could be added, false if not (parameter missing; riseName or setName already existing)
      */
-    SunCalc.addTime = function (angleAltitude, riseName, setName, risePos, setPos, degree) {
+    SunCalc3.addTime = function (angleAltitude, riseName, setName, risePos, setPos, degree) {
         let isValid = (typeof riseName === 'string') && (riseName.length > 0) &&
                       (typeof setName === 'string') && (setName.length > 0) &&
                       (typeof angleAltitude === 'number');
@@ -430,10 +430,10 @@
     /**
      * add an alternate name for a sun time
      * @param {string} alternameName    - alternate or deprecated time name
-     * @param {string} originalName     - original time name from SunCalc.times array
+     * @param {string} originalName     - original time name from SunCalc3.times array
      * @return {Boolean} true if could be added, false if not (parameter missing; originalName does not exists; alternameName already existis)
      */
-    SunCalc.addDeprecatedTimeName = function (alternameName, originalName) {
+    SunCalc3.addDeprecatedTimeName = function (alternameName, originalName) {
         let isValid = (typeof alternameName === 'string') && (alternameName.length > 0) &&
                       (typeof originalName === 'string') && (originalName.length > 0);
         if (isValid) {
@@ -543,7 +543,7 @@
      * @param {boolean} [inUTC=false] defines if the calculation should be in utc or local time (default is local)
      * @return {ISunTimeList} result object of sunTime
      */
-    SunCalc.getSunTimes = function (dateValue, lat, lng, height, addDeprecated, inUTC) {
+    SunCalc3.getSunTimes = function (dateValue, lat, lng, height, addDeprecated, inUTC) {
         // console.log(`getSunTimes dateValue=${dateValue}  lat=${lat}, lng=${lng}, height={height}, noDeprecated=${noDeprecated}`);
         if (isNaN(lat)) {
             throw new Error('latitude missing');
@@ -661,7 +661,7 @@
      * @param {boolean} [inUTC] defines if the calculation should be in utc or local time (default is local)
      * @return {ISunTimeSingle} result object of single sunTime
      */
-    SunCalc.getSunTime = function (dateValue, lat, lng, elevationAngle, height, degree, inUTC) {
+    SunCalc3.getSunTime = function (dateValue, lat, lng, elevationAngle, height, degree, inUTC) {
         // console.log(`getSunTime dateValue=${dateValue}  lat=${lat}, lng=${lng}, elevationAngle=${elevationAngle}`);
         if (isNaN(lat)) {
             throw new Error('latitude missing');
@@ -730,7 +730,7 @@
      * @param {boolean} [degree] true if the angle is in degree and not in rad
      * @return {Date} result time of sun-time
     */
-    SunCalc.getSunTimeByAzimuth = function (dateValue, lat, lng, nazimuth, degree) {
+    SunCalc3.getSunTimeByAzimuth = function (dateValue, lat, lng, nazimuth, degree) {
         if (isNaN(nazimuth)) {
             throw new Error('azimuth missing');
         }
@@ -777,7 +777,7 @@
      * @param {number} utcOffset offset to the utc time
      * @returns {Date} Returns the solar time of the given date in the given latitude and UTC offset.
      */
-    SunCalc.getSolarTime = function (dateValue, lng, utcOffset) {
+    SunCalc3.getSolarTime = function (dateValue, lng, utcOffset) {
         // @ts-ignore
         const date = new Date(dateValue);
         // calculate the day of year
@@ -824,7 +824,7 @@
      * @param {number} lng longitude for calculating moon-position
      * @return {IMoonPosition} result object of moon-position
      */
-    SunCalc.getMoonPosition = function (dateValue, lat, lng) {
+    SunCalc3.getMoonPosition = function (dateValue, lat, lng) {
         // console.log(`getMoonPosition dateValue=${dateValue}  lat=${lat}, lng=${lng}`);
         if (isNaN(lat)) {
             throw new Error('latitude missing');
@@ -859,7 +859,7 @@
         };
     };
 
-    const fractionOfTheMoonCycle = SunCalc.moonCycles = [{
+    const fractionOfTheMoonCycle = SunCalc3.moonCycles = [{
         from: 0,
         to: 0.033863193308711,
         id: 'newMoon',
@@ -957,7 +957,7 @@
      * @param {number|Date} dateValue Date object or timestamp for calculating moon-illumination
      * @return {IMoonIllumination} result object of moon-illumination
      */
-    SunCalc.getMoonIllumination = function (dateValue) {
+    SunCalc3.getMoonIllumination = function (dateValue) {
         // console.log(`getMoonIllumination dateValue=${dateValue}`);
         if (dateValue instanceof Date) {
             dateValue = dateValue.valueOf();
@@ -1037,9 +1037,9 @@
      * @param {number} lng longitude for calculating moon-position
      * @return {IMoonData} result object of moon-illumination
      */
-    SunCalc.getMoonData = function (dateValue, lat, lng) {
-        const pos = SunCalc.getMoonPosition(dateValue, lat, lng);
-        const illum = SunCalc.getMoonIllumination(dateValue);
+    SunCalc3.getMoonData = function (dateValue, lat, lng) {
+        const pos = SunCalc3.getMoonPosition(dateValue, lat, lng);
+        const illum = SunCalc3.getMoonIllumination(dateValue);
         return Object.assign({
             illumination : illum,
             zenithAngle : illum.angle - pos.parallacticAngle
@@ -1064,7 +1064,7 @@
      * @param {boolean} [inUTC] defines if the calculation should be in utc or local time (default is local)
      * @return {IMoonTimes} result object of sunTime
      */
-    SunCalc.getMoonTimes = function (dateValue, lat, lng, inUTC) {
+    SunCalc3.getMoonTimes = function (dateValue, lat, lng, inUTC) {
         if (isNaN(lat)) {
             throw new Error('latitude missing');
         }
@@ -1081,13 +1081,13 @@
         // console.log(`getMoonTimes lat=${lat} lng=${lng} dateValue=${dateValue} t=${t}`);
 
         const hc = 0.133 * rad;
-        let h0 = SunCalc.getMoonPosition(dateValue, lat, lng).altitude - hc;
+        let h0 = SunCalc3.getMoonPosition(dateValue, lat, lng).altitude - hc;
         let rise; let set; let ye; let d; let roots; let x1; let x2; let dx;
 
         // go in 2-hour chunks, each time seeing if a 3-point quadratic curve crosses zero (which means rise or set)
         for (let i = 1; i <= 26; i += 2) {
-            const h1 = SunCalc.getMoonPosition(hoursLater(dateValue, i), lat, lng).altitude - hc;
-            const h2 = SunCalc.getMoonPosition(hoursLater(dateValue, i + 1), lat, lng).altitude - hc;
+            const h1 = SunCalc3.getMoonPosition(hoursLater(dateValue, i), lat, lng).altitude - hc;
+            const h2 = SunCalc3.getMoonPosition(hoursLater(dateValue, i + 1), lat, lng).altitude - hc;
 
             const a = (h0 + h2) / 2 - h1;
             const b = (h2 - h0) / 2;
@@ -1184,7 +1184,7 @@
      * @param {number} lng longitude for calculating moon-times
      * @returns {{main: (Date|null), invert: (Date|null)}}
      */
-    SunCalc.moonTransit = function (rise, set, lat, lng) {
+    SunCalc3.moonTransit = function (rise, set, lat, lng) {
         /** @type {Date|null} */ let main = null;
         /** @type {Date|null} */ let invert = null;
         const riseDate = new Date(rise);
@@ -1204,7 +1204,7 @@
         }
 
         if (rise) {
-            tempTransitAfter = calcMoonTransit(riseValue, SunCalc.getMoonTimes(new Date(riseDate).setDate(day + 1), lat, lng).set.valueOf());
+            tempTransitAfter = calcMoonTransit(riseValue, SunCalc3.getMoonTimes(new Date(riseDate).setDate(day + 1), lat, lng).set.valueOf());
             if (tempTransitAfter.getDate() === day) {
                 if (main) {
                     invert = tempTransitAfter;
@@ -1215,7 +1215,7 @@
         }
 
         if (set) {
-            tempTransitBefore = calcMoonTransit(setValue, SunCalc.getMoonTimes(new Date(setDate).setDate(day - 1), lat, lng).rise.valueOf());
+            tempTransitBefore = calcMoonTransit(setValue, SunCalc3.getMoonTimes(new Date(setDate).setDate(day - 1), lat, lng).rise.valueOf());
             if (tempTransitBefore.getDate() === day) {
                 main = tempTransitBefore;
             }
@@ -1228,14 +1228,14 @@
 
     // export as Node module / AMD module / browser variable
     if (typeof exports === 'object' && typeof module !== 'undefined') {
-        module.exports = SunCalc;
+        module.exports = SunCalc3;
         // @ts-ignore
     } else if (typeof define === 'function' && define.amd) {
         // @ts-ignore
-        define(SunCalc);
+        define(SunCalc3);
     } else {
         // @ts-ignore
-        window.SunCalc = SunCalc;
+        window.SunCalc3 = SunCalc3;
     }
 
 })();
