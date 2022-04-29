@@ -186,10 +186,9 @@ SUN: &nbsp; &nbsp;&nbsp; <span id="zSunrise"></span> &nbsp; &nbsp; <span id="zSu
 <!-- <script src="weatherLocal-forecasts-weather-gov-api.js"></script> -->
 
 <div class='promo six'>
-
-<a href=https://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg>
+<a href=weather-seven-day-forecast-graphic.jpg>
 <div class=content>
-<img width='480px' height='196px' src='https://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg' alt='TAP / CLICK, GO BACK, REFRESH FOR 7 DAY GRAPHIC' title='7 day forecast graphic'>
+<span id=promoSix7day></span><!--  <img src=weather-seven-day-forecast-graphic.jpg?v=zbustCache ... -->
 </div>
 </a>
 </div>
@@ -200,6 +199,9 @@ SUN: &nbsp; &nbsp;&nbsp; <span id="zSunrise"></span> &nbsp; &nbsp; <span id="zSu
 <!-- https://momentjs.com/docs/#/parsing/string-format/ -->
 <script src=moment.min.js></script> 
 <script>
+
+document.getElementById("promoSix7day").innerHTML= "<img src=weather-seven-day-forecast-graphic.jpg?v=" + zbustCache + " width=480 height=196 title='THANKS TO OZARKSFIRST.COM FOR THIS WEATHER SEVEN DAY FORECAST GRAPHIC. CLICK TO GO TO weather-seven-day-forecast-graphic.jpg' alt='CLICK TO GO TO weather-seven-day-forecast-graphic.jpg. This is weather-seven-day-forecast-graphic.jpg.'>";
+
 var date = new Date();
 
 document.getElementById("zDate").innerHTML= moment(date).format("dddd, MMMM Do, YYYY"); // Wednesday, March 16th, 2022
