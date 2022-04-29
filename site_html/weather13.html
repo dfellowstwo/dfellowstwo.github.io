@@ -197,8 +197,6 @@ SUN: &nbsp; &nbsp;&nbsp; <span id="zSunrise"></span> &nbsp; &nbsp; <span id="zSu
 <script src=moment.min.js></script> 
 <script>
 
-document.getElementById("promoSix7day").innerHTML= "<img src=https://dfellows.rf.gd/site_html/weather-seven-day-forecast-graphic.jpg width=480 height=196 title='THANKS TO OZARKSFIRST.COM FOR THIS WEATHER SEVEN DAY FORECAST GRAPHIC. CLICK TO GO TO weather-seven-day-forecast-graphic.jpg' alt='CLICK TO GO TO weather-seven-day-forecast-graphic.jpg. This is weather-seven-day-forecast-graphic.jpg.'>";
-
 var date = new Date();
 
 document.getElementById("zDate").innerHTML= moment(date).format("dddd, MMMM Do, YYYY"); // Wednesday, March 16th, 2022
@@ -323,7 +321,7 @@ https://github.com/Hypnos3/suncalc3
 */ 
 var moonriseStr;
 var moonsetStr;
-var moonTimes = SunCalc.getMoonTimes(date, 37.653690,-93.399376);
+var moonTimes = SunCalc.getMoonTimes(new Date(), 37.653690,-93.399376);
 if (moonTimes.rise.getHours() > 12){
 moonriseStr = ((moonTimes.rise.getHours() + 11) % 12 + 1) + ':' + (moonTimes.rise.getMinutes()-3); // SunCalc always 4 minutes late?
 }else{
