@@ -1,0 +1,1353 @@
+
+
+
+/*begin weather.css*/
+
+@charset "UTF-8";
+
+/* Global Styles */
+
+
+
+ul { list-style-type: disk; }
+ol { list-style-type: decimal; }
+
+a { color: #de9000;}
+
+a:hover { color: #009eff; }
+a.cta {
+	text-transform: uppercase;
+	font-size: .9em;
+	font-weight: bold;
+	text-decoration: none;
+	margin: .5em 0 0 0;
+	padding: 0px 12px 0px 0px;
+	background: url(../images/cta_arrow.png) no-repeat right 0px;
+}
+a.cta:hover { background-position: right -50px; }
+footer { 
+color: #000; 
+background-color: #fff; 
+padding: 10px 10px 10px 0px; 
+line-height: 1.5em;
+font-size: 23px;
+}
+
+
+nav a {
+	color: #f5a06e;
+	text-transform: uppercase;
+	text-decoration: none;
+	display: inline-block;
+	font-weight: bold;
+	font-size: .8em;
+	padding: 0 .5em;
+}
+nav a:hover { color: #fff; }
+
+nav a (:last-child) {
+    padding: 0 0 1em 0;
+}
+
+.clear-fix { clear: both; line-height: 1px; }
+
+.print { display: none; }
+
+
+
+/*end weather.css*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*begin weatherLarge.css*/
+
+
+
+
+/* Layout (global rules for all sizes) */
+
+#radar2 {
+  padding: 0;
+  margin: 0 0 -1.1em 0;
+}
+a {
+  text-decoration: none;
+}
+body {
+  margin: 0px;
+  padding: 0px;
+  text-decoration: none;
+}
+header a.logo {
+  display: block;
+  position: absolute;
+  background-position: 0px 0px;
+  background-repeat: no-repeat;
+}
+nav {
+  top: 382px;
+  width: 100%;
+  display: block;
+  position: absolute;
+  background-color: #a6430a;
+}
+
+nav a {
+  margin: 10px 1px 10px 1px;
+}
+
+ /*article {
+padding: 14em 0 0 1em;
+}*/
+/* Layout Large Screens (default for older browsers) */
+
+header {
+  height: 382px;
+  background: url(../images/dfellows.rf.gd1360x382.jpg);
+  background-repeat: no-repeat;
+  background-size: 980px 382px;
+}
+/* jjj */
+
+header a.logo {
+  width: 80px;
+  height: 80px;
+  top: 6px;
+  right: 6px;
+  background-image: url(../images/icon-phone.png);
+  background-size: 80px 80px;
+}
+
+@media screen and (max-width: 990px) {
+  footer {
+    padding-left: 20px;
+  }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and ( min--moz-device-pixel-ratio: 2), only screen and ( -o-min-device-pixel-ratio: 2/1), only screen and ( min-device-pixel-ratio: 2), only screen and ( min-resolution: 192dpi), only screen and ( min-resolution: 2dppx) {
+  header a.logo {
+    background-image: url(../images/icon-phone.png);
+  }
+  header {
+		    
+    background-image: url(../images/dfellows.rf.gd1360x382.jpg);
+					 
+  }
+}
+.sm{display:none;}
+.lg{width: 100%;float: left;padding:0 0 1em 0;}
+
+
+/*end weatherLarge.css*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*begin weatherSmall.css*/
+
+
+@media only screen and (min-width:50px) and (max-width:600px){
+	
+
+.sm {
+	display: block;
+	text-align: center;
+}
+.lg{display: none;}
+
+/* Moonphase graphic: Bottom margin 1em pushes 7day forecast graphic down. */
+.promo_container .promo.two img {
+	width: 128px;
+	display: block;
+	margin: 0 auto 1em auto;
+}
+/* Layout Small Screens */
+#radar2 { padding: 0; margin: 0 0 -.5em 0; }
+span.small { display:block; }
+#cssgif { margin: 0; max-width:44px; float:right; }
+article { padding: 1em 0 0 0; }
+h1 {line-height:1em; font-size:1em; }
+
+.liheading { padding:1em 0 0 2em;}
+.liheading li{ padding:2em 0 0 1em;}
+
+header {
+	height: 99px;
+	background: url(../images/banner_small.jpg) no-repeat;
+	background-size: 100%;
+	background-position:center top
+	/* height: 84px; */
+	/* background: url(../images/banner_small4.jpg) no-repeat; */
+	/* background-size: 300px 84px; */
+	/* background-position:center top */
+}
+/* header a.logo { width: 40px; height: 40px; top: 0px; right: 10px; background-image: url(../images/icon-phone.png); background-size: 40px 40px; } */
+/* header a.logo { width: 40px; height: 40px; top: 6px; right:-5px; background-image: url(../images/icon-phone.png); background-size: 30px 30px;} */
+header a.logo {
+	width: 35px;
+	height: 35px;
+	top: 6px;
+	right: -5px;
+	background-image: url(../images/icon-phone.png);
+	background-size: 25px 25px;
+}
+
+nav {
+	display: block;
+	position: static;
+	padding: 1px 1px 10px 1px;
+	background-color: #515673;
+}
+
+nav a {
+	color: #a6abc5;
+	display: block;
+	margin: 10px;
+	padding: 9px;
+	border: 1px solid #a6abc5;
+	background: url(../images/mobile_link_arrow.png) no-repeat right center;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+}
+
+nav a:hover { color: #fff; background-color: rgba(255,255,255,.15); }
+
+footer { border-top: 1px solid #a6abc5; }
+
+body { background-image: none; font-size: 1.25em; line-height: 1.1em;}
+
+
+@media
+	only screen and (-webkit-min-device-pixel-ratio: 2),
+	only screen and (   min--moz-device-pixel-ratio: 2),
+	only screen and (     -o-min-device-pixel-ratio: 2/1),
+	only screen and (        min-device-pixel-ratio: 2),
+	only screen and (                min-resolution: 192dpi),
+	only screen and (                min-resolution: 2dppx)
+{
+
+	/* header a.logo { background-image: url(../images/icon-phone.png); background-size: 120px 120px;  } */
+	/* header { background-image: url(../images/icon-phone.png); background-size: 120px 120px;  } */
+
+}
+
+
+	
+}
+
+
+
+/*end weatherSmall.css*/
+
+
+
+
+
+
+
+
+
+
+
+
+/*begin weatherMedium.css*/
+
+
+@media only screen and (min-width:601px) and (max-width:800px){
+	
+	
+
+/* Moonphase graphic: Bottom margin 1em pushes 7day forecast graphic down. */
+.promo_container .promo.two {
+	width: 27%;
+	float: right;
+	margin: 0 auto 1em auto;
+}
+
+/* Layout Medium Screens */
+#radar2 { padding: 0; margin: 0 0 -1.1em 0;}
+
+/*DOUG*/ /*CORRECT VERTICAL SPACING BETWEEN EVER CHANGING NAV HEIGHT AND ARTICLE*/
+h1, p {margin: 1em 12px 0px 0px;}
+
+article { padding: 2em 0 0 1em; }
+
+
+header {
+	height: 200px;
+	background: url(../images/banner_medium.jpg) no-repeat 90% 0px;
+	background-size: 100%;
+}
+/* header a.logo { width: 128px; height: 196px; top: 4px; right: 2px; background-image: url(http://www.moonmodule.com/cs/dm/vn.gif); background-size: 128px 196px; } */
+header a.logo { width: 60px; height: 60px; top: 6px; right: 6px; background-image: url(../images/icon-phone.png); background-size: 60px 60px; }
+
+
+nav {
+	display: block;
+	position: static;
+	padding: 10px 0px 10px 10px;
+	background-color: #515673;
+}
+
+nav a {
+	color: #a6abc5;
+	display: block;
+	margin: 15px;
+	padding: 9px;
+	border: 1px solid #a6abc5;
+	background: url(../images/mobile_link_arrow.png) no-repeat right center;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+}
+
+.promo_container { padding: 0px 20px 15px 20px; }
+.promo_container .promo { background-position: 0px 0px; }
+.promo_container .promo.one { width:73%;}
+.promo_container .promo.two { width: 27%; float: right;}
+.promo_container .promo.three { width: 78%; }
+
+
+body { background-image: none; }
+
+
+@media
+	only screen and (-webkit-min-device-pixel-ratio: 2),
+	only screen and (   min--moz-device-pixel-ratio: 2),
+	only screen and (     -o-min-device-pixel-ratio: 2/1),
+	only screen and (        min-device-pixel-ratio: 2),
+	only screen and (                min-resolution: 192dpi),
+	only screen and (                min-resolution: 2dppx)
+{
+
+	header a.logo { background-image: url(../images/icon-phone.png);}
+	
+	header { 
+	height:275px;
+	background-image: url(../images/dfellows.rf.gd980x275.jpg);
+	}
+
+}
+
+
+
+
+}
+
+/*end weatherMedium.css*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+BEGIN MAIN.CSS
+*/
+
+/* ------------------------------------------------------------------------ */
+/* Reset */
+/* ------------------------------------------------------------------------ */
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+p,
+a {
+  color: black;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #161616;
+  ;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  display: block;
+  margin-bottom: 1em;
+  padding: 0;
+}
+
+/* ------------------------------------------------------------------------ */
+/* Site Layout */
+/* ------------------------------------------------------------------------ */
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  padding: 1em 1em 0.25em 1em;
+  width: 100%;
+  z-index: 999;
+  background: rgba(20, 20, 20, 0.9);
+}
+
+#header h1 {
+  font-size: 30px;
+  line-height: 30px;
+}
+
+#icons {
+  display: flex;
+  padding-bottom: 8px;
+}
+
+#icons a {
+  fill: white;
+  height: 18px;
+  width: 18px;
+  margin-left: 14px;
+  font-size: 18px;
+}
+
+#icons a.resume {
+  margin-top: 2px;
+  font-size: 16px;
+}
+
+#main {
+  padding: 1em;
+  margin-top: 50px;
+}
+
+
+footer {
+  padding: 1em;
+}
+
+footer .no-tracking {
+  font-size: 8px;
+  opacity: 0.6;
+}
+
+/*
+END MAIN.CSS
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+BEGIN LOCAL-FORECAST-WEATHER-GOV-API.CSS
+*/
+
+.forecast-wrapper {
+  display:flex;
+  max-width:100%;
+  width:476px;
+  height:196px;
+  color:black;
+  margin:0 auto;
+  justify-content: space-around;
+}
+
+.forecast-day {
+  border:1px solid white;
+  text-align: center;
+  flex:0 1 19%;
+  width: 13%;
+}
+
+.forecast-day--night-only {
+  background: black;
+}
+
+@media only screen and (max-width:1000px) {
+  .forecast-wrapper {
+    /* overflow-x: scroll; */
+    justify-content: flex-start;
+    border-right:1px dashed var(--accent-color);
+  }
+
+  .forecast-day {
+    /* flex:0 0 200px; */
+    /* margin-right:0 2px; */
+  }
+}
+
+.forecast-section {
+  margin:0 auto;
+  /*! padding:0 4px; */
+
+}
+
+.forecast-day--night-only .forecast-section {
+  /* height:700px; */
+  /* padding-top:200px; */
+}
+
+.forecast-section--day {
+  margin:0 auto;
+}
+
+.forecast-section--night {
+  background:#0e3f8b;
+  padding: .1em;
+}
+
+.forecast-section__name {
+  /*! font-size: 20px; */
+  display:block;
+  padding: .1em;
+}
+
+.forecast-section--night .forecast-section__name {
+  font-size: 16px;
+}
+
+.forecast-section__icon {
+  width:65px;
+  height:65px;
+  object-fit: contain;
+  margin:0 auto ;
+}
+
+.forecast-section__temp {
+  font-size: 27px;
+}
+
+.forecast-section--day .forecast-section__temp {
+  color:#0b1e48;
+}
+
+.forecast-section--night .forecast-section__temp {
+  color:white;
+  font-size: 24px;
+}
+
+.forecast-section__short {
+  font-size: 14px;
+  margin-bottom:10px;
+  display:block;
+}
+
+.forecast-section__wind {
+  font-size: 13px;
+  color:#000;
+  padding: .5em 0 0 0;
+}
+
+.forecast-credits {
+  margin-top:0px;
+  text-align: center;
+}
+
+/*
+END LOCAL-FORECAST-WEATHER-GOV-API.CSS
+*/
+
+
+
+
+
+
+
+
+
+
+/*BEGIN INDEXZ.CSS*/
+
+/* Page body styles */
+
+h3, :is(article, aside, nav, section) :is(article, aside, nav, section) h1 {
+	padding: 10px;
+	display: block;
+	font-size: 1.17em;
+	font-weight: bold;
+	margin-block-start: 0em;
+	margin-block-end: 0em;
+}
+
+.h3 {
+
+	font-size: 1.17em;
+	font-weight: bold;
+
+	}
+	
+body {
+	
+    margin:0; /* Remove the default page margin */
+    background:#fff;
+    /* font-family:Verdana, Geneva, sans-serif,Arial,Sans-Serif; */
+    font-family:"Segoe UI Semibold","Segoe WP Semibold","Segoe WP","Segoe UI",Arial,Sans-Serif;
+}
+
+.page{max-width:1382px;margin:0 auto;position:relative;background-color:#fff;padding:.25em}
+
+/* General styles that apply to everything */
+* {
+    
+    line-height:1em;
+    
+}
+a {
+    color:#004e9d; /* Link color */
+    color:blue; /* Link color */
+}
+a:hover {
+    color:#000; /* Hovered link color */
+}
+
+/* Column colors */
+//.red {background:#f97171}
+.red {background:#ffe6e6}
+.orange {background:#f99e50}
+.yellow {background:#f5d55f}
+//.green {background:#c5ed77}
+.green {background:#e6ffe6}
+.aqua {background:#72f1d4}
+//.blue {background:#72c2f1}
+.blue {background:#e6e6ff}
+.purple {background:#987ded}
+.pink {background:#dc7ded}
+.white {background:#ffffff}
+
+
+
+/* The following are styles for specific demos */
+
+/* fixed-width */
+.fixed-width > * {
+    max-width:30em;
+    margin:0 auto;
+}
+
+/* full-screen centered */
+.full-height-centered {
+    min-height:100vh;
+    text-align:center;
+    background:#f97171;
+}
+
+/* full screen */
+.full-height {
+    min-height:100vh;
+}
+
+/* cover photo */
+.cover-photo {
+    background-image:url(https://placeimg.com/640/480/arch);
+    background-size:cover;
+    background-position:50% 50%;
+}
+
+/* love heart */
+.love-heart {
+    margin:0;
+    padding:1rem;
+    min-height:100vh;
+    background:#f97171;
+}
+.love-heart > :first-child {
+    border-radius:50% 50% 0% 100% / 36% 26% 74% 64%;
+    background-color:#fff;
+    background-image:url(https://placeimg.com/640/480/people);
+    background-size:cover;
+    background-position:50% 50%;
+}
+.love-heart > :last-child {
+    border-radius:50% 50% 100% 0% / 26% 36% 64% 74%;
+    background-color:#fff;
+    background-image:url(https://placeimg.com/640/480/animals);
+    background-size:cover;
+    background-position:50% 50%;
+}
+
+/* open book */
+.open-book {
+    margin:2rem 1rem 1rem;
+    padding:1rem;
+    background:#7e1010;
+    border-radius:.3rem;
+    gap:0;
+}
+.open-book > * {
+    background:#fff;
+}
+.open-book > :first-child {
+    transform-origin:100% 100%;
+    transform:skew(0, 4deg);
+}
+.open-book > :last-child {
+    transform-origin:0 100%;
+    transform:skew(0, -4deg);
+    background: linear-gradient(90deg, #eee 0%, #fff 100%);
+}
+
+/* heading boxes */
+.heading-boxes > * {
+    background:#fff;
+    border-radius:.4em;
+    overflow:hidden;
+}
+.heading-boxes > * > h1,
+.heading-boxes > * > h2,
+.heading-boxes > * > h3 {
+    background:#f97171;
+    margin:0;
+    padding:.5em calc(8px + 1.5625vw);
+}
+.heading-boxes > * > div {
+    padding:0 calc(8px + 1.5625vw) .5em;
+}
+
+/* product comparison */
+.comparison {
+    margin-top:2.5em;
+}
+.comparison > * {
+    position:relative;
+    padding:0;
+    text-align:center;
+}
+.comparison > :nth-child(2) {
+    z-index:10;
+    box-shadow:0 5px 10px rgba(0, 0, 0, 25%);
+}
+.comparison > :nth-child(2):before {
+    content:"Most Popular";
+    display:block;
+    position:absolute;
+    top:-2em;
+    left:0;
+    right:0;
+    line-height:2em;
+    background:#000;
+    color:#fff;
+    border-top-left-radius:.4em;
+    border-top-right-radius:.4em;
+}
+.comparison ul {
+    list-style:none;
+    margin:0;
+    padding:0;
+    background:#fff;
+}
+.comparison li {
+    white-space:nowrap;
+    line-height:2.2em;
+    border-top:1px solid #eee;
+}
+.comparison li:first-child {
+    border-top:0;
+}
+.comparison li.tick:before {
+    content: '✓ ';
+    color:#006e37;
+    font-weight:bold;
+    font-size:1.3em;
+}
+.comparison li.cross:before {
+    content: '✗ ';
+    color:#ec1358;
+    font-weight:bold;
+    font-size:1.3em;
+}
+.comparison h3 {
+    margin:0;
+    padding:.4em 0 0;
+}
+.comparison .price {
+    margin:0 0 .2em;
+    font-size:2em;
+    font-weight:bold;
+}
+.comparison span {
+    display:none;
+}
+.comparison .button {
+    display:inline-block;
+    margin:.5em 0;
+    padding:.4em .5em;
+    background:#fff;
+    color:#000;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:.4em;
+}
+.comparison > :nth-child(2) .button {
+    background:#000;
+    color:#fff;
+}
+@media (min-width:900px) {
+    .comparison {
+        margin:2.5em calc(8px + 1.5625vw);
+    }
+    .comparison span {
+        display:inline;
+    }
+}
+
+/* rounded window */
+.round-window {
+    min-height:100vw;
+    background:#72c2f1;
+    margin:0;
+    padding:calc(8px + 1.5625vw);
+}
+.round-window > * {
+    background-color:#fff;
+    background-size:cover;
+    background-position:50% 50%;
+}
+.round-window > :nth-child(1) {
+    border-top-left-radius:100%;
+    background-image:url(https://placeimg.com/640/640/people);
+}
+.round-window > :nth-child(2) {
+    border-top-right-radius:100%;
+    background-image:url(https://placeimg.com/640/640/arch);
+}
+.round-window > :nth-child(3) {
+    border-bottom-left-radius:100%;
+    background-image:url(https://placeimg.com/640/640/animals);
+}
+.round-window > :nth-child(4) {
+    border-bottom-right-radius:100%;
+    background-image:url(https://placeimg.com/640/640/nature);
+}
+
+/* image cards */
+.image-cards > * {
+    background:#fff;
+    border-radius:.5em;
+    overflow:hidden;
+    box-shadow:0 5px 10px rgba(0, 0, 0, 25%);
+    position:relative;
+}
+.image-cards figure {
+    margin:0;
+    padding:0;
+    display:block;
+}
+.image-cards img {
+    display:block;
+    max-width:100%;
+    height:auto;
+}
+.image-cards figcaption {
+    margin:0;
+    padding:.5em 1em;
+    text-align:center;
+    font-style:italic;
+}
+.image-cards figcaption a {
+    text-decoration:none;
+}
+.image-cards figcaption a:hover {
+    text-decoration:underline;
+}
+.image-cards figcaption a:after {
+    content:"";
+    display:block;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+}
+
+/* arrow steps */
+.step-arrows > * {
+    background:#fff;
+    padding:0;
+    border:2px solid #444;
+    position:relative;
+}
+.step-arrows > *:before {
+    content:"";
+    display:block;
+    position:absolute;
+    width:calc((8px + 1.5625vw)*2);
+    height:calc((8px + 1.5625vw)*2/3);
+    background-image:url('data:image/svg+xml;utf8,<svg width="150" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 50"><path fill="%23ec1358" d="M90 0v13.15H0v23.7h90V50l60-25z"/></svg>');
+    background-size:contain;
+    background-repeat:no-repeat;
+    z-index:10;
+}
+.step-arrows > *:first-child:before {
+    display:none;
+}
+.step-arrows > * h3 {
+    background:#444;
+    color:#fff;
+    margin:0;
+    padding:.4em 1em .5em;
+}
+.step-arrows > * p {
+    margin:0;
+    padding:.5em 1em;
+}
+@media (max-width:599px) {
+    .step-arrows > *:before {
+        right:50%;
+        bottom:100%;
+        transform:translate(50%, calc(-50% + 4px)) rotate(90deg);
+
+    }
+    body,a{line-height: 1.5em;font-size:22px;}
+}
+@media (min-width:600px) and (max-width:1199px) {
+    .step-arrows > *:before {
+        top:50%;
+        right:100%;
+        transform:translate(calc((8px + 1.5625vw)/2), -50%);
+
+    }
+    .step-arrows > *:nth-child(2n+1):before {
+        transform:translate(-24%, -30%) rotate(135deg);
+        top:auto;
+        right:auto;
+        left:100%;
+        bottom:100%;
+    }
+}
+@media (min-width:1200px) {
+    .step-arrows > *:before {
+        top:50%;
+        right:100%;
+        transform:translate(calc((8px + 1.5625vw)/2), -50%);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* END INDEXZ.CSS*/
+
+
+
+
+
+
+
+
+
+
+
+/* BEGIN INLINE*/
+
+/*  SECTIONS  */
+/* line 5, ../sass/test.scss */
+.section {
+  clear: both;
+  padding: 0px;
+  margin: 0px;
+  /*! width: 67%; */
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* Column colors */
+.red {background:#ffe6e6}
+.orange {background:#f99e50}
+.yellow {background:#f5d55f}
+.green {background:#e6ffe6}
+.aqua {background:#72f1d4}
+.blue {background:#e6e6ff}
+.purple {background:#987ded}
+.pink {background:#dc7ded}
+.white {background:#ffffff}
+
+/* line 11, ../sass/test.scss */
+.a {
+  <!-- background-color: #ffe6e6; -->
+  text-align: ;
+  text-align: center;
+  padding: 1em 0 0 0;
+}
+
+.b {
+  <!-- background-color: #ffe6e6; -->
+  text-align: ;
+  text-align: center;
+  /*! font-size: 18px; */
+}
+
+/* line 14, ../sass/test.scss */
+.c {
+  /*! background-color: #e6e6ff; */
+  /*! text-align: ; */
+  width: ;
+  padding: 1.25em 1em 0 0;
+}
+
+/* line 17, ../sass/test.scss */
+.d {
+  <!-- background-color: #e6ffe6; -->
+  padding: ;
+  padding: 0 0 0 2em;
+}
+
+.e {
+  <!-- background-color: #e6ffe6; -->
+  padding: 0 0 0 2em;
+  float:none;
+}
+
+
+
+/*  GRID OF THREE           ============================================================================= */
+@media only screen and (min-width: 1001px) {
+	
+	
+	
+	
+nav a {
+	color: #f5a06e;
+	text-transform: uppercase;
+	text-decoration: none;
+	display: inline-block;
+	font-weight: bold;
+	font-size: .9em;
+	padding: 0 .5em;
+	margin: 10px 1px 10px 1px;
+}
+nav a:hover { color: #fff; }
+	
+	
+	
+	
+	
+	
+nav {
+  top: 382px;
+  width: 100%;
+  display: block;
+  position: absolute;
+  background-color: #a6430a;
+  /* margin: auto 0; */
+}
+
+
+
+	
+	
+	
+header {
+  height: 382px;
+  background: url(../images/dfellows.rf.gd1360x382.jpg);
+  background-repeat: no-repeat;
+
+}
+/* jjj */
+
+header a.logo {
+  width: 80px;
+  height: 80px;
+  top: 6px;
+  right: 6px;
+  background-image: url(../images/icon-phone.png);
+  background-size: 80px 80px;
+  float:right;
+}
+
+
+
+
+
+
+
+
+
+
+  /* line 24, ../sass/test.scss */
+
+  /* line 28, ../sass/test.scss */
+  .span_3_of_3 {
+    width: 100.00%;
+  }
+
+  /* line 32, ../sass/test.scss */
+  .span_2_of_3 {
+    width: 63.33%;
+  }
+  .span_1_of_3{
+    /*! width: 31.66%; */
+  }
+
+  /*  COLUMN SETUP  */
+  /* line 37, ../sass/test.scss */
+  .col {
+    display: block;
+    float: left;
+  }
+
+  /* line 42, ../sass/test.scss */
+  .col:first-child {
+    width: 100%;		   
+    /*! margin: 0 0 0 16em; */
+  }
+  .sm{display:none;}
+  
+  .d {padding:1.25em 0;float: left;width: 33%;}
+  
+  
+  
+  .hidelg{display:none;}
+  
+  
+  
+}
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1000px) {
+  /* line 48, ../sass/test.scss */
+  
+  .section {
+    width: 100%; /* fix for Firefox */
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flexbox;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  /* line 57, ../sass/test.scss */
+  .a {
+    -webkit-box-ordinal-group: 4;
+    -moz-box-ordinal-group: 4;
+    -webkit-flex-order: 4;
+    -ms-flex-order: 4;
+    -webkit-order: 4;
+    order: 4;    
+	width: 100%;
+    font-size: 24px;
+  }
+
+  .b {
+     -webkit-box-ordinal-group: 2;
+    -moz-box-ordinal-group: 2;
+    -webkit-flex-order: 2;
+    -ms-flex-order: 2;
+    -webkit-order: 2;
+    order: 2;
+    	/* width: 100%; */
+	font-size:21px;
+	/* text-align:center; */
+	/* margin-left:auto; */
+	/* margin-right:auto; */
+	/* display:block; */
+  }
+
+
+  .c {
+    -webkit-box-ordinal-group: 3;
+    -moz-box-ordinal-group: 3;
+    -webkit-flex-order: 3;
+    -ms-flex-order:3;
+    -webkit-order: 3;
+    order: 3;
+    margin-left: auto;
+    margin-right: auto;
+    padding: .25em 0 0em 0;
+
+  }
+  
+  .d {
+    -webkit-box-ordinal-group: ;
+    -moz-box-ordinal-group: ;
+    -webkit-flex-order: ;
+    -ms-flex-order:;
+    -webkit-order: ;
+    order: ;
+    padding:1em 0 0 1em;
+  }
+  
+    .e {
+    -webkit-box-ordinal-group: 5;
+    -moz-box-ordinal-group: 5;
+    -webkit-flex-order: 5 ;
+    -ms-flex-order: 5 ;
+    -webkit-order: 5 ;
+    order: 5 ;
+    padding:1em 0 0 1em;
+  }
+  
+  
+  .lg{display:none;}
+
+
+
+ 
+
+
+
+ 
+ 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+html { 
+    font-size: calc(15px + 0.382625vw);
+}
+#zforecast, #zwrapper{
+	padding: 0 0 1em 0;
+	font-size: 21px;
+}
+#demo {
+	border: solid;
+	width: 480px;
+}
+
+.b {
+	/*! text-align: center; */
+	/* width: 33%; */
+	text-decoration:none;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	padding: 1em 1em 0 0;
+	float: left;
+}
+
+
+
+
+
+
+/* END INLINE*/
+
+
+
+
