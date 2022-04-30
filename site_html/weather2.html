@@ -77,7 +77,7 @@ article{padding:1em 0 0 0}header{display:none}article h2{display:none}.navrule1{
 
 <div class="col span_1_of_3 a">
 <h3>Springfield / Bolivar, Missouri</h3>
-<?php echo '<a href="22.html" title="22.html">Updated: </a><span id=zupdateTime></span>';?><br />
+<a href="22.html" title="22.html">Updated: </a><span id=zupdateTime></span><br />
 <br />
 <div id="zforecast"></div>
 </div>	
@@ -281,12 +281,7 @@ document.getElementById("zforecast").innerHTML= data3.properties.periods[0].deta
 document.getElementById("zupdateTime").innerHTML= moment(data3.properties.updateTime).format("dddd, MMMM Do h:mm:ss a");
 });
 
-fetch("https://aa.usno.navy.mil/api/rstt/oneday?date="+new Date().toISOString().split('T')[0]+"&coords=37.653690,-93.399376&tz=-5&dst=false&ID=qatsenzm").then(response => {return response.json();}).then((data) => {
-document.getElementById("zMoonrise").innerHTML= moment(data.properties.data.moondata[0].time, "HH:mm").format("hh:mm A");
-document.getElementById("zMoonset").innerHTML= moment(data.properties.data.moondata[2].time, "HH:mm").format("hh:mm A");
-document.getElementById("zSunrise").innerHTML= moment(data.properties.data.sundata[1].time, "HH:mm").format("hh:mm A");
-document.getElementById("zSunset").innerHTML= moment(data.properties.data.sundata[3].time, "HH:mm").format("hh:mm A");
-}).catch((err) => console.error(err)); // END fetch
+
 
 fetch("./wttr.json").then(response => {return response.json();}).then((data) => {
 console.log("The current temperature in Bolivar, MO is:",
