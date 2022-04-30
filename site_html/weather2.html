@@ -79,7 +79,7 @@ article{padding:1em 0 0 0}header{display:none}article h2{display:none}.navrule1{
 <h3>Springfield / Bolivar, Missouri</h3>
 <a href="22.html" title="22.html">Updated: </a><span id=zupdateTime></span><br />
 <br />
-<div id="zforecast"></div>
+<div id="detailedForecast"></div>
 </div>	
 
 
@@ -93,11 +93,11 @@ article{padding:1em 0 0 0}header{display:none}article h2{display:none}.navrule1{
 </div>
 
 <div>
-<?php echo ucwords($data->weather[0]->description); ?>
+<span id="shortForecast"></span>
 </div>
 <div>
-<?php echo round($data->main->temp_max,0); ?>&deg;F<br />
-<a href=https://www.wunderground.com/dashboard/pws/KMOBOLIV31 target=_new><?php echo round($data->main->temp_min,0); ?>&deg;F</a>
+<span id=zhi></span><br /><a href=https://www.wunderground.com/dashboard/pws/KMOBOLIV31 target=_new><span id=zlow></span></a><br /><br />Wind:<span id=zwind></span><br />
+
 
 MOON: &nbsp;<span id="zMoonrise"></span> &nbsp; &nbsp; <span id=
 "zMoonset"></span><br />
@@ -295,11 +295,24 @@ tt = display_c();
 
 
 /*jshint esversion: 6 */
-$.getJSON("https://api.weather.gov/gridpoints/SGF/62,54/forecast", function(data3) {
-document.getElementById("zforecast").innerHTML= data3.properties.periods[0].detailedForecast;
-// document.getElementById("zupdateTime").innerHTML= (new Date(data3.properties.updateTime)).toLocaleString([], { month: '2-digit', day: '2-digit',year: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true });
-document.getElementById("zupdateTime").innerHTML= moment(data3.properties.updateTime).format("dddd, MMMM Do h:mm:ss a");
+$.getJSON("https://api.weather.gov/gridpoints/SGF/62,54/forecast", function(data) {
+document.getElementById("detailedForecast").innerHTML= data.properties.periods[0].detailedForecast;
+document.getElementById("shortForecast").innerHTML= data.properties.periods[0].shortForecast;
+// document.getElementById("zupdateTime").innerHTML= (new Date(data.properties.updateTime)).toLocaleString([], { month: '2-digit', day: '2-digit',year: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' , hour12: true });
+document.getElementById("zupdateTime").innerHTML= moment(data.properties.updateTime).format("dddd, MMMM Do h:mm:ss a");
+if (data.properties.periods[0].isDaytime) { 
+     zhi=Math.ceil(data.properties.periods[0].temperature)+"&deg;F";
+     zlow=Math.floor(data.properties.periods[1].temperature)+"&deg;F";
+    } else {
+     zhi=Math.ceil(data.properties.periods[1].temperature)+"&deg;F";
+     zlow=Math.floor(data.properties.periods[0].temperature)+"&deg;F";
+    }
+document.getElementById("zhi").innerHTML=zhi;
+document.getElementById("zlow").innerHTML= zlow;
+document.getElementById("zwind").innerHTML = data.properties.periods[0].windDirection+" at "+data.properties.periods[0].windSpeed;
 });
+
+
 
 
 
