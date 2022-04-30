@@ -96,24 +96,11 @@ article{padding:1em 0 0 0}header{display:none}article h2{display:none}.navrule1{
 <span id="shortForecast"></span>
 </div>
 <div>
-<span id=zhi></span><br /><a href=https://www.wunderground.com/dashboard/pws/KMOBOLIV31 target=_new><span id=zlow></span></a><br /><br />Wind:<span id=zwind></span><br />
+<span id=zhi></span><br /><a href=https://www.wunderground.com/dashboard/pws/KMOBOLIV31 target=_new><span id=zlow></span></a>Wind:<span id=zwind></span><br />
 
+MOON: &nbsp;<span id="zMoonrise"></span> &nbsp; &nbsp; <span id="zMoonset"></span><br />
+SUN:&nbsp; &nbsp;&nbsp;<span id="zSunrise"></span> &nbsp; &nbsp;<span id="zSunset"></span><br />
 
-MOON: &nbsp;<span id="zMoonrise"></span> &nbsp; &nbsp; <span id=
-"zMoonset"></span><br />
-SUN:&nbsp; &nbsp;&nbsp;<span id="zSunrise"></span> &nbsp; &nbsp;
-<span id="zSunset"></span><br />
-<?php 
-$directions = array('N', 'NE', 'East', 'SE', 'S', 'SW', 'W', 'NW','N2');
-$zdir = $directions[round($data->wind->deg * 8 / 360)];
-if($zdir == 'N2'){$zdir='N';}
-if(isset($data->wind->gust)){
-if(round($data->wind->speed+$data->wind->gust,0) < 21){echo '<a href=15.php title="Tap / Click RadarOnOff">Wind from the '.$zdir.' at '.round($data->wind->speed,0).'mph</a>'; }else{echo '<a href=15.php title="Tap / Click RadarOnOff">Wind from the '.$zdir.' at '.round($data->wind->speed,0).' gusting to '.round($data->wind->gust,0).'mph</a>'; }
-}else{
-
-echo '<a href=15.php title="Tap / Click RadarOnOff">Wind from the '.$zdir.' at '.round($data->wind->speed,0).'mph</a>'; 
-}
-?>
 </div>
 </div>
 </div>
@@ -252,7 +239,16 @@ The 7 day forecast graphic</a> is updated at ~5:00pm<br />
 <!-- <script src="https://code.jquery.com/jquery-1.6.4.js"></script> -->
 <script src="jquery-3.6.0.min.js"></script>
 <script src=moment.min.js></script>
+<script src="suncalc.js"></script>
+
 <script>
+
+var date = new Date();
+
+document.getElementById("zSunrise").innerHTML = moment((SunCalc.getTimes(date, 37.653690,-93.399376)).sunrise).format('hh:mm A') ;
+document.getElementById("zSunset").innerHTML = moment((SunCalc.getTimes(date, 37.653690,-93.399376)).sunset).format('hh:mm A') ;
+document.getElementById("zMoonrise").innerHTML = moment((SunCalc.getMoonTimes(date, 37.653690,-93.399376)).rise).format('hh:mm A') ;
+document.getElementById("zMoonset").innerHTML =moment((SunCalc.getMoonTimes(date, 37.653690,-93.399376)).set).format('hh:mm A') ;
 
 // refresh page after weather data has been refreshed. refresh page javascript. is minute between
 var date=new Date ();
