@@ -326,7 +326,7 @@ var moonriseStr;
 var moonsetStr;
 var moonTimes = SunCalc3.getMoonTimes(new Date(), 37.653690,-93.399376);
 moonriseStr = moonTimes.rise.getHours()+ ':' + (moonTimes.rise.getMinutes()-4); // SunCalc3 always 4 minutes late?
-moonsetStr = moonTimes.set.getHours() + ':' + (moonTimes.set.getMinutes()-9);
+moonsetStr = moonTimes.set.getHours() + ':' + (moonTimes.set.getMinutes()-7);
 document.getElementById("zMoonrise").innerHTML= moment(moonriseStr, "HH:mm").format("hh:mm A");
 document.getElementById("zMoonset").innerHTML= moment(moonsetStr, "HH:mm").format("hh:mm A");
 
