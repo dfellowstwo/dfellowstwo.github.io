@@ -309,8 +309,8 @@ https://github.com/mourner/suncalc
 
 document.getElementById("zSunrise").innerHTML = moment((SunCalc.getTimes(date, 37.653690,-93.399376)).sunrise).format('hh:mm A') ;
 document.getElementById("zSunset").innerHTML = moment((SunCalc.getTimes(date, 37.653690,-93.399376)).sunset).format('hh:mm A') ;
-document.getElementById("zMoonrise").innerHTML = moment((SunCalc.getMoonTimes(date, 37.653690,-93.399376)).rise).format('hh:mm A') ;
-document.getElementById("zMoonset").innerHTML =moment((SunCalc.getMoonTimes(date, 37.653690,-93.399376)).set).format('hh:mm A') ;
+<!-- document.getElementById("zMoonrise").innerHTML = moment((SunCalc.getMoonTimes(date, 37.653690,-93.399376)).rise).format('hh:mm A') ; -->
+<!-- document.getElementById("zMoonset").innerHTML =moment((SunCalc.getMoonTimes(date, 37.653690,-93.399376)).set).format('hh:mm A') ; -->
 </script>
 
 
@@ -327,8 +327,8 @@ var moonsetStr;
 var moonTimes = SunCalc3.getMoonTimes(new Date(), 37.653690,-93.399376);
 moonriseStr = moonTimes.rise.getHours()+ ':' + (moonTimes.rise.getMinutes()-4); // SunCalc3 always 4 minutes late?
 moonsetStr = moonTimes.set.getHours() + ':' + (moonTimes.set.getMinutes()-9);
-<!-- document.getElementById("zMoonrise").innerHTML= moment(moonriseStr, "HH:mm").format("hh:mm A"); -->
-<!-- document.getElementById("zMoonset").innerHTML= moment(moonsetStr, "HH:mm").format("hh:mm A"); -->
+document.getElementById("zMoonrise").innerHTML= moment(moonriseStr, "HH:mm").format("hh:mm A");
+document.getElementById("zMoonset").innerHTML= moment(moonsetStr, "HH:mm").format("hh:mm A");
 
 
 
