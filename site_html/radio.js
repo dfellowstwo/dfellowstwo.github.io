@@ -401,7 +401,7 @@ var radio = new Radio([
 
     freq: 'KMIH 88.9FM',
 
-    title: "Seattle, WA",
+    title: "SEATTLE",
 
     src: 'https://wyms.streamguys1.com/live?platform=88nine',
 
