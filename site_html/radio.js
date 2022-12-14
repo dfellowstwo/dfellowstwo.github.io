@@ -403,7 +403,7 @@ var radio = new Radio([
 
     title: "SEATTLE",
 
-    src: 'https://889thebridge.org/',
+    src: 'https://www.streamvortex.com:8444/s/11390',
 
     howl: null
 
