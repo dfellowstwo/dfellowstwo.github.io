@@ -403,7 +403,7 @@ var radio = new Radio([
 
     title: "SEATTLE",
 
-    src: 'https://wyms.streamguys1.com/live?platform=88nine',
+    src: 'https://889thebridge.org/',
 
     howl: null
 
