@@ -478,7 +478,7 @@ var radio = new Radio([
 
     title: "",
 
-    src: 'http://uk6.internet-radio.com:8213/;stream',
+    src: 'https://azuracast.spollin.net:8000/radio.mp3',
 
     howl: null
 
