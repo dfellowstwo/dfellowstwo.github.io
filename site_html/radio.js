@@ -1,5 +1,8 @@
 /*!
 
+  121922:
+	https://www. url prefix required for KGRG Seattle, WA. i.e. https://www.dfellows.rf.gd/site_html/radio.html?v=almEKrgqpX
+	
   This is radio.js
   This was radio56.js
   This was radio-stations13d-radio.js
@@ -18,7 +21,7 @@
  */
 
 // Cache references to DOM elements.
-var elms = ['station0', 'title0', 'live0', 'playing0', 'station1', 'title1', 'live1', 'playing1', 'station2', 'title2', 'live2', 'playing2', 'station3', 'title3', 'live3', 'playing3', 'station4', 'title4', 'live4', 'playing4', 'station5', 'title5', 'live5', 'playing5', 'station6', 'title6', 'live6', 'playing6', 'station7', 'title7', 'live7', 'playing7', 'station8', 'title8', 'live8', 'playing8', 'station9', 'title9', 'live9', 'playing9', 'station10', 'title10', 'live10', 'playing10', 'station11', 'title11', 'live11', 'playing11', 'station12', 'title12', 'live12', 'playing12', 'station13', 'title13', 'live13', 'playing13', 'station14', 'title14', 'live14', 'playing14', 'station15', 'title15', 'live15', 'playing15', 'station16', 'title16', 'live16', 'playing16', 'station17', 'title17', 'live17', 'playing17', 'station18', 'title18', 'live18', 'playing18', 'station19', 'title19', 'live19', 'playing19', 'station20', 'title20', 'live20', 'playing20', 'station21', 'title21', 'live21', 'playing21', 'station22', 'title22', 'live22', 'playing22', 'station23', 'title23', 'live23', 'playing23', 'station24', 'title24', 'live24', 'playing24', 'station25', 'title25', 'live25', 'playing25', 'station26', 'title26', 'live26', 'playing26', 'station27', 'title27', 'live27', 'playing27', 'station28', 'title28', 'live28', 'playing28', 'station29', 'title29', 'live29', 'playing29', 'station30', 'title30', 'live30', 'playing30'];
+var elms = ['station0', 'title0', 'live0', 'playing0', 'station1', 'title1', 'live1', 'playing1', 'station2', 'title2', 'live2', 'playing2', 'station3', 'title3', 'live3', 'playing3', 'station4', 'title4', 'live4', 'playing4', 'station5', 'title5', 'live5', 'playing5', 'station6', 'title6', 'live6', 'playing6', 'station7', 'title7', 'live7', 'playing7', 'station8', 'title8', 'live8', 'playing8', 'station9', 'title9', 'live9', 'playing9', 'station10', 'title10', 'live10', 'playing10', 'station11', 'title11', 'live11', 'playing11', 'station12', 'title12', 'live12', 'playing12', 'station13', 'title13', 'live13', 'playing13', 'station14', 'title14', 'live14', 'playing14', 'station15', 'title15', 'live15', 'playing15', 'station16', 'title16', 'live16', 'playing16', 'station17', 'title17', 'live17', 'playing17', 'station18', 'title18', 'live18', 'playing18', 'station19', 'title19', 'live19', 'playing19', 'station20', 'title20', 'live20', 'playing20', 'station21', 'title21', 'live21', 'playing21', 'station22', 'title22', 'live22', 'playing22', 'station23', 'title23', 'live23', 'playing23', 'station24', 'title24', 'live24', 'playing24', 'station25', 'title25', 'live25', 'playing25', 'station26', 'title26', 'live26', 'playing26', 'station27', 'title27', 'live27', 'playing27', 'station28', 'title28', 'live28', 'playing28', 'station29', 'title29', 'live29', 'playing29', 'station30', 'title30', 'live30', 'playing30', 'station31', 'title31', 'live31', 'playing31', 'station32', 'title32', 'live32', 'playing32'];
 
 
 elms.forEach(function(elm) {
@@ -133,13 +136,13 @@ Radio.prototype = {
 
 /* 
 
-BEGIN SCIENCE FRIDAY. Science Friday is a radio program that streams starting at 2pm EasternTime on Friday and is distributed by WNYC-FM, New York City to public radio stations across the nation. This code supplies part of the url of the stream. The url is in the format of: https://s3.amazonaws.com/scifri-episodes/scifri20220211-episode.mp3
+BEGIN SCIENCE FRIDAY. Science Friday is a radio program that streams starting at 2pm EasternTime on Friday and is distributed by WNYC-FM, New York City to public radio stations across the nation. This code supplies part of the url of the stream. The url is in the format of: http://s3.amazonaws.com/scifri-episodes/scifri20220211-episode.mp3
 
 // If ( Friday before 2pm EasternTime ){ last Friday's date } else { today's date till Saturday then last Friday's date }
 
 */
 
-// BEGIN WORKS. IN PRODUCTION. PART OF https://stackoverflow.com/a/47889259/8826818
+// BEGIN WORKS. IN PRODUCTION. PART OF http://stackoverflow.com/a/47889259/8826818
 // if you check for last Friday's date on Friday it returns todays date
 function getDateOfLast(refday){
     var days = {
@@ -164,16 +167,16 @@ function getDateOfLast(refday){
     }
     return new Date(currTimestamp + dayMillDiff);
 }
-// END. WORKS. IN PRODUCTION. PART OF https://stackoverflow.com/a/47889259/8826818
+// END. WORKS. IN PRODUCTION. PART OF http://stackoverflow.com/a/47889259/8826818
 
 
 
 // JavaScript objects
-// https://javascript.info/object
+// http://javascript.info/object
 
 
 // JavaScript date time
-//https://www.toptal.com/software/definitive-guide-to-datetime-manipulation
+//http://www.toptal.com/software/definitive-guide-to-datetime-manipulation
 
 
 
@@ -198,7 +201,7 @@ var date1 = (date.getFullYear() + ("0" + (date.getMonth() + 1)).slice(-2) + ("0"
 var date2 = (date.getFullYear() + ("0" + (date.getMonth() + 1)).slice(-2) + ("0" + date.getDate()).slice(-2)+" " + ("0" + date.getHours() ).slice(-2) +":"+ ("0" + date.getMinutes()).slice(-2)+":" + ("0" + date.getSeconds()).slice(-2) );
 // document.write("<br/>Today's date is "+date1);
 
-// BEGIN https://stackoverflow.com/a/44118057/8826818 
+// BEGIN http://stackoverflow.com/a/44118057/8826818 
 // Every Friday at 2pm ET a url is created that contains a date string i.e. 20220204. YYYYMMDD. I am in CentralTime.
 // If ( Friday before 2pm EasternTime ){ last Friday's date } else { today's date till Saturday then last Friday's date }
 var hour = date.getHours(); // Hour w/o leading zero
@@ -207,10 +210,10 @@ var combined = day+'_'+hour;
 var run_on = ['5_0','5_1','5_2','5_3','5_4','5_5','5_6','5_7','5_8','5_9','5_10','5_11','5_12']; // This week's stream starts at 2pm EasternTime. I am in CT.
 for (i = 0; i < run_on.length; i++){
     if (combined == run_on[i]){
-    // begin https://stackoverflow.com/a/30323659/8826818
+    // begin http://stackoverflow.com/a/30323659/8826818
     const lastFriday = new Date();
     lastFriday.setDate((new Date().getDate() + (6 - new Date().getDay() - 1) - 7));
-    // end https://stackoverflow.com/a/30323659/8826818
+    // end http://stackoverflow.com/a/30323659/8826818
     
     var date3 = lastFriday.toLocaleDateString('en-GB').split('/').reverse().join(''); // '20220204' yyyymmdd
     var date3 = (date3.toString());
@@ -223,7 +226,7 @@ for (i = 0; i < run_on.length; i++){
     // document.write("<br/>Combined is "+combined+" and run_on is "+run_on[i]);
     // document.write("<br/>The date is "+date3);
 
-    document.getElementById("date3").innerHTML= "<a href=https://s3.amazonaws.com/scifri-episodes/scifri" + date3 + "-episode.mp3>Science Friday current episode w/ seek</a>";
+    document.getElementById("date3").innerHTML= "<a href=http://s3.amazonaws.com/scifri-episodes/scifri" + date3 + "-episode.mp3>Science Friday current episode w/ seek</a>";
 
     
     break;
@@ -233,7 +236,7 @@ for (i = 0; i < run_on.length; i++){
     var DateOfLastFriday = getDateOfLast("friday"); // if checked on Friday returns today's date
     var date3 = DateOfLastFriday.toLocaleDateString('en-GB').split('/').reverse().join(''); // '20220204'
     var date3 = (date3.toString());
-    document.getElementById("date3").innerHTML= "<a href=https://s3.amazonaws.com/scifri-episodes/scifri" + date3 + "-episode.mp3>Science Friday current episode w/ seek</a>";
+    document.getElementById("date3").innerHTML= "<a href=http://s3.amazonaws.com/scifri-episodes/scifri" + date3 + "-episode.mp3>Science Friday current episode w/ seek</a>";
 
     // var date3=(DateOfLastFriday.getFullYear()+("0" + (DateOfLastFriday.getMonth() + 1)).slice(-2)+("0" + DateOfLastFriday.getDate()).slice(-2)); //yyyymmdd. WORKS
 
@@ -247,7 +250,7 @@ for (i = 0; i < run_on.length; i++){
     }
 } 
 
-// END https://stackoverflow.com/a/44118057/8826818 
+// END http://stackoverflow.com/a/44118057/8826818 
 
 // END SCIENCE FRIDAY.
 
@@ -256,388 +259,215 @@ for (i = 0; i < run_on.length; i++){
 // Setup our new radio and pass in the stations.
 var radio = new Radio([
    {
-
     freq: 'SCIENCE FRIDAY',
-
     title: '',
-
-    // src: 'https://s3.amazonaws.com/scifri-episodes/scifri20220311-episode.mp3',
-
-  src: "https://s3.amazonaws.com/scifri-episodes/scifri" + date3 + "-episode.mp3",
-	         
-
-    thowl: null
-
+    // src: 'http://s3.amazonaws.com/scifri-episodes/scifri20220311-episode.mp3',
+    src: "https://s3.amazonaws.com/scifri-episodes/scifri" + date3 + "-episode.mp3",
+    howl: null
   },
-  
   {
-
     freq: 'WTOP 103.5FM',
-
     title: "WASHINGTON, DC",
-
     src: 'https://24373.live.streamtheworld.com/WTOPFM.mp3',
-
     howl: null
-
   },
-
   {
-
-    freq: 'WAMU 88.5FM ',
-
+    freq: 'WAMU 88.5FM',
     title: "NPR WASHINGTON, DC",
-
-    src: 'http://wamu-1.streamguys.com:80',
-
+    src: 'https://hd1.wamu.org/wamu-1.aac',
+	//http://wamu-1.streamguys.com:80
     howl: null
-
   },
-  
   {
-
     freq: 'CNN',
-
     title: "LIVE TV",
-// https://16803.live.streamtheworld.com/CNNTVAAC_SC
-// https://tunein.streamguys1.com/cnn-new
-// 
+// http://16803.live.streamtheworld.com/CNNTVAAC_SC
+// http://tunein.streamguys1.com/cnn-new
     src: 'https://prod-3-88-186-142.wostreaming.net/audacy-cnntvaac-imc',
-
     howl: null
-
   },
-  
   {
-
     freq: 'KPCC 89.3FM',
-
     title: " NPR LOS ANGELES, CA",
-
     src: 'https://live.wostreaming.net/direct/southerncalipr-kpccfmmp3-imc.mp3',
-	// https://playerservices.streamtheworld.com/api/livestream-redirect/KPCC_FM.mp3
-    // https://live.scpr.org/kpcclive/
-    
-
+	// http://playerservices.streamtheworld.com/api/livestream-redirect/KPCC_FM.mp3
+    // http://live.scpr.org/kpcclive/
     howl: null
-
   },
-  
   {
-
     freq: 'BBC Radio 4',
-
     title: "WORLD SERVICE",
-
-    src: 'http://stream.live.vc.bbcmedia.co.uk/bbc_world_service',
-
+    src: 'https://stream.live.vc.bbcmedia.co.uk/bbc_world_service',
     howl: null
-
   },
-
 {
-
     freq: 'BBC Radio 1',
-
     title: "POP HITS",
-
-    src: 'http://stream.live.vc.bbcmedia.co.uk/bbc_radio_one',
-
+    src: 'https://stream.live.vc.bbcmedia.co.uk/bbc_radio_one',
     howl: null
-
   },
-  
   {
-
     freq: 'BBC Radio 6',
-
     title: "ALTERNATIVE",
-
-    src: 'http://stream.live.vc.bbcmedia.co.uk/bbc_6music',
-
+    src: 'https://stream.live.vc.bbcmedia.co.uk/bbc_6music',
     howl: null
-
   },
-
-
     {
-
     freq: 'BBC Radio 3',
-
     title: "THROUGH THE NIGHT",
-
-    src: 'http://stream.live.vc.bbcmedia.co.uk/bbc_radio_three',
-
+    src: 'https://stream.live.vc.bbcmedia.co.uk/bbc_radio_three',
     howl: null
-
   },
    {
-
     freq: 'BBC Radio 1Xtra',
-
     title: "HITS AND NEW",
-
     src: 
-    'http://stream.live.vc.bbcmedia.co.uk/bbc_1xtra',
-    //THE FOLLOWING WORKS ON MOBILE BUT NOT DESKTOP 'https://as-hls-ww.live.cf.md.bbci.co.uk/pool_904/live/ww/bbc_1xtra/bbc_1xtra.isml/bbc_1xtra-audio%3d48000.m3u8',
-
+    'https://stream.live.vc.bbcmedia.co.uk/bbc_1xtra',
+    //THE FOLLOWING WORKS ON MOBILE BUT NOT DESKTOP 'http://as-hls-ww.live.cf.md.bbci.co.uk/pool_904/live/ww/bbc_1xtra/bbc_1xtra.isml/bbc_1xtra-audio%3d48000.m3u8',
     howl: null
-
   },
-
     {
-
     freq: 'WYMS 88.9FM',
-
     title: "MILWAUKEE",
-
     src: 'https://wyms.streamguys1.com/live?platform=88nine',
-
     howl: null
-
   },
-
     {
-
     freq: 'KMIH 88.9FM',
-
     title: "SEATTLE",
-
     src: 'https://www.streamvortex.com:8444/s/11390',
-
     howl: null
-
   },
-
     {
-
     freq: 'KGRG 89.9FM',
-
     title: "SEATTLE",
-
     src: 'https://www.ophanim.net:8444/s/7090',
-
     howl: null
-
+  },
+  {
+    freq: '103.3FM',
+    title: "90's Hits. Source unknown.",
+    src: 'https://rfcmedia.streamguys1.com/90hits.mp3',
+    howl: null
+  },
+  {
+    freq: '107.7FM',
+    title: "Today's Hits. Source unknown.",
+    src: 'https://rfcmedia.streamguys1.com/MusicPulse.mp3',
+    howl: null
   },
   
     {
-
     freq: 'WXRT 93.1FM',
-
     title: "CHICAGO ROCK",
-
     src: 'https://prod-3-88-186-142.wostreaming.net/audacy-wxrtfmmp3-imc',
-    // 'https://22123.live.streamtheworld.com/WXRTFM.mp3'
-	// 'https://24423.live.streamtheworld.com/WXRTFMAAC_SBM'
-
+    // 'http://22123.live.streamtheworld.com/WXRTFM.mp3'
+	// 'http://24423.live.streamtheworld.com/WXRTFMAAC_SBM'
     howl: null
-
   },
-  
   {
-
     freq: 'ALICE 95.5FM',
-
     title: "POP HITS",
-
     src: 'https://ample.revma.ihrhls.com/zc1269',
-
     howl: null
-
   },
-  
   {
-
     freq: 'KSMU 91.1FM',
-
     title: " NPR SPRINGFIELD, MO",
-
     src: 'https://ksmu.streamguys1.com/ksmu3',
-
     howl: null
-
   },
-
 {
-
     // freq: 'XRAY.',
     freq: 'KXRY 107.1FM ',
-
     title: "PORTLAND, OREGON",
-
     src: 'https://listen.xray.fm/stream',
-
     howl: null
-
   },
-  
    {
 // BRISTOL, ENGLAND 
     freq: 'PIGPENRADIO.ORG BRISTOL, ENG',
-
     title: "",
-
     src: 'https://azuracast.spollin.net:8000/radio.mp3',
-
     howl: null
-
   },
-  
     {
-
     freq: 'KEXP 90.3FM',
-
     title: "SEATTLE, WA",
-
     src: 'https://kexp-mp3-128.streamguys1.com/kexp128.mp3',
-
     howl: null
-
   },
-
    {
-
     freq: 'WHRB 95.3FM',
-
     title: "HARVARD UNIVERSITY",
-
     src: 'https://stream.whrb.org/whrb-mp3',
-
     howl: null
-
   },
-  
    {
-
     freq: 'KZSU 90.1FM',
-
     title: "STANFORD UNIVERSITY",
-
-    src: 'http://kzsu-streams.stanford.edu/kzsu-1-128.mp3',
-
+    src: 'https://kzsu-streams.stanford.edu/kzsu-1-128.mp3',
     howl: null
-
   },
-  
    {
-
     freq: 'WYBC 1340 AM',
-
     title: "YALE UNIVERSITY",
-
     src: 'https://wybcx-stream.creek.org/stream',
-
     howl: null
-
   },
-  
    {
-
     freq: 'WHCR 90.3FM',
-
     title: "VOICE OF HARLEM",
-
-    src: 'http://stream.radiojar.com/qzw2b2cuc3vtv',
-
+    src: 'https://stream.radiojar.com/qzw2b2cuc3vtv',
     howl: null
-
   },
-
      {
-
     freq: 'WUTS 91.3FM',
-
     title: "U OF THE SOUTH",
-
     src: 'https://sewanee.streamguys1.com/sewanee',
-    // https://sewanee.streamguys1.com/live
-
+    // http://sewanee.streamguys1.com/live
     howl: null
-
   },
-  
   {
-
     freq: 'KHPH 88.1FM',
-
     title: "NEWS NPR HONOLULU",
-
     src: 'https://khpr-ice.streamguys1.com/khpr2',
-
     howl: null
-
   },
-
   {
-
     freq: 'KIPO 89.3',
-
     title: "CLASSICS NPR HONOLULU",
-
     src: 'https://khpr-ice.streamguys1.com/kipo2',
-
     howl: null
-
   },
-  
     {
-
     freq: 'KTOO 104.3FM',
-
     title: "NPR NEWS JUNEAU, AK",
-
     src: 'https://18423.live.streamtheworld.com/KTOOFMAAC.aac',
-
     howl: null
-
   },
-  
     {
-
     freq: 'KXLL 100.1FM',
-
     title: "NPR MUSIC JUNEAU, AK",
-
     src: 'https://18423.live.streamtheworld.com/KXLLFMAAC.aac',
-
     howl: null
-
   },
-
    {
-
     freq: 'KSFO 560AM',
-
     title: "NEWS SAN FRANCISCO",
-
     src: 'https://14923.live.streamtheworld.com/KSFOAMAAC.aac',
-
     howl: null
-
   },
-
   {
-
     freq: 'WOR 710AM',
-
     title: "NEW YORK, NY",
-
     src: 'https://n08b-e2.revma.ihrhls.com/zc5874',
-
     howl: null
-
   },
-  
   {
-
     freq: 'ESPN RADIO',
-
     title: "",
-
-    src: 'http://edge.espn.cdn.abacast.net/espn-networkmp3-48',
-
+    src: 'https://edge.espn.cdn.abacast.net/espn-networkmp3-48',
     howl: null
-
   }
 ]);
